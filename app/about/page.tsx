@@ -2,88 +2,194 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen">
+    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ── 1. ABOUT US: UNLOCKING YOUR POTENTIAL ── */}
-      <section className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 pb-16 sm:pb-20">
-        <div className="mb-10 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-serif font-medium text-[#403011] tracking-tight mb-5 sm:mb-6 leading-tight animate-fade-up">
-            About Us: Unlocking Your Potential
-          </h1>
-          <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-4xl animate-fade-up delay-100">
-            EpicQuest Learning is a premium applied skills-development and portfolio-building startup dedicated to high school students who aspire to stand out at Ivy League and top-tier universities. We go far beyond the walls of the classroom — we engineer experiences that demonstrate intellectual curiosity, leadership, and real-world impact.
-          </p>
+      {/* ── 1. ABOUT US HERO ── */}
+      <section className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 pb-20 sm:pb-28">
+
+        {/* Decorative large background numeral */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -top-4 right-4 sm:right-10 lg:right-14
+                     text-[10rem] sm:text-[16rem] lg:text-[22rem] font-serif font-bold
+                     text-[#403011]/5 leading-none"
+        >
+          EQ
+        </span>
+
+        {/* Label */}
+        <div className="flex items-center gap-3 mb-8 sm:mb-10 animate-fade-up">
+          <span className="block h-px w-8 sm:w-12 bg-[#DCA543]" />
+          <span className="text-[#8E8B42] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+            Who We Are
+          </span>
         </div>
 
-        {/* 3 Colored Cards */}
+        {/* Headline + Intro split layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-20 items-end">
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]
+                       font-serif font-medium text-[#403011] tracking-tight leading-[1.1] animate-fade-up"
+          >
+            Unlocking<br />
+            <em className="not-italic text-[#8E8B42]">Your</em>{" "}
+            Potential
+          </h1>
+          <div className="animate-fade-up delay-100">
+            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 sm:pl-6">
+              EpicQuest Learning is a premium applied skills-development and portfolio-building
+              startup dedicated to high school students who aspire to stand out at Ivy League
+              and top-tier universities. We go far beyond the classroom — we engineer experiences
+              that demonstrate intellectual curiosity, leadership, and real-world impact.
+            </p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-14 sm:mt-18 mb-12 sm:mb-14 h-px w-full bg-[#4A4333]/10" />
+
+        {/* 3 Colored Pillar Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
 
-          <div className="bg-[#566544] text-white rounded-2xl sm:rounded-3xl p-7 sm:p-8 lg:p-10 shadow-md flex flex-col justify-start animate-fade-up delay-200">
-            <h3 className="text-xl sm:text-2xl font-serif font-medium mb-3 sm:mb-4">Psychometric-Aligned</h3>
-            <p className="text-[#E8E8E8] font-serif text-base sm:text-[1.05rem] leading-relaxed">
-              Every program is designed around validated cognitive and personality frameworks.
-            </p>
+          <div
+            className="group bg-[#566544] text-white rounded-3xl p-7 sm:p-8 lg:p-10
+                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-200"
+          >
+            <span className="text-4xl font-serif text-white/20 leading-none select-none">01</span>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+                Psychometric-Aligned
+              </h3>
+              <p className="text-[#E8E8E8] font-serif text-sm sm:text-base leading-relaxed">
+                Every program is designed around validated cognitive and personality frameworks.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-[#8E8B42] text-white rounded-2xl sm:rounded-3xl p-7 sm:p-8 lg:p-10 shadow-md flex flex-col justify-start animate-fade-up delay-300">
-            <h3 className="text-xl sm:text-2xl font-serif font-medium mb-3 sm:mb-4">Research-Driven</h3>
-            <p className="text-[#F2F2F2] font-serif text-base sm:text-[1.05rem] leading-relaxed">
-              Applied research publications that admissions committees recognise and respect.
-            </p>
+          <div
+            className="group bg-[#8E8B42] text-white rounded-3xl p-7 sm:p-8 lg:p-10
+                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-300"
+          >
+            <span className="text-4xl font-serif text-white/20 leading-none select-none">02</span>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+                Research-Driven
+              </h3>
+              <p className="text-[#F2F2F2] font-serif text-sm sm:text-base leading-relaxed">
+                Applied research publications that admissions committees recognise and respect.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-[#DCA543] text-[#403011] rounded-2xl sm:rounded-3xl p-7 sm:p-8 lg:p-10 shadow-md flex flex-col justify-start animate-fade-up delay-400">
-            <h3 className="text-xl sm:text-2xl font-serif font-medium mb-3 sm:mb-4">Portfolio-Focused</h3>
-            <p className="text-[#5A451D] font-serif text-base sm:text-[1.05rem] leading-relaxed">
-              Tangible outputs — patents, prototypes, policy drafts — that set you apart.
-            </p>
+          <div
+            className="group bg-[#DCA543] text-[#403011] rounded-3xl p-7 sm:p-8 lg:p-10
+                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-400"
+          >
+            <span className="text-4xl font-serif text-[#403011]/20 leading-none select-none">03</span>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+                Portfolio-Focused
+              </h3>
+              <p className="text-[#5A451D] font-serif text-sm sm:text-base leading-relaxed">
+                Tangible outputs — patents, prototypes, policy drafts — that set you apart.
+              </p>
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* ── 2. FOUNDER'S MESSAGE ── */}
-      <section className="w-full bg-[#F6EBD4] py-14 sm:py-20 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#403011] py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-20">
 
-            {/* Image — fixed aspect ratio, consistent rounding on all screens */}
-            <div className="w-full sm:w-[80%] md:w-[60%] lg:w-[37%] lg:flex-none flex-shrink-0 animate-fade-in delay-300">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-none lg:min-h-[500px] rounded-[2rem_3.5rem_2.5rem_4.5rem] overflow-hidden shadow-2xl border-4 border-white/60">
-                <Image
-                  src="/images/about/About_Tilak.jpeg"
-                  alt="Tilak Mishra - Founder & CEO"
-                  fill
-                  className="object-cover object-top"
-                  priority
+          {/* Section label */}
+          <div className="flex items-center gap-3 mb-12 sm:mb-16 animate-fade-up">
+            <span className="block h-px w-8 sm:w-12 bg-[#DCA543]" />
+            <span className="text-[#DCA543] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+              Founder's Message
+            </span>
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 xl:gap-24">
+
+            {/* Image with decorative frame */}
+            <div className="w-full sm:w-[75%] md:w-[55%] lg:w-[38%] lg:flex-none flex-shrink-0 animate-fade-in delay-300">
+              <div className="relative">
+                {/* Decorative offset border */}
+                <div
+                  className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5
+                             w-full h-full rounded-[2rem] border-2 border-[#DCA543]/40 pointer-events-none"
                 />
+                <div
+                  className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]
+                             rounded-[2rem] overflow-hidden shadow-2xl"
+                >
+                  <Image
+                    src="/images/about/About_Tilak.jpeg"
+                    alt="Tilak Mishra - Founder & CEO"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                  {/* Subtle gradient overlay at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#403011]/60 to-transparent" />
+                </div>
               </div>
             </div>
 
-            {/* Right Content */}
-            <div className="w-full lg:flex-1 flex flex-col justify-center py-2 lg:py-8 animate-fade-up delay-200">
+            {/* Right content */}
+            <div className="w-full lg:flex-1 flex flex-col justify-center animate-fade-up delay-200">
 
-              {/* Badge */}
-              <div className="mb-6 sm:mb-8">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#566544]/10 text-[#566544] text-xs font-semibold uppercase tracking-widest border border-[#566544]/20">
-                  A Message From Our Founder
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-serif font-medium text-[#403011] mb-1.5 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]
+                             font-serif font-medium text-white mb-1.5 tracking-tight leading-tight">
                 Tilak Mishra
               </h2>
-              <p className="text-[#6A6A6A] font-serif text-sm sm:text-[1rem] mb-8 sm:mb-10">
-                Founder &amp; CEO, EpicQuest Learning | UPenn alum
+              <p className="text-[#DCA543] font-serif text-sm sm:text-base mb-10 sm:mb-12">
+                Founder &amp; CEO, EpicQuest Learning &nbsp;·&nbsp; UPenn Alum
               </p>
 
-              <div className="space-y-5 sm:space-y-6 text-[#4A4333] font-serif text-base sm:text-[1.05rem] lg:text-[1.1rem] leading-relaxed">
+              {/* Pull quote */}
+              <blockquote className="relative mb-10 sm:mb-12 pl-6 sm:pl-8">
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 text-6xl sm:text-7xl leading-none
+                             text-[#DCA543]/30 font-serif select-none"
+                >
+                  "
+                </span>
+                <p className="text-[#F6EBD4] font-serif text-xl sm:text-2xl leading-snug italic pt-5">
+                  Every student deserves a structured, expert-guided path to showcase
+                  their true potential. EpicQuest is that path.
+                </p>
+              </blockquote>
+
+              <div className="space-y-5 sm:space-y-6 text-[#C9BFA8] font-serif
+                              text-base sm:text-[1.05rem] lg:text-[1.08rem] leading-relaxed">
                 <p>
-                  I built EpicQuest because I saw brilliant students being turned away from their dream universities — not because they lacked talent, but because they lacked the right experiences. Every student deserves a structured, expert-guided path to showcase their true potential. EpicQuest is that path.
+                  I built EpicQuest because I saw brilliant students being turned away from their
+                  dream universities — not because they lacked talent, but because they lacked the
+                  right experiences.
                 </p>
                 <p>
-                  Having navigated the competitive landscape of top-tier education at an Ivy League, I'm passionate about democratizing access to the tools and strategies that truly differentiate applicants. My vision is to empower the next generation of innovators and leaders to confidently pursue their highest academic aspirations, leaving a lasting mark on the world.
+                  Having navigated the competitive landscape of top-tier education at an Ivy League,
+                  I'm passionate about democratizing access to the tools and strategies that truly
+                  differentiate applicants. My vision is to empower the next generation of innovators
+                  and leaders to confidently pursue their highest academic aspirations, leaving a
+                  lasting mark on the world.
                 </p>
+              </div>
+
+              {/* Signature-style divider */}
+              <div className="mt-10 sm:mt-12 flex items-center gap-4">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-[#8E8B42] font-serif text-xs uppercase tracking-widest">
+                  EpicQuest Learning
+                </span>
+                <div className="h-px flex-1 bg-white/10" />
               </div>
 
             </div>
@@ -92,24 +198,43 @@ export default function AboutPage() {
       </section>
 
       {/* ── 3. UNIQUE APPROACH: BEYOND GRADES ── */}
-      <section className="w-full bg-[#F6EBD4] py-14 sm:py-20 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-          <div className="mb-12 sm:mb-16 animate-fade-up">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight mb-4 sm:mb-5 leading-tight">
-              Our Unique Approach: Beyond Grades
-            </h2>
-            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-3xl">
-              Ivy League admissions committees look for depth, originality, and demonstrated impact. We build all three through a structured, multi-year journey tailored to each student's strengths and aspirations.
+          {/* Header row */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 sm:mb-18 animate-fade-up">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="block h-px w-8 sm:w-12 bg-[#DCA543]" />
+                <span className="text-[#8E8B42] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+                  Our Methodology
+                </span>
+              </div>
+              <h2
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]
+                           font-serif font-medium text-[#403011] tracking-tight leading-tight"
+              >
+                Beyond Grades —<br className="hidden sm:block" />
+                <em className="not-italic text-[#8E8B42]">A Unique</em> Approach
+              </h2>
+            </div>
+            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-md lg:text-right">
+              Ivy League committees look for depth, originality, and demonstrated impact.
+              We build all three through a structured, multi-year journey.
             </p>
           </div>
 
-          {/* 3-Column Image Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 xl:gap-x-10 gap-y-12 sm:gap-y-14">
+          {/* Approach Items — alternating image/text on large screens, stacked on mobile */}
+          <div className="space-y-10 sm:space-y-14">
 
-            {/* Item 1 */}
-            <div className="flex flex-col group animate-fade-up delay-200">
-              <div className="w-full aspect-[4/3] relative rounded-2xl sm:rounded-3xl overflow-hidden mb-5 shadow-sm border border-[#4A4333]/10 group-hover:shadow-md transition-shadow duration-300">
+            {/* Item 1 — image left */}
+            <div
+              className="group grid grid-cols-1 sm:grid-cols-[1fr_1.4fr] lg:grid-cols-[2fr_3fr]
+                         gap-0 rounded-3xl overflow-hidden shadow-md hover:shadow-xl
+                         transition-shadow duration-300 bg-white/40 border border-[#4A4333]/8
+                         animate-fade-up delay-200"
+            >
+              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:min-h-[260px] overflow-hidden">
                 <Image
                   src="/images/about/About_Applied_Research.png"
                   alt="Applied Research"
@@ -117,15 +242,37 @@ export default function AboutPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-2 sm:mb-3">Applied Research</h3>
-              <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
-                Students conduct original, publishable research in their chosen field, guided by expert mentors — who are IIT scientists or other Ivy League trained industry practitioners — and aligned to psychometric profiles.
-              </p>
+              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                <span className="text-5xl font-serif text-[#403011]/8 leading-none mb-4 select-none">01</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-medium text-[#403011] mb-3 sm:mb-4">
+                  Applied Research
+                </h3>
+                <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
+                  Students conduct original, publishable research in their chosen field, guided by
+                  expert mentors — IIT scientists or Ivy League-trained industry practitioners —
+                  and aligned to their psychometric profiles.
+                </p>
+              </div>
             </div>
 
-            {/* Item 2 */}
-            <div className="flex flex-col group animate-fade-up delay-300">
-              <div className="w-full aspect-[4/3] relative rounded-2xl sm:rounded-3xl overflow-hidden mb-5 shadow-sm border border-[#4A4333]/10 group-hover:shadow-md transition-shadow duration-300">
+            {/* Item 2 — image right */}
+            <div
+              className="group grid grid-cols-1 sm:grid-cols-[1.4fr_1fr] lg:grid-cols-[3fr_2fr]
+                         gap-0 rounded-3xl overflow-hidden shadow-md hover:shadow-xl
+                         transition-shadow duration-300 bg-white/40 border border-[#4A4333]/8
+                         animate-fade-up delay-300"
+            >
+              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12 order-2 sm:order-1">
+                <span className="text-5xl font-serif text-[#403011]/8 leading-none mb-4 select-none">02</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-medium text-[#403011] mb-3 sm:mb-4">
+                  Prototype Development
+                </h3>
+                <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
+                  From idea to working prototype — students learn to solve real problems with
+                  tangible, demonstrable solutions that tell a compelling story.
+                </p>
+              </div>
+              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:min-h-[260px] overflow-hidden order-1 sm:order-2">
                 <Image
                   src="/images/about/About_Prototype_Development.png"
                   alt="Prototype Development"
@@ -133,15 +280,16 @@ export default function AboutPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-2 sm:mb-3">Prototype Development</h3>
-              <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
-                From idea to working prototype — students learn to solve real problems with tangible, demonstrable solutions.
-              </p>
             </div>
 
-            {/* Item 3 */}
-            <div className="flex flex-col group sm:col-span-2 lg:col-span-1 animate-fade-up delay-400">
-              <div className="w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3] relative rounded-2xl sm:rounded-3xl overflow-hidden mb-5 shadow-sm border border-[#4A4333]/10 group-hover:shadow-md transition-shadow duration-300">
+            {/* Item 3 — image left */}
+            <div
+              className="group grid grid-cols-1 sm:grid-cols-[1fr_1.4fr] lg:grid-cols-[2fr_3fr]
+                         gap-0 rounded-3xl overflow-hidden shadow-md hover:shadow-xl
+                         transition-shadow duration-300 bg-white/40 border border-[#4A4333]/8
+                         animate-fade-up delay-400"
+            >
+              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:min-h-[260px] overflow-hidden">
                 <Image
                   src="/images/about/About_Policy_Drafting.png"
                   alt="Policy Drafting"
@@ -149,15 +297,22 @@ export default function AboutPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-2 sm:mb-3">Policy Drafting</h3>
-              <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
-                Published policy drafts on social, environmental, or technological issues — showcasing civic engagement and analytical rigour.
-              </p>
+              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                <span className="text-5xl font-serif text-[#403011]/8 leading-none mb-4 select-none">03</span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-medium text-[#403011] mb-3 sm:mb-4">
+                  Policy Drafting
+                </h3>
+                <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
+                  Published policy drafts on social, environmental, or technological issues —
+                  showcasing civic engagement and analytical rigour that admissions committees notice.
+                </p>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
+
 
     </main>
   );

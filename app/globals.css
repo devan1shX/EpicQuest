@@ -47,30 +47,31 @@ body {
   background: #5C7146;
 }
 
-/* ===== Pure CSS Animations (Non-Intrusive) ===== */
-@keyframes softFadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes softFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* ===== Scroll Reveal Animations (Triggered by .is-visible) ===== */
 .animate-fade-up {
   opacity: 0;
-  animation: softFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .animate-fade-in {
   opacity: 0;
-  animation: softFadeIn 1s ease-out forwards;
+  transition: opacity 1s ease-out;
+  will-change: opacity;
+}
+.animate-fade-in.is-visible {
+  opacity: 1;
 }
 
 /* Animation Delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }

@@ -4,6 +4,7 @@ import "./globals.css";
 import "../components/Header.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollReveal from "../components/ScrollReveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <ScrollReveal />
         <Header />
         <div style={{ paddingTop: 64 }} className="flex-1 flex flex-col">
           {children}

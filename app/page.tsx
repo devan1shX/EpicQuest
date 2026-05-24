@@ -3,137 +3,177 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full bg-cream min-h-screen">
+    <main className="flex flex-col w-full bg-cream min-h-screen overflow-x-hidden">
 
       {/* ── 1. HERO ── */}
-      <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-14 lg:pb-20 flex flex-col lg:flex-row items-stretch gap-10 lg:gap-0 lg:min-h-[82vh]">
+      <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
 
         {/* Left Content Column */}
-        <div className="w-full lg:w-[63%] lg:flex-none pr-0 lg:pr-14 space-y-5 sm:space-y-6 z-10 flex flex-col justify-center py-2">
-          
-          {/* Floating Capsule Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-olive/10 border border-olive/15 text-olive text-xs font-semibold uppercase tracking-widest w-fit shadow-sm select-none animate-fade-up delay-100">
-            <span className="w-1.5 h-1.5 rounded-full bg-olive inline-block"></span>
+        <div className="w-full lg:w-[55%] lg:flex-none space-y-6 sm:space-y-7 z-10 flex flex-col justify-center">
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-[0.65rem] font-bold uppercase tracking-[0.18em] w-fit shadow-sm select-none animate-fade-up">
+            <span className="w-1.5 h-1.5 rounded-full bg-olive inline-block animate-pulse"></span>
             Elite University Admissions
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] font-serif font-medium text-[#403011] leading-[1.12] lg:leading-[1.08] tracking-tight animate-fade-up delay-200">
-            EpicQuest Learning:<br className="hidden sm:inline" /> Your Path to Ivy League
+          <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.1rem] font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up delay-100">
+            EpicQuest:<br />
+            <span className="text-[#5C7146]">Your Path</span> to<br className="hidden sm:inline" /> the Ivy League
           </h1>
 
-          <p className="text-sm sm:text-base lg:text-[1.15rem] text-[#4A4333] leading-relaxed max-w-full lg:max-w-[92%] font-serif tracking-wide animate-fade-up delay-300">
-            We transform extraordinary high school students into Ivy League-ready candidates — through structured research, psychometric-aligned skill development, published research work, patent filing, and real-world apprenticeships. Your journey to the world's top universities starts here.
+          <p className="text-[0.95rem] sm:text-base lg:text-[1.05rem] text-[#4A4333] leading-[1.75] max-w-[88%] font-serif animate-fade-up delay-200">
+            We transform extraordinary students into Ivy League-ready candidates — through structured research, psychometric-aligned skill development, published work, patent filing, and real-world apprenticeships.
           </p>
 
-          {/* Action Buttons & Trust caption */}
-          <div className="pt-2 space-y-4 animate-fade-up delay-400">
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-md"
-              >
-                Generate Your Ivy League Plan
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 border border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Book Consultation
-              </Link>
-            </div>
-            <p className="text-xs sm:text-sm text-[#4A4333] font-serif tracking-wide pl-1 select-none">
-              94% admission rate to Ivy League & top-20 global universities · Limited spaces for 2026–27 cohort
-            </p>
+          {/* Inline mini-stats row */}
+          <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1 animate-fade-up delay-300">
+            {[
+              { val: "94%", label: "Admission Rate" },
+              { val: "50+", label: "Publications" },
+              { val: "12", label: "Patents Filed" },
+            ].map(({ val, label }) => (
+              <div key={label} className="flex items-center gap-2.5 select-none">
+                <span className="text-xl sm:text-2xl font-serif font-semibold text-[#5C7146] leading-none">{val}</span>
+                <span className="text-xs text-[#6A6A6A] font-serif leading-tight border-l border-[#4A4333]/20 pl-2.5">{label}</span>
+              </div>
+            ))}
           </div>
 
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-1 animate-fade-up delay-400">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+            >
+              Generate Your Ivy Plan
+              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-7 py-3.5 border-2 border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146]/8 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Book Free Consultation
+            </Link>
+          </div>
+
+          {/* Trust line */}
+          <p className="text-[0.78rem] text-[#6A6A6A] font-serif tracking-wide pt-1 select-none">
+            Limited spaces for 2026–27 cohort · 94% top-20 global university placement
+          </p>
+
           {/* Contact Strip */}
-          <div className="pt-6 border-t border-[#4A4333]/10 flex flex-col sm:flex-row flex-wrap gap-x-6 gap-y-3 items-start sm:items-center text-xs sm:text-[0.92rem] text-[#4A4333] font-serif animate-fade-up delay-500">
-            <a href="tel:+919971125276" className="hover:text-olive transition-colors flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-olive/5 flex items-center justify-center group-hover:bg-olive/10 transition-colors shrink-0">
-                <svg className="w-4 h-4 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.157-.44.009-.926.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
-                </svg>
-              </div>
-              <span>+91-9971125276</span>
-            </a>
-            <span className="hidden sm:inline text-[#D0C0A0]">•</span>
-            <a href="mailto:contact@epicquestlearning.com" className="hover:text-olive transition-colors flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-olive/5 flex items-center justify-center group-hover:bg-olive/10 transition-colors shrink-0">
-                <svg className="w-4 h-4 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
-                </svg>
-              </div>
-              <span>contact@epicquestlearning.com</span>
-            </a>
-            <span className="hidden sm:inline text-[#D0C0A0]">•</span>
-            <a href="https://www.epicquestlearning.com" className="hover:text-olive transition-colors flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-olive/5 flex items-center justify-center group-hover:bg-olive/10 transition-colors shrink-0">
-                <svg className="w-4 h-4 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path>
-                </svg>
-              </div>
-              <span>epicquestlearning.com</span>
-            </a>
+          <div className="pt-5 border-t border-[#4A4333]/10 flex flex-wrap gap-x-5 gap-y-3 items-center text-[0.82rem] text-[#4A4333] font-serif">
+            {[
+              { href: "tel:+919971125276", icon: "phone", label: "+91-9971125276" },
+              { href: "mailto:contact@epicquestlearning.com", icon: "mail", label: "contact@epicquestlearning.com" },
+              { href: "https://www.epicquestlearning.com", icon: "globe", label: "epicquestlearning.com" },
+            ].map(({ href, icon, label }) => (
+              <a key={label} href={href} className="hover:text-[#5C7146] transition-colors flex items-center gap-1.5 group">
+                <span className="w-6 h-6 rounded-full bg-[#5C7146]/8 flex items-center justify-center group-hover:bg-[#5C7146]/15 transition-colors shrink-0">
+                  {icon === "phone" && (
+                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.157-.44.009-.926.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                  )}
+                  {icon === "mail" && (
+                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                  )}
+                  {icon === "globe" && (
+                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
+                    </svg>
+                  )}
+                </span>
+                {label}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Right Image (Sleek Asymmetric Curved Frame) */}
-        <div className="w-full lg:w-[37%] lg:flex-none relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-none lg:min-h-[480px] rounded-[2rem_3.5rem_2.5rem_4.5rem] overflow-hidden shadow-2xl border-4 border-white/60 mt-6 lg:mt-0 group cursor-default animate-fade-in delay-300">
-          <Image
-            src="/images/home/Home_Hero.png"
-            alt="Student working on electronics project"
-            fill
-            className="object-cover object-center group-hover:scale-102 transition-transform duration-700 ease-out z-0"
-            priority
-          />
-          
-          {/* Subtle Overlay Shadow to ensure legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60 z-10" />
+        {/* Right Image — asymmetric frame with floating badges */}
+        <div className="w-full lg:w-[45%] lg:flex-none relative animate-fade-in delay-500">
+          {/* Main image */}
+          <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-[2.5rem_1.5rem_3rem_1.5rem] overflow-hidden shadow-2xl border-4 border-white/70 group">
+            <Image
+              src="/images/home/Home_Hero.png"
+              alt="Student working on electronics project"
+              fill
+              className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2D3E1C]/50 via-transparent to-transparent" />
 
-          
+            {/* Floating achievement badge — bottom left */}
+            <div className="absolute bottom-5 left-5 right-5 flex gap-3 z-10">
+              <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-white/60">
+                <div className="text-lg font-serif font-bold text-[#403011] leading-none">3×</div>
+                <div className="text-[0.65rem] text-[#6A6A6A] font-semibold uppercase tracking-wider mt-0.5">Portfolio Strength</div>
+              </div>
+              <div className="flex-1 bg-[#5C7146]/90 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-[#5C7146]/40">
+                <div className="text-lg font-serif font-bold text-white leading-none">Top‑20</div>
+                <div className="text-[0.65rem] text-white/80 font-semibold uppercase tracking-wider mt-0.5">Global Universities</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative element — offset dot cluster */}
+          <div className="absolute -bottom-6 -right-6 w-28 h-28 pointer-events-none opacity-30 hidden lg:block"
+            style={{ backgroundImage: "radial-gradient(#5C7146 1.5px, transparent 1.5px)", backgroundSize: "10px 10px" }} />
         </div>
       </section>
 
       {/* ── 2. STATS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-14">
-            <span className="uppercase tracking-widest text-xs font-semibold text-olive bg-olive/10 px-3 py-1 rounded-full mb-4 inline-block">
-              Why Choose Us
-            </span>
-            <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Why Choose EpicQuest
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#4A4333] font-serif max-w-2xl leading-relaxed">
-              Our numbers speak for themselves — built on real student outcomes, not projections.
+
+          {/* Section header */}
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
+            <div>
+              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Results That Speak<br className="hidden sm:inline" /> For Themselves
+              </h2>
+            </div>
+            <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
+              Built on real student outcomes,<br className="hidden sm:inline" /> not projections.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 sm:gap-8">
+          {/* Stats row with dividers */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-y lg:divide-y-0 divide-[#4A4333]/15 border border-[#4A4333]/15 rounded-2xl overflow-hidden bg-white/40">
             {[
               { stat: "94%", label: "Admission Rate", sub: "Top-20 global universities" },
               { stat: "3×", label: "Portfolio Strength", sub: "More achievements than peers" },
               { stat: "50+", label: "Publications", sub: "Recognised research venues" },
               { stat: "12", label: "Patents Filed", sub: "Original student inventions" },
-            ].map(({ stat, label, sub }) => (
-              <div key={label} className="flex flex-col items-start gap-1">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#403011] font-medium leading-none mb-1">{stat}</div>
-                <div className="text-sm font-semibold text-[#4A4333] uppercase tracking-wider">{label}</div>
-                <div className="text-xs lg:text-sm text-[#6A6A6A] font-serif leading-relaxed">{sub}</div>
+            ].map(({ stat, label, sub }, i) => (
+              <div key={label} className="flex flex-col items-start gap-1.5 px-6 py-8 sm:px-8 sm:py-10 group hover:bg-[#5C7146]/4 transition-colors duration-300">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#5C7146] font-medium leading-none tabular-nums">{stat}</div>
+                <div className="text-[0.7rem] font-bold text-[#403011] uppercase tracking-[0.12em] mt-1">{label}</div>
+                <div className="text-xs text-[#6A6A6A] font-serif leading-snug">{sub}</div>
               </div>
             ))}
           </div>
 
-          {/* Info callout */}
-          <div className="mt-10 sm:mt-14 bg-blue-200 rounded-2xl p-5 sm:p-7 md:p-8 flex items-start gap-4 border border-blue-200/30">
-            <div className="text-blue-700 mt-0.5 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+          {/* Info callout — redesigned */}
+          <div className="mt-8 rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
+            <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
               </svg>
             </div>
-            <p className="text-[#334155] font-serif text-xs sm:text-sm md:text-base leading-relaxed">
-              EpicQuest is the only high-school focussed applied skills-development programme that combines psychometric profiling, applied research, patent filing, and professional apprenticeships into a single, cohesive portfolio-building journey.
-            </p>
+            <div className="bg-[#5C7146]/6 px-6 py-5">
+              <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
+                EpicQuest is the <strong className="text-[#403011] font-semibold">only high-school programme</strong> that combines psychometric profiling, applied research, patent filing, and professional apprenticeships into a single, cohesive portfolio-building journey.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -141,21 +181,27 @@ export default function Home() {
       {/* ── 3. PROGRAMS ── */}
       <section className="w-full py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-12">
-            <span className="uppercase tracking-widest text-xs font-semibold text-olive bg-olive/10 px-3 py-1 rounded-full mb-4 inline-block">
-              Our Programs
-            </span>
-            <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">Everything We Offer</h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#4A4333] font-serif max-w-2xl leading-relaxed">
-              Every program is designed to build a world-class university portfolio. Choose your path — or let us map one for you.
+
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
+            <div>
+              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+                Our Programs
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Everything We Offer
+              </h2>
+            </div>
+            <p className="text-sm text-[#4A4333] font-serif max-w-sm leading-relaxed lg:text-right">
+              Every program builds a world-class university portfolio. Choose your path — or let us map one for you.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
+                num: "01",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18h8M3 22h18M14 22a7 7 0 10-7-7h7M14 14V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v11M14 9h2.5M9 9h2.5" />
                   </svg>
                 ),
@@ -164,8 +210,9 @@ export default function Home() {
                 desc: "Produce peer-reviewed papers in STEM, social sciences, or humanities with full editorial support.",
               },
               {
+                num: "02",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.1a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z" />
                     <circle cx="12" cy="12" r="3" />
                   </svg>
@@ -175,8 +222,9 @@ export default function Home() {
                 desc: "Build working prototypes in hardware, software, industrial design, or biotech.",
               },
               {
+                num: "03",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
                   </svg>
                 ),
@@ -185,8 +233,9 @@ export default function Home() {
                 desc: "Author policy briefs submitted to think tanks, NGOs, or government portals.",
               },
               {
+                num: "04",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 ),
@@ -195,8 +244,9 @@ export default function Home() {
                 desc: "Navigate the full patent application process for truly original inventions.",
               },
               {
+                num: "05",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
                   </svg>
@@ -206,8 +256,9 @@ export default function Home() {
                 desc: "Gain hands-on experience with research labs, startups, and policy organisations.",
               },
               {
+                num: "06",
                 icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" />
                     <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
                   </svg>
@@ -216,33 +267,40 @@ export default function Home() {
                 title: "Psychometric Profiling",
                 desc: "Discover your unique cognitive strengths and align your portfolio accordingly.",
               },
-            ].map(({ icon, href, title, desc }) => (
+            ].map(({ num, icon, href, title, desc }) => (
               <Link
                 key={title}
                 href={href}
-                className="group flex flex-col gap-5 p-5 sm:p-7 rounded-2xl border border-olive/20 hover:border-olive hover:bg-olive/5 transition-all duration-300"
+                className="group relative flex flex-col gap-4 p-6 sm:p-7 rounded-2xl border border-[#4A4333]/12 bg-white/30 hover:bg-white/70 hover:border-[#5C7146]/25 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#5C7146]/10 flex items-center justify-center text-[#5C7146] group-hover:bg-[#5C7146] group-hover:text-[#F6EBD4] transition-all duration-300 shrink-0">
+                {/* Number accent */}
+                <span className="absolute top-5 right-6 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
+
+                <div className="w-11 h-11 rounded-xl bg-[#5C7146]/10 flex items-center justify-center text-[#5C7146] group-hover:bg-[#5C7146] group-hover:text-white transition-all duration-300 shrink-0">
                   {icon}
                 </div>
-                <h3 className="text-lg font-semibold text-[#403011] leading-snug">{title}</h3>
-                <p className="text-[#5A5A5A] text-sm font-serif leading-relaxed flex-1">{desc}</p>
-                <span className="text-olive text-sm font-medium group-hover:underline flex items-center gap-1">
-                  Learn more <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+                <div>
+                  <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
+                  <p className="text-[#5A5A5A] text-sm font-serif leading-relaxed">{desc}</p>
+                </div>
+                <span className="text-[#5C7146] text-[0.8rem] font-semibold flex items-center gap-1.5 mt-auto pt-1">
+                  Learn more
+                  <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
                 </span>
               </Link>
             ))}
           </div>
 
-          <div className="mt-10 sm:mt-14 text-center bg-[#F6EBD4] rounded-2xl p-6 sm:p-10">
-            <p className="text-[#403011] font-serif mb-5 text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-              Not sure which program is right for you? Book a free consultation and we'll map out your personalised plan.
+          {/* Bottom CTA card */}
+          <div className="mt-8 bg-[#F6EBD4] rounded-2xl p-7 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#4A4333]/10">
+            <p className="text-[#403011] font-serif text-sm sm:text-base max-w-md leading-relaxed">
+              Not sure which program fits? Book a <strong className="font-semibold">free consultation</strong> and we'll map your personalised plan.
             </p>
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-md"
+              className="shrink-0 inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
-              Book Your Free Consultation
+              Book Free Consultation
             </Link>
           </div>
         </div>
@@ -251,195 +309,154 @@ export default function Home() {
       {/* ── 4. HOW IT WORKS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-16">
-            <span className="uppercase tracking-widest text-xs font-semibold text-olive bg-olive/10 px-3 py-1 rounded-full mb-4 inline-block">
+          <div className="mb-14">
+            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
               How It Works
             </span>
-            <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
               Your Bespoke Portfolio Journey
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#4A4333] font-serif max-w-2xl leading-relaxed">
-              Every student's path is custom-designed. From initial psychometric assessment to final portfolio submission, we guide you through a structured, milestone-driven journey.
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-xl leading-relaxed">
+              From psychometric assessment to final portfolio submission — a structured, milestone-driven journey tailored entirely to you.
             </p>
           </div>
 
-          {/* ── DESKTOP TIMELINE (WINDING ROAD) ── */}
-          <div className="hidden lg:block relative min-h-[380px] w-full my-8">
-            {/* SVG Winding Road behind pins */}
+          {/* ── DESKTOP TIMELINE ── */}
+          <div className="hidden lg:block relative w-full my-4">
+            {/* Winding road SVG */}
             <svg className="absolute inset-0 w-full h-[360px] pointer-events-none z-0" viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              {/* Outer Road */}
               <path
                 d="M 0 180 C 50 180, 50 280, 125 280 C 200 280, 300 80, 375 80 C 450 80, 550 280, 625 280 C 700 280, 800 80, 875 80 C 950 80, 950 180, 1000 180"
                 stroke="#5C7146"
-                strokeWidth="28"
+                strokeWidth="26"
                 strokeLinecap="round"
               />
-              {/* Inner Dashed Line */}
               <path
                 d="M 0 180 C 50 180, 50 280, 125 280 C 200 280, 300 80, 375 80 C 450 80, 550 280, 625 280 C 700 280, 800 80, 875 80 C 950 80, 950 180, 1000 180"
                 stroke="#F6EBD4"
-                strokeWidth="2.5"
+                strokeWidth="2"
                 strokeDasharray="6 8"
                 strokeLinecap="round"
-                opacity="0.8"
+                opacity="0.85"
               />
             </svg>
 
-            {/* Grid of steps */}
             <div className="relative grid grid-cols-4 w-full h-[360px] z-10">
-              
-              {/* Step 1: Assessment (Top text, bottom pin pointing DOWN) */}
+
+              {/* Step 1 — top label, pin pointing down into valley at Y≈280 */}
               <div className="relative w-full h-full">
-                <div className="absolute top-4 left-0 w-full text-center select-none px-4">
-                  <h3 className="text-xl font-serif font-bold text-[#403011] mb-1">Assessment</h3>
-                  <p className="text-sm text-[#4A4333] font-serif max-w-[180px] mx-auto leading-normal">
-                    Psychometric evaluation and goals
+                <div className="absolute top-6 left-0 w-full text-center px-4 select-none">
+                  <div className="text-[0.65rem] font-bold text-[#5C7146] uppercase tracking-[0.15em] mb-1">Step 01</div>
+                  <h3 className="text-lg font-serif font-bold text-[#403011]">Assessment</h3>
+                  <p className="text-[0.78rem] text-[#4A4333] font-serif max-w-[160px] mx-auto leading-snug mt-1">
+                    Psychometric evaluation & goal-setting
                   </p>
                 </div>
-                {/* Pin points down to road valley (Y=280) - Floating beautifully above the road */}
-                <div className="absolute top-[176px] left-1/2 -translate-x-1/2 w-16 h-20 group cursor-pointer z-10">
-                  <svg className="w-16 h-20 text-[#5C7146] drop-shadow-md transform group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 40C16 40 32 24 32 16C32 7.16 24.84 0 16 0C7.16 0 0 7.16 0 16C0 24 16 40 16 40Z" />
-                  </svg>
-                  <div className="absolute top-[16px] left-1/2 -translate-x-1/2 text-white">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="absolute top-[192px] left-1/2 -translate-x-1/2 z-10">
+                  <div className="relative w-14 h-14 rounded-full bg-[#5C7146] border-4 border-[#F6EBD4] shadow-lg flex items-center justify-center text-white">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
                   </div>
                 </div>
               </div>
 
-              {/* Step 2: Research (Bottom text, top pin pointing UP) */}
+              {/* Step 2 — pin on hilltop at Y≈80, bottom label */}
               <div className="relative w-full h-full">
-                {/* Pin points up to road hill (Y=80) - Floating beautifully below the road */}
-                <div className="absolute top-[104px] left-1/2 -translate-x-1/2 w-16 h-20 group cursor-pointer z-10">
-                  <svg className="w-16 h-20 text-[#5C7146] drop-shadow-md transform group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0C16 0 0 16 0 24C0 32.84 7.16 40 16 40C24.84 40 32 32.84 32 24C32 16 16 0 16 0Z" />
-                  </svg>
-                  <div className="absolute bottom-[16px] left-1/2 -translate-x-1/2 text-white">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="absolute top-[36px] left-1/2 -translate-x-1/2 z-10">
+                  <div className="relative w-14 h-14 rounded-full bg-[#5C7146] border-4 border-[#F6EBD4] shadow-lg flex items-center justify-center text-white">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
                 </div>
-                <div className="absolute bottom-4 left-0 w-full text-center select-none px-4">
-                  <h3 className="text-xl font-serif font-bold text-[#403011] mb-1">Research</h3>
-                  <p className="text-sm text-[#4A4333] font-serif max-w-[180px] mx-auto leading-normal">
-                    Skill building and project research
+                <div className="absolute bottom-6 left-0 w-full text-center px-4 select-none">
+                  <div className="text-[0.65rem] font-bold text-[#5C7146] uppercase tracking-[0.15em] mb-1">Step 02</div>
+                  <h3 className="text-lg font-serif font-bold text-[#403011]">Research</h3>
+                  <p className="text-[0.78rem] text-[#4A4333] font-serif max-w-[160px] mx-auto leading-snug mt-1">
+                    Skill-building & project research
                   </p>
                 </div>
               </div>
 
-              {/* Step 3: Creation (Top text, bottom pin pointing DOWN) */}
+              {/* Step 3 — top label, pin at valley Y≈280 */}
               <div className="relative w-full h-full">
-                <div className="absolute top-4 left-0 w-full text-center select-none px-4">
-                  <h3 className="text-xl font-serif font-bold text-[#403011] mb-1">Creation</h3>
-                  <p className="text-sm text-[#4A4333] font-serif max-w-[180px] mx-auto leading-normal">
-                    Publications, patents and prototypes
+                <div className="absolute top-6 left-0 w-full text-center px-4 select-none">
+                  <div className="text-[0.65rem] font-bold text-[#5C7146] uppercase tracking-[0.15em] mb-1">Step 03</div>
+                  <h3 className="text-lg font-serif font-bold text-[#403011]">Creation</h3>
+                  <p className="text-[0.78rem] text-[#4A4333] font-serif max-w-[160px] mx-auto leading-snug mt-1">
+                    Publications, patents & prototypes
                   </p>
                 </div>
-                {/* Pin points down to road valley (Y=280) - Floating beautifully above the road */}
-                <div className="absolute top-[176px] left-1/2 -translate-x-1/2 w-16 h-20 group cursor-pointer z-10">
-                  <svg className="w-16 h-20 text-[#5C7146] drop-shadow-md transform group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 40C16 40 32 24 32 16C32 7.16 24.84 0 16 0C7.16 0 0 7.16 0 16C0 24 16 40 16 40Z" />
-                  </svg>
-                  <div className="absolute top-[16px] left-1/2 -translate-x-1/2 text-white">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="absolute top-[192px] left-1/2 -translate-x-1/2 z-10">
+                  <div className="relative w-14 h-14 rounded-full bg-[#5C7146] border-4 border-[#F6EBD4] shadow-lg flex items-center justify-center text-white">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h0a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
                 </div>
               </div>
 
-              {/* Step 4: Placement (Bottom text, top pin pointing UP) */}
+              {/* Step 4 — pin at hilltop Y≈80, bottom label */}
               <div className="relative w-full h-full">
-                {/* Pin points up to road hill (Y=80) - Floating beautifully below the road */}
-                <div className="absolute top-[104px] left-1/2 -translate-x-1/2 w-16 h-20 group cursor-pointer z-10">
-                  <svg className="w-16 h-20 text-[#5C7146] drop-shadow-md transform group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0C16 0 0 16 0 24C0 32.84 7.16 40 16 40C24.84 40 32 32.84 32 24C32 16 16 0 16 0Z" />
-                  </svg>
-                  <div className="absolute bottom-[16px] left-1/2 -translate-x-1/2 text-white">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="absolute top-[36px] left-1/2 -translate-x-1/2 z-10">
+                  <div className="relative w-14 h-14 rounded-full bg-[#DCA543] border-4 border-[#F6EBD4] shadow-lg flex items-center justify-center text-white">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
                     </svg>
                   </div>
                 </div>
-                <div className="absolute bottom-4 left-0 w-full text-center select-none px-4">
-                  <h3 className="text-xl font-serif font-bold text-[#403011] mb-1">Placement</h3>
-                  <p className="text-sm text-[#4A4333] font-serif max-w-[180px] mx-auto leading-normal">
-                    Apprenticeship and Ivy applications
+                <div className="absolute bottom-6 left-0 w-full text-center px-4 select-none">
+                  <div className="text-[0.65rem] font-bold text-[#DCA543] uppercase tracking-[0.15em] mb-1">Step 04</div>
+                  <h3 className="text-lg font-serif font-bold text-[#403011]">Placement</h3>
+                  <p className="text-[0.78rem] text-[#4A4333] font-serif max-w-[160px] mx-auto leading-snug mt-1">
+                    Apprenticeships & Ivy applications
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
 
-          {/* ── MOBILE TIMELINE (VERTICAL ROAD) ── */}
-          <div className="lg:hidden relative flex flex-col gap-10 py-6 pl-4 sm:pl-0">
-            {/* Vertical Road */}
-            <svg className="absolute left-[36px] sm:left-1/2 top-0 bottom-0 -translate-x-1/2 w-8 h-full pointer-events-none z-0" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <line x1="16" y1="0" x2="16" y2="100%" stroke="#5C7146" strokeWidth="24" strokeLinecap="round" />
-              <line x1="16" y1="0" x2="16" y2="100%" stroke="#F6EBD4" strokeWidth="2" strokeDasharray="5 7" strokeLinecap="round" opacity="0.8" />
-            </svg>
+          {/* ── MOBILE TIMELINE ── */}
+          <div className="lg:hidden relative mt-4">
+            {/* Vertical connector line */}
+            <div className="absolute left-7 top-7 bottom-7 w-0.5 bg-[#5C7146]/30 z-0" />
 
-            {[
-              {
-                title: "Assessment",
-                desc: "Psychometric evaluation and goals",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                  </svg>
-                )
-              },
-              {
-                title: "Research",
-                desc: "Skill building and project research",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                )
-              },
-              {
-                title: "Creation",
-                desc: "Publications, patents and prototypes",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h0a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                )
-              },
-              {
-                title: "Placement",
-                desc: "Apprenticeship and Ivy applications",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-                  </svg>
-                )
-              }
-            ].map(({ title, desc, icon }, idx) => (
-              <div key={title} className="relative flex items-center w-full z-10">
-                {/* Vertical pin badge on the road */}
-                <div className="absolute left-[36px] sm:left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#5C7146] text-white flex items-center justify-center border-4 border-[#F6EBD4] shadow-md shrink-0">
-                  {icon}
+            <div className="flex flex-col gap-0">
+              {[
+                {
+                  step: "01", title: "Assessment", desc: "Psychometric evaluation and goal-setting",
+                  icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                },
+                {
+                  step: "02", title: "Research", desc: "Skill-building and project research",
+                  icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                },
+                {
+                  step: "03", title: "Creation", desc: "Publications, patents and prototypes",
+                  icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h0a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                },
+                {
+                  step: "04", title: "Placement", desc: "Apprenticeships and Ivy applications", gold: true,
+                  icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path strokeLinecap="round" strokeLinejoin="round" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>
+                },
+              ].map(({ step, title, desc, icon, gold }) => (
+                <div key={title} className="relative flex items-start gap-5 pb-8 last:pb-0 z-10">
+                  <div className={`shrink-0 w-14 h-14 rounded-full border-4 border-[#F6EBD4] shadow-md flex items-center justify-center text-white ${gold ? "bg-[#DCA543]" : "bg-[#5C7146]"}`}>
+                    {icon}
+                  </div>
+                  <div className="pt-2.5">
+                    <div className={`text-[0.65rem] font-bold uppercase tracking-[0.15em] mb-0.5 ${gold ? "text-[#DCA543]" : "text-[#5C7146]"}`}>Step {step}</div>
+                    <h3 className="text-base font-serif font-bold text-[#403011]">{title}</h3>
+                    <p className="text-sm text-[#4A4333] font-serif leading-snug mt-0.5 max-w-[260px]">{desc}</p>
+                  </div>
                 </div>
-                {/* Text content aligned properly */}
-                <div className="pl-20 sm:pl-0 sm:w-1/2 sm:ml-auto sm:text-left pr-4 select-none">
-                  <h3 className="text-lg font-serif font-bold text-[#403011]">{title}</h3>
-                  <p className="text-sm text-[#4A4333] font-serif leading-normal mt-0.5 max-w-[240px]">
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <p className="text-center text-xs sm:text-sm md:text-base text-[#4A4333] font-serif max-w-2xl mx-auto mt-10 sm:mt-14 leading-relaxed">
+          <p className="text-center text-sm text-[#4A4333] font-serif max-w-2xl mx-auto mt-14 leading-relaxed">
             Our four-phase framework ensures every student builds a coherent, compelling narrative — one that admissions officers at Harvard, Yale, Stanford, and beyond will remember.
           </p>
         </div>
@@ -448,56 +465,66 @@ export default function Home() {
       {/* ── 5. SUCCESS STORIES ── */}
       <section className="w-full py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-14">
-            <span className="uppercase tracking-widest text-xs font-semibold text-olive bg-olive/10 px-3 py-1 rounded-full mb-4 inline-block">
+          <div className="mb-12">
+            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
               Success Stories
             </span>
-            <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Champion Achievers{" "}
-              <span className="text-[#8A8373] font-normal">2026–27</span>
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#4A4333] font-serif max-w-2xl leading-relaxed">
-              Our students have earned admission to the world's most selective universities — armed with published research, filed patents, and real-world experience.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Champion Achievers{" "}
+                <span className="text-[#8A8373] font-normal italic">2026–27</span>
+              </h2>
+              <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
+                Published research. Filed patents. Real-world experience. Ivy League results.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 src: "/images/home/Home_Saatvik.png",
                 alt: "Saatvick S.",
-                quote:
-                  "EpicQuest helped me publish my first research paper at 16. That publication was the centrepiece of my Harvard application.",
+                quote: "EpicQuest helped me publish my first research paper at 16. That publication was the centrepiece of my Harvard application.",
                 name: "Saatvick S.",
                 uni: "USC, Class of 2025",
+                tag: "Research Publication",
               },
               {
                 src: "/images/home/Home_Jaivir.png",
                 alt: "Jaivir G.",
-                quote:
-                  "The patent I filed through EpicQuest made my UC Berkeley application unforgettable. I wasn't just a student — I was an inventor.",
+                quote: "The patent I filed through EpicQuest made my UC Berkeley application unforgettable. I wasn't just a student — I was an inventor.",
                 name: "Jaivir G.",
                 uni: "UC Berkeley, Class of 2026",
+                tag: "Patent Filing",
               },
               {
                 src: "/images/home/Home_Devanshi.png",
                 alt: "Devannshi R.",
-                quote:
-                  "My policy draft was cited by a state legislator. Harvey Mudd's admissions committee noticed. EpicQuest gave me a voice.",
+                quote: "My policy draft was cited by a state legislator. Harvey Mudd's admissions committee noticed. EpicQuest gave me a voice.",
                 name: "Devannshi R.",
                 uni: "Harvey Mudd, Class of 2026",
+                tag: "Policy Draft",
               },
-            ].map(({ src, alt, quote, name, uni }) => (
-              <div key={name} className="flex flex-col">
-                <div className="w-full aspect-[4/5] relative rounded-2xl overflow-hidden mb-6 shadow-md bg-[#E0DDD5]">
-                  <Image src={src} alt={alt} fill className="object-cover" />
+            ].map(({ src, alt, quote, name, uni, tag }) => (
+              <div key={name} className="group flex flex-col rounded-2xl overflow-hidden border border-[#4A4333]/10 bg-white/40 hover:shadow-lg transition-shadow duration-300">
+                {/* Image */}
+                <div className="relative w-full aspect-[4/3] bg-[#E0DDD5] overflow-hidden">
+                  <Image src={src} alt={alt} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2D3E1C]/30 to-transparent" />
+                  <span className="absolute top-4 left-4 text-[0.65rem] font-bold text-white bg-[#5C7146]/80 backdrop-blur-sm px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    {tag}
+                  </span>
                 </div>
-                <blockquote className="text-sm sm:text-base text-[#5A5A5A] font-serif italic leading-relaxed mb-4 flex-1">
-                  "{quote}"
-                </blockquote>
-                <div>
-                  <div className="font-semibold text-[#4A4333] text-sm">{name}</div>
-                  <div className="text-xs text-[#8A8373] font-serif mt-0.5">{uni}</div>
+                {/* Content */}
+                <div className="flex flex-col gap-3 p-6">
+                  <blockquote className="text-sm text-[#5A5A5A] font-serif italic leading-relaxed border-l-2 border-[#5C7146]/30 pl-3">
+                    "{quote}"
+                  </blockquote>
+                  <div className="pt-1 border-t border-[#4A4333]/10">
+                    <div className="font-semibold text-[#403011] text-sm">{name}</div>
+                    <div className="text-[0.75rem] text-[#8A8373] font-serif mt-0.5">{uni}</div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -509,19 +536,19 @@ export default function Home() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="uppercase tracking-widest text-xs font-semibold text-olive bg-olive/10 px-3 py-1 rounded-full mb-4 inline-block">
+            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
               Partners & Affiliations
             </span>
-            <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Backed by Institutions That Matter
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
+              Backed by Institutions<br className="hidden sm:inline" /> That Matter
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#4A4333] font-serif max-w-3xl leading-relaxed">
-              EpicQuest Learning is proud to be affiliated with some of India's most prestigious academic, research, and policy institutions — active collaborations, not cosmetic logos.
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed">
+              Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
 
-          {/* Partner Logo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
+          {/* Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
               { src: "/images/home/Sc_Advisor_GoI.png", alt: "Office of the Principal Scientific Adviser" },
               { src: "/images/home/ISB_BIPP_Logo.png", alt: "Indian School of Business" },
@@ -530,60 +557,77 @@ export default function Home() {
             ].map(({ src, alt }) => (
               <div
                 key={alt}
-                className="bg-white h-24 flex items-center justify-center rounded-xl border border-[#4A4333]/10 shadow-sm px-6 text-center"
+                className="bg-white h-24 flex items-center justify-center rounded-xl border border-[#4A4333]/10 shadow-sm px-6 hover:shadow-md transition-shadow duration-300"
               >
-                <div className="relative w-full h-16">
-                  <Image src={src} alt={alt} fill className="object-contain" />
+                <div className="relative w-full h-14">
+                  <Image src={src} alt={alt} fill className="object-contain grayscale hover:grayscale-0 transition-all duration-300" />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Info callout */}
-          <div className="bg-blue-200 rounded-2xl p-5 sm:p-7 md:p-8 flex items-start gap-4 border border-blue-200/30">
-            <div className="text-blue-700 mt-0.5 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+          {/* Callout — redesigned */}
+          <div className="rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
+            <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
               </svg>
             </div>
-            <p className="text-[#334155] font-serif text-xs sm:text-sm md:text-base leading-relaxed">
-              These affiliations with the Office of the Principal Scientific Adviser to the Government of India, ISB's Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic and policy credibility.
-            </p>
+            <div className="bg-[#5C7146]/6 px-6 py-5">
+              <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
+                Affiliations with the <strong className="text-[#403011] font-semibold">Office of the Principal Scientific Adviser</strong> to the Government of India, ISB's Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic credibility.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── 8. FINAL CTA (PREMIUM FLOATING CARD) ── */}
+      {/* ── 7. FINAL CTA ── */}
       <section className="w-full bg-[#F6EBD4] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] to-[#455434] rounded-3xl px-6 py-12 sm:px-10 sm:py-16 md:px-16 md:py-20 text-center shadow-xl border border-[#5C7146]/20">
-            {/* Ambient background blur spots */}
-            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#F6EBD4]/10 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#F6EBD4]/15 blur-3xl pointer-events-none" />
-            
-            {/* Delicate abstract grid pattern */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] via-[#374D23] to-[#455434] rounded-3xl px-6 py-16 sm:px-12 md:px-20 md:py-20 shadow-2xl border border-[#5C7146]/20">
+            {/* Ambient blobs */}
+            <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-[#DCA543]/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#F6EBD4]/8 blur-3xl pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none" />
 
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <span className="uppercase tracking-widest text-[11px] font-semibold text-[#F6EBD4] bg-[#F6EBD4]/10 px-3.5 py-1.5 rounded-full mb-6 inline-block border border-[#F6EBD4]/15">
+            {/* Content */}
+            <div className="relative z-10 max-w-2xl mx-auto text-center">
+              <span className="uppercase tracking-[0.18em] text-[0.65rem] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-6 inline-block border border-[#DCA543]/20">
                 Cohort Admissions Open
               </span>
-              <h2 className="text-3xl sm:text-3.5xl md:text-4xl lg:text-[2.75rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-tight mb-4">
-                Ready to Start Your Ivy League Journey?
+              <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
+                Ready to Begin Your{" "}
+                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
+                Journey?
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-[#F6EBD4]/80 font-serif mb-10 max-w-xl mx-auto leading-relaxed">
-                Limited spaces remain for our bespoke 2026–27 cohort. Book your diagnostic consultation to build a tailored admissions strategy.
+              <p className="text-sm sm:text-base text-[#F6EBD4]/65 font-serif mb-10 max-w-lg mx-auto leading-relaxed">
+                Limited spaces remain for our bespoke 2026–27 cohort. Book your diagnostic consultation today and build a tailored admissions strategy.
               </p>
+
+              {/* Mini stats row in dark card */}
+              <div className="flex justify-center gap-8 mb-10">
+                {[{ val: "94%", label: "Admission Rate" }, { val: "12", label: "Patents Filed" }, { val: "50+", label: "Publications" }].map(({ val, label }) => (
+                  <div key={label} className="text-center select-none">
+                    <div className="text-2xl font-serif font-semibold text-[#DCA543] leading-none">{val}</div>
+                    <div className="text-[0.65rem] text-[#F6EBD4]/50 uppercase tracking-wider mt-1">{label}</div>
+                  </div>
+                ))}
+              </div>
+
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-[#F6EBD4] text-[#2D3E1C] hover:bg-[#F6EBD4]/90 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-md"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5"
                 >
                   Generate Your Ivy League Plan
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 border border-[#F6EBD4]/30 text-[#F6EBD4] hover:bg-white/10 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-[#F6EBD4]/25 text-[#F6EBD4] hover:bg-white/8 hover:border-[#F6EBD4]/40 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5"
                 >
                   Book Free Consultation
                 </Link>
