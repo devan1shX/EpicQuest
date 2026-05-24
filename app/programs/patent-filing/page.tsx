@@ -355,7 +355,7 @@ export default function PatentFilingSupportPage() {
                     </div>
 
                     {/* ── Left cell ── */}
-                    <div className={`md:pr-12 ${isLeft ? "" : "hidden md:block"}`}>
+                    <div className="hidden md:block md:pr-12">
                       {isLeft && (
                         <div
                           className="relative flex flex-col gap-3 p-7 sm:p-8
@@ -407,7 +407,7 @@ export default function PatentFilingSupportPage() {
                     </div>
 
                     {/* ── Right cell ── */}
-                    <div className={`pl-14 md:pl-12 ${isLeft ? "hidden md:block" : ""}`}>
+                    <div className="hidden md:block md:pl-12">
                       {!isLeft && (
                         <div
                           className="relative flex flex-col gap-3 p-7 sm:p-8
