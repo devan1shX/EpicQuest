@@ -211,7 +211,7 @@ export default function HowItWorksPage() {
               Beyond Grades
             </h2>
             <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
-              Depth, originality, and demonstrated impact: the three things Ivy admissions committees never forget. Here is what we actually build with our students.
+              Foundational mastery, academic depth, and demonstrated impact: the pillars Ivy admissions committees never forget. Here is what we actually build with our students.
             </p>
           </div>
 
@@ -220,14 +220,14 @@ export default function HowItWorksPage() {
             {/* Row 1 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-lg group">
-                <Image src="/images/how_it_works/HowItWorks_AppliedResearch.png" alt="Applied Research" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/how_it_works/HowItWorks_SkillsDevelopment.png" alt="Skills Development" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">01 · Publications</span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Applied Research</h3>
+                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">01 · Skills Academy</span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Skills Development</h3>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mb-8">
-                  Students conduct original, publishable research in their chosen field, guided by expert mentors — who are IIT scientists or other Ivy League trained industry practitioners — and aligned to psychometric profiles.
+                  Every EpicQuest journey begins at the Skills Academy. Students enrol in a Flagship Program — spanning AI/ML & Data Science, Applied Finance, Robotics & Drone Science, Biotech, Policy & Diplomacy, or Research & Patent Incubation — building the domain knowledge and skills needed to produce world-class work.
                 </p>
                 <div className="w-12 h-0.5 bg-[#566544]/40" />
               </div>
@@ -236,14 +236,14 @@ export default function HowItWorksPage() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-lg group order-1 md:order-2">
-                <Image src="/images/how_it_works/HowItWorks_PrototypeDevelopment.png" alt="Prototype Development" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/how_it_works/HowItWorks_AppliedResearch.png" alt="Applied Research" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="flex flex-col order-2 md:order-1">
-                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">02 · Patents</span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Prototype Development</h3>
+                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">02 · Publications</span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Applied Research</h3>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mb-8">
-                  From idea to working prototype — students learn to solve real problems with tangible, demonstrable solutions that stand apart in any application. We help students file patents to protect their IP.
+                  Students conduct original, publishable research in their chosen field, guided by expert mentors — who are IIT scientists or other Ivy League trained industry practitioners — and aligned to psychometric profiles.
                 </p>
                 <div className="w-12 h-0.5 bg-[#566544]/40" />
               </div>
@@ -252,11 +252,27 @@ export default function HowItWorksPage() {
             {/* Row 3 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-lg group">
-                <Image src="/images/how_it_works/HowItWorks_PolicyDrafting.png" alt="Policy Drafting" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/how_it_works/HowItWorks_PrototypeDevelopment.png" alt="Prototype Development" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">03 · Civic Impact</span>
+                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">03 · Patents</span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Prototype Development</h3>
+                <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mb-8">
+                  From idea to working prototype — students learn to solve real problems with tangible, demonstrable solutions that stand apart in any application. We help students file patents to protect their IP.
+                </p>
+                <div className="w-12 h-0.5 bg-[#566544]/40" />
+              </div>
+            </div>
+
+            {/* Row 4 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-lg group order-1 md:order-2">
+                <Image src="/images/how_it_works/HowItWorks_PolicyDrafting.png" alt="Policy Drafting" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <div className="flex flex-col order-2 md:order-1">
+                <span className="text-[12px] font-bold text-[#DCA543] tracking-widest uppercase mb-3">04 · Civic Impact</span>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#403011] mb-5 leading-tight">Policy Drafting</h3>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mb-8">
                   Published policy drafts on social, environmental, or technological issues — showcasing civic engagement and analytical rigour that admissions committees prize above all else.
