@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#2C2C2C] text-[#EFE9DF] pt-16 pb-8 border-t border-olive/20 animate-fade-in delay-500">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-16">
           
           {/* Column 1: Brand & Intro */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1 space-y-6">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1 space-y-6">
             <Link href="/" className="inline-block bg-cream p-2 rounded-lg">
               <Image 
                 src="/logo.png" 
@@ -28,6 +28,7 @@ export default function Footer() {
             <h4 className="text-lg font-serif text-white mb-6 font-medium">Platform</h4>
             <ul className="space-y-3 text-sm text-[#D1CBBB]">
               <li><Link href="/about" className="hover:text-amber transition-colors">About Us</Link></li>
+              <li><Link href="/skills" className="hover:text-amber transition-colors">Skills Academy</Link></li>
               <li><Link href="/programs" className="hover:text-amber transition-colors">Our Programs</Link></li>
               <li><Link href="/how-it-works" className="hover:text-amber transition-colors">How It Works</Link></li>
               <li><Link href="/results" className="hover:text-amber transition-colors">Success Stories</Link></li>
@@ -47,7 +48,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
+          {/* Column 4: Skills */}
+          <div>
+            <h4 className="text-lg font-serif text-white mb-6 font-medium">Skills Academy</h4>
+            <ul className="space-y-3 text-sm text-[#D1CBBB]">
+              <li><Link href="/skills/ai-ml-data-science" className="hover:text-amber transition-colors">AI / ML & Data Science</Link></li>
+              <li><Link href="/skills/applied-finance-investment-banking" className="hover:text-amber transition-colors">Applied Finance & IB</Link></li>
+              <li><Link href="/skills/robotics-drone-science" className="hover:text-amber transition-colors">Robotics & Drone</Link></li>
+              <li><Link href="/skills/policy-economics-diplomacy" className="hover:text-amber transition-colors">Policy & Diplomacy</Link></li>
+              <li><Link href="/skills/research-patent-incubator" className="hover:text-amber transition-colors">Research & Patent</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 5: Contact */}
           <div>
             <h4 className="text-lg font-serif text-white mb-6 font-medium">Contact</h4>
             <ul className="space-y-4 text-sm text-[#D1CBBB]">

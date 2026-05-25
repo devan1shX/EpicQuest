@@ -1,0 +1,389 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { BrainCircuit, Landmark, Cpu, Globe, Microscope, ArrowRight, CheckCircle2 } from "lucide-react";
+
+const stats = [
+  { value: "5", label: "World-Class Fellowships" },
+  { value: "1:1", label: "Mentor-Led Builds" },
+  { value: "IIT & Ivy", label: "Expert Instructors" },
+  { value: "100%", label: "Portfolio Focused" },
+];
+
+const fellowships = [
+  {
+    id: "ai-ml-data-science",
+    num: "01",
+    title: "AI / ML & Data Science Fellowship",
+    desc: "Build machine learning, analytics, and innovation skills.",
+    longDesc: "Work at the cutting edge of technological innovation. Master Python, deep learning architectures, and statistical modelling to build and deploy active AI models solving real-world challenges.",
+    image: "/images/skills/Skills_Flagship_1.png",
+    icon: BrainCircuit,
+    href: "/skills/ai-ml-data-science",
+    accent: "#5C7146", // olive
+    outcomes: ["Machine learning pipelines", "Generative AI applications", "Predictive data analytics models"],
+  },
+  {
+    id: "applied-finance-investment-banking",
+    num: "02",
+    title: "Applied Finance & Investment Banking",
+    desc: "Learn valuation, financial modelling, and equity research.",
+    longDesc: "Delve deep into corporate finance, equity markets, and asset valuation. Build professional-grade investment reports, financial models, and pitch decks under the guidance of elite analysts.",
+    image: "/images/skills/Skills_Flagship_2.png",
+    icon: Landmark,
+    href: "/skills/applied-finance-investment-banking",
+    accent: "#8E8B42", // gold-olive
+    outcomes: ["DCF & LBO valuation models", "Equity research whitepapers", "M&A pitch deck preparation"],
+  },
+  {
+    id: "robotics-drone-science",
+    num: "03",
+    title: "Robotics & Drone Science Fellowship",
+    desc: "Prototype engineering and innovation systems.",
+    longDesc: "Bridge the gap between hardware and software. Design, assemble, and program robotic rigs and drone navigation systems, learning CAD modelling, microcontrollers, and IoT integrations.",
+    image: "/images/skills/Skills_Flagship_3.png",
+    icon: Cpu,
+    href: "/skills/robotics-drone-science",
+    accent: "#DCA543", // warm gold
+    outcomes: ["Autonomous drone pathing", "IoT sensor array integrations", "CAD blueprints & physical MVPs"],
+  },
+  {
+    id: "policy-economics-diplomacy",
+    num: "04",
+    title: "Policy, Economics & Diplomacy Fellowship",
+    desc: "Policy research and global leadership exposure.",
+    longDesc: "Analyze key global challenges at the intersection of international relations, economics, and law. Draft high-level policy frameworks and whitepapers targeted at active think tanks.",
+    image: "/images/skills/Skills_Flagship_4.png",
+    icon: Globe,
+    href: "/skills/policy-economics-diplomacy",
+    accent: "#A87A43", // bronze
+    outcomes: ["Geopolitical risk reports", "Published policy drafts", "Economic impact assessments"],
+  },
+  {
+    id: "research-patent-incubator",
+    num: "05",
+    title: "Research & Patent Incubator",
+    desc: "Develop publications, prototypes, and portfolios.",
+    longDesc: "Convert your proprietary technology or original research into official intellectual property. Navigate USPTO prior art searches and draft professional utility or design patents.",
+    image: "/images/skills/Skills_Flagship_5.png",
+    icon: Microscope,
+    href: "/skills/research-patent-incubator",
+    accent: "#5C6A46", // forest green
+    outcomes: ["Provisional patent drafts", "Exhaustive prior art search documentation", "Intellectual property strategy"],
+  },
+];
+
+const buildersOutputs = [
+  "Research Papers",
+  "AI Models",
+  "Prototypes",
+  "Finance Reports",
+  "Policy Papers",
+  "Pitch Decks",
+  "Patent Concepts",
+];
+
+export default function SkillsPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
+      
+      {/* ══════════════════════════════
+          HERO SECTION — ASYMMETRIC split
+      ══════════════════════════════ */}
+      <section className="relative w-full overflow-hidden">
+        {/* Decorative backdrop elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#566544]/4 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#DCA543]/6 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 pb-16 sm:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+            
+            {/* Left Content Column */}
+            <div className="animate-fade-up">
+              {/* Luxury Academy Pill */}
+              <div className="mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase tracking-[0.14em] border border-[#566544]/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
+                  THE EPICQUEST SKILLS ACADEMY
+                </span>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] font-serif font-medium text-[#403011] tracking-tight leading-[1.08] mb-6">
+                Our{" "}
+                <span className="relative inline-block">
+                  <span className="relative z-10">Flagship</span>
+                  <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                    <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </span>{" "}
+                Programs
+              </h1>
+
+              {/* Tagline */}
+              <div className="border-l-3 border-[#DCA543] pl-5 sm:pl-6 mb-8 max-w-xl">
+                <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed font-semibold mb-2">
+                  Step 1 of Your EpicQuest Journey:
+                </p>
+                <p className="text-[14.5px] sm:text-base text-[#5A5241] font-serif leading-relaxed">
+                  Every EpicQuest student begins their journey by enrolling in one of our five world-class Flagship Programs. These are not courses — they are structured, mentor-led fellowships designed to build domain expertise, produce real deliverables, and create the foundation for a standout Ivy League portfolio.
+                </p>
+              </div>
+
+              {/* CTA Action buttons */}
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#566544] hover:bg-[#4a553a] text-white rounded-full font-bold text-[13px] uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  Apply Now
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 border border-[#4D4536]/25 hover:border-[#566544]/50 text-[#403011] rounded-full font-semibold text-[13px] uppercase tracking-wider transition-all duration-300 hover:bg-[#566544]/6"
+                >
+                  Book Consultation
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Illustration Column */}
+            <div className="relative animate-fade-up delay-150">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[2.5rem] overflow-hidden border-2 border-[#4A4333]/15 shadow-2xl bg-white/40 group">
+                <Image 
+                  src="/images/skills/Skills_Main.png" 
+                  alt="EpicQuest Skills Academy" 
+                  fill 
+                  className="object-cover group-hover:scale-102 transition-transform duration-700" 
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/30 via-transparent to-transparent opacity-60 pointer-events-none" />
+              </div>
+              {/* Asymmetric overlapping tag element */}
+              <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-[#FDFBF7] border border-[#4A4333]/10 p-5 rounded-2xl shadow-xl flex items-center gap-4 max-w-[280px]">
+                <div className="w-10 h-10 rounded-full bg-[#566544]/10 flex items-center justify-center text-[#566544] shrink-0 font-bold">★</div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-[#403011]">Ivy League Portfolio Prep</span>
+                  <span className="text-[10px] text-[#8A8373] font-serif leading-tight mt-0.5">Learn domain expertise by designing physical & digital assets</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          STATS SECTION (WARM ACCENT BAR)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#EAE2CE] py-8 border-t border-b border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {stats.map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="text-2xl sm:text-3xl font-serif font-bold text-[#403011]">{s.value}</span>
+                <span className="text-[10px] sm:text-xs text-[#6E6759] uppercase font-bold tracking-wider mt-1">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          FELLOWSHIPS GRID SECTION
+      ══════════════════════════════ */}
+      <section className="relative w-full py-20 sm:py-28 border-b border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          {/* Header */}
+          <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-24">
+            <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded-full mb-4 inline-block border border-[#566544]/20">
+              EXPLORE OUR PATHWAYS
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
+              Our Five Flagship Fellowships
+            </h2>
+            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
+              Select an area of focus to construct a comprehensive portfolio. Each pathway is fully customized around your psychometric strengths and guided 1:1 by active researchers and IIT specialists.
+            </p>
+          </div>
+
+          {/* Cards Grid — Beautiful Staggered Layout (3 on top row, 2 centered below on large screens) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 items-stretch">
+            {fellowships.map((fellow, idx) => {
+              const Icon = fellow.icon;
+              const isLargeColumn = idx >= 3; // make bottom 2 cards span 3 grid columns on lg screens
+              
+              return (
+                <div
+                  key={fellow.id}
+                  className={`group relative flex flex-col bg-[#FDFBF7] rounded-[2.25rem] border border-[#4A4333]/8 shadow-sm overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500
+                             ${isLargeColumn ? "lg:col-span-3" : "lg:col-span-2"}`}
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  {/* Aspect ratio frame for image */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden border-b border-[#4A4333]/8 bg-cream/40">
+                    <Image 
+                      src={fellow.image} 
+                      alt={fellow.title} 
+                      fill 
+                      className="object-cover group-hover:scale-104 transition-transform duration-700" 
+                    />
+                    {/* Icon Floating Badge */}
+                    <div 
+                      className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center text-[#FDFBF7] shadow-lg shrink-0 transition-transform duration-300 group-hover:scale-105"
+                      style={{ backgroundColor: fellow.accent }}
+                    >
+                      <Icon className="w-6 h-6" strokeWidth={1.8} />
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="flex flex-col flex-1 p-7 sm:p-8 justify-between">
+                    <div>
+                      {/* Num badge + name */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <span 
+                          className="text-[10px] font-black uppercase tracking-[0.16em]"
+                          style={{ color: fellow.accent }}
+                        >
+                          Fellowship {fellow.num}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#403011] leading-tight mb-3">
+                        {fellow.title}
+                      </h3>
+
+                      <p className="text-sm text-[#4A4333] font-serif leading-relaxed mb-6">
+                        {fellow.longDesc}
+                      </p>
+
+                      {/* Outcomes */}
+                      <div className="border-t border-[#4A4333]/6 pt-5 mb-7">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#8A8373] block mb-3">
+                          What you will build
+                        </span>
+                        <div className="space-y-2">
+                          {fellow.outcomes.map((out, outIdx) => (
+                            <div key={outIdx} className="flex items-start gap-2.5">
+                              <CheckCircle2 className="w-4 h-4 text-[#5C7146] shrink-0 mt-0.5" strokeWidth={2} />
+                              <span className="text-xs sm:text-[13px] text-[#4A4333] font-serif leading-snug">{out}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Explore Link */}
+                    <div className="pt-4 border-t border-[#4A4333]/6">
+                      <Link
+                        href={fellow.href}
+                        className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider transition-colors duration-200"
+                        style={{ color: fellow.accent }}
+                      >
+                        Explore Fellowship Details
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.5} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          WHAT STUDENTS BUILD ticker
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#403011] py-16 sm:py-20 text-[#F6EBD4] overflow-hidden relative">
+        {/* Ambient dot layer */}
+        <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center mb-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium tracking-tight mb-2">
+            Students Don't Just Learn. They Build.
+          </h3>
+          <p className="text-sm sm:text-base text-[#D4CBB6] font-serif max-w-lg mx-auto leading-relaxed">
+            Admissions boards verify products, not promises. Here are the core portfolio deliverables engineered during our fellowships:
+          </p>
+        </div>
+
+        {/* Rolling/Staggered Output Pills */}
+        <div className="relative w-full overflow-hidden select-none py-2">
+          
+          {/* Edge fades for premium aesthetics */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#403011] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#403011] to-transparent z-10 pointer-events-none" />
+
+          {/* Infinite Marquee Loop (CSS defined) */}
+          <div className="animate-marquee flex gap-6 py-2 whitespace-nowrap">
+            {/* Set 1 */}
+            <div className="flex gap-6 shrink-0 items-center">
+              {buildersOutputs.map((item, idx) => (
+                <span 
+                  key={idx} 
+                  className="px-6 py-2.5 rounded-full border border-[#F6EBD4]/15 bg-white/4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#F6EBD4] hover:text-white hover:border-[#DCA543]/40 hover:bg-[#FDFBF7]/8 hover:scale-[1.03] transition-all duration-300 pointer-events-auto cursor-pointer"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            {/* Set 2 (Exact Duplicate) */}
+            <div className="flex gap-6 shrink-0 items-center" aria-hidden="true">
+              {buildersOutputs.map((item, idx) => (
+                <span 
+                  key={`dup-${idx}`} 
+                  className="px-6 py-2.5 rounded-full border border-[#F6EBD4]/15 bg-white/4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#F6EBD4] hover:text-white hover:border-[#DCA543]/40 hover:bg-[#FDFBF7]/8 hover:scale-[1.03] transition-all duration-300 pointer-events-auto cursor-pointer"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          FINAL ACTION SECTION
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#EAE2CE] py-20 sm:py-28 relative overflow-hidden">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-[#566544]/6 pointer-events-none" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-[#DCA543]/8 pointer-events-none" />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-5 text-center">
+          <span className="uppercase tracking-[0.16em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded-full mb-6 inline-block border border-[#566544]/20">
+            TAKE THE FIRST STEP
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-none mb-6">
+            Construct Your Portfolio Masterpiece
+          </h2>
+          <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-xl mx-auto mb-10">
+            Every elite admission portfolio starts with a strategic diagnostic. Book a free 60-minute diagnostic session to assess your profile and map out the ideal skills pathway.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-4 bg-[#DCA543] hover:bg-[#e8b656] text-[#2D3E1C] rounded-full font-bold text-sm sm:text-[15px] transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.3)]"
+            >
+              Book Free Consultation
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 border border-[#4A4333]/25 hover:border-[#566544]/50 text-[#403011] rounded-full font-semibold text-sm sm:text-[15px] transition-all duration-300 hover:bg-[#566544]/6"
+            >
+              Contact Advisors
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}

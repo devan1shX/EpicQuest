@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FileText, Lightbulb, Scroll, CheckCircle2, Compass, Award } from "lucide-react";
 
 const stats = [
   { value: "94%", label: "Admission Rate", sub: "Top-20 global universities" },
@@ -33,6 +34,8 @@ const graduates = [
   { name: "Tvisha K.", uni: "NYU", image: "/images/results/Result_Tvisha.png" },
   { name: "Sidhant M.", uni: "MIT", image: "/images/results/Result_Sidhant.png" },
 ];
+
+
 
 export default function ResultsPage() {
   return (
@@ -97,9 +100,351 @@ export default function ResultsPage() {
       </section>
 
       {/* ══════════════════════════════
+          UNIVERSITY PLACEMENTS SHOWCASE
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+            <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full mb-4 inline-block border border-[#566544]/20">
+              Excellence. Proven.
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
+              EpicQuest Success Story
+            </h2>
+            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
+              EpicQuest students have earned places at the world's most prestigious universities — from the Ivy League to global top-20 institutions.
+            </p>
+          </div>
+
+          {/* Direct Placement Grid Image */}
+          <div className="relative w-full max-w-2xl mx-auto aspect-[4/4.6] group">
+            <Image 
+              src="/images/results/Result_Succcess_Story.jpeg" 
+              alt="EpicQuest Success Story Placements Grid" 
+              fill 
+              className="object-contain group-hover:scale-[1.02] transition-transform duration-700 ease-out" 
+              priority 
+            />
+          </div>
+
+          {/* Bottom Tagline */}
+          <p className="text-center text-sm sm:text-base text-[#4A4333] font-serif max-w-3xl mx-auto mt-16 leading-relaxed select-none">
+            From Research &amp; Scholarship to Ivy League-ready portfolios, EpicQuest Learning builds the skills, capabilities, stories, and impact evidence that <strong className="text-[#C2410C] font-extrabold uppercase tracking-wide">top universities value!</strong>
+          </p>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          REAL-WORLD IMPACT: PATENTS & PUBLICATIONS (Academic Prestige Exhibit)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative z-10 overflow-hidden">
+        {/* Subtle grid pattern overlay for dark mode texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
+        
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mb-16 lg:mb-20">
+            <span className="uppercase tracking-[0.18em] text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-5 inline-block border border-[#DCA543]/20 select-none">
+              Intellectual Contributions
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#F6EBD4] tracking-tight leading-tight mb-6">
+              Real-World Impact:<br />Patents &amp; Publications
+            </h2>
+            <p className="text-base sm:text-lg text-[#F6EBD4]/75 font-serif leading-relaxed max-w-2xl">
+              EpicQuest fellows produce verified, tangible, high-caliber intellectual outputs under PhD guidance that carry significant weight before entering university.
+            </p>
+          </div>
+
+          {/* Asymmetrical Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left: Prestige Folios */}
+            <div className="lg:col-span-5 flex flex-col gap-8">
+              
+              {[
+                {
+                  num: "01",
+                  title: "Published Papers",
+                  icon: FileText,
+                  desc: "EpicQuest fellows conduct rigorous primary research under academic mentors, publishing findings in recognized peer-reviewed international journals and presenting at major conferences.",
+                },
+                {
+                  num: "02",
+                  title: "Patents Filed",
+                  icon: Lightbulb,
+                  desc: "For original technical and mechanical inventions, we guide students through rigorous prior art searches, technical claim drafting, and formal patent filing with the USPTO and IPO.",
+                },
+                {
+                  num: "03",
+                  title: "Policy Impact",
+                  icon: Scroll,
+                  desc: "Students analyze global or regional socioeconomic challenges, drafting professional utility briefs and proposals formally submitted to recognized think tanks and government portals.",
+                },
+              ].map((folio) => {
+                const IconComp = folio.icon;
+                return (
+                  <div key={folio.num} className="group relative flex gap-6 pb-6 border-b border-[#F6EBD4]/10 transition-all duration-300">
+                    <span className="font-serif text-lg font-medium text-[#DCA543]/60 group-hover:text-[#DCA543] transition-colors duration-300 select-none">
+                      {folio.num}.
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-3">
+                        <IconComp className="w-4 h-4 text-[#DCA543]/80 group-hover:text-[#DCA543] group-hover:scale-110 transition-all duration-300" />
+                        <h3 className="font-serif font-bold text-lg text-[#F6EBD4] tracking-wide group-hover:text-[#DCA543] transition-colors duration-300">
+                          {folio.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-[#F6EBD4]/65 font-serif leading-relaxed mt-1">
+                        {folio.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+
+            {/* Right: Floating Museum Showcase */}
+            <div className="lg:col-span-7 relative w-full">
+              {/* Outer decorative backdrop glow */}
+              <div className="absolute inset-0 bg-[#DCA543]/5 rounded-[2.5rem] blur-2xl pointer-events-none" />
+              
+              {/* Luxury Display Frame */}
+              <div className="relative p-3 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                
+                {/* Image Container with precise golden inner border */}
+                <div className="relative w-full aspect-[2.1/1] rounded-[2rem] overflow-hidden border border-[#DCA543]/20 bg-[#162010]">
+                  <Image
+                    src="/images/results/Results_RealWorldImapct.png"
+                    alt="Authentic patent certificate and published research papers portfolio"
+                    fill
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-1000 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              </div>
+              
+              {/* Floating brass style placard caption */}
+              <div className="mt-5 px-6 flex items-center justify-between text-[11px] text-[#F6EBD4]/50 font-serif tracking-wider uppercase">
+                <span>EXHIBIT 1.1 — INTELLECTUAL PORTFOLIO</span>
+                <span className="text-[#DCA543]/70">VERIFIED OUTPUTS</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          REAL-WORLD IMPACT: DEEP DIVE INTO STUDENT WORK (The Portfolio Chronicles)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 relative z-10 overflow-hidden">
+        {/* Soft geometric accent lines */}
+        <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-[#566544]/5 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/5 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mb-16 lg:mb-20">
+            <span className="uppercase tracking-[0.18em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-4 py-1.5 rounded-full mb-5 inline-block border border-[#566544]/20 select-none">
+              Case Study Dossiers
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
+              Deep Dive into Student Work
+            </h2>
+            <p className="text-base sm:text-lg text-[#4A4333]/80 font-serif leading-relaxed">
+              These are not hypothetical exercises. This collection showcases concrete portfolios, working code bases, and physical artifacts fully executed by EpicQuest fellows.
+            </p>
+          </div>
+
+          {/* Asymmetrical Grid Layout with Sticky Sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column: Sticky Museum Sidebar (Spans 4) */}
+            <div className="lg:col-span-4 lg:sticky lg:top-24 flex flex-col gap-6">
+              
+              {/* Editorial vertical text line overlaying an elegant frame */}
+              <div className="relative p-2 bg-[#F6EBD4]/40 rounded-[2rem] border border-[#4A4333]/10 shadow-sm">
+                
+                {/* Corner details */}
+                <div aria-hidden className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-[#566544] rounded-tl-xl" />
+                <div aria-hidden className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-[#566544] rounded-br-xl" />
+
+                <div className="relative w-full aspect-[3/4.2] rounded-[1.8rem] overflow-hidden bg-[#EAE5D9]">
+                  <Image
+                    src="/images/results/Results_RealWorldImpactDeepDive.png"
+                    alt="EpicQuest student electronic setup and research charts notebook"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 30vw"
+                  />
+                </div>
+              </div>
+
+              {/* Minimal caption block */}
+              <div className="flex items-start gap-3 p-4 bg-[#F6EBD4]/30 rounded-2xl border border-[#4A4333]/5">
+                <Compass className="w-4 h-4 text-[#566544] shrink-0 mt-0.5" />
+                <p className="text-xs text-[#4A4333]/80 font-serif leading-relaxed">
+                  Fellows maintain archival portfolios tracking every iteration from research validation, Raspberry Pi sensor builds, to IP submission filings.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Right Column: Custom Staggered Dossiers (Spans 8) */}
+            <div className="lg:col-span-8 grid grid-cols-1 gap-8">
+              
+              {/* Dossier 1: Scholarly Research Paper (Academic Style) */}
+              <div className="group relative p-8 rounded-3xl bg-[#F6EBD4]/30 hover:bg-white border border-[#4A4333]/10 hover:shadow-lg transition-all duration-500 flex flex-col gap-4 overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#566544]/5 rounded-bl-[4rem] pointer-events-none" />
+                
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-[0.14em] text-[9px] font-bold text-[#566544] bg-[#566544]/8 px-3 py-1 rounded-md border border-[#566544]/10 select-none">
+                    Dossier 01 / Peer-Reviewed Research
+                  </span>
+                </div>
+                
+                <h3 className="font-serif font-bold text-2xl text-[#403011] tracking-tight group-hover:text-[#566544] transition-colors duration-300 leading-snug">
+                  Published &amp; Award-Winning Academic Papers
+                </h3>
+                
+                <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
+                
+                <ul className="text-sm text-[#4A4333]/85 font-serif space-y-4 leading-relaxed pl-1">
+                  <li className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-[#403011] font-semibold">Least Carbon Emissions &amp; Highest Fuel Efficiency</strong> — Published in a peer-reviewed international engineering journal. Evaluated by high-level mechanical panels and awarded the Silver Medal at the National Science Congress.
+                    </span>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-[#403011] font-semibold">Materials Science: Extended Milk Packaging Innovation</strong> — Practical chemical engineering project addressing food security without refrigeration in rural villages.
+                    </span>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-[#403011] font-semibold">Targeted Biomedical Cancer Therapeutics</strong> — Advanced nanoparticle delivery design for localized treatment of solid oncological targets.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Dossier 2: Modular Biogas Ingester (Technical Engineering Blueprint Style) */}
+              <div className="group relative p-8 rounded-3xl bg-[#F6EBD4]/30 hover:bg-[#1E2719] hover:text-[#F6EBD4] border border-[#4A4333]/10 hover:border-[#566544]/30 hover:shadow-xl transition-all duration-500 flex flex-col gap-4 overflow-hidden">
+                {/* Blueprint grid accent shown on hover */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(220,165,67,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(220,165,67,0.02)_1px,transparent_1px)] bg-[size:16px_16px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-[0.14em] text-[9px] font-bold text-[#797341] bg-[#797341]/10 px-3 py-1 rounded-md border border-[#797341]/20 group-hover:text-[#DCA543] group-hover:bg-[#DCA543]/12 group-hover:border-[#DCA543]/20 select-none">
+                    Dossier 02 / Hardware Prototype
+                  </span>
+                </div>
+                
+                <h3 className="font-serif font-bold text-2xl text-[#403011] group-hover:text-[#F6EBD4] tracking-tight transition-colors duration-300 leading-snug">
+                  Modular Biogas Ingester (Raspberry Pi &amp; Telemetry)
+                </h3>
+                
+                <div className="h-[1px] bg-[#4A4333]/10 group-hover:bg-white/10 w-full my-1" />
+                
+                <p className="text-sm text-[#4A4333]/85 group-hover:text-[#F6EBD4]/80 font-serif leading-relaxed">
+                  A sophisticated, batch-type mesophilic bio-digester built to test maximum yield thresholds. Real-time telemetry is designed using a Raspberry Pi microprocessor combined with professional sensor arrays tracking temperature, hydrostatic pressure, pH values, and bio-gas discharge metrics.
+                </p>
+                <div className="flex items-center gap-2.5 text-xs font-serif italic text-[#566544] group-hover:text-[#DCA543] font-medium mt-1">
+                  <span>⚡ Impact: Powering a rural women's cooperative stitching facility</span>
+                </div>
+              </div>
+
+              {/* Dossier 3: Smart Waste System (Official USPTO Patent Draft Style) */}
+              <div className="group relative p-8 rounded-3xl bg-[#FDFBF7] hover:bg-white border-2 border-dashed border-[#4A4333]/15 hover:border-solid hover:border-[#DCA543]/40 hover:shadow-lg transition-all duration-500 flex flex-col gap-4 overflow-hidden">
+                <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full border border-[#DCA543]/30 flex items-center justify-center rotate-12 select-none pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-[#DCA543]">IP FILED</span>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-[0.14em] text-[9px] font-bold text-[#C2410C] bg-[#C2410C]/8 px-3 py-1 rounded-md border border-[#C2410C]/15 select-none">
+                    Dossier 03 / Patent Intellectual Property
+                  </span>
+                </div>
+                
+                <h3 className="font-serif font-bold text-2xl text-[#403011] tracking-tight group-hover:text-[#C2410C] transition-colors duration-300 leading-snug">
+                  Smart Urban Waste Management Sequestration System
+                </h3>
+                
+                <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
+                
+                <p className="text-sm text-[#4A4333]/85 font-serif leading-relaxed">
+                  An integrated urban waste tracking, separation, and containment ecosystem designed for high-density metropolitan areas. Structured through prior-art novelty searches, this invention was drafted and officially filed with the IPO/USPTO for comprehensive utility protection.
+                </p>
+              </div>
+
+              {/* Dossier 4: EV Policy Briefing (Diplomatic Memorandum Style) */}
+              <div className="group relative p-8 rounded-3xl bg-[#F6EBD4]/30 hover:bg-[#FDFBF7] border border-[#4A4333]/10 hover:border-[#DCA543] hover:shadow-lg transition-all duration-500 flex flex-col gap-4 overflow-hidden">
+                <div className="absolute top-0 right-0 w-2 h-full bg-[#DCA543]/10 group-hover:bg-[#DCA543] transition-colors pointer-events-none" />
+                
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-[0.14em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-3 py-1 rounded-md border border-[#DCA543]/20 select-none">
+                    Dossier 04 / Policy Draft &amp; Advocacy
+                  </span>
+                </div>
+                
+                <h3 className="font-serif font-bold text-2xl text-[#403011] tracking-tight group-hover:text-[#DCA543] transition-colors duration-300 leading-snug">
+                  Carbon Financing Models for India's Electric Vehicle Market
+                </h3>
+                
+                <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
+                
+                <blockquote className="text-sm text-[#4A4333]/85 font-serif italic border-l-2 border-[#DCA543] pl-4 py-1 leading-relaxed">
+                  "Proposing an innovative carbon financing framework and fiscal tax credit structuring to accelerate low-income electric vehicle adaptation across Indian markets."
+                </blockquote>
+                
+                <p className="text-xs text-[#6A6A6A] font-serif leading-relaxed mt-1">
+                  Presented formally to the President of the Indian Economic Trade Organization (IETO) during an official socioeconomic policy session.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Luxury Prestige Awards & Competitions Strip */}
+          <div className="mt-20 pt-16 border-t border-[#4A4333]/15">
+            <div className="bg-gradient-to-br from-[#F6EBD4] to-[#EAE5D9]/50 rounded-3xl p-8 md:p-10 border border-[#4A4333]/10 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#566544]/5 rounded-bl-[8rem] pointer-events-none" />
+              
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white border border-[#DCA543] shadow-md shrink-0">
+                  <Award className="w-7 h-7 text-[#DCA543]" strokeWidth={1.5} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h4 className="font-serif font-bold text-lg text-[#403011] uppercase tracking-wide">
+                    Participating in Global Prestige Competitions
+                  </h4>
+                  <p className="text-xs sm:text-[13.5px] text-[#4A4333]/85 font-serif leading-relaxed max-w-4xl">
+                    With unique applied knowledge and research validation, our fellows build the robust capability to enter and secure recognition at elite international forums: <span className="text-[#403011] font-semibold">John Locke Essay Competition, Wharton Global High School Investment Competition, Wolves of Wall Street, MIT LaunchX, International Chemistry Olympiad, UK Royal Society of Biology Awards, Harvard MUN, and national Make-in-India hackathons</span>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
           WALL OF FAME
       ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10 relative z-10">
+      <section className="w-full bg-[#FDFBF7] py-16 sm:py-24 border-t border-[#4A4333]/10 relative z-10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           <div className="mb-10 animate-fade-up">

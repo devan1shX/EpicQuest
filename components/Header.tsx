@@ -70,6 +70,59 @@ const programsList = [
   },
 ];
 
+const skillsList = [
+  {
+    name: "AI / ML & Data Science",
+    href: "/skills/ai-ml-data-science",
+    desc: "Machine learning, data analytics, and generative AI fellowship",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v1.244c0 .892-.722 1.614-1.614 1.614h-.73a1.615 1.615 0 01-1.615-1.615v-1.24M14.25 3.104v1.244c0 .892.722 1.614 1.614 1.614h.73a1.615 1.615 0 011.615-1.615v-1.24M12 18.75v-1.8m0 0v-1.8m0 3.6a1.8 1.8 0 100-3.6 1.8 1.8 0 000 3.6zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Applied Finance & IB",
+    href: "/skills/applied-finance-investment-banking",
+    desc: "Valuation, financial modelling, and equity research program",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-1.97-.659-1.171-.88-1.171-2.303 0-3.182 1.171-.879 3.07-.879 4.242 0L15 8.818M13 3v2m0 14v2" />
+      </svg>
+    ),
+  },
+  {
+    name: "Robotics & Drone Science",
+    href: "/skills/robotics-drone-science",
+    desc: "Prototype engineering, IoT and innovation systems",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-3.18 3.18M12 21a9 9 0 110-18 9 9 0 010 18zm0 0v-3m0-6V6m-3 3h6" />
+      </svg>
+    ),
+  },
+  {
+    name: "Policy, Economics & Diplomacy",
+    href: "/skills/policy-economics-diplomacy",
+    desc: "Policy research, leadership and global affairs fellowship",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
+      </svg>
+    ),
+  },
+  {
+    name: "Research & Patent Incubator",
+    href: "/skills/research-patent-incubator",
+    desc: "Intellectual property, publications, and patents creation",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    ),
+  },
+];
+
 const generalLinks = [
   { label: "About", href: "/about" },
 ];
@@ -85,11 +138,13 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+  const [mobileSkillsOpen, setMobileSkillsOpen] = useState(false);
 
   // Close mobile drawer on route change
   useEffect(() => {
     setMobileOpen(false);
     setMobileProgramsOpen(false);
+    setMobileSkillsOpen(false);
   }, [pathname]);
 
   // Lock body scroll when mobile menu is open
@@ -103,6 +158,7 @@ export default function Header() {
   const closeMobile = useCallback(() => {
     setMobileOpen(false);
     setMobileProgramsOpen(false);
+    setMobileSkillsOpen(false);
   }, []);
 
   const isActive = (href: string) => {
@@ -180,6 +236,48 @@ export default function Header() {
               </div>
             </div>
 
+            {/* Skills Link with Premium Dropdown Trigger */}
+            <div className="header__nav-item--has-dropdown">
+              <Link 
+                href="/skills" 
+                className={`header__link header__link--dropdown-trigger ${isActive("/skills") ? "header__link--active" : ""}`}
+              >
+                <span>Skills</span>
+                <svg className="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </Link>
+
+              {/* Mega-Dropdown Panel */}
+              <div className="header__dropdown">
+                <div className="header__dropdown-title">
+                  The EpicQuest Skills Academy
+                </div>
+                <div className="header__dropdown-grid">
+                  {skillsList.map((skill) => (
+                    <Link 
+                      key={skill.href} 
+                      href={skill.href} 
+                      className={`header__dropdown-card ${pathname === skill.href ? "header__dropdown-card--active" : ""}`}
+                    >
+                      <div className="header__dropdown-card-icon">
+                        {skill.icon}
+                      </div>
+                      <div className="header__dropdown-card-content">
+                        <div className="header__dropdown-card-name">{skill.name}</div>
+                        <div className="header__dropdown-card-desc">{skill.desc}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="header__dropdown-footer">
+                  <Link href="/skills" className="header__dropdown-footer-link">
+                    Explore Our Flagship Fellowship Programs →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             {rightLinks.map((link) => (
               <Link
                 key={link.href}
@@ -191,10 +289,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA — desktop */}
-          <Link href="/contact" className="header__cta">
-            Book a Free Session
-          </Link>
+          {/* Empty spacer to align items since CTA is removed */}
+          <div className="w-[10px]" />
 
           {/* Mobile hamburger */}
           <button
@@ -278,6 +374,50 @@ export default function Header() {
             </div>
           </div>
 
+          {/* Collapsible Mobile Accordion for Skills */}
+          <div className="header__drawer-accordion">
+            <button
+              type="button"
+              className={`header__drawer-accordion-trigger ${isActive("/skills") ? "header__drawer-accordion-trigger--active" : ""}`}
+              onClick={() => setMobileSkillsOpen((prev) => !prev)}
+            >
+              <span>Skills</span>
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${mobileSkillsOpen ? "rotate-180" : ""}`} 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+
+            <div className={`header__drawer-accordion-content ${mobileSkillsOpen ? "header__drawer-accordion-content--open" : ""}`}>
+              <Link 
+                href="/skills" 
+                className="header__drawer-sublink header__drawer-sublink--all font-semibold"
+                onClick={closeMobile}
+              >
+                Explore All Skills →
+              </Link>
+              {skillsList.map((skill) => (
+                <Link
+                  key={skill.href}
+                  href={skill.href}
+                  className={`header__drawer-sublink ${pathname === skill.href ? "header__drawer-sublink--active" : ""}`}
+                  onClick={closeMobile}
+                >
+                  <span className="header__drawer-sublink-icon">{skill.icon}</span>
+                  <div className="flex flex-col">
+                    <span className="font-medium text-[#403011]">{skill.name}</span>
+                    <span className="text-[11px] text-[#8A8373] leading-tight font-serif mt-0.5">{skill.desc}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Remaining links */}
           {rightLinks.map((link) => (
             <Link
@@ -290,10 +430,6 @@ export default function Header() {
             </Link>
           ))}
         </div>
-
-        <Link href="/contact" className="header__drawer-cta" onClick={closeMobile}>
-          Book a Free Session
-        </Link>
       </nav>
     </>
   );

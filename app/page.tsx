@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full bg-cream min-h-screen overflow-x-hidden">
+    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
       {/* ── 1. HERO ── */}
       <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
@@ -128,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. STATS ── */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
@@ -306,6 +307,132 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 3.5 SKILLS ACADEMY ── */}
+      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-28 border-t border-b border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+            <div>
+              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1.5 rounded-full mb-3 inline-block">
+                Flagship Pathways
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                The Flagship Skills Academy
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-md leading-relaxed lg:text-right">
+              EpicQuest students build institutional-grade capabilities, published academic research, and provisional patents years before their peers.
+            </p>
+          </div>
+
+          {/* 5-Fellowship Visual Grid Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "AI / ML & Data Science",
+                href: "/skills/ai-ml-data-science",
+                tag: "Python Foundations",
+                desc: "Train predictive models, analyze finance datasets, and build live streamlit dashboards.",
+                img: "/images/skills/Skills_Flagship_1.png",
+                span: "lg:col-span-3",
+                focus: ["Machine Learning", "Streamlit Dashboards", "Exploratory Data"],
+              },
+              {
+                title: "Applied Finance & Investment Banking",
+                href: "/skills/applied-finance-investment-banking",
+                tag: "Business Valuation",
+                desc: "Master three-statement linkage modeling, DCF formulas, and M&A pitch books.",
+                img: "/images/skills/Skills_Flagship_2.png",
+                span: "lg:col-span-3",
+                focus: ["DCF Valuation", "3-Statement Models", "M&A Pitching"],
+              },
+              {
+                title: "Robotics & Drone Science",
+                href: "/skills/robotics-drone-science",
+                tag: "Autonomous Hardware",
+                desc: "Engineer composite drone chassis in Autodesk Fusion 360 and program flight navigation scripts.",
+                img: "/images/skills/Skills_Flagship_3.png",
+                span: "lg:col-span-2",
+                focus: ["Autodesk CAD", "Flight Automation", "Arduino Systems"],
+              },
+              {
+                title: "Policy, Economics & Diplomacy",
+                href: "/skills/policy-economics-diplomacy",
+                tag: "Global Governance",
+                desc: "Author empirical policy memos and defend negotiation solutions before Model UN panels.",
+                img: "/images/skills/Skills_Flagship_4.png",
+                span: "lg:col-span-2",
+                focus: ["Policy Writing", "Macroeconomics", "Bilateral Negotiating"],
+              },
+              {
+                title: "Research & Patent Incubator",
+                href: "/skills/research-patent-incubator",
+                tag: "Academic IP Builder",
+                desc: "Draft technical provisional patent claims and publish peer-reviewed scientific manuscripts.",
+                img: "/images/skills/Skills_Flagship_5.png",
+                span: "lg:col-span-2",
+                focus: ["Provisional Patents", "LaTeX Manuscripts", "Mentor Evaluated"],
+              },
+            ].map((skill, idx) => (
+              <Link
+                key={skill.title}
+                href={skill.href}
+                className={`group relative bg-white rounded-[2.5rem] border border-[#4A4333]/8 shadow-sm hover:shadow-xl hover:border-[#5C7146]/25 hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden p-6 sm:p-8 ${skill.span}`}
+              >
+                {/* Asymmetric Overlay Image on Hover */}
+                <div className="absolute inset-0 bg-[#403011]/30 opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none z-0" />
+
+                <div className="relative z-10">
+                  {/* Top bar */}
+                  <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5">
+                    <span className="text-[9px] font-bold text-[#DCA543] uppercase tracking-[0.14em]">
+                      {skill.tag}
+                    </span>
+                  </div>
+
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-serif font-bold text-[#403011] tracking-tight leading-snug group-hover:text-[#5C7146] transition-colors duration-300 mb-3">
+                    {skill.title}
+                  </h3>
+                  <p className="text-sm text-[#4A4333]/90 font-serif leading-relaxed mb-6">
+                    {skill.desc}
+                  </p>
+                </div>
+
+                {/* Sub-Focus tags */}
+                <div className="relative z-10 pt-5 border-t border-[#4A4333]/8 mt-auto">
+                  <div className="flex flex-wrap gap-1">
+                    {skill.focus.map((f) => (
+                      <span key={f} className="text-[10px] font-medium bg-[#5C7146]/6 text-[#5C7146] px-2 py-0.5 rounded">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5C7146] mt-4 uppercase tracking-wider group-hover:underline">
+                    Explore Fellowship
+                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Quick link to Skills hub */}
+          <div className="text-center mt-14">
+            <Link
+              href="/skills"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Enter Skills Academy Hub
+              <ArrowRight className="w-4.5 h-4.5" />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
       {/* ── 4. HOW IT WORKS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -463,7 +590,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. SUCCESS STORIES ── */}
-      <section className="w-full py-16 sm:py-20 lg:py-28">
+      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
             <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
@@ -583,7 +710,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. FINAL CTA ── */}
-      <section className="w-full bg-[#F6EBD4] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#FDFBF7] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] via-[#374D23] to-[#455434] rounded-3xl px-6 py-16 sm:px-12 md:px-20 md:py-20 shadow-2xl border border-[#5C7146]/20">
             {/* Ambient blobs */}
