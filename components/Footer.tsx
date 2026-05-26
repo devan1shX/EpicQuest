@@ -28,6 +28,7 @@ export default function Footer() {
             <h4 className="text-lg font-serif text-white mb-6 font-medium">Platform</h4>
             <ul className="space-y-3 text-sm text-[#D1CBBB]">
               <li><Link href="/about" className="hover:text-amber transition-colors">About Us</Link></li>
+              <li><Link href="/blog" className="hover:text-amber transition-colors">Blog</Link></li>
               <li><Link href="/skills" className="hover:text-amber transition-colors">Skills Academy</Link></li>
               <li><Link href="/programs" className="hover:text-amber transition-colors">Our Programs</Link></li>
               <li><Link href="/how-it-works" className="hover:text-amber transition-colors">How It Works</Link></li>

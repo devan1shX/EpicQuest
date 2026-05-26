@@ -123,14 +123,12 @@ const skillsList = [
   },
 ];
 
-const generalLinks = [
-  { label: "About", href: "/about" },
-];
-
-const rightLinks = [
+const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Team", href: "/team" },
   { label: "Results", href: "/results" },
+  { label: "Team", href: "/team" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -184,16 +182,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="header__nav" aria-label="Main navigation">
-            {generalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`header__link ${isActive(link.href) ? "header__link--active" : ""}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-
+            
             {/* Programs Link with Premium Dropdown Trigger */}
             <div className="header__nav-item--has-dropdown">
               <Link 
@@ -206,32 +195,23 @@ export default function Header() {
                 </svg>
               </Link>
 
-              {/* Mega-Dropdown Panel */}
+              {/* Minimal Dropdown Menu */}
               <div className="header__dropdown">
-                <div className="header__dropdown-title">
-                  Our Bespoke Admission Portfolios
-                </div>
-                <div className="header__dropdown-grid">
+                <div className="flex flex-col">
                   {programsList.map((prog) => (
                     <Link 
                       key={prog.href} 
                       href={prog.href} 
-                      className={`header__dropdown-card ${pathname === prog.href ? "header__dropdown-card--active" : ""}`}
+                      className={`header__dropdown-item ${pathname === prog.href ? "header__dropdown-item--active" : ""}`}
                     >
-                      <div className="header__dropdown-card-icon">
-                        {prog.icon}
-                      </div>
-                      <div className="header__dropdown-card-content">
-                        <div className="header__dropdown-card-name">{prog.name}</div>
-                        <div className="header__dropdown-card-desc">{prog.desc}</div>
-                      </div>
+                      {prog.name}
                     </Link>
                   ))}
-                </div>
-                <div className="header__dropdown-footer">
-                  <Link href="/programs" className="header__dropdown-footer-link">
-                    Explore all 6 bespoke programs in detail →
-                  </Link>
+                  <div className="border-t border-[#4A4333]/8 mt-1.5 pt-1.5">
+                    <Link href="/programs" className="header__dropdown-item text-[#5C7146] font-semibold">
+                      Explore All Programs →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,37 +228,29 @@ export default function Header() {
                 </svg>
               </Link>
 
-              {/* Mega-Dropdown Panel */}
+              {/* Minimal Dropdown Menu */}
               <div className="header__dropdown">
-                <div className="header__dropdown-title">
-                  The EpicQuest Skills Academy
-                </div>
-                <div className="header__dropdown-grid">
+                <div className="flex flex-col">
                   {skillsList.map((skill) => (
                     <Link 
                       key={skill.href} 
                       href={skill.href} 
-                      className={`header__dropdown-card ${pathname === skill.href ? "header__dropdown-card--active" : ""}`}
+                      className={`header__dropdown-item ${pathname === skill.href ? "header__dropdown-item--active" : ""}`}
                     >
-                      <div className="header__dropdown-card-icon">
-                        {skill.icon}
-                      </div>
-                      <div className="header__dropdown-card-content">
-                        <div className="header__dropdown-card-name">{skill.name}</div>
-                        <div className="header__dropdown-card-desc">{skill.desc}</div>
-                      </div>
+                      {skill.name}
                     </Link>
                   ))}
-                </div>
-                <div className="header__dropdown-footer">
-                  <Link href="/skills" className="header__dropdown-footer-link">
-                    Explore Our Flagship Fellowship Programs →
-                  </Link>
+                  <div className="border-t border-[#4A4333]/8 mt-1.5 pt-1.5">
+                    <Link href="/skills" className="header__dropdown-item text-[#5C7146] font-semibold">
+                      Explore All Skills →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {rightLinks.map((link) => (
+            {/* Remaining Links in Professional Order */}
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -318,18 +290,6 @@ export default function Header() {
         aria-label="Mobile navigation"
       >
         <div className="header__drawer-links">
-          {/* General links */}
-          {generalLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`header__drawer-link ${isActive(link.href) ? "header__drawer-link--active" : ""}`}
-              onClick={closeMobile}
-            >
-              {link.label}
-            </Link>
-          ))}
-
           {/* Collapsible Mobile Accordion for Programs */}
           <div className="header__drawer-accordion">
             <button
@@ -364,11 +324,7 @@ export default function Header() {
                   className={`header__drawer-sublink ${pathname === prog.href ? "header__drawer-sublink--active" : ""}`}
                   onClick={closeMobile}
                 >
-                  <span className="header__drawer-sublink-icon">{prog.icon}</span>
-                  <div className="flex flex-col">
-                    <span className="font-medium text-[#403011]">{prog.name}</span>
-                    <span className="text-[11px] text-[#8A8373] leading-tight font-serif mt-0.5">{prog.desc}</span>
-                  </div>
+                  <span className="font-medium text-[#403011]">{prog.name}</span>
                 </Link>
               ))}
             </div>
@@ -408,18 +364,14 @@ export default function Header() {
                   className={`header__drawer-sublink ${pathname === skill.href ? "header__drawer-sublink--active" : ""}`}
                   onClick={closeMobile}
                 >
-                  <span className="header__drawer-sublink-icon">{skill.icon}</span>
-                  <div className="flex flex-col">
-                    <span className="font-medium text-[#403011]">{skill.name}</span>
-                    <span className="text-[11px] text-[#8A8373] leading-tight font-serif mt-0.5">{skill.desc}</span>
-                  </div>
+                  <span className="font-medium text-[#403011]">{skill.name}</span>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Remaining links */}
-          {rightLinks.map((link) => (
+          {/* Remaining links in matching mobile order */}
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
