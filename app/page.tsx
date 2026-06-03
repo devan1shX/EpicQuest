@@ -45,18 +45,12 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 pt-1 animate-fade-up delay-400">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+              className="inline-flex items-center justify-center gap-2 px-12 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
             >
               Generate Your Ivy Plan
               <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 border-2 border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146]/8 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Book Free Consultation
             </Link>
           </div>
 
@@ -104,22 +98,9 @@ export default function Home() {
               src="/images/home/Home_Hero.png"
               alt="Student working on electronics project"
               fill
-              className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              className="object-cover object-center brightness-120 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2D3E1C]/50 via-transparent to-transparent" />
-
-            {/* Floating achievement badge — bottom left */}
-            <div className="absolute bottom-5 left-5 right-5 flex gap-3 z-10">
-              <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-white/60">
-                <div className="text-lg font-serif font-bold text-[#403011] leading-none">3×</div>
-                <div className="text-[0.65rem] text-[#6A6A6A] font-semibold uppercase tracking-wider mt-0.5">Portfolio Strength</div>
-              </div>
-              <div className="flex-1 bg-[#5C7146]/90 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-[#5C7146]/40">
-                <div className="text-lg font-serif font-bold text-white leading-none">Top‑20</div>
-                <div className="text-[0.65rem] text-white/80 font-semibold uppercase tracking-wider mt-0.5">Global Universities</div>
-              </div>
-            </div>
           </div>
 
           {/* Decorative element — offset dot cluster */}

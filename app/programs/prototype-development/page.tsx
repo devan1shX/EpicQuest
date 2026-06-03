@@ -117,7 +117,16 @@ export default function PrototypeDevelopmentPage() {
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
-          
+          {/* Breadcrumb / Back Navigation */}
+          <div className="mb-8 animate-fade-up">
+            <Link 
+              href="/programs" 
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#5C7146] hover:text-[#465732] transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.5} />
+              Back to Programs
+            </Link>
+          </div>
 
           {/* Programme badge */}
           <div className="mb-8">

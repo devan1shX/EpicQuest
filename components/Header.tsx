@@ -126,6 +126,7 @@ const skillsList = [
 const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Results", href: "/results" },
+  { label: "Diagnostic Report", href: "/test" },
   { label: "Team", href: "/team" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },

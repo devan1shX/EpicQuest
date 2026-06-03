@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -181,6 +182,16 @@ export default function AboutPage() {
                   and leaders to confidently pursue their highest academic aspirations, leaving a
                   lasting mark on the world.
                 </p>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href="/results"
+                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#DCA543] text-[#DCA543] hover:bg-[#DCA543] hover:text-[#403011] rounded-full font-semibold text-sm transition-all duration-300 group"
+                >
+                  Read Our Success Stories
+                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
               </div>
 
               {/* Signature-style divider */}
