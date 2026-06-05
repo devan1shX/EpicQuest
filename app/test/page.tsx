@@ -261,7 +261,7 @@ export default function DiagnosticTestPage() {
               {/* STEP PROGRESS BAR */}
               <div className="w-full bg-[#FDFBF7] rounded-2xl p-4 border border-[#4A4333]/8 shadow-sm flex items-center justify-between text-xs select-none mt-2">
                 <div className="flex items-center gap-2">
-                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-mono transition-colors ${
+                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-sans transition-colors ${
                     step >= 0 ? "bg-[#566544] text-white" : "bg-[#4A4333]/10 text-[#4A4333]/50"
                   }`}>
                     1
@@ -272,7 +272,7 @@ export default function DiagnosticTestPage() {
                 </div>
                 <div className="h-[1px] bg-[#4A4333]/10 flex-1 mx-4 hidden sm:block" />
                 <div className="flex items-center gap-2">
-                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-mono transition-colors ${
+                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-sans transition-colors ${
                     step >= 1 ? "bg-[#566544] text-white" : "bg-[#4A4333]/10 text-[#4A4333]/50"
                   }`}>
                     2
@@ -381,7 +381,7 @@ export default function DiagnosticTestPage() {
                 <div className="flex flex-col gap-5">
                   <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
                     <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-4 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-mono">
+                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
                         Adjective Pair Block {step} of 3
                       </span>
                       <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
@@ -484,7 +484,7 @@ export default function DiagnosticTestPage() {
                 <div className="flex flex-col gap-5">
                   <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#4A4333]/8 shadow-md">
                     <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-mono">
+                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
                         Step 4 of 5 — Traits Matrix
                       </span>
                       <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
@@ -574,7 +574,7 @@ export default function DiagnosticTestPage() {
                 <div className="flex flex-col gap-5">
                   <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
                     <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-mono">
+                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
                         Step 5 of 5 — Scenario Alignment
                       </span>
                       <span className="text-[10px] text-[#4A4333]/60 italic font-serif">

@@ -18,15 +18,15 @@ export default function Footer() {
                 className="h-10 w-auto object-contain" 
               />
             </Link>
-            <p className="text-sm text-[#D1CBBB] leading-relaxed font-serif pr-4">
+            <p className="text-sm text-[#D1CBBB] leading-relaxed font-sans pr-4">
               We transform extraordinary high school students into Ivy League-ready candidates through structured research, patent filing, and real-world apprenticeships.
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 font-medium">Platform</h4>
-            <ul className="space-y-3 text-sm text-[#D1CBBB]">
+            <h4 className="text-sm font-sans text-white mb-6 font-bold uppercase tracking-[0.18em]">Platform</h4>
+            <ul className="space-y-3 text-[11px] font-bold uppercase tracking-widest text-[#D1CBBB]">
               <li><Link href="/about" className="hover:text-amber transition-colors">About Us</Link></li>
               <li><Link href="/blog" className="hover:text-amber transition-colors">Blog</Link></li>
               <li><Link href="/skills" className="hover:text-amber transition-colors">Skills Academy</Link></li>
@@ -40,8 +40,8 @@ export default function Footer() {
 
           {/* Column 3: Programs */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 font-medium">Programs</h4>
-            <ul className="space-y-3 text-sm text-[#D1CBBB]">
+            <h4 className="text-sm font-sans text-white mb-6 font-bold uppercase tracking-[0.18em]">Programs</h4>
+            <ul className="space-y-3 text-[11px] font-bold uppercase tracking-widest text-[#D1CBBB]">
               <li><Link href="/programs/applied-research" className="hover:text-amber transition-colors">Applied Research</Link></li>
               <li><Link href="/programs/prototype-development" className="hover:text-amber transition-colors">Prototype Development</Link></li>
               <li><Link href="/programs/policy-drafts" className="hover:text-amber transition-colors">Policy Drafts</Link></li>
@@ -52,8 +52,8 @@ export default function Footer() {
 
           {/* Column 4: Skills */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 font-medium">Skills Academy</h4>
-            <ul className="space-y-3 text-sm text-[#D1CBBB]">
+            <h4 className="text-sm font-sans text-white mb-6 font-bold uppercase tracking-[0.18em]">Skills Academy</h4>
+            <ul className="space-y-3 text-[11px] font-bold uppercase tracking-widest text-[#D1CBBB]">
               <li><Link href="/skills/ai-ml-data-science" className="hover:text-amber transition-colors">AI / ML & Data Science</Link></li>
               <li><Link href="/skills/applied-finance-investment-banking" className="hover:text-amber transition-colors">Applied Finance & IB</Link></li>
               <li><Link href="/skills/robotics-drone-science" className="hover:text-amber transition-colors">Robotics & Drone</Link></li>
@@ -64,8 +64,8 @@ export default function Footer() {
 
           {/* Column 5: Contact */}
           <div>
-            <h4 className="text-lg font-serif text-white mb-6 font-medium">Contact</h4>
-            <ul className="space-y-4 text-sm text-[#D1CBBB]">
+            <h4 className="text-sm font-sans text-white mb-6 font-bold uppercase tracking-[0.18em]">Contact</h4>
+            <ul className="space-y-4 text-[11px] font-bold uppercase tracking-widest text-[#D1CBBB]">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-olive shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#A8A295]">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-[#A8A295]">
           <p>© {new Date().getFullYear()} EpicQuest Learning. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>

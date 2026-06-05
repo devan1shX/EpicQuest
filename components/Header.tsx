@@ -167,7 +167,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="header">
+      <header className="header font-sans">
         <div className="header__inner">
           {/* Logo */}
           <Link href="/" className="header__logo">
@@ -287,7 +287,7 @@ export default function Header() {
 
       {/* Mobile drawer */}
       <nav
-        className={`header__drawer ${mobileOpen ? "header__drawer--open" : ""}`}
+        className={`header__drawer font-sans ${mobileOpen ? "header__drawer--open" : ""}`}
         aria-label="Mobile navigation"
       >
         <div className="header__drawer-links">

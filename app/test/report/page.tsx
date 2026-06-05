@@ -183,6 +183,7 @@ export default function DiagnosticReportResultsPage() {
   const [loading, setLoading] = useState(true);
   const [animating, setAnimating] = useState(false);
   const [isSampleReport, setIsSampleReport] = useState(true);
+  const [hoveredQuadrant, setHoveredQuadrant] = useState<string | null>(null);
 
   // Hydrate report data on mount
   useEffect(() => {
@@ -558,13 +559,13 @@ export default function DiagnosticReportResultsPage() {
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 border-b border-white/10 pb-10">
             <div>
               <span className="uppercase tracking-[0.2em] text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3 py-1.5 rounded-md border border-[#DCA543]/20">
-                CONFIDENTIAL ADMISSIONS DOSSIER
+                CONFIDENTIAL COGNITIVE & PERSONALITY DOSSIER
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.8rem] font-serif font-medium mt-6 leading-[1.08] tracking-tight text-[#F6EBD4]">
                 Leadership Diagnostic<br />Report
               </h1>
               <p className="font-serif italic text-[#F6EBD4]/60 text-base mt-4">
-                Powered by Gunaity Epicometer™ &amp; Karmattitude Frameworks
+                Powered by Gunaity Epicometer™ & Karmattitude™ Frameworks
               </p>
             </div>
             
@@ -573,9 +574,7 @@ export default function DiagnosticReportResultsPage() {
                 <Award className="w-3.5 h-3.5" />
                 Type: {data.primaryType.code} – {data.primaryType.name}
               </span>
-              <span className="text-[10px] text-[#F6EBD4]/40 uppercase tracking-widest font-mono mt-1">
-                Ref: EQ-2025-{data.primaryType.code}
-              </span>
+              
               <button
                 onClick={handleReset}
                 className="text-xs text-[#DCA543] hover:text-white transition-colors underline cursor-pointer mt-1 font-serif no-print"
@@ -642,172 +641,178 @@ export default function DiagnosticReportResultsPage() {
           SECTION 2 — EXECUTIVE SUMMARY
       ══════════════════════════════ */}
       {data.advancedAnalytics && (
-        <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 page-break border-b border-[#4A4333]/10">
+        <section className="w-full bg-[#FDFBF7] py-6 sm:py-8 page-break border-b border-[#4A4333]/10">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
             {/* Report Summary Card */}
-            <div className="p-8 bg-[#F6EBD4] rounded-3xl border border-[#DCA543]/30 shadow-sm print-card">
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#403011] mb-6 border-b border-[#4A4333]/10 pb-4">
+            <div className="bg-[#F6EBD4] rounded-2xl border border-[#DCA543]/30 shadow-sm print-card px-6 py-5 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+              <h3 className="text-lg font-serif font-bold text-[#403011] lg:border-r lg:border-[#4A4333]/10 lg:pr-10 shrink-0">
                 Executive Summary
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div>
-                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Primary Mode</span>
-                  <span className="text-lg font-serif font-bold text-[#403011]">{data.primaryType.code} - {data.primaryType.name.split(' ')[0]}</span>
+                  <span className="text-[9px] text-[#4A4333]/60 uppercase tracking-widest font-bold block mb-1">Primary Mode</span>
+                  <span className="text-sm font-serif font-bold text-[#403011]">{data.primaryType.code} - {data.primaryType.name.split(' ')[0]}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Style Code</span>
-                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.combinedStyleCode}</span>
+                  <span className="text-[9px] text-[#4A4333]/60 uppercase tracking-widest font-bold block mb-1">Style Code</span>
+                  <span className="text-sm font-serif font-bold text-[#403011]">{data.advancedAnalytics.combinedStyleCode}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Strength Level</span>
-                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.level}</span>
+                  <span className="text-[9px] text-[#4A4333]/60 uppercase tracking-widest font-bold block mb-1">Strength Level</span>
+                  <span className="text-sm font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.level}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Top Career Match</span>
-                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.careerFits[0]?.name}</span>
+                  <span className="text-[9px] text-[#4A4333]/60 uppercase tracking-widest font-bold block mb-1">Top Career Match</span>
+                  <span className="text-sm font-serif font-bold text-[#403011]">{data.advancedAnalytics.careerFits[0]?.name}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
       )}
-{/* ══════════════════════════════
+      {/* ══════════════════════════════
           SECTION 3 — PRIMARY TYPE HERO (Soft White)
       ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-8">
+      <section className="w-full bg-[#FDFBF7] py-12 sm:py-16 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
-          <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
-            SECTION 3 — PRIMARY TYPE
-          </span>
-          
-          {/* Headline */}
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up">
-              You are an{" "}
-              <span className="relative inline-block text-[#5C7146]">
-                <span className="relative z-10 font-serif">{data.primaryType.name} ({data.primaryType.code})</span>
-                <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
-                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>{" "}
-              Type:
-            </h2>
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
             
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 mt-6">
-              {data.primaryType.labels.map((lbl, idx) => (
-                <span 
-                  key={lbl} 
-                  className={`inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full text-xs font-bold border ${
-                    idx === 0 
-                      ? "bg-[#DCA543] text-[#1F2C16] border-[#DCA543]" 
-                      : "bg-[#DCA543]/10 text-[#403011] border-[#DCA543]/25"
-                  }`}
-                >
-                  {idx === 0 && <UserCheck className="w-3.5 h-3.5" />}
-                  {lbl}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
-
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-[#4A4333] font-serif leading-relaxed border-l-3 border-[#DCA543] pl-6 italic">
-            "{data.primaryType.description}"
-          </p>
-
-          {/* Dual Panel */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-            <div className="p-6.5 bg-[#5C7146]/5 rounded-2xl border border-[#5C7146]/10 flex flex-col gap-2 shadow-sm">
-              <span className="inline-flex items-center gap-2 text-[#5C7146] font-bold uppercase text-[11px] tracking-wider">
-                <span className="h-2 w-2 bg-[#5C7146] rounded-full" />
-                At Their Best
+            {/* Left Column: Intro */}
+            <div className="lg:w-5/12 flex flex-col gap-6">
+              <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
+                SECTION 3 — PRIMARY TYPE
               </span>
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
-                {data.primaryType.atTheirBest}
+              
+              <div>
+                <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up">
+                  You are an{" "}
+                  <span className="relative inline-block text-[#5C7146] mt-2 mb-1">
+                    <span className="relative z-10 font-serif">{data.primaryType.name}</span>
+                  </span>{" "}
+                  Type
+                </h2>
+                
+                <div className="flex flex-wrap items-center gap-2 mt-6">
+                  {data.primaryType.labels.map((lbl, idx) => (
+                    <span 
+                      key={lbl} 
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${
+                        idx === 0 
+                          ? "bg-[#DCA543] text-[#1F2C16] border-[#DCA543]" 
+                          : "bg-[#DCA543]/10 text-[#403011] border-[#DCA543]/25"
+                      }`}
+                    >
+                      {idx === 0 && <UserCheck className="w-3.5 h-3.5" />}
+                      {lbl}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 italic mt-2">
+                "{data.primaryType.description}"
               </p>
             </div>
 
-            <div className="p-6.5 bg-[#D4856A]/5 rounded-2xl border border-[#D4856A]/10 flex flex-col gap-2 shadow-sm">
-              <span className="inline-flex items-center gap-2 text-[#D4856A] font-bold uppercase text-[11px] tracking-wider">
-                <span className="h-2 w-2 bg-[#D4856A] rounded-full" />
-                Potential Weakness
-              </span>
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
-                {data.primaryType.potentialWeakness}
-              </p>
-            </div>
-          </div>
+            {/* Right Column: Traits & Dual Panel */}
+            <div className="lg:w-7/12 flex flex-col gap-6 w-full">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="p-6 bg-white rounded-2xl border border-[#5C7146]/15 shadow-sm">
+                  <span className="inline-flex items-center gap-2 text-[#5C7146] font-bold uppercase text-[10px] tracking-wider mb-3">
+                    <span className="h-1.5 w-1.5 bg-[#5C7146] rounded-full" />
+                    At Their Best
+                  </span>
+                  <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                    {data.primaryType.atTheirBest}
+                  </p>
+                </div>
 
-          {/* Traits pills list */}
-          <div className="mt-4">
-            <span className="block text-[10px] text-[#4A4333]/60 uppercase tracking-widest font-bold mb-4">
-              PRIMARY BEHAVIORAL DESCRIPTORS ({data.primaryType.traitPills.length})
-            </span>
-            <div className="flex flex-wrap gap-2.5">
-              {data.primaryType.traitPills.map((pill) => (
-                <span 
-                  key={pill}
-                  className="inline-block px-4 py-2 bg-[#F6EBD4]/40 hover:bg-[#DCA543] hover:text-[#1F2C16] border border-[#4A4333]/8 rounded-full text-xs font-bold text-[#403011] transition-all cursor-default select-none shadow-sm"
-                >
-                  {pill}
+                <div className="p-6 bg-white rounded-2xl border border-[#D4856A]/15 shadow-sm">
+                  <span className="inline-flex items-center gap-2 text-[#D4856A] font-bold uppercase text-[10px] tracking-wider mb-3">
+                    <span className="h-1.5 w-1.5 bg-[#D4856A] rounded-full" />
+                    Potential Weakness
+                  </span>
+                  <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                    {data.primaryType.potentialWeakness}
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-[#4A4333]/10 shadow-sm mt-2">
+                <span className="block text-[10px] text-[#4A4333]/60 uppercase tracking-widest font-bold mb-4">
+                  PRIMARY BEHAVIORAL DESCRIPTORS ({data.primaryType.traitPills.length})
                 </span>
-              ))}
+                <div className="flex flex-wrap gap-2">
+                  {data.primaryType.traitPills.map((pill) => (
+                    <span 
+                      key={pill}
+                      className="inline-block px-3.5 py-1.5 bg-[#F6EBD4]/50 hover:bg-[#DCA543] hover:text-[#1F2C16] border border-[#4A4333]/10 rounded-full text-xs font-bold text-[#403011] transition-colors cursor-default select-none"
+                    >
+                      {pill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════
           SECTION 4 — FRAMEWORK OVERVIEW & 2D MATRIX GRID (Soft White)
       ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10 relative z-10 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+      <section className="w-full bg-[#FDFBF7] py-12 sm:py-16 border-b border-[#4A4333]/10 relative z-10 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Plot Box */}
-          <div className="lg:col-span-7 flex flex-col gap-6 p-6 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm relative overflow-hidden print-card">
+          <div className="lg:col-span-6 flex flex-col gap-5 p-6 bg-white rounded-2xl border border-[#4A4333]/8 shadow-sm relative overflow-hidden print-card">
             
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#4A4333]/8 pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#4A4333]/8 pb-3">
               <div>
                 <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-2.5 py-1 rounded">
                   2D COORDINATES
                 </span>
-                <h2 className="text-2xl font-serif font-medium text-[#403011] mt-2">
+                <h2 className="text-xl font-serif font-medium text-[#403011] mt-1.5">
                   The Gunaity Epicometer™
                 </h2>
               </div>
-              <span className="text-xs text-[#4A4333]/65 font-serif italic select-none">
+              <span className="text-[10px] text-[#4A4333]/65 font-serif italic select-none">
                 Mapped Psychometric Matrix
               </span>
             </div>
 
             {/* Coordinate Grid Container */}
-            <div className="relative w-full aspect-square bg-[#FBF9F2] rounded-2xl border border-[#4A4333]/10 overflow-hidden flex items-center justify-center p-6 select-none shadow-inner">
+            <div className="relative w-full aspect-square bg-[#FBF9F2] rounded-xl border border-[#4A4333]/10 overflow-hidden flex items-center justify-center p-4 select-none shadow-inner">
               
               <svg className="w-full h-full" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Concentric grid rings */}
                 <circle cx="150" cy="150" r="120" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
                 <circle cx="150" cy="150" r="80" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
 
-                {/* Four Quadrant Sectors */}
+                {/* Four Quadrant Sectors — interactive */}
                 {/* D - Top Left */}
-                <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                <g onMouseEnter={() => setHoveredQuadrant("D")} onMouseLeave={() => setHoveredQuadrant(null)} className="cursor-pointer">
+                  <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity={hoveredQuadrant === "D" ? 1 : 0.85} stroke="#FBF9F2" strokeWidth="4" style={{ transition: "fill-opacity 0.25s ease" }} />
+                  <text x="105" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
+                </g>
                 {/* I - Top Right */}
-                <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                <g onMouseEnter={() => setHoveredQuadrant("I")} onMouseLeave={() => setHoveredQuadrant(null)} className="cursor-pointer">
+                  <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity={hoveredQuadrant === "I" ? 1 : 0.85} stroke="#FBF9F2" strokeWidth="4" style={{ transition: "fill-opacity 0.25s ease" }} />
+                  <text x="195" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
+                </g>
                 {/* S - Bottom Right */}
-                <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                <g onMouseEnter={() => setHoveredQuadrant("S")} onMouseLeave={() => setHoveredQuadrant(null)} className="cursor-pointer">
+                  <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity={hoveredQuadrant === "S" ? 1 : 0.85} stroke="#FBF9F2" strokeWidth="4" style={{ transition: "fill-opacity 0.25s ease" }} />
+                  <text x="195" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
+                </g>
                 {/* C - Bottom Left */}
-                <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
-
-                {/* Quadrant Letters */}
-                <text x="105" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
-                <text x="195" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
-                <text x="195" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
-                <text x="105" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
+                <g onMouseEnter={() => setHoveredQuadrant("C")} onMouseLeave={() => setHoveredQuadrant(null)} className="cursor-pointer">
+                  <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity={hoveredQuadrant === "C" ? 1 : 0.85} stroke="#FBF9F2" strokeWidth="4" style={{ transition: "fill-opacity 0.25s ease" }} />
+                  <text x="105" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
+                </g>
 
                 {/* Outer Quadrant Labels */}
                 <text x="80" y="44" fill="#5C7146" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">DRIVE</text>
@@ -829,9 +834,59 @@ export default function DiagnosticReportResultsPage() {
                 {/* Axis labels */}
                 <text x="150" y="10" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">ACTIVE</text>
                 <text x="150" y="297" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">RECEPTIVE</text>
-                <text x="295" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="start">AGREEABLE</text>
-                <text x="5" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="end">SKEPTICAL</text>
+                <text x="295" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="start">A</text>
+                <text x="5" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="end">S</text>
               </svg>
+
+              {/* Quadrant Hover Tooltip */}
+              {hoveredQuadrant && (() => {
+                const quadrantData: Record<string, { name: string; color: string; top?: string; bottom?: string; left?: string; right?: string; traits: string; careers: string }> = {
+                  D: { name: "Drive (Assertive)", color: "#5C7146", top: "15%", left: "6%", traits: "Decisive · Action-Oriented · Competitive · Results-Driven", careers: "Entrepreneurship, Management, Law, Strategy" },
+                  I: { name: "Influence (Hustler)", color: "#DCA543", top: "15%", right: "6%", traits: "Enthusiastic · Persuasive · Inspiring · Collaborative", careers: "Sales, Marketing, Media, PR, Performing Arts" },
+                  S: { name: "Support (Helper)", color: "#D4856A", bottom: "15%", right: "6%", traits: "Empathetic · Dependable · Patient · Team-Builder", careers: "Healthcare, Education, Social Work, HR" },
+                  C: { name: "Clarity (Intellectual)", color: "#5D7A8C", bottom: "15%", left: "6%", traits: "Analytical · Detail-Focused · Systematic · Quality-Driven", careers: "STEM, Research, Finance, Data Science" },
+                };
+                const q = quadrantData[hoveredQuadrant];
+                const isUserQuadrant = data.primaryType.code === hoveredQuadrant;
+                const score = data.advancedAnalytics?.behavioralCapabilities.find(c => c.code === hoveredQuadrant)?.score;
+                return (
+                  <div 
+                    className="absolute z-30 w-48 bg-white/95 backdrop-blur-md rounded-xl border shadow-xl p-3.5 pointer-events-none"
+                    style={{ 
+                      borderColor: q.color + "40",
+                      top: q.top, 
+                      bottom: q.bottom, 
+                      left: q.left, 
+                      right: q.right,
+                      animation: "fadeIn 0.2s ease forwards"
+                    }}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="h-3 w-3 rounded-full" style={{ backgroundColor: q.color }} />
+                      <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: q.color }}>{q.name}</span>
+                    </div>
+                    {isUserQuadrant && (
+                      <span className="inline-block text-[8px] font-bold uppercase tracking-wider bg-[#DCA543] text-[#1F2C16] px-2 py-0.5 rounded mb-2">Your Type</span>
+                    )}
+                    <p className="text-[9px] text-[#4A4333]/80 leading-relaxed mb-2 font-medium">{q.traits}</p>
+                    <div className="border-t border-[#4A4333]/8 pt-2 mt-1">
+                      <span className="text-[8px] text-[#4A4333]/50 font-bold uppercase tracking-wider block mb-0.5">Best-Fit Careers</span>
+                      <span className="text-[9px] text-[#403011] font-medium">{q.careers}</span>
+                    </div>
+                    {score !== undefined && (
+                      <div className="mt-2 pt-2 border-t border-[#4A4333]/8">
+                        <div className="flex items-center justify-between text-[9px] mb-1">
+                          <span className="text-[#4A4333]/50 font-bold uppercase tracking-wider">Your Score</span>
+                          <span className="font-bold" style={{ color: q.color }}>{score}%</span>
+                        </div>
+                        <div className="h-1.5 bg-[#F6EBD4] rounded-full overflow-hidden">
+                          <div className="h-full rounded-full transition-all duration-500" style={{ width: `${score}%`, backgroundColor: q.color }} />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
               {/* Pulsating Coordinate Marker */}
               <div 
@@ -842,68 +897,89 @@ export default function DiagnosticReportResultsPage() {
                   transform: "translate(-50%, 50%)"
                 }}
               >
-                <span className="absolute h-11 w-11 bg-[#DCA543]/20 rounded-full animate-ping pointer-events-none" />
-                <span className="absolute h-7 w-7 bg-[#DCA543]/45 rounded-full animate-pulse pointer-events-none" />
-                <div className="h-5 w-5 bg-[#DCA543] rounded-full border-2 border-white shadow-md flex items-center justify-center cursor-pointer group">
-                  <span className="absolute bottom-full mb-2 bg-[#1F2C16] text-[#FDFBF7] text-[10px] font-bold rounded-md px-2 py-1 shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                    {data.candidate.name.split(" ")[0]} ({data.foundationScores.orientation.agreeable}%, {data.foundationScores.pacePosture.active}%)
-                  </span>
+                <span className="absolute h-12 w-12 bg-[#DCA543]/15 rounded-full animate-ping pointer-events-none" />
+                <span className="absolute h-8 w-8 bg-[#DCA543]/30 rounded-full animate-pulse pointer-events-none" />
+                <div className="relative bg-white rounded-full p-1.5 shadow-lg border-[1.5px] border-[#DCA543] cursor-pointer group z-10">
+                  <Lightbulb className="w-4 h-4 text-[#DCA543]" strokeWidth={2.5} />
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-52 bg-[#1F2C16] text-[#FDFBF7] rounded-xl p-3 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-30">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Lightbulb className="w-3.5 h-3.5 text-[#DCA543]" />
+                      <span className="text-[10px] font-bold">{data.candidate.name}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <span className="text-[8px] font-bold uppercase tracking-wider text-[#DCA543] bg-[#DCA543]/15 px-2 py-0.5 rounded">{data.primaryType.code} — {data.primaryType.name.split('(')[0].trim()}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-[9px] border-t border-white/10 pt-2">
+                      <div>
+                        <span className="block text-[#FDFBF7]/50 font-bold uppercase tracking-wider text-[8px] mb-0.5">Agreeableness</span>
+                        <span className="font-bold text-[#DCA543]">{data.foundationScores.orientation.agreeable}%</span>
+                      </div>
+                      <div>
+                        <span className="block text-[#FDFBF7]/50 font-bold uppercase tracking-wider text-[8px] mb-0.5">Activity Level</span>
+                        <span className="font-bold text-[#DCA543]">{data.foundationScores.pacePosture.active}%</span>
+                      </div>
+                    </div>
+                    <p className="text-[8px] text-[#FDFBF7]/60 leading-relaxed mt-2 border-t border-white/10 pt-2">
+                      This marker shows where you sit on the behavioral matrix based on your pace and orientation scores.
+                    </p>
+                    <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2.5 h-2.5 bg-[#1F2C16] rotate-45 rounded-sm" />
+                  </div>
                 </div>
               </div>
 
             </div>
 
-            <p className="text-xs text-[#4A4333]/65 font-serif leading-relaxed text-center italic border-t border-[#4A4333]/5 pt-3">
+            <p className="text-[10px] text-[#4A4333]/65 font-serif leading-relaxed text-center italic border-t border-[#4A4333]/5 pt-2">
               *The diagnostic grid maps behavioral tendency as a precise visual vector coordinate.
             </p>
           </div>
 
           {/* Right Quadrants Cards */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-8 p-6 sm:p-10 bg-[#FDFBF7] rounded-3xl border border-[#4A4333]/8 shadow-sm print-card">
+          <div className="lg:col-span-6 flex flex-col gap-5 p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm print-card">
             <div>
               <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full">
                 FRAMEWORK CORE
               </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] mt-4 mb-4">
+              <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mt-3 mb-2">
                 The Four Quadrants
               </h3>
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
                 {data.framework.description}
               </p>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
               {data.framework.styles.map((style) => {
                 const isHighlight = style.code === data.primaryType.code;
                 const IconComp = style.code === "D" ? Target : style.code === "I" ? Sparkles : style.code === "S" ? Compass : FileText;
                 return (
                   <div 
                     key={style.code} 
-                    className={`p-5 rounded-2xl border transition-all duration-300 ${
+                    className={`p-4 rounded-xl border transition-all duration-300 ${
                       isHighlight 
                         ? "bg-[#DCA543]/8 border-[#DCA543] shadow-sm relative overflow-hidden" 
                         : "bg-white border-[#4A4333]/8"
                     }`}
                   >
                     {isHighlight && (
-                      <div className="absolute top-0 right-0 w-8 h-8 bg-[#DCA543] text-[#1F2C16] flex items-center justify-center rounded-bl-xl select-none">
-                        <Sparkles className="w-4 h-4" />
+                      <div className="absolute top-0 right-0 w-6 h-6 bg-[#DCA543] text-[#1F2C16] flex items-center justify-center rounded-bl-lg select-none">
+                        <Sparkles className="w-3 h-3" />
                       </div>
                     )}
-                    <div className="flex items-center gap-3">
-                      <span className={`h-7 w-7 rounded-lg flex items-center justify-center text-xs font-bold uppercase ${
+                    <div className="flex items-center gap-2.5">
+                      <span className={`h-6 w-6 rounded-md flex items-center justify-center text-xs font-bold uppercase ${
                         style.code === "D" ? "bg-[#5C7146]/20 text-[#5C7146]" :
                         style.code === "I" ? "bg-[#DCA543]/20 text-[#DCA543]" :
                         style.code === "S" ? "bg-[#D4856A]/20 text-[#D4856A]" :
                         "bg-[#5D7A8C]/20 text-[#5D7A8C]"
                       }`}>
-                        <IconComp className="w-4 h-4" />
+                        <IconComp className="w-3 h-3" />
                       </span>
-                      <h4 className="font-serif font-bold text-base text-[#403011]">
+                      <h4 className="font-serif font-bold text-sm text-[#403011]">
                         {style.name}
                       </h4>
                     </div>
-                    <p className="text-[12px] sm:text-xs text-[#4A4333]/75 font-serif leading-relaxed mt-2.5 pl-10">
+                    <p className="text-[10px] sm:text-[11px] text-[#4A4333]/80 font-serif leading-relaxed mt-2">
                       {style.description}
                     </p>
                   </div>
@@ -913,122 +989,96 @@ export default function DiagnosticReportResultsPage() {
           </div>
 
         </div>
-      </section>
 
-      {/* ══════════════════════════════
-          SECTION 5 — FOUNDATION SCORES (Warm Cream)
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
-          <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
-            SECTION 5 — FOUNDATION SCORES
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-[#403011] mt-5 mb-10 leading-tight">
-            Pace &amp; Posture, Orientation
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            
-            {/* Pace & Posture */}
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-[#4A4333]/10 pb-3">
-                <h3 className="font-serif font-bold text-lg text-[#403011]">
-                  Dimension 1 — Pace &amp; Posture
-                </h3>
-                <span className="text-[10px] text-[#5C7146] font-bold uppercase tracking-wider bg-[#5C7146]/10 px-2 py-0.5 rounded border border-[#5C7146]/20">
-                  {data.foundationScores.pacePosture.active >= 50 ? "Leans Active" : "Leans Receptive"}
-                </span>
-              </div>
+          {/* Foundation Scores — compact inline summary */}
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mt-12">
+            <div className="bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm p-6 sm:p-8 print-card">
               
-              <div className="flex flex-col gap-2 mt-2">
-                <div className="flex items-center justify-between text-xs font-bold text-[#403011]">
-                  <span>ACTIVE: {data.foundationScores.pacePosture.active}%</span>
-                  <span>RECEPTIVE: {data.foundationScores.pacePosture.receptive}%</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#4A4333]/8 pb-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="w-4 h-4 text-[#DCA543] shrink-0" />
+                  <h3 className="font-serif font-bold text-lg text-[#403011]">Foundation Scores</h3>
                 </div>
-                <div className="h-5 w-full bg-[#FDFBF7] rounded-full overflow-hidden flex border border-[#4A4333]/10 shadow-inner">
-                  <div 
-                    className="h-full bg-[#5C7146] transition-all duration-[1200ms] ease-out-back flex items-center justify-end px-3 text-[10px] font-bold text-white shadow-inner" 
-                    style={{ width: animating ? `${data.foundationScores.pacePosture.active}%` : "0%" }}
-                  >
-                    {animating && `${data.foundationScores.pacePosture.active}%`}
-                  </div>
-                  <div 
-                    className="h-full bg-[#EAE5D9] transition-all duration-[1200ms] ease-out-back flex items-center justify-start px-3 text-[10px] font-bold text-[#403011]"
-                    style={{ width: animating ? `${data.foundationScores.pacePosture.receptive}%` : "0%" }}
-                  >
-                    {animating && `${data.foundationScores.pacePosture.receptive}%`}
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] text-[#5C7146] font-bold uppercase tracking-wider bg-[#5C7146]/10 px-2 py-0.5 rounded border border-[#5C7146]/20">
+                    {data.foundationScores.pacePosture.active >= 50 ? "Active" : "Receptive"}
+                  </span>
+                  <span className="text-[#4A4333]/30">×</span>
+                  <span className="text-[10px] text-[#DCA543] font-bold uppercase tracking-wider bg-[#DCA543]/10 px-2 py-0.5 rounded border border-[#DCA543]/20">
+                    {data.foundationScores.orientation.agreeable >= 50 ? "Agreeable" : "Skeptical"}
+                  </span>
                 </div>
               </div>
 
-              <div className="bg-[#FDFBF7] border-l-2 border-[#5C7146] p-5 rounded-r-2xl mt-2 shadow-sm border border-l-0 border-[#4A4333]/8">
-                <p className="text-sm text-[#4A4333] font-serif leading-relaxed italic">
-                  "{data.foundationScores.pacePosture.insight}"
-                </p>
-              </div>
-            </div>
-
-            {/* Orientation */}
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-[#4A4333]/10 pb-3">
-                <h3 className="font-serif font-bold text-lg text-[#403011]">
-                  Dimension 2 — Orientation
-                </h3>
-                <span className="text-[10px] text-[#DCA543] font-bold uppercase tracking-wider bg-[#DCA543]/10 px-2 py-0.5 rounded border border-[#DCA543]/20">
-                  {data.foundationScores.orientation.agreeable >= 50 ? "Leans Agreeable" : "Leans Skeptical"}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-2 mt-2">
-                <div className="flex items-center justify-between text-xs font-bold text-[#403011]">
-                  <span>AGREEABLE: {data.foundationScores.orientation.agreeable}%</span>
-                  <span>SKEPTICAL: {data.foundationScores.orientation.skeptical}%</span>
-                </div>
-                <div className="h-5 w-full bg-[#FDFBF7] rounded-full overflow-hidden flex border border-[#4A4333]/10 shadow-inner">
-                  <div 
-                    className="h-full bg-[#DCA543] transition-all duration-[1200ms] ease-out-back flex items-center justify-end px-3 text-[10px] font-bold text-[#1F2C16] shadow-inner" 
-                    style={{ width: animating ? `${data.foundationScores.orientation.agreeable}%` : "0%" }}
-                  >
-                    {animating && `${data.foundationScores.orientation.agreeable}%`}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+                {/* Pace & Posture */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between text-xs font-bold text-[#403011]">
+                    <span>ACTIVE: {data.foundationScores.pacePosture.active}%</span>
+                    <span>RECEPTIVE: {data.foundationScores.pacePosture.receptive}%</span>
                   </div>
-                  <div 
-                    className="h-full bg-[#E0DDD5] transition-all duration-[1200ms] ease-out-back flex items-center justify-start px-3 text-[10px] font-bold text-[#4A4333]"
-                    style={{ width: animating ? `${data.foundationScores.orientation.skeptical}%` : "0%" }}
-                  >
-                    {animating && `${data.foundationScores.orientation.skeptical}%`}
+                  <div className="h-4 w-full bg-[#F6EBD4] rounded-full overflow-hidden flex border border-[#4A4333]/10 shadow-inner">
+                    <div 
+                      className="h-full bg-[#5C7146] transition-all duration-[1200ms] ease-out-back flex items-center justify-end px-2 text-[9px] font-bold text-white" 
+                      style={{ width: animating ? `${data.foundationScores.pacePosture.active}%` : "0%" }}
+                    >
+                      {animating && `${data.foundationScores.pacePosture.active}%`}
+                    </div>
+                    <div 
+                      className="h-full bg-[#EAE5D9] transition-all duration-[1200ms] ease-out-back flex items-center justify-start px-2 text-[9px] font-bold text-[#403011]"
+                      style={{ width: animating ? `${data.foundationScores.pacePosture.receptive}%` : "0%" }}
+                    >
+                      {animating && `${data.foundationScores.pacePosture.receptive}%`}
+                    </div>
                   </div>
+                  <p className="text-xs text-[#4A4333]/80 font-serif italic leading-relaxed border-l-2 border-[#5C7146] pl-3">
+                    "{data.foundationScores.pacePosture.insight}"
+                  </p>
+                </div>
+
+                {/* Orientation */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between text-xs font-bold text-[#403011]">
+                    <span>AGREEABLE: {data.foundationScores.orientation.agreeable}%</span>
+                    <span>SKEPTICAL: {data.foundationScores.orientation.skeptical}%</span>
+                  </div>
+                  <div className="h-4 w-full bg-[#F6EBD4] rounded-full overflow-hidden flex border border-[#4A4333]/10 shadow-inner">
+                    <div 
+                      className="h-full bg-[#DCA543] transition-all duration-[1200ms] ease-out-back flex items-center justify-end px-2 text-[9px] font-bold text-[#1F2C16]" 
+                      style={{ width: animating ? `${data.foundationScores.orientation.agreeable}%` : "0%" }}
+                    >
+                      {animating && `${data.foundationScores.orientation.agreeable}%`}
+                    </div>
+                    <div 
+                      className="h-full bg-[#E0DDD5] transition-all duration-[1200ms] ease-out-back flex items-center justify-start px-2 text-[9px] font-bold text-[#4A4333]"
+                      style={{ width: animating ? `${data.foundationScores.orientation.skeptical}%` : "0%" }}
+                    >
+                      {animating && `${data.foundationScores.orientation.skeptical}%`}
+                    </div>
+                  </div>
+                  <p className="text-xs text-[#4A4333]/80 font-serif italic leading-relaxed border-l-2 border-[#DCA543] pl-3">
+                    "{data.foundationScores.orientation.insight}"
+                  </p>
                 </div>
               </div>
 
-              <div className="bg-[#FDFBF7] border-l-2 border-[#DCA543] p-5 rounded-r-2xl mt-2 shadow-sm border border-l-0 border-[#4A4333]/8">
-                <p className="text-sm text-[#4A4333] font-serif leading-relaxed italic">
-                  "{data.foundationScores.orientation.insight}"
-                </p>
+              {/* Combined Result */}
+              <div className="mt-6 pt-4 border-t border-[#4A4333]/8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="w-4 h-4 text-[#DCA543] shrink-0" />
+                  <div>
+                    <p className="text-[9px] text-[#4A4333]/50 font-bold uppercase tracking-wider">Combined Result</p>
+                    <p className="text-sm font-serif font-bold text-[#403011]">{data.foundationScores.combinedResult.formula}</p>
+                  </div>
+                </div>
+                <div className="px-5 py-2 bg-[#DCA543] text-[#1F2C16] rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm">
+                  {data.foundationScores.combinedResult.type}
+                </div>
               </div>
-            </div>
 
-          </div>
-
-          {/* Unified Result Banner */}
-          <div className="mt-12 pt-6 border-t border-[#4A4333]/10 flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#FDFBF7]/60 p-6 rounded-2xl border border-[#4A4333]/8 shadow-sm">
-            <div className="flex items-center gap-3.5">
-              <TrendingUp className="w-5 h-5 text-[#DCA543] shrink-0" />
-              <div>
-                <p className="text-[10px] text-[#4A4333]/60 font-bold uppercase tracking-wider">
-                  COMBINED RESULT FORMULA
-                </p>
-                <p className="text-base font-serif font-bold text-[#403011] mt-0.5">
-                  {data.foundationScores.combinedResult.formula}
-                </p>
-              </div>
-            </div>
-            <div className="px-6 py-2.5 bg-[#DCA543] hover:scale-102 transition-transform text-[#1F2C16] rounded-full text-xs font-bold uppercase tracking-widest shadow-md">
-              {data.foundationScores.combinedResult.type}
             </div>
           </div>
 
-        </div>
       </section>
 
       {/* ══════════════════════════════
@@ -1050,123 +1100,172 @@ export default function DiagnosticReportResultsPage() {
               </p>
             </div>
 
-            {/* Behavioral Capabilities Bars */}
-            <div className="flex flex-col gap-6">
-              {data.advancedAnalytics.behavioralCapabilities.map((cap, idx) => {
+            {/* Behavioral Capabilities — 2×2 Grid with vertical bars */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {data.advancedAnalytics.behavioralCapabilities.map((cap) => {
                 const color = cap.code === "D" ? "#5C7146" : cap.code === "I" ? "#DCA543" : cap.code === "S" ? "#D4856A" : "#5D7A8C";
+                const isPrimary = cap.code === data.primaryType.code;
                 return (
-                  <div key={cap.code} className="bg-white p-6 rounded-2xl border border-[#4A4333]/8 shadow-sm print-card">
-                    <div className="flex justify-between items-end mb-3">
-                      <div>
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#4A4333]/50">Rank {cap.rank}</span>
-                        <h4 className="font-serif font-bold text-lg text-[#403011]">{cap.name}</h4>
+                  <div 
+                    key={cap.code} 
+                    className={`relative p-5 rounded-2xl border flex flex-col items-center gap-4 print-card transition-all duration-300 ${
+                      isPrimary 
+                        ? "bg-white border-[#DCA543] shadow-md" 
+                        : "bg-white border-[#4A4333]/8 shadow-sm hover:shadow-md"
+                    }`}
+                  >
+                    {isPrimary && (
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-widest bg-[#DCA543] text-[#1F2C16] px-2.5 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                        Primary
+                      </span>
+                    )}
+                    
+                    {/* Rank badge */}
+                    <span className="text-[11px] uppercase font-bold tracking-widest text-[#4A4333]/70">Rank {cap.rank}</span>
+
+                    {/* Vertical bar chart */}
+                    <div className="relative w-full flex justify-center">
+                      <div className="w-14 h-28 bg-[#F6EBD4] rounded-lg overflow-hidden flex flex-col justify-end border border-[#4A4333]/5">
+                        <div 
+                          className="w-full rounded-t-md transition-all duration-1000 ease-out-back"
+                          style={{ 
+                            height: animating ? `${cap.score}%` : "0%", 
+                            backgroundColor: color,
+                          }}
+                        />
                       </div>
-                      <span className="text-2xl font-serif font-bold" style={{ color }}>{cap.score}</span>
                     </div>
-                    <div className="h-3 w-full bg-[#F6EBD4] rounded-full overflow-hidden">
-                      <div 
-                        className="h-full transition-all duration-1000 ease-out-back" 
-                        style={{ width: animating ? `${cap.score}%` : "0%", backgroundColor: color }}
-                      />
+
+                    {/* Score */}
+                    <span className="text-3xl font-serif font-bold" style={{ color }}>{cap.score}</span>
+
+                    {/* Name */}
+                    <div className="text-center">
+                      <h4 className="font-serif font-bold text-base text-[#403011] leading-tight">{cap.name}</h4>
+                      <p className="text-xs text-[#4A4333] font-serif mt-1.5 leading-relaxed">{cap.description}</p>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#4A4333] font-serif mt-3">{cap.description}</p>
                   </div>
                 );
               })}
             </div>
 
-            {/* Combined Style & Strength */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-8 bg-[#1F2C16] text-[#F6EBD4] rounded-3xl print-dark-section border border-white/5 flex flex-col justify-between">
-                <div>
-                  <span className="text-[10px] text-[#DCA543] uppercase tracking-widest font-bold mb-2 block">Primary + Secondary Style</span>
-                  <h3 className="text-4xl font-serif font-bold text-white mb-2">{data.advancedAnalytics.combinedStyleCode}</h3>
-                  <div className="text-lg font-serif italic text-white/80 border-l-2 border-[#DCA543] pl-4 my-4">
-                    {data.advancedAnalytics.combinedStyleExplanation}
-                  </div>
+            {/* Combined Style + Personality Strength — compact row */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+              {/* Combined Style (wider) */}
+              <div className="md:col-span-3 p-6 bg-[#1F2C16] text-[#F6EBD4] rounded-2xl print-dark-section border border-white/5 flex items-center gap-6">
+                <div className="shrink-0 h-16 w-16 rounded-xl bg-[#DCA543]/15 border border-[#DCA543]/25 flex items-center justify-center">
+                  <span className="text-2xl font-serif font-bold text-[#DCA543]">{data.advancedAnalytics.combinedStyleCode}</span>
                 </div>
-                <div className="mt-6 pt-4 border-t border-white/10 text-sm">
-                  {data.advancedAnalytics.primaryStyle} + {data.advancedAnalytics.secondaryStyle}
+                <div className="flex-1 min-w-0">
+                  <span className="text-[11px] text-[#DCA543] uppercase tracking-widest font-bold block">Combined Style</span>
+                  <p className="text-sm font-serif text-white/90 mt-1 leading-relaxed line-clamp-2">{data.advancedAnalytics.combinedStyleExplanation}</p>
+                  <span className="text-xs text-white/60 mt-1.5 block">{data.advancedAnalytics.primaryStyle} + {data.advancedAnalytics.secondaryStyle}</span>
                 </div>
               </div>
 
-              <div className="p-8 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
-                <div>
-                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold mb-2 block">Personality Strength</span>
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.score}</span>
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
-                      data.advancedAnalytics.personalityStrength.level === "Very Strong" ? "bg-[#5C7146]/20 text-[#5C7146]" :
-                      data.advancedAnalytics.personalityStrength.level === "Strong" ? "bg-[#DCA543]/20 text-[#DCA543]" :
-                      data.advancedAnalytics.personalityStrength.level === "Moderate" ? "bg-[#D4856A]/20 text-[#D4856A]" :
-                      "bg-[#5D7A8C]/20 text-[#5D7A8C]"
-                    }`}>
-                      {data.advancedAnalytics.personalityStrength.level}
-                    </span>
-                  </div>
-                  <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
-                    {data.advancedAnalytics.personalityStrength.explanation}
-                  </p>
+              {/* Personality Strength (narrower) */}
+              <div className="md:col-span-2 p-6 bg-white rounded-2xl border border-[#4A4333]/8 shadow-sm flex items-center gap-5 print-card">
+                {/* Circular score indicator */}
+                <div className="shrink-0 relative h-16 w-16">
+                  <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                    <circle cx="18" cy="18" r="15.5" fill="none" stroke="#F6EBD4" strokeWidth="3" />
+                    <circle 
+                      cx="18" cy="18" r="15.5" fill="none" 
+                      stroke={
+                        data.advancedAnalytics.personalityStrength.level === "Very Strong" ? "#5C7146" :
+                        data.advancedAnalytics.personalityStrength.level === "Strong" ? "#DCA543" :
+                        data.advancedAnalytics.personalityStrength.level === "Moderate" ? "#D4856A" : "#5D7A8C"
+                      }
+                      strokeWidth="3" strokeLinecap="round"
+                      strokeDasharray={`${Math.min(100, data.advancedAnalytics.personalityStrength.score * 2.5) * 0.974} 97.4`}
+                      className="transition-all duration-1000 ease-out-back"
+                      style={{ strokeDasharray: animating ? `${Math.min(100, data.advancedAnalytics.personalityStrength.score * 2.5) * 0.974} 97.4` : "0 97.4" }}
+                    />
+                  </svg>
+                  <span className="absolute inset-0 flex items-center justify-center text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.score}</span>
                 </div>
-                
-                {/* Strength Meter */}
-                <div className="mt-6">
-                  <div className="flex justify-between text-[10px] text-[#4A4333]/50 font-bold uppercase mb-1">
-                    <span>Mild</span>
-                    <span>Moderate</span>
-                    <span>Strong</span>
-                    <span>Very Strong</span>
-                  </div>
-                  <div className="h-2 w-full flex rounded-full overflow-hidden bg-[#F6EBD4]">
-                    <div className="h-full bg-gradient-to-r from-[#5D7A8C] via-[#DCA543] to-[#5C7146] transition-all duration-1000 ease-out-back" 
-                         style={{ width: animating ? `${Math.min(100, data.advancedAnalytics.personalityStrength.score * 2.5)}%` : "0%" }} />
-                  </div>
+                <div className="flex-1 min-w-0">
+                  <span className="text-[11px] text-[#4A4333]/70 uppercase tracking-widest font-bold block">Strength</span>
+                  <span className={`inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase ${
+                    data.advancedAnalytics.personalityStrength.level === "Very Strong" ? "bg-[#5C7146]/15 text-[#5C7146]" :
+                    data.advancedAnalytics.personalityStrength.level === "Strong" ? "bg-[#DCA543]/15 text-[#DCA543]" :
+                    data.advancedAnalytics.personalityStrength.level === "Moderate" ? "bg-[#D4856A]/15 text-[#D4856A]" :
+                    "bg-[#5D7A8C]/15 text-[#5D7A8C]"
+                  }`}>
+                    {data.advancedAnalytics.personalityStrength.level}
+                  </span>
+                  <p className="text-xs text-[#4A4333] font-serif mt-1.5 leading-relaxed line-clamp-2">{data.advancedAnalytics.personalityStrength.explanation}</p>
                 </div>
               </div>
             </div>
 
-            {/* Career Fit Engine */}
+            {/* Career Fit Engine — Leaderboard Style */}
             <div>
-              <div className="mb-8">
-                <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] leading-tight">
-                  Career Alignment Report
-                </h3>
-                <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
-                  Distance-based similarity scoring against archetypal career profiles.
-                </p>
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] leading-tight">
+                    Career Alignment Report
+                  </h3>
+                  <p className="text-sm text-[#4A4333] font-serif leading-relaxed mt-1">
+                    Distance-based similarity scoring against archetypal career profiles.
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-wider shrink-0">
+                  <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-[#5C7146]" />Strong Fit</span>
+                  <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-[#DCA543]" />Moderate</span>
+                  <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-[#D4856A]" />Low Fit</span>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white rounded-2xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card">
                 {data.advancedAnalytics.careerFits.map((fit, idx) => {
-                  const colorClass = 
-                    fit.colorStatus === "Green" ? "bg-[#5C7146] text-white" :
-                    fit.colorStatus === "Orange" ? "bg-[#DCA543] text-[#1F2C16]" :
-                    fit.colorStatus === "Yellow" ? "bg-[#DCA543]/80 text-[#1F2C16]" :
-                    "bg-[#D4856A] text-white";
-                  
                   const barColor = 
                     fit.colorStatus === "Green" ? "#5C7146" :
                     fit.colorStatus === "Orange" ? "#DCA543" :
                     fit.colorStatus === "Yellow" ? "#DCA543" :
                     "#D4856A";
+                  
+                  const isTop3 = idx < 3;
 
                   return (
-                    <div key={fit.name} className="bg-white p-5 rounded-2xl border border-[#4A4333]/8 shadow-sm flex flex-col gap-3 print-card">
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-3">
-                          <span className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold shadow-sm ${colorClass}`}>
-                            {idx + 1}
-                          </span>
-                          <h4 className="font-serif font-bold text-lg text-[#403011]">{fit.name}</h4>
+                    <div 
+                      key={fit.name} 
+                      className={`flex items-center gap-4 px-5 sm:px-6 py-3 transition-colors ${
+                        idx !== (data.advancedAnalytics?.careerFits.length ?? 0) - 1 ? "border-b border-[#4A4333]/6" : ""
+                      } ${isTop3 ? "bg-white" : "bg-[#F6EBD4]/30"}`}
+                    >
+                      {/* Rank */}
+                      <span className={`shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-xs font-bold ${
+                        idx === 0 ? "bg-[#5C7146] text-white shadow-sm" :
+                        idx === 1 ? "bg-[#DCA543]/20 text-[#DCA543]" :
+                        idx === 2 ? "bg-[#D4856A]/15 text-[#D4856A]" :
+                        "bg-[#4A4333]/8 text-[#4A4333]/60"
+                      }`}>
+                        {idx + 1}
+                      </span>
+
+                      {/* Name */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className={`font-serif font-bold leading-tight ${isTop3 ? "text-base text-[#403011]" : "text-sm text-[#4A4333]"}`}>
+                          {fit.name}
+                        </h4>
+                      </div>
+
+                      {/* Bar + Percentage */}
+                      <div className="hidden sm:flex items-center gap-3 w-48 shrink-0">
+                        <div className="flex-1 h-2.5 bg-[#F6EBD4] rounded-full overflow-hidden">
+                          <div 
+                            className="h-full rounded-full transition-all duration-1000 ease-out-back"
+                            style={{ width: animating ? `${fit.fitPercentage}%` : "0%", backgroundColor: barColor }}
+                          />
                         </div>
-                        <span className="text-xl font-serif font-bold text-[#403011]">{fit.fitPercentage}%</span>
+                        <span className={`text-sm font-bold font-serif w-10 text-right ${isTop3 ? "text-[#403011]" : "text-[#4A4333]/70"}`}>
+                          {fit.fitPercentage}%
+                        </span>
                       </div>
-                      
-                      <div className="h-1.5 w-full bg-[#F6EBD4] rounded-full overflow-hidden">
-                        <div className="h-full transition-all duration-1000 ease-out-back"
-                             style={{ width: animating ? `${fit.fitPercentage}%` : "0%", backgroundColor: barColor, opacity: fit.colorStatus === 'Yellow' ? 0.8 : 1 }} />
-                      </div>
-                      <p className="text-xs text-[#4A4333] font-serif">{fit.description}</p>
+
+                      {/* Mobile percentage */}
+                      <span className="sm:hidden text-base font-serif font-bold text-[#403011]">{fit.fitPercentage}%</span>
                     </div>
                   );
                 })}
@@ -1180,252 +1279,147 @@ export default function DiagnosticReportResultsPage() {
       )}
 
 {/* ══════════════════════════════
-          SECTION 7 — STRENGTHS vs BLIND SPOTS (Warm Cream)
+          SECTION 7 — STRENGTHS vs BLIND SPOTS
       ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 page-break">
+      <section className="w-full bg-[#F6EBD4] py-12 sm:py-16 border-t border-b border-[#4A4333]/10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
-          <div className="max-w-3xl mb-12">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
+          <div className="max-w-2xl mb-8">
+            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
               SECTION 7 — COMPETENCY MATRIX
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
+            <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
               Strengths &amp; Blind Spots
             </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
-              Comparison profiling {data.candidate.name}'s 11 primary clinical strengths alongside 11 actionable growth blind spots.
+            <p className="text-sm text-[#4A4333] font-serif mt-1">
+              A precise breakdown of {data.candidate.name}'s core strengths and actionable growth areas.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch mt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             
             {/* Strengths Card */}
-            <div className="p-8 sm:p-10 bg-[#1F2C16] text-[#F6EBD4] rounded-3xl border border-white/5 shadow-md flex flex-col justify-between print-dark-section">
-              <div>
-                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                  <h3 className="font-serif font-bold text-xl text-white">
-                    11 Strengths &amp; Talents
-                  </h3>
-                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-white/10 text-white border border-white/20 select-none">
-                    Validated
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {data.strengthsAndBlindSpots.strengths.map((str, idx) => (
-                    <div key={str} className="flex gap-3 items-center">
-                      <span className="shrink-0 select-none">
-                        <CheckCircle2 className="w-4 h-4 text-[#DCA543]" />
-                      </span>
-                      <span className="text-xs sm:text-sm font-serif font-medium text-white/90">
-                        {idx + 1}. {str}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="p-6 bg-[#1F2C16] text-[#F6EBD4] rounded-2xl border border-white/5 shadow-sm print-dark-section">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-3 mb-4">
+                <CheckCircle2 className="w-5 h-5 text-[#DCA543]" />
+                <h3 className="font-serif font-bold text-lg text-white">Top Strengths &amp; Talents</h3>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-white/10 text-[10px] text-[#F6EBD4]/40 uppercase tracking-widest select-none font-sans font-bold">
-                *Targeted applied research projects will leverage these talents.
-              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                {data.strengthsAndBlindSpots.strengths.map((str, idx) => (
+                  <li key={str} className="flex gap-2.5 items-start text-xs sm:text-sm font-serif text-white/90">
+                    <span className="text-[#DCA543]/60 font-bold text-[10px] mt-0.5">{idx + 1}.</span> {str}
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Blind Spots Card */}
-            <div className="p-8 sm:p-10 bg-[#F9ECE8] rounded-3xl border border-[#D4856A]/20 shadow-sm flex flex-col justify-between print-card">
-              <div>
-                <div className="flex items-center justify-between border-b border-[#D4856A]/15 pb-4 mb-6">
-                  <h3 className="font-serif font-bold text-xl text-[#403011]">
-                    11 Blind Spots &amp; Vulnerabilities
-                  </h3>
-                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/25 select-none">
-                    Growth Points
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {data.strengthsAndBlindSpots.blindSpots.map((blind, idx) => (
-                    <div key={blind} className="flex gap-3 items-center">
-                      <span className="shrink-0 select-none">
-                        <AlertCircle className="w-4 h-4 text-[#D4856A]" />
-                      </span>
-                      <span className="text-xs sm:text-sm font-serif font-medium text-[#403011]/90">
-                        {idx + 1}. {blind}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="p-6 bg-[#F9ECE8] rounded-2xl border border-[#D4856A]/20 shadow-sm print-card">
+              <div className="flex items-center gap-3 border-b border-[#D4856A]/15 pb-3 mb-4">
+                <AlertCircle className="w-5 h-5 text-[#D4856A]" />
+                <h3 className="font-serif font-bold text-lg text-[#403011]">Growth Areas &amp; Vulnerabilities</h3>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-[#D4856A]/15 text-[10px] text-[#D4856A] uppercase tracking-widest select-none font-sans font-bold">
-                *Structured mentoring will build methodical discipline.
-              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                {data.strengthsAndBlindSpots.blindSpots.map((blind, idx) => (
+                  <li key={blind} className="flex gap-2.5 items-start text-xs sm:text-sm font-serif text-[#403011]/90">
+                    <span className="text-[#D4856A]/60 font-bold text-[10px] mt-0.5">{idx + 1}.</span> {blind}
+                  </li>
+                ))}
+              </ul>
             </div>
 
           </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════
           SECTION 8 — STYLE DEPTH (Soft White)
       ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
+      <section className="w-full bg-[#FDFBF7] py-12 sm:py-16 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
-          <div className="max-w-3xl mb-12">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
+          <div className="mb-8 max-w-2xl">
+            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
               SECTION 8 — STYLE DEPTH
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
+            <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
               Style Adaptability Profile
             </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
-              Showcasing {data.candidate.name}'s adaptability levels and mental energy expenditure across each behavior mode.
+            <p className="text-sm text-[#4A4333] font-serif mt-1">
+              Adaptability levels and mental energy expenditure across each behavior mode.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
             
-            {/* Core (Spans 2) */}
-            <div className="lg:col-span-2 p-8 sm:p-10 bg-white rounded-3xl border border-[#DCA543] shadow-sm relative overflow-hidden flex flex-col justify-between print-card">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#DCA543]/6 rounded-bl-[6rem] pointer-events-none" />
-              
-              <div>
-                <div className="flex items-center gap-3.5">
-                  <span className="h-8.5 w-8.5 bg-[#DCA543]/10 text-[#DCA543] border border-[#DCA543]/25 rounded-lg flex items-center justify-center text-sm font-bold uppercase select-none font-sans">
-                    <Sparkles className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[9px] text-[#DCA543] font-bold uppercase tracking-wider block font-sans">
-                      {data.styleDepth.core.status}
-                    </span>
-                    <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                      {data.styleDepth.core.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="h-[1px] bg-[#4A4333]/10 w-full my-5" />
-
-                <p className="text-sm sm:text-base text-[#4A4333]/90 font-serif leading-relaxed">
-                  {data.styleDepth.core.description}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-[#4A4333]/5 flex items-center gap-2.5">
-                <span className="h-2 w-2 rounded-full bg-[#DCA543]" />
-                <span className="text-[10px] text-[#4A4333]/50 font-bold uppercase tracking-widest font-sans">
-                  Natural Default State
-                </span>
+            {/* Core */}
+            <div className="p-5 bg-white rounded-2xl border border-[#DCA543]/60 shadow-sm flex flex-col print-card">
+              <span className="text-[9px] text-[#DCA543] font-bold uppercase tracking-wider block mb-1">
+                {data.styleDepth.core.status}
+              </span>
+              <h3 className="font-serif font-bold text-base text-[#403011] mb-2">{data.styleDepth.core.name}</h3>
+              <p className="text-xs text-[#4A4333]/90 font-serif leading-relaxed flex-1">
+                {data.styleDepth.core.description}
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#4A4333]/5 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DCA543]" />
+                <span className="text-[9px] text-[#4A4333]/60 uppercase font-bold">Natural Default</span>
               </div>
             </div>
 
             {/* Helper 1 */}
-            <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card hover:shadow-md transition-shadow">
-              <div>
-                <div className="flex items-center gap-3.5">
-                  <span className="h-8.5 w-8.5 bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/25 rounded-lg flex items-center justify-center text-sm font-bold uppercase select-none font-sans">
-                    <Target className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[9px] text-[#4A4333]/50 font-bold uppercase tracking-wider block font-sans">
-                      {data.styleDepth.helper1.status}
-                    </span>
-                    <h3 className="font-serif font-bold text-lg text-[#403011] mt-0.5">
-                      {data.styleDepth.helper1.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="h-[1px] bg-[#4A4333]/10 w-full my-5" />
-
-                <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                  {data.styleDepth.helper1.description}
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[#4A4333]/5 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#5C7146]" />
-                <span className="text-[10px] text-[#4A4333]/50 font-bold uppercase tracking-widest font-sans">
-                  Strategic Helper Mode
-                </span>
+            <div className="p-5 bg-white rounded-2xl border border-[#4A4333]/10 shadow-sm flex flex-col print-card">
+              <span className="text-[9px] text-[#4A4333]/50 font-bold uppercase tracking-wider block mb-1">
+                {data.styleDepth.helper1.status}
+              </span>
+              <h3 className="font-serif font-bold text-base text-[#403011] mb-2">{data.styleDepth.helper1.name}</h3>
+              <p className="text-xs text-[#4A4333]/80 font-serif leading-relaxed flex-1">
+                {data.styleDepth.helper1.description}
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#4A4333]/5 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#5C7146]" />
+                <span className="text-[9px] text-[#4A4333]/60 uppercase font-bold">Strategic Helper</span>
               </div>
             </div>
 
             {/* Helper 2 */}
-            <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card hover:shadow-md transition-shadow">
-              <div>
-                <div className="flex items-center gap-3.5">
-                  <span className="h-8.5 w-8.5 bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/25 rounded-lg flex items-center justify-center text-sm font-bold uppercase select-none font-sans">
-                    <Users className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[9px] text-[#4A4333]/50 font-bold uppercase tracking-wider block font-sans">
-                      {data.styleDepth.helper2.status}
-                    </span>
-                    <h3 className="font-serif font-bold text-lg text-[#403011] mt-0.5">
-                      {data.styleDepth.helper2.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="h-[1px] bg-[#4A4333]/10 w-full my-5" />
-
-                <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                  {data.styleDepth.helper2.description}
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[#4A4333]/5 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#D4856A]" />
-                <span className="text-[10px] text-[#4A4333]/50 font-bold uppercase tracking-widest font-sans">
-                  Secondary Helper Mode
-                </span>
+            <div className="p-5 bg-white rounded-2xl border border-[#4A4333]/10 shadow-sm flex flex-col print-card">
+              <span className="text-[9px] text-[#4A4333]/50 font-bold uppercase tracking-wider block mb-1">
+                {data.styleDepth.helper2.status}
+              </span>
+              <h3 className="font-serif font-bold text-base text-[#403011] mb-2">{data.styleDepth.helper2.name}</h3>
+              <p className="text-xs text-[#4A4333]/80 font-serif leading-relaxed flex-1">
+                {data.styleDepth.helper2.description}
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#4A4333]/5 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#D4856A]" />
+                <span className="text-[9px] text-[#4A4333]/60 uppercase font-bold">Secondary Helper</span>
               </div>
             </div>
 
-            {/* Challenge - C (Spans 2) */}
-            <div className="lg:col-span-2 p-8 sm:p-10 bg-[#F9ECE8] rounded-3xl border border-[#D4856A]/30 shadow-sm relative overflow-hidden flex flex-col justify-between print-card">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4856A]/4 rounded-bl-[6rem] pointer-events-none" />
-              
-              <div>
-                <div className="flex items-center gap-3.5">
-                  <span className="h-8.5 w-8.5 bg-[#5D7A8C]/10 text-[#5D7A8C] border border-[#5D7A8C]/25 rounded-lg flex items-center justify-center text-sm font-bold uppercase select-none font-sans">
-                    <FileText className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[9px] text-[#D4856A] font-bold uppercase tracking-wider block font-sans">
-                      {data.styleDepth.challenge.status}
-                    </span>
-                    <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                      {data.styleDepth.challenge.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="h-[1px] bg-[#D4856A]/15 w-full my-5" />
-
-                <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                  {data.styleDepth.challenge.description}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-[#D4856A]/20 flex items-center gap-2.5">
-                <span className="h-2 w-2 rounded-full bg-[#D4856A] animate-pulse" />
-                <span className="text-[10px] text-[#D4856A] font-bold uppercase tracking-widest font-sans">
-                  Requires Significant Energy Effort
-                </span>
+            {/* Challenge */}
+            <div className="p-5 bg-[#F9ECE8]/40 rounded-2xl border border-[#D4856A]/25 shadow-sm flex flex-col print-card">
+              <span className="text-[9px] text-[#D4856A] font-bold uppercase tracking-wider block mb-1">
+                {data.styleDepth.challenge.status}
+              </span>
+              <h3 className="font-serif font-bold text-base text-[#403011] mb-2">{data.styleDepth.challenge.name}</h3>
+              <p className="text-xs text-[#4A4333]/90 font-serif leading-relaxed flex-1">
+                {data.styleDepth.challenge.description}
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#D4856A]/15 flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#D4856A] animate-pulse" />
+                <span className="text-[9px] text-[#D4856A] uppercase font-bold">High Energy Effort</span>
               </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════
-          SECTION 9 — WORKPLACE PRIORITIES (Warm Cream)
+          SECTION 9 — WORKPLACE PRIORITIES (Warm Cream) (HIDDEN)
       ══════════════════════════════ */}
+      {/*
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
@@ -1473,202 +1467,151 @@ export default function DiagnosticReportResultsPage() {
 
         </div>
       </section>
+      */}
 
       {/* ══════════════════════════════
-          SECTION 10 — WORKPLACE DESCRIPTOR TABLE (Warm Cream)
+          SECTION 9 — WORKPLACE & ENVIRONMENTAL ANALYSIS
       ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10 page-break">
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-b border-[#4A4333]/10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-10">
             <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full inline-block border border-[#566544]/20 select-none">
-              SECTION 10 — DESCRIPTORS ANALYSIS
+              SECTION 9 — WORKPLACE &amp; ENVIRONMENTAL ANALYSIS
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
-              Workplace Descriptors
+              Environmental Descriptors
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
-              Comparison detailing descriptions most likely and least likely to describe {data.candidate.name}'s actions.
+              Comparison detailing descriptions most likely and least likely to describe {data.candidate.name}'s actions, alongside the specific environments where they thrive or struggle.
             </p>
           </div>
 
-          {/* Table */}
-          <div className="w-full bg-[#FDFBF7] rounded-3xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
             
-            <div className="grid grid-cols-2 bg-[#1F2C16] text-[#F6EBD4] font-bold text-xs sm:text-sm uppercase tracking-widest print-dark-section border-b border-[#4A4333]/10">
-              <div className="p-4 sm:p-5 border-r border-white/10 flex items-center justify-between">
-                <span>More Likely to be Described as</span>
-                <span className="text-[#DCA543]">✦</span>
-              </div>
-              <div className="p-4 sm:p-5 flex items-center justify-between">
-                <span>Less Likely to be Described as</span>
-                <span className="text-[#D4856A]">✦</span>
-              </div>
-            </div>
-
-            <div className="divide-y divide-[#4A4333]/8">
-              {Array.from({ length: Math.max(data.workplaceDescriptorTable.moreLikely.length, data.workplaceDescriptorTable.lessLikely.length) }).map((_, idx) => (
-                <div key={idx} className="grid grid-cols-2 text-xs sm:text-sm font-serif leading-relaxed hover:bg-[#F6EBD4]/20 transition-colors duration-150">
-                  
-                  {/* More Likely */}
-                  <div className="p-4.5 border-r border-[#4A4333]/8 text-[#403011] flex items-center gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#5C7146] shrink-0" />
-                    <span className="font-semibold">
-                      {data.workplaceDescriptorTable.moreLikely[idx] || ""}
-                    </span>
-                  </div>
-
-                  {/* Less Likely */}
-                  <div className="p-4.5 text-[#4A4333]/65 flex items-center gap-3">
-                    <AlertCircle className="w-4 h-4 text-[#D4856A] shrink-0" />
-                    <span>
-                      {data.workplaceDescriptorTable.lessLikely[idx] || ""}
-                    </span>
-                  </div>
-
+            {/* Left: Descriptor Table */}
+            <div className="w-full bg-[#FDFBF7] rounded-3xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card flex flex-col">
+              <div className="grid grid-cols-2 bg-[#1F2C16] text-[#F6EBD4] font-bold text-xs sm:text-sm uppercase tracking-widest print-dark-section border-b border-[#4A4333]/10 shrink-0">
+                <div className="p-4 sm:p-5 border-r border-white/10 flex items-center justify-between">
+                  <span>More Likely</span>
+                  <span className="text-[#DCA543]">✦</span>
                 </div>
-              ))}
+                <div className="p-4 sm:p-5 flex items-center justify-between">
+                  <span>Less Likely</span>
+                  <span className="text-[#D4856A]">✦</span>
+                </div>
+              </div>
+
+              <div className="divide-y divide-[#4A4333]/8 flex-1 overflow-auto">
+                {Array.from({ length: Math.max(data.workplaceDescriptorTable.moreLikely.length, data.workplaceDescriptorTable.lessLikely.length) }).map((_, idx) => (
+                  <div key={idx} className="grid grid-cols-2 text-xs sm:text-sm font-serif leading-relaxed hover:bg-[#F6EBD4]/20 transition-colors duration-150">
+                    <div className="p-4.5 border-r border-[#4A4333]/8 text-[#403011] flex items-center gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-[#5C7146] shrink-0" />
+                      <span className="font-semibold">{data.workplaceDescriptorTable.moreLikely[idx] || ""}</span>
+                    </div>
+                    <div className="p-4.5 text-[#4A4333]/65 flex items-center gap-3">
+                      <AlertCircle className="w-4 h-4 text-[#D4856A] shrink-0" />
+                      <span>{data.workplaceDescriptorTable.lessLikely[idx] || ""}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════
-          SECTION 11 — SITUATIONS (Soft White)
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch animate-fade-up">
-          
-          {/* Environments they thrive in */}
-          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
-            <div>
-              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
-                <span className="h-7 w-7 rounded-lg bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/15 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </span>
+            {/* Right: Environments Grid */}
+            <div className="flex flex-col gap-6">
+              
+              {/* Thrive */}
+              <div className="p-6 sm:p-8 bg-white rounded-3xl border border-[#5C7146]/15 shadow-sm flex flex-col justify-between print-card flex-1">
                 <div>
-                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#5C7146] block font-sans">
-                    SECTION 11 — ENVIRONMENTAL MATRIX
-                  </span>
-                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                    Environments They Thrive In
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4.5">
-                {data.situations.thrive.map((s, idx) => (
-                  <div key={idx} className="flex gap-3.5 items-start">
-                    <span className="text-[#5C7146] shrink-0 mt-1 select-none">
+                  <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-5">
+                    <span className="h-7 w-7 rounded-lg bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/15 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4" />
                     </span>
-                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                      {s}
-                    </p>
+                    <h3 className="font-serif font-bold text-lg text-[#403011]">
+                      Environments They Thrive In
+                    </h3>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#5C7146] font-serif italic select-none font-semibold">
-              *Positions focusing on relational momentum maximize {data.candidate.name}'s capabilities.
-            </div>
-          </div>
-
-          {/* Situations they find difficult */}
-          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
-            <div>
-              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
-                <span className="h-7 w-7 rounded-lg bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/15 flex items-center justify-center shrink-0">
-                  <AlertCircle className="w-4 h-4" />
-                </span>
-                <div>
-                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#D4856A] block font-sans">
-                    SECTION 11 — ENVIRONMENTAL MATRIX
-                  </span>
-                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                    Situations They Find Difficult
-                  </h3>
+                  <div className="flex flex-col gap-3.5">
+                    {data.situations.thrive.map((s, idx) => (
+                      <div key={idx} className="flex gap-3.5 items-start">
+                        <span className="text-[#5C7146] shrink-0 mt-0.5 select-none">
+                          <CheckCircle2 className="w-4 h-4" />
+                        </span>
+                        <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                          {s}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4.5">
-                {data.situations.difficult.map((s, idx) => (
-                  <div key={idx} className="flex gap-3.5 items-start">
-                    <span className="text-[#D4856A] shrink-0 mt-1 select-none">
+              {/* Difficult */}
+              <div className="p-6 sm:p-8 bg-white rounded-3xl border border-[#D4856A]/15 shadow-sm flex flex-col justify-between print-card flex-1">
+                <div>
+                  <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-5">
+                    <span className="h-7 w-7 rounded-lg bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/15 flex items-center justify-center shrink-0">
                       <AlertCircle className="w-4 h-4" />
                     </span>
-                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                      {s}
-                    </p>
+                    <h3 className="font-serif font-bold text-lg text-[#403011]">
+                      Situations They Find Difficult
+                    </h3>
                   </div>
-                ))}
+                  <div className="flex flex-col gap-3.5">
+                    {data.situations.difficult.map((s, idx) => (
+                      <div key={idx} className="flex gap-3.5 items-start">
+                        <span className="text-[#D4856A] shrink-0 mt-0.5 select-none">
+                          <AlertCircle className="w-4 h-4" />
+                        </span>
+                        <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                          {s}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#D4856A] font-serif italic select-none font-semibold">
-              *Isolative and highly static workspaces could lead to dips in motivation.
             </div>
           </div>
-
         </div>
       </section>
 
       {/* ══════════════════════════════
-          SECTION 12 — KARMATTITUDE CAREER MAP (Forest Green)
+          SECTION 10 — CTA / UPGRADE (Karmattitude)
       ══════════════════════════════ */}
-      <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative overflow-hidden text-[#F6EBD4] page-break">
-        <div className="absolute inset-0 bg-[radial-gradient(#DCA543_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04] pointer-events-none" />
-        
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 flex flex-col gap-8 animate-fade-up">
+      <section className="w-full bg-[#FDFBF7] py-12 sm:py-20 page-break">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8">
           
-          <div className="max-w-3xl">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 border border-[#DCA543]/20 px-3.5 py-1.5 rounded-full mb-4 inline-block select-none">
-              SECTION 12 — KARMATTITUDE CAREER MAP
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-white leading-tight mt-1 mb-3">
-              Karmattitude Career Map
-            </h2>
-            <p className="text-sm sm:text-base text-white/70 font-serif leading-relaxed">
-              {data.careerMap.introduction}
-            </p>
-          </div>
+          <div className="relative bg-[#1F2C16] rounded-[2rem] overflow-hidden shadow-2xl p-8 sm:p-14 text-center flex flex-col items-center border border-[#4A4333]/20">
+            {/* Background glowing orbs */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-[#DCA543] opacity-[0.08] rounded-full blur-[60px] -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#5C7146] opacity-[0.12] rounded-full blur-[50px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+            
+            <div className="relative z-10 flex flex-col items-center animate-fade-up">
+              <span className="uppercase tracking-[0.2em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 border border-[#DCA543]/20 px-3.5 py-1.5 rounded-full mb-6 inline-block select-none shadow-sm">
+                UPGRADE YOUR DOSSIER
+              </span>
+              
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-white leading-tight mb-4 max-w-lg">
+                Unlock Your Career Map
+              </h2>
+              
+              <p className="text-sm sm:text-base text-[#F6EBD4]/75 font-serif leading-relaxed max-w-xl mb-8">
+                This dossier currently includes your <strong>Gunaity Personality Assessment</strong>. Take the accompanying <strong>Karmattitude™ Framework</strong> test to discover your precise alignment across six professional domains and receive tailored career matches.
+              </p>
+              
+              <button className="group relative bg-[#DCA543] hover:bg-white text-[#1F2C16] font-bold uppercase tracking-[0.1em] text-xs px-8 py-4 rounded-full shadow-[0_0_20px_rgba(220,165,67,0.25)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300 flex items-center gap-3 no-print overflow-hidden">
+                <span className="relative z-10">Start Assessment</span>
+                <Target className="w-4 h-4 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+              </button>
 
-          <div className="h-[1px] bg-white/10 w-full my-2" />
-
-          {/* Domains Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.careerMap.domains.map((domain, idx) => {
-              const IconComp = 
-                idx === 0 ? FileText : 
-                idx === 1 ? Scroll : 
-                idx === 2 ? TrendingUp : 
-                idx === 3 ? BookOpen : 
-                idx === 4 ? Target : Compass;
-              return (
-                <div 
-                  key={domain.id}
-                  className="group relative p-7 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 hover:border-[#DCA543]/30 transition-all duration-300 flex flex-col gap-4"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-serif text-[#DCA543] text-lg font-bold select-none block group-hover:translate-x-0.5 transition-transform">
-                      {domain.id} —
-                    </span>
-                    <IconComp className="w-5 h-5 text-[#DCA543]/85" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif font-bold text-base text-white tracking-wide">
-                      {domain.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-white/75 font-serif leading-relaxed mt-2.5">
-                      {domain.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+              <p className="text-[9px] text-[#F6EBD4]/30 mt-6 uppercase tracking-[0.15em] font-bold print-only hidden">
+                Contact your administrator to unlock this module.
+              </p>
+            </div>
           </div>
 
         </div>

@@ -1117,7 +1117,7 @@ export function compileReport(
   console.log(`Raw DISC:\nD=${rawD}\nI=${rawI}\nS=${rawS}\nC=${rawC}`);
   console.log(`Normalized DISC:\nD=${normD}\nI=${normI}\nS=${normS}\nC=${normC}`);
 
-  const careerFits: CareerFitResult[] = careerProfiles.map(c => {
+  const careerFitsSorted: CareerFitResult[] = careerProfiles.map(c => {
     const diff = Math.abs(normD - c.D) + Math.abs(normI - c.I) + Math.abs(normS - c.S) + Math.abs(normC - c.C);
     const maxDiff = 200; // Since both sum to 100, max possible Manhattan distance is 200
     const fit = Math.round(100 - (diff / maxDiff) * 100);
@@ -1137,13 +1137,62 @@ export function compileReport(
     const coreName = coreItem.name.split('/')[0].trim();
     const secName = helper1Item.name.split('/')[0].trim();
 
+    const careerTraits = [
+      { name: 'Drive', score: c.D },
+      { name: 'Influence', score: c.I },
+      { name: 'Support', score: c.S },
+      { name: 'Clarity', score: c.C }
+    ].sort((a, b) => b.score - a.score);
+
+    const reqTrait1 = careerTraits[0].name;
+    const reqTrait2 = careerTraits[1].name;
+
+    const careerHash = c.name.length + c.D + c.I; // Stable pseudo-random selector
+
+    let description = "";
+    if (fit >= 80) {
+      const templates = [
+        `As a natural in ${coreName}, you possess the high ${reqTrait1} and ${reqTrait2} required to excel in ${c.name}.`,
+        `${c.name} heavily relies on ${reqTrait1} and ${reqTrait2}, directly matching your strong ${coreName} (${coreScore}%) profile.`,
+        `An excellent match. Your tendency towards ${coreName} provides the foundation needed for the ${reqTrait1}-driven demands of ${c.name}.`,
+        `You are exceptionally well-aligned for ${c.name}, as your ${coreName} and ${secName} scores perfectly support its need for ${reqTrait1}.`
+      ];
+      description = templates[careerHash % templates.length];
+    } else if (fit >= 70) {
+      const templates = [
+        `A solid potential path. ${c.name} values ${reqTrait1}, which resonates reasonably well with your ${coreName} tendencies.`,
+        `Your baseline in ${coreName} provides a good starting point for ${c.name}, though you may need to flex your ${reqTrait2} skills.`,
+        `${c.name} is a viable option, bridging your natural ${coreName} with the role's demand for ${reqTrait1}.`
+      ];
+      description = templates[careerHash % templates.length];
+    } else if (fit >= 55) {
+      const templates = [
+        `A moderate fit. ${c.name} demands high ${reqTrait1}, which might require stretching beyond your primary comfort zone of ${coreName}.`,
+        `While possible, ${c.name} relies on ${reqTrait1} and ${reqTrait2}, contrasting somewhat with your ${coreName}-heavy profile.`,
+        `Succeeding in ${c.name} would require consciously adapting to its ${reqTrait1}-centric environment rather than relying on your natural ${coreName}.`
+      ];
+      description = templates[careerHash % templates.length];
+    } else {
+      const templates = [
+        `Low alignment. ${c.name} is driven almost entirely by ${reqTrait1} and ${reqTrait2}, diverging sharply from your focus on ${coreName}.`,
+        `This path typically demands high ${reqTrait1}, which contradicts your natural behavioral baseline of ${coreName}.`,
+        `A challenging fit. The ${reqTrait1}-heavy requirements of ${c.name} do not naturally align with your strong ${coreName} tendencies.`
+      ];
+      description = templates[careerHash % templates.length];
+    }
+
     return {
       name: c.name,
       fitPercentage: fit,
       colorStatus: color,
-      description: `${c.name} is recommended because your ${coreName} score (${coreScore}%) and ${secName} score (${secScore}%) align well with this profile.`
+      description
     };
-  }).sort((a, b) => b.fitPercentage - a.fitPercentage).slice(0, 8); // Keep top 8 for UI
+  }).sort((a, b) => b.fitPercentage - a.fitPercentage);
+
+  // Keep top 5 best fits + bottom 3 worst fits to show full range
+  const topFits = careerFitsSorted.slice(0, 5);
+  const bottomFits = careerFitsSorted.slice(-3).filter(f => !topFits.includes(f));
+  const careerFits = [...topFits, ...bottomFits];
 
   const advancedAnalytics: AdvancedAnalytics = {
     behavioralCapabilities,
