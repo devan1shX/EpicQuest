@@ -178,11 +178,11 @@ export default function DiagnosticTestPage() {
     },
     {
       q: "What will I learn from my DISC report?",
-      a: "Your DISC profile will show which of the four DISC types fits you best, as well as your scores for the other three types. It will describe how the DISC model can be used to better understand your strengths on a team, as well as the way you like to work.\n\nWhen completing the Truity DISC assessment, you will first see a brief, free report showing a basic overview of your DISC personality type. Then, you have the option of unlocking your full report for a small fee."
+      a: "Your DISC profile will show which of the four DISC types fits you best, as well as your scores for the other three types. It will describe how the DISC model can be used to better understand your strengths on a team, as well as the way you like to work.\n\nWhen completing the EpicQuest DISC assessment, you will first see a brief, free report showing a basic overview of your DISC personality type. Then, you have the option of unlocking your full report for a small fee."
     },
     {
       q: "Can I have my employees, team or group take the DISC test?",
-      a: "Absolutely. Our Truity @Work platform is designed to make it easy to give the DISC assessment to your team or group. See discounted group pricing and learn how to quickly and easily set up testing for your group on the Testing for Business page."
+      a: "Absolutely. Our EpicQuest @Work platform is designed to make it easy to give the DISC assessment to your team or group. See discounted group pricing and learn how to quickly and easily set up testing for your group on the Testing for Business page."
     },
     {
       q: "How long is this DISC assessment?",
@@ -198,11 +198,11 @@ export default function DiagnosticTestPage() {
     },
     {
       q: "Do I need to complete this assessment all at once?",
-      a: "If you’ve created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to a Truity account before starting the test, your progress will not be saved and you will need to complete the test all at once."
+      a: "If you’ve created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to an EpicQuest account before starting the test, your progress will not be saved and you will need to complete the test all at once."
     },
     {
       q: "How can I access my test results?",
-      a: "After you take a test, you will have the option to create an account by entering your email address. If you create an account, you can view your test results at any time by returning to Truity.com and logging into your account. We do not email your results to you."
+      a: "After you take a test, you will have the option to create an account by entering your email address. If you create an account, you can view your test results at any time by returning to EpicQuest.com and logging into your account. We do not email your results to you."
     },
     {
       q: "Is the DISC personality test appropriate for children?",
@@ -387,6 +387,19 @@ export default function DiagnosticTestPage() {
                       <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
                         Select a point leaning toward your natural default
                       </span>
+                    </div>
+
+                    {/* Rating Scale Labels */}
+                    <div className="flex items-center justify-between px-3 sm:px-6 pb-2 select-none">
+                      <span className="w-20 sm:w-28"></span>
+                      <div className="flex items-center justify-between flex-1 max-w-[210px] mx-3 sm:mx-6">
+                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Neutral</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                      </div>
+                      <span className="w-20 sm:w-28"></span>
                     </div>
 
                     <div className="divide-y divide-[#4A4333]/8">
@@ -878,7 +891,7 @@ export default function DiagnosticTestPage() {
               <div className="p-5 bg-white rounded-2xl border border-[#4A4333]/6 flex items-start gap-3.5 mt-2">
                 <Shield className="w-5 h-5 text-[#566544] shrink-0 mt-0.5" />
                 <p className="text-xs text-[#4A4333]/85 font-serif leading-relaxed">
-                  While many companies have developed tests based on the DISC theory, standards may vary wildly. Truity's DISC assessment is thoroughly researched, scientifically validated, and developed under rigorous psychometrics standards.
+                  While many companies have developed tests based on the DISC theory, standards may vary wildly. EpicQuest's DISC assessment is thoroughly researched, scientifically validated, and developed under rigorous psychometrics standards.
                 </p>
               </div>
             </div>
