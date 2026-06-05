@@ -147,6 +147,33 @@ const localFallbackData: ReportData = {
     phone: "+91 9971125276",
     email: "contact@epicquestlearning.com",
     tagline: "We transform extraordinary high school students into Ivy League-ready candidates through structured research, patent filing, and real-world apprenticeships."
+  },
+  advancedAnalytics: {
+    behavioralCapabilities: [
+      { code: "I", name: "Influence", score: 62, description: "Focuses on relationships, communication, and enthusiasm.", rank: 1 },
+      { code: "D", name: "Drive", score: 45, description: "Focuses on results, taking action, and asserting influence.", rank: 2 },
+      { code: "S", name: "Support", score: 40, description: "Focuses on cooperation, sincerity, and dependability.", rank: 3 },
+      { code: "C", name: "Clarity", score: 20, description: "Focuses on quality, accuracy, and systematic processes.", rank: 4 }
+    ],
+    primaryStyle: "Influence",
+    secondaryStyle: "Drive",
+    combinedStyleCode: "ID",
+    combinedStyleExplanation: "Results-driven and communicative. Excels at driving change through persuasion and energetic leadership.",
+    personalityStrength: {
+      score: 11,
+      level: "Moderate",
+      explanation: "Your distinct behavioral preferences show a moderate crystallization, indicating how strongly you default to your primary modes."
+    },
+    careerFits: [
+      { name: "Sales", fitPercentage: 85, colorStatus: "Green", description: "Results-driven, persuasive." },
+      { name: "Marketing", fitPercentage: 82, colorStatus: "Green", description: "Fast-paced, highly collaborative." },
+      { name: "Consulting", fitPercentage: 75, colorStatus: "Orange", description: "Strategic, communicative, fast-paced." },
+      { name: "Teacher", fitPercentage: 58, colorStatus: "Yellow", description: "Empathetic, supportive, structured." },
+      { name: "NGO", fitPercentage: 55, colorStatus: "Yellow", description: "Mission-driven, collaborative." },
+      { name: "Government", fitPercentage: 42, colorStatus: "Red", description: "Structured, policy-driven, methodical." },
+      { name: "Data Analyst", fitPercentage: 35, colorStatus: "Red", description: "Detail-oriented, objective, systematic." },
+      { name: "Software Engineer", fitPercentage: 30, colorStatus: "Red", description: "Analytical, independent, quality-focused." }
+    ]
   }
 };
 
@@ -211,27 +238,7 @@ export default function DiagnosticReportResultsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
       {/* Floating print dossier actions bar */}
-      <div className="w-full bg-[#1F2C16] text-[#F6EBD4] text-xs font-bold py-3.5 px-6 sticky top-0 z-40 shadow-md flex items-center justify-between no-print select-none border-b border-white/10">
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#DCA543] shrink-0 animate-pulse" />
-          <span className="font-serif">Confidential report dynamically generated for {data.candidate.name}</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={handlePrint}
-            className="px-4 py-2 bg-[#DCA543] hover:bg-[#E8B555] text-[#1F2C16] rounded-lg font-bold flex items-center gap-2 cursor-pointer transition-colors shadow"
-          >
-            <Printer className="w-3.5 h-3.5" />
-            Print / Save as PDF
-          </button>
-          <button 
-            onClick={handleReset}
-            className="text-[#DCA543] hover:text-white transition-colors underline cursor-pointer font-serif"
-          >
-            Take New Test
-          </button>
-        </div>
-      </div>
+      
 
       {/* ══════════════════════════════════════════════════════════════
           PRINT-ONLY STYLES & COVER LETTER
@@ -242,12 +249,15 @@ export default function DiagnosticReportResultsPage() {
         .print-cover-letter {
           display: none;
         }
+        .print-logo-header {
+          display: none;
+        }
 
         @media print {
           /* ── A4 page setup ── */
           @page {
             size: A4;
-            margin: 20mm 22mm 18mm 22mm;
+            margin: 0;
           }
 
           /* ── Global resets ── */
@@ -267,7 +277,7 @@ export default function DiagnosticReportResultsPage() {
             display: none !important;
           }
 
-          /* ── Hide all screen report sections ── */
+          /* ── Hide all screen report sections during print ── */
           .screen-report-content {
             display: none !important;
           }
@@ -275,6 +285,15 @@ export default function DiagnosticReportResultsPage() {
           /* ── Show print cover letter ── */
           .print-cover-letter {
             display: block !important;
+          }
+
+          /* ── Print-only Logo Header on every page ── */
+          .print-logo-header {
+            display: block !important;
+            position: absolute;
+            top: 8mm;
+            right: 20mm;
+            z-index: 100;
           }
 
           main {
@@ -290,6 +309,8 @@ export default function DiagnosticReportResultsPage() {
             break-after: page;
             position: relative;
             min-height: 100vh;
+            padding: 8mm 20mm 15mm 20mm !important;
+            box-sizing: border-box;
           }
           .print-page:last-child {
             page-break-after: auto;
@@ -307,6 +328,10 @@ export default function DiagnosticReportResultsPage() {
           .page-break {
             page-break-before: always !important;
             break-before: page !important;
+            padding: 8mm 20mm 15mm 20mm !important;
+            box-sizing: border-box;
+            min-height: 100vh;
+            position: relative;
           }
 
           /* ── Cover letter page-specific styles ── */
@@ -319,12 +344,12 @@ export default function DiagnosticReportResultsPage() {
           .cover-letter-body p {
             text-align: justify !important;
             text-justify: inter-word !important;
-            margin-bottom: 12pt !important;
+            margin-bottom: 8pt !important;
           }
           .cover-letter-body .cl-header-rule {
             border: none;
             border-top: 1.5px solid #1a1a1a;
-            margin: 6pt 0 14pt 0;
+            margin: 4pt 0 10pt 0;
           }
           .cover-letter-body .cl-subject {
             text-align: justify !important;
@@ -337,96 +362,192 @@ export default function DiagnosticReportResultsPage() {
           PRINT-ONLY: PAGE 1 — COVER LETTER
           This entire section is display:none on screen, shown only in print.
       ══════════════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════════════════
+          PRINT-ONLY: DYNAMIC REPORT
+      ══════════════════════════════════════════════════════════════ */}
       <div className="print-cover-letter">
-        <div className="print-page">
-          <div className="cover-letter-body" style={{ fontFamily: '"Times New Roman", Georgia, "Lora", serif' }}>
-            {/* Logo top-right */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '24pt' }}>
-              <img
-                src="/logo.png"
-                alt="EpicQuest Learning"
-                style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
-              />
-            </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: 0 }}>
+          {/* --- GLOBAL PRINT HEADER (Repeats on every page top) --- */}
+          <thead>
+            <tr>
+              <td>
+                <div style={{ height: '22mm', padding: '10mm 20mm 0 20mm', display: 'flex', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
+                  <img
+                    src="/logo.png"
+                    alt="EpicQuest Learning"
+                    style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
+                  />
+                </div>
+              </td>
+            </tr>
+          </thead>
 
-            {/* Personal and Confidential */}
-            <p style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '12pt', marginBottom: '2pt' }}>
-              Personal and Confidential
-            </p>
-            <hr className="cl-header-rule" />
+          {/* --- REPORT CONTENT --- */}
+          <tbody>
+            <tr>
+              <td>
+                <div style={{ padding: '0 20mm' }}>
+                  
+                  {/* --- PAGE 1: COVER LETTER --- */}
+                  <div className="cover-letter-body" style={{ fontFamily: '"Times New Roman", Georgia, "Lora", serif' }}>
+                    <p style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '11.5pt', marginBottom: '2pt' }}>
+                      Personal and Confidential
+                    </p>
 
-            {/* Date */}
-            <p style={{ marginBottom: '16pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10.5pt' }}>
-              {data.candidate.reportDate}
-            </p>
+                    <p style={{ marginBottom: '10pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10pt' }}>
+                      {data.candidate.reportDate}
+                    </p>
 
-            {/* Addressee block */}
-            <div style={{ marginBottom: '4pt', lineHeight: 1.5 }}>
-              <p style={{ marginBottom: '2pt' }}>To: {data.candidate.name}</p>
-              <p style={{ marginBottom: '2pt' }}>{data.candidate.status}, {data.candidate.university}</p>
-              <p style={{ marginBottom: '0' }} className="cl-subject">
-                Subject: Leadership Diagnostic Test Results (Gunaity &ndash; Personality Test | Karmattitude &ndash; Career Path Assessment)
-              </p>
-            </div>
+                    <div style={{ marginBottom: '4pt', lineHeight: 1.4 }}>
+                      <p style={{ marginBottom: '2pt' }}>To: {data.candidate.name}</p>
+                      <p style={{ marginBottom: '2pt' }}>{data.candidate.status}, {data.candidate.university}</p>
+                      <p style={{ marginBottom: '0' }} className="cl-subject">
+                        Subject: Leadership Diagnostic Test Results (Gunaity &ndash; Personality Test | Karmattitude &ndash; Career Path Assessment)
+                      </p>
+                    </div>
 
-            {/* Salutation */}
-            <p style={{ marginTop: '16pt' }}>
-              Dear {data.candidate.name?.split(' ').pop()},
-            </p>
+                    <p style={{ marginTop: '10pt' }}>
+                      Dear {data.candidate.name?.split(' ').pop()},
+                    </p>
 
-            {/* Letter body paragraphs */}
-            <p>
-              Congratulations! You&rsquo;ve just finished a complete assessment of your interests and personality, your strengths and weaknesses, your motivations and influences, and you&rsquo;re well on your way to discovering your ideal career path.
-            </p>
+                    <p>
+                      Congratulations! You&rsquo;ve just finished a complete assessment of your interests and personality, your strengths and weaknesses, your motivations and influences, and you&rsquo;re well on your way to discovering your ideal career path.
+                    </p>
 
-            <p>
-              In this EpicQuest Leadership Diagnostic report, you&rsquo;ll see a summary of your scores in two broad categories: (i) Gunaity Personality Assessment and its four primary quadrants of Drive (Assertive), Influences (Hustler), Social (Helper), and Clarity (Intellectual); and, (ii) Karmattitude Career Path Potential and its six career interest areas. You&rsquo;ll learn more about what these scores mean, and how your top interest area can show which careers you are suited for.
-            </p>
+                    <p>
+                      In this EpicQuest Leadership Diagnostic report, you&rsquo;ll see a summary of your scores in two broad categories: (i) Gunaity Personality Assessment and its four primary quadrants of Drive (Assertive), Influences (Hustler), Social (Helper), and Clarity (Intellectual); and, (ii) Karmattitude Career Path Potential and its six career interest areas. You&rsquo;ll learn more about what these scores mean, and how your top interest area can show which careers you are suited for.
+                    </p>
 
-            <p>
-              Then, we&rsquo;ll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.
-            </p>
+                    <p>
+                      Then, we&rsquo;ll show you how key personality traits can point you toward a career that takes advantage of your natural strengths.
+                    </p>
 
-            <p>
-              Finally, we&rsquo;ll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.
-            </p>
+                    <p>
+                      Finally, we&rsquo;ll show you how to unlock your full report to get an in-depth profile of your interests and personality, along with personalized career planning advice and a complete listing of careers that match your individual interest profile.
+                    </p>
 
-            <p>
-              Let&rsquo;s get started!
-            </p>
+                    <p>
+                      Let&rsquo;s get started!
+                    </p>
 
-            {/* Sign-off */}
-            <p style={{ marginTop: '8pt', marginBottom: '4pt' }}>
-              On behalf of the entire EpicQuest Learning team &ndash;
-            </p>
+                    <p style={{ marginTop: '6pt', marginBottom: '2pt' }}>
+                      On behalf of the entire EpicQuest Learning team &ndash;
+                    </p>
 
-            <p style={{ marginBottom: '4pt' }}>
-              Best regards,
-            </p>
+                    <p style={{ marginBottom: '2pt' }}>
+                      Best regards,
+                    </p>
 
-            {/* Signature placeholder (blank for now) */}
-            <div style={{ height: '56pt', marginBottom: '4pt' }} />
+                    <div style={{ height: '32pt', marginBottom: '2pt' }} />
 
-            {/* Signer credentials */}
-            <div style={{ lineHeight: 1.5 }}>
-              <p style={{ marginBottom: '1pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10.5pt' }}>
-                Tilak Mishra (Wharton School &amp; School of Social Policy &amp; Practice,
-              </p>
-              <p style={{ marginBottom: '1pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10.5pt' }}>
-                Univ. of Pennsylvania 2009)
-              </p>
-              <p style={{ marginBottom: '0', fontFamily: '"Courier New", Courier, monospace', fontSize: '10.5pt' }}>
-                Founder, EpicQuest Learning LLP
-              </p>
-            </div>
-          </div>
-        </div>
+                    <div style={{ lineHeight: 1.4 }}>
+                      <p style={{ marginBottom: '1pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10pt' }}>
+                        Tilak Mishra (Wharton School &amp; School of Social Policy &amp; Practice,
+                      </p>
+                      <p style={{ marginBottom: '1pt', fontFamily: '"Courier New", Courier, monospace', fontSize: '10pt' }}>
+                        Univ. of Pennsylvania 2009)
+                      </p>
+                      <p style={{ marginBottom: '0', fontFamily: '"Courier New", Courier, monospace', fontSize: '10pt' }}>
+                        Founder, EpicQuest Learning LLP
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* --- PAGE BREAK --- */}
+                  <div style={{ pageBreakBefore: 'always', breakBefore: 'page' }}></div>
+
+                  {/* --- PAGE 2 & ONWARDS: FRAMEWORK EXPLANATION --- */}
+                  <div className="cover-letter-body" style={{ fontFamily: '"Times New Roman", Georgia, "Lora", serif', paddingTop: '10pt' }}>
+                    <hr style={{ border: 'none', borderTop: '1.5px solid #1a1a1a', margin: '0 0 12pt 0' }} />
+
+                    <p style={{ fontWeight: 'bold', fontSize: '13pt', marginBottom: '8pt', fontFamily: '"Times New Roman", Georgia, serif' }}>
+                      What is GUNAITY EPICOMETER™?
+                    </p>
+
+                    <p style={{ marginBottom: '6pt' }}>
+                      The GUNAITY EPICOMETER™ system is a simple but powerful way to understand people&rsquo;s behavior and the way they interact with one another. This system describes people&mdash;and their behavior&mdash;in terms of four broad styles: Drive (Assertive), Influence (Hustler), Support (Helper), and Clarity (Intellectual).
+                    </p>
+
+                    <p style={{ marginBottom: '6pt' }}>
+                      Although everyone uses all four styles, most of us depend on one or two most of the time. Understanding your dominant style can help you to understand how others see you, where conflict is likely to arise, and what sorts of work roles will suit you best.
+                    </p>
+
+                    <p style={{ marginBottom: '6pt' }}>
+                      GUNAITY EPICOMETER™ assessments are frequently used in the workplace to help teammates better understand one another and how to work together. Whether you&rsquo;re taking this assessment as a team activity or on your own, you can expect to gain a better understand of how you approach the people around you.
+                    </p>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: '4pt 0 4pt 0' }}>
+                      <svg width="220" height="220" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity="0.85" stroke="#FFFFFF" strokeWidth="4" />
+                        <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity="0.85" stroke="#FFFFFF" strokeWidth="4" />
+                        <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity="0.85" stroke="#FFFFFF" strokeWidth="4" />
+                        <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity="0.85" stroke="#FFFFFF" strokeWidth="4" />
+                        <text x="105" y="115" fill="#FFFFFF" fontSize="28" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
+                        <text x="195" y="115" fill="#FFFFFF" fontSize="28" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
+                        <text x="195" y="205" fill="#FFFFFF" fontSize="28" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
+                        <text x="105" y="205" fill="#FFFFFF" fontSize="28" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
+                        <line x1="150" y1="25" x2="150" y2="275" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.5" />
+                        <polygon points="150,18 146,28 154,28" fill="#4A4333" fillOpacity="0.6" />
+                        <polygon points="150,282 146,272 154,272" fill="#4A4333" fillOpacity="0.6" />
+                        <line x1="25" y1="150" x2="275" y2="150" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.5" />
+                        <polygon points="282,150 272,146 272,154" fill="#4A4333" fillOpacity="0.6" />
+                        <polygon points="18,150 28,146 28,154" fill="#4A4333" fillOpacity="0.6" />
+                        <text x="150" y="12" fill="#4A4333" fontSize="9" fontWeight="bold" letterSpacing="1.5" textAnchor="middle">ACTIVE</text>
+                        <text x="150" y="296" fill="#4A4333" fontSize="9" fontWeight="bold" letterSpacing="1.5" textAnchor="middle">RECEPTIVE</text>
+                        <text x="295" y="154" fill="#4A4333" fontSize="9" fontWeight="bold" letterSpacing="1.5" textAnchor="start">AGREEABLE</text>
+                        <text x="5" y="154" fill="#4A4333" fontSize="9" fontWeight="bold" letterSpacing="1.5" textAnchor="end">SKEPTICAL</text>
+                      </svg>
+                    </div>
+
+                    <p style={{ fontWeight: 'bold', fontSize: '11.5pt', marginBottom: '6pt', marginTop: '2pt', fontFamily: '"Times New Roman", Georgia, serif' }}>
+                      The GUNAITY EPICOMETER™ System
+                    </p>
+
+                    <p style={{ marginBottom: '4pt' }}>
+                      The GUNAITY EPICOMETER™ framework is often represented by a graphic that shows the four types in four quadrants of a circle, as above. The four letters in the graphic designate the four primary GUNAITY EPICOMETER™ types:
+                    </p>
+
+                    <div style={{ paddingLeft: '14pt', marginBottom: '0' }}>
+                      <p style={{ marginBottom: '6pt' }}>
+                        &bull;&nbsp;&nbsp;<strong>D for Drive (Assertive).</strong> People with the Drive (Assertive) style tend to be leaders who are action oriented and decisive.
+                      </p>
+                      <p style={{ marginBottom: '6pt' }}>
+                        &bull;&nbsp;&nbsp;<strong>I for Influence (Hustler).</strong> People with the Influence (Hustler) style tend to be enthusiastic communicators who inspire and persuade others.
+                      </p>
+                      
+
+                      <p style={{ marginBottom: '6pt', marginTop: '10pt' }}>
+                        &bull;&nbsp;&nbsp;<strong>S for Support (Helper).</strong> People with the Support (Helper) style tend to be dependable, empathetic team builders.
+                      </p>
+                      <p style={{ marginBottom: '6pt' }}>
+                        &bull;&nbsp;&nbsp;<strong>C for Clarity (Intellectual).</strong> People with the Clarity (Intellectual) style tend to be analytical, detail-focused thinkers.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </td>
+            </tr>
+          </tbody>
+
+          {/* --- GLOBAL PRINT FOOTER (Repeats on every page bottom) --- */}
+          <tfoot>
+            <tr>
+              <td>
+                <div style={{ height: '15mm', padding: '0 20mm 10mm 20mm', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
+                  <hr style={{ border: 'none', borderTop: '1px solid #cccccc', width: '100%', margin: '0 0 5pt 0' }} />
+                  <p style={{ fontSize: '7pt', textAlign: 'center', color: '#666666', fontFamily: '"Arial", "Helvetica", sans-serif', letterSpacing: '0.5pt', margin: '0', textTransform: 'uppercase' }}>
+                    EpicQuest Learning | 8/11, 1<sup>st</sup> Floor, Sarvapriya Vihar, New Delhi 110016, India | Tel: (+91) 9971125276
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
 
       {/* All screen-visible sections — hidden during print */}
-      <div className="screen-report-content">
-
-      {/* ══════════════════════════════
+      <div className="screen-report-content">{/* ══════════════════════════════
           SECTION 1 — COVER PAGE HERO (Forest Green)
       ══════════════════════════════ */}
       <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative overflow-hidden text-[#F6EBD4] border-b border-[#4A4333]/10">
@@ -516,8 +637,133 @@ export default function DiagnosticReportResultsPage() {
         </div>
       </section>
 
+      
       {/* ══════════════════════════════
-          SECTION 2 — FRAMEWORK OVERVIEW & 2D MATRIX GRID (Soft White)
+          SECTION 2 — EXECUTIVE SUMMARY
+      ══════════════════════════════ */}
+      {data.advancedAnalytics && (
+        <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 page-break border-b border-[#4A4333]/10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+            {/* Report Summary Card */}
+            <div className="p-8 bg-[#F6EBD4] rounded-3xl border border-[#DCA543]/30 shadow-sm print-card">
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#403011] mb-6 border-b border-[#4A4333]/10 pb-4">
+                Executive Summary
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Primary Mode</span>
+                  <span className="text-lg font-serif font-bold text-[#403011]">{data.primaryType.code} - {data.primaryType.name.split(' ')[0]}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Style Code</span>
+                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.combinedStyleCode}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Strength Level</span>
+                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.level}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold block mb-1">Top Career Match</span>
+                  <span className="text-lg font-serif font-bold text-[#403011]">{data.advancedAnalytics.careerFits[0]?.name}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+{/* ══════════════════════════════
+          SECTION 3 — PRIMARY TYPE HERO (Soft White)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-8">
+          
+          <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
+            SECTION 3 — PRIMARY TYPE
+          </span>
+          
+          {/* Headline */}
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up">
+              You are an{" "}
+              <span className="relative inline-block text-[#5C7146]">
+                <span className="relative z-10 font-serif">{data.primaryType.name} ({data.primaryType.code})</span>
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>{" "}
+              Type:
+            </h2>
+            
+            {/* Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 mt-6">
+              {data.primaryType.labels.map((lbl, idx) => (
+                <span 
+                  key={lbl} 
+                  className={`inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full text-xs font-bold border ${
+                    idx === 0 
+                      ? "bg-[#DCA543] text-[#1F2C16] border-[#DCA543]" 
+                      : "bg-[#DCA543]/10 text-[#403011] border-[#DCA543]/25"
+                  }`}
+                >
+                  {idx === 0 && <UserCheck className="w-3.5 h-3.5" />}
+                  {lbl}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
+
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-[#4A4333] font-serif leading-relaxed border-l-3 border-[#DCA543] pl-6 italic">
+            "{data.primaryType.description}"
+          </p>
+
+          {/* Dual Panel */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+            <div className="p-6.5 bg-[#5C7146]/5 rounded-2xl border border-[#5C7146]/10 flex flex-col gap-2 shadow-sm">
+              <span className="inline-flex items-center gap-2 text-[#5C7146] font-bold uppercase text-[11px] tracking-wider">
+                <span className="h-2 w-2 bg-[#5C7146] rounded-full" />
+                At Their Best
+              </span>
+              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
+                {data.primaryType.atTheirBest}
+              </p>
+            </div>
+
+            <div className="p-6.5 bg-[#D4856A]/5 rounded-2xl border border-[#D4856A]/10 flex flex-col gap-2 shadow-sm">
+              <span className="inline-flex items-center gap-2 text-[#D4856A] font-bold uppercase text-[11px] tracking-wider">
+                <span className="h-2 w-2 bg-[#D4856A] rounded-full" />
+                Potential Weakness
+              </span>
+              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
+                {data.primaryType.potentialWeakness}
+              </p>
+            </div>
+          </div>
+
+          {/* Traits pills list */}
+          <div className="mt-4">
+            <span className="block text-[10px] text-[#4A4333]/60 uppercase tracking-widest font-bold mb-4">
+              PRIMARY BEHAVIORAL DESCRIPTORS ({data.primaryType.traitPills.length})
+            </span>
+            <div className="flex flex-wrap gap-2.5">
+              {data.primaryType.traitPills.map((pill) => (
+                <span 
+                  key={pill}
+                  className="inline-block px-4 py-2 bg-[#F6EBD4]/40 hover:bg-[#DCA543] hover:text-[#1F2C16] border border-[#4A4333]/8 rounded-full text-xs font-bold text-[#403011] transition-all cursor-default select-none shadow-sm"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          SECTION 4 — FRAMEWORK OVERVIEW & 2D MATRIX GRID (Soft White)
       ══════════════════════════════ */}
       <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10 relative z-10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
@@ -540,51 +786,56 @@ export default function DiagnosticReportResultsPage() {
             </div>
 
             {/* Coordinate Grid Container */}
-            <div className="relative w-full aspect-square bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/10 overflow-hidden flex items-center justify-center p-8 select-none shadow-inner">
+            <div className="relative w-full aspect-square bg-[#FBF9F2] rounded-2xl border border-[#4A4333]/10 overflow-hidden flex items-center justify-center p-6 select-none shadow-inner">
               
-              <div aria-hidden className="absolute inset-0 grid grid-cols-8 grid-rows-8 pointer-events-none opacity-40">
-                {Array.from({ length: 64 }).map((_, i) => (
-                  <div key={i} className="border-[0.5px] border-[#4A4333]/6" />
-                ))}
-              </div>
+              <svg className="w-full h-full" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Concentric grid rings */}
+                <circle cx="150" cy="150" r="120" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
+                <circle cx="150" cy="150" r="80" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
 
-              {/* Main Axes */}
-              <div aria-hidden className="absolute left-1/2 top-0 bottom-0 w-[1.5px] bg-[#4A4333]/15 pointer-events-none" />
-              <div aria-hidden className="absolute top-1/2 left-0 right-0 h-[1.5px] bg-[#4A4333]/15 pointer-events-none" />
+                {/* Four Quadrant Sectors */}
+                {/* D - Top Left */}
+                <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                {/* I - Top Right */}
+                <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                {/* S - Bottom Right */}
+                <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
+                {/* C - Bottom Left */}
+                <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
 
-              {/* Quadrant Visual Overlays */}
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 p-5 text-center pointer-events-none opacity-[0.45]">
-                <div className="flex items-start justify-start text-[#5C7146] font-bold text-[10px] uppercase border-r border-b border-dashed border-[#5C7146]/20">
-                  Drive (D)
-                </div>
-                <div className="flex items-start justify-end text-[#DCA543] font-bold text-[10px] uppercase border-l border-b border-dashed border-[#DCA543]/20 bg-[#DCA543]/2">
-                  Influence (I)
-                </div>
-                <div className="flex items-end justify-start text-[#5D7A8C] font-bold text-[10px] uppercase border-r border-t border-dashed border-[#5D7A8C]/20">
-                  Clarity (C)
-                </div>
-                <div className="flex items-end justify-end text-[#D4856A] font-bold text-[10px] uppercase border-l border-t border-dashed border-[#D4856A]/20">
-                  Support (S)
-                </div>
-              </div>
+                {/* Quadrant Letters */}
+                <text x="105" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
+                <text x="195" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
+                <text x="195" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
+                <text x="105" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
 
-              {/* Axis Headings */}
-              <span className="absolute top-3 left-1/2 -translate-x-1/2 bg-[#566544] text-[#F6EBD4] px-2.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider shadow-sm">
-                Active ({data.foundationScores.pacePosture.active}%)
-              </span>
-              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-[#4A4333]/70 text-[#F6EBD4] px-2.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider">
-                Receptive ({data.foundationScores.pacePosture.receptive}%)
-              </span>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#DCA543] text-[#1F2C16] px-2.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider shadow-sm">
-                Agreeable ({data.foundationScores.orientation.agreeable}%)
-              </span>
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#4A4333]/70 text-[#F6EBD4] px-2.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider">
-                Skeptical ({data.foundationScores.orientation.skeptical}%)
-              </span>
+                {/* Outer Quadrant Labels */}
+                <text x="80" y="44" fill="#5C7146" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">DRIVE</text>
+                <text x="220" y="44" fill="#DCA543" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">INFLUENCE</text>
+                <text x="220" y="262" fill="#D4856A" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">SUPPORT</text>
+                <text x="80" y="262" fill="#5D7A8C" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">CLARITY</text>
+
+                {/* Axes lines with arrows */}
+                {/* Vertical Axis (Active - Receptive) */}
+                <line x1="150" y1="20" x2="150" y2="280" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
+                <polygon points="150,15 146,23 154,23" fill="#4A4333" fillOpacity="0.5" />
+                <polygon points="150,285 146,277 154,277" fill="#4A4333" fillOpacity="0.5" />
+
+                {/* Horizontal Axis (Agreeable - Skeptical) */}
+                <line x1="20" y1="150" x2="280" y2="150" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
+                <polygon points="285,150 277,146 277,154" fill="#4A4333" fillOpacity="0.5" />
+                <polygon points="15,150 23,146 23,154" fill="#4A4333" fillOpacity="0.5" />
+
+                {/* Axis labels */}
+                <text x="150" y="10" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">ACTIVE</text>
+                <text x="150" y="297" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">RECEPTIVE</text>
+                <text x="295" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="start">AGREEABLE</text>
+                <text x="5" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="end">SKEPTICAL</text>
+              </svg>
 
               {/* Pulsating Coordinate Marker */}
               <div 
-                className="absolute z-20 flex items-center justify-center"
+                className="absolute z-20 flex items-center justify-center animate-fade-in"
                 style={{ 
                   bottom: animating ? `${data.foundationScores.pacePosture.active}%` : "50%", 
                   left: animating ? `${data.foundationScores.orientation.agreeable}%` : "50%",
@@ -665,13 +916,13 @@ export default function DiagnosticReportResultsPage() {
       </section>
 
       {/* ══════════════════════════════
-          SECTION 3 — FOUNDATION SCORES (Warm Cream)
+          SECTION 5 — FOUNDATION SCORES (Warm Cream)
       ══════════════════════════════ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
-            SECTION 2 — FOUNDATION SCORES
+            SECTION 5 — FOUNDATION SCORES
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-[#403011] mt-5 mb-10 leading-tight">
             Pace &amp; Posture, Orientation
@@ -781,229 +1032,154 @@ export default function DiagnosticReportResultsPage() {
       </section>
 
       {/* ══════════════════════════════
-          SECTION 4 — PRIMARY TYPE HERO (Soft White)
+          SECTION 6 — ADVANCED PERSONALITY ANALYTICS (Soft White)
       ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-8">
-          
-          <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
-            SECTION 3 — PRIMARY TYPE
-          </span>
-          
-          {/* Headline */}
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up">
-              You are an{" "}
-              <span className="relative inline-block text-[#5C7146]">
-                <span className="relative z-10 font-serif">{data.primaryType.name} ({data.primaryType.code})</span>
-                <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
-                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </span>{" "}
-              Type:
-            </h2>
+      {data.advancedAnalytics && (
+        <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break border-t border-[#4A4333]/10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-16">
             
-            {/* Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 mt-6">
-              {data.primaryType.labels.map((lbl, idx) => (
-                <span 
-                  key={lbl} 
-                  className={`inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full text-xs font-bold border ${
-                    idx === 0 
-                      ? "bg-[#DCA543] text-[#1F2C16] border-[#DCA543]" 
-                      : "bg-[#DCA543]/10 text-[#403011] border-[#DCA543]/25"
-                  }`}
-                >
-                  {idx === 0 && <UserCheck className="w-3.5 h-3.5" />}
-                  {lbl}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="h-[1px] bg-[#4A4333]/10 w-full my-1" />
-
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-[#4A4333] font-serif leading-relaxed border-l-3 border-[#DCA543] pl-6 italic">
-            "{data.primaryType.description}"
-          </p>
-
-          {/* Dual Panel */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-            <div className="p-6.5 bg-[#5C7146]/5 rounded-2xl border border-[#5C7146]/10 flex flex-col gap-2 shadow-sm">
-              <span className="inline-flex items-center gap-2 text-[#5C7146] font-bold uppercase text-[11px] tracking-wider">
-                <span className="h-2 w-2 bg-[#5C7146] rounded-full" />
-                At Their Best
+            <div className="max-w-3xl">
+              <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 border border-[#DCA543]/20 px-3.5 py-1.5 rounded-full mb-4 inline-block select-none">
+                SECTION 6 — ADVANCED PERSONALITY ANALYTICS
               </span>
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
-                {data.primaryType.atTheirBest}
+              <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] leading-tight mt-1 mb-3">
+                Behavioral Capability Profile
+              </h2>
+              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
+                A granular breakdown of the intensity of {data.candidate.name}'s behavioral modes.
               </p>
             </div>
 
-            <div className="p-6.5 bg-[#D4856A]/5 rounded-2xl border border-[#D4856A]/10 flex flex-col gap-2 shadow-sm">
-              <span className="inline-flex items-center gap-2 text-[#D4856A] font-bold uppercase text-[11px] tracking-wider">
-                <span className="h-2 w-2 bg-[#D4856A] rounded-full" />
-                Potential Weakness
-              </span>
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
-                {data.primaryType.potentialWeakness}
-              </p>
+            {/* Behavioral Capabilities Bars */}
+            <div className="flex flex-col gap-6">
+              {data.advancedAnalytics.behavioralCapabilities.map((cap, idx) => {
+                const color = cap.code === "D" ? "#5C7146" : cap.code === "I" ? "#DCA543" : cap.code === "S" ? "#D4856A" : "#5D7A8C";
+                return (
+                  <div key={cap.code} className="bg-white p-6 rounded-2xl border border-[#4A4333]/8 shadow-sm print-card">
+                    <div className="flex justify-between items-end mb-3">
+                      <div>
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#4A4333]/50">Rank {cap.rank}</span>
+                        <h4 className="font-serif font-bold text-lg text-[#403011]">{cap.name}</h4>
+                      </div>
+                      <span className="text-2xl font-serif font-bold" style={{ color }}>{cap.score}</span>
+                    </div>
+                    <div className="h-3 w-full bg-[#F6EBD4] rounded-full overflow-hidden">
+                      <div 
+                        className="h-full transition-all duration-1000 ease-out-back" 
+                        style={{ width: animating ? `${cap.score}%` : "0%", backgroundColor: color }}
+                      />
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#4A4333] font-serif mt-3">{cap.description}</p>
+                  </div>
+                );
+              })}
             </div>
-          </div>
 
-          {/* Traits pills list */}
-          <div className="mt-4">
-            <span className="block text-[10px] text-[#4A4333]/60 uppercase tracking-widest font-bold mb-4">
-              PRIMARY BEHAVIORAL DESCRIPTORS ({data.primaryType.traitPills.length})
-            </span>
-            <div className="flex flex-wrap gap-2.5">
-              {data.primaryType.traitPills.map((pill) => (
-                <span 
-                  key={pill}
-                  className="inline-block px-4 py-2 bg-[#F6EBD4]/40 hover:bg-[#DCA543] hover:text-[#1F2C16] border border-[#4A4333]/8 rounded-full text-xs font-bold text-[#403011] transition-all cursor-default select-none shadow-sm"
-                >
-                  {pill}
-                </span>
-              ))}
+            {/* Combined Style & Strength */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-8 bg-[#1F2C16] text-[#F6EBD4] rounded-3xl print-dark-section border border-white/5 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] text-[#DCA543] uppercase tracking-widest font-bold mb-2 block">Primary + Secondary Style</span>
+                  <h3 className="text-4xl font-serif font-bold text-white mb-2">{data.advancedAnalytics.combinedStyleCode}</h3>
+                  <div className="text-lg font-serif italic text-white/80 border-l-2 border-[#DCA543] pl-4 my-4">
+                    {data.advancedAnalytics.combinedStyleExplanation}
+                  </div>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10 text-sm">
+                  {data.advancedAnalytics.primaryStyle} + {data.advancedAnalytics.secondaryStyle}
+                </div>
+              </div>
+
+              <div className="p-8 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
+                <div>
+                  <span className="text-[10px] text-[#4A4333]/50 uppercase tracking-widest font-bold mb-2 block">Personality Strength</span>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-4xl font-serif font-bold text-[#403011]">{data.advancedAnalytics.personalityStrength.score}</span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
+                      data.advancedAnalytics.personalityStrength.level === "Very Strong" ? "bg-[#5C7146]/20 text-[#5C7146]" :
+                      data.advancedAnalytics.personalityStrength.level === "Strong" ? "bg-[#DCA543]/20 text-[#DCA543]" :
+                      data.advancedAnalytics.personalityStrength.level === "Moderate" ? "bg-[#D4856A]/20 text-[#D4856A]" :
+                      "bg-[#5D7A8C]/20 text-[#5D7A8C]"
+                    }`}>
+                      {data.advancedAnalytics.personalityStrength.level}
+                    </span>
+                  </div>
+                  <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                    {data.advancedAnalytics.personalityStrength.explanation}
+                  </p>
+                </div>
+                
+                {/* Strength Meter */}
+                <div className="mt-6">
+                  <div className="flex justify-between text-[10px] text-[#4A4333]/50 font-bold uppercase mb-1">
+                    <span>Mild</span>
+                    <span>Moderate</span>
+                    <span>Strong</span>
+                    <span>Very Strong</span>
+                  </div>
+                  <div className="h-2 w-full flex rounded-full overflow-hidden bg-[#F6EBD4]">
+                    <div className="h-full bg-gradient-to-r from-[#5D7A8C] via-[#DCA543] to-[#5C7146] transition-all duration-1000 ease-out-back" 
+                         style={{ width: animating ? `${Math.min(100, data.advancedAnalytics.personalityStrength.score * 2.5)}%` : "0%" }} />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
-        </div>
-      </section>
+            {/* Career Fit Engine */}
+            <div>
+              <div className="mb-8">
+                <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] leading-tight">
+                  Career Alignment Report
+                </h3>
+                <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-2">
+                  Distance-based similarity scoring against archetypal career profiles.
+                </p>
+              </div>
 
-      {/* ══════════════════════════════
-          SECTION 5 — WORKPLACE PRIORITIES (Warm Cream)
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
-          <div className="max-w-3xl mb-12">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full inline-block border border-[#566544]/20 select-none">
-              SECTION 4 — WORKPLACE PRIORITIES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
-              Workplace Priorities
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
-              These three priorities guide {data.candidate.name}'s orientation in cooperative groups, corporate internships, and applied project settings.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-2">
-            {data.workplacePriorities.map((prio, idx) => {
-              const Icon = idx === 0 ? Users : idx === 1 ? Lightbulb : Sparkles;
-              return (
-                <div 
-                  key={prio.title} 
-                  className="group relative p-8 bg-[#FDFBF7] hover:bg-white rounded-2xl border border-[#4A4333]/8 hover:border-[#DCA543]/40 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 overflow-hidden print-card"
-                >
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#DCA543]/3 rounded-bl-3xl group-hover:bg-[#DCA543]/6 transition-colors select-none pointer-events-none" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {data.advancedAnalytics.careerFits.map((fit, idx) => {
+                  const colorClass = 
+                    fit.colorStatus === "Green" ? "bg-[#5C7146] text-white" :
+                    fit.colorStatus === "Orange" ? "bg-[#DCA543] text-[#1F2C16]" :
+                    fit.colorStatus === "Yellow" ? "bg-[#DCA543]/80 text-[#1F2C16]" :
+                    "bg-[#D4856A] text-white";
                   
-                  <div className="h-11 w-11 bg-[#DCA543]/10 text-[#DCA543] rounded-xl flex items-center justify-center shrink-0 border border-[#DCA543]/15">
-                    <Icon className="w-5 h-5" />
-                  </div>
+                  const barColor = 
+                    fit.colorStatus === "Green" ? "#5C7146" :
+                    fit.colorStatus === "Orange" ? "#DCA543" :
+                    fit.colorStatus === "Yellow" ? "#DCA543" :
+                    "#D4856A";
 
-                  <div>
-                    <span className="text-[10px] text-[#4A4333]/50 font-bold uppercase tracking-wider block mb-1">
-                      Priority 0{idx + 1}
-                    </span>
-                    <h3 className="font-serif font-bold text-lg text-[#403011] tracking-wide group-hover:text-[#5C7146] transition-colors">
-                      {prio.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed mt-2">
-                      {prio.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                  return (
+                    <div key={fit.name} className="bg-white p-5 rounded-2xl border border-[#4A4333]/8 shadow-sm flex flex-col gap-3 print-card">
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-3">
+                          <span className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold shadow-sm ${colorClass}`}>
+                            {idx + 1}
+                          </span>
+                          <h4 className="font-serif font-bold text-lg text-[#403011]">{fit.name}</h4>
+                        </div>
+                        <span className="text-xl font-serif font-bold text-[#403011]">{fit.fitPercentage}%</span>
+                      </div>
+                      
+                      <div className="h-1.5 w-full bg-[#F6EBD4] rounded-full overflow-hidden">
+                        <div className="h-full transition-all duration-1000 ease-out-back"
+                             style={{ width: animating ? `${fit.fitPercentage}%` : "0%", backgroundColor: barColor, opacity: fit.colorStatus === 'Yellow' ? 0.8 : 1 }} />
+                      </div>
+                      <p className="text-xs text-[#4A4333] font-serif">{fit.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+
+
           </div>
+        </section>
+      )}
 
-        </div>
-      </section>
-
-      {/* ══════════════════════════════
-          SECTION 6 — SITUATIONS (Soft White)
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch animate-fade-up">
-          
-          {/* Environments they thrive in */}
-          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
-            <div>
-              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
-                <span className="h-7 w-7 rounded-lg bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/15 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </span>
-                <div>
-                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#5C7146] block font-sans">
-                    SECTION 5 — ENVIRONMENTAL MATRIX
-                  </span>
-                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                    Environments They Thrive In
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4.5">
-                {data.situations.thrive.map((s, idx) => (
-                  <div key={idx} className="flex gap-3.5 items-start">
-                    <span className="text-[#5C7146] shrink-0 mt-1 select-none">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </span>
-                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                      {s}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#5C7146] font-serif italic select-none font-semibold">
-              *Positions focusing on relational momentum maximize {data.candidate.name}'s capabilities.
-            </div>
-          </div>
-
-          {/* Situations they find difficult */}
-          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
-            <div>
-              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
-                <span className="h-7 w-7 rounded-lg bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/15 flex items-center justify-center shrink-0">
-                  <AlertCircle className="w-4 h-4" />
-                </span>
-                <div>
-                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#D4856A] block font-sans">
-                    SECTION 5 — ENVIRONMENTAL MATRIX
-                  </span>
-                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
-                    Situations They Find Difficult
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4.5">
-                {data.situations.difficult.map((s, idx) => (
-                  <div key={idx} className="flex gap-3.5 items-start">
-                    <span className="text-[#D4856A] shrink-0 mt-1 select-none">
-                      <AlertCircle className="w-4 h-4" />
-                    </span>
-                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                      {s}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#D4856A] font-serif italic select-none font-semibold">
-              *Isolative and highly static workspaces could lead to dips in motivation.
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════
+{/* ══════════════════════════════
           SECTION 7 — STRENGTHS vs BLIND SPOTS (Warm Cream)
       ══════════════════════════════ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 page-break">
@@ -1011,7 +1187,7 @@ export default function DiagnosticReportResultsPage() {
           
           <div className="max-w-3xl mb-12">
             <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
-              SECTION 6 — COMPETENCY MATRIX
+              SECTION 7 — COMPETENCY MATRIX
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
               Strengths &amp; Blind Spots
@@ -1098,7 +1274,7 @@ export default function DiagnosticReportResultsPage() {
           
           <div className="max-w-3xl mb-12">
             <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
-              SECTION 7 — STYLE DEPTH
+              SECTION 8 — STYLE DEPTH
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
               Style Adaptability Profile
@@ -1248,14 +1424,65 @@ export default function DiagnosticReportResultsPage() {
       </section>
 
       {/* ══════════════════════════════
-          SECTION 9 — WORKPLACE DESCRIPTOR TABLE (Warm Cream)
+          SECTION 9 — WORKPLACE PRIORITIES (Warm Cream)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          <div className="max-w-3xl mb-12">
+            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full inline-block border border-[#566544]/20 select-none">
+              SECTION 9 — WORKPLACE PRIORITIES
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
+              Workplace Priorities
+            </h2>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
+              These three priorities guide {data.candidate.name}'s orientation in cooperative groups, corporate internships, and applied project settings.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-2">
+            {data.workplacePriorities.map((prio, idx) => {
+              const Icon = idx === 0 ? Users : idx === 1 ? Lightbulb : Sparkles;
+              return (
+                <div 
+                  key={prio.title} 
+                  className="group relative p-8 bg-[#FDFBF7] hover:bg-white rounded-2xl border border-[#4A4333]/8 hover:border-[#DCA543]/40 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 overflow-hidden print-card"
+                >
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#DCA543]/3 rounded-bl-3xl group-hover:bg-[#DCA543]/6 transition-colors select-none pointer-events-none" />
+                  
+                  <div className="h-11 w-11 bg-[#DCA543]/10 text-[#DCA543] rounded-xl flex items-center justify-center shrink-0 border border-[#DCA543]/15">
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] text-[#4A4333]/50 font-bold uppercase tracking-wider block mb-1">
+                      Priority 0{idx + 1}
+                    </span>
+                    <h3 className="font-serif font-bold text-lg text-[#403011] tracking-wide group-hover:text-[#5C7146] transition-colors">
+                      {prio.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed mt-2">
+                      {prio.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          SECTION 10 — WORKPLACE DESCRIPTOR TABLE (Warm Cream)
       ══════════════════════════════ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10 page-break">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           <div className="max-w-3xl mb-12">
             <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full inline-block border border-[#566544]/20 select-none">
-              SECTION 8 — DESCRIPTORS ANALYSIS
+              SECTION 10 — DESCRIPTORS ANALYSIS
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
               Workplace Descriptors
@@ -1309,7 +1536,88 @@ export default function DiagnosticReportResultsPage() {
       </section>
 
       {/* ══════════════════════════════
-          SECTION 10 — KARMATTITUDE CAREER MAP (Forest Green)
+          SECTION 11 — SITUATIONS (Soft White)
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch animate-fade-up">
+          
+          {/* Environments they thrive in */}
+          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
+            <div>
+              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
+                <span className="h-7 w-7 rounded-lg bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/15 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
+                </span>
+                <div>
+                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#5C7146] block font-sans">
+                    SECTION 11 — ENVIRONMENTAL MATRIX
+                  </span>
+                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
+                    Environments They Thrive In
+                  </h3>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4.5">
+                {data.situations.thrive.map((s, idx) => (
+                  <div key={idx} className="flex gap-3.5 items-start">
+                    <span className="text-[#5C7146] shrink-0 mt-1 select-none">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </span>
+                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
+                      {s}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#5C7146] font-serif italic select-none font-semibold">
+              *Positions focusing on relational momentum maximize {data.candidate.name}'s capabilities.
+            </div>
+          </div>
+
+          {/* Situations they find difficult */}
+          <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm flex flex-col justify-between print-card">
+            <div>
+              <div className="flex items-center gap-3 border-b border-[#4A4333]/10 pb-4 mb-6">
+                <span className="h-7 w-7 rounded-lg bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/15 flex items-center justify-center shrink-0">
+                  <AlertCircle className="w-4 h-4" />
+                </span>
+                <div>
+                  <span className="uppercase tracking-widest text-[9px] font-bold text-[#D4856A] block font-sans">
+                    SECTION 11 — ENVIRONMENTAL MATRIX
+                  </span>
+                  <h3 className="font-serif font-bold text-xl text-[#403011] mt-0.5">
+                    Situations They Find Difficult
+                  </h3>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4.5">
+                {data.situations.difficult.map((s, idx) => (
+                  <div key={idx} className="flex gap-3.5 items-start">
+                    <span className="text-[#D4856A] shrink-0 mt-1 select-none">
+                      <AlertCircle className="w-4 h-4" />
+                    </span>
+                    <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
+                      {s}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 pt-4 border-t border-[#4A4333]/5 text-xs text-[#D4856A] font-serif italic select-none font-semibold">
+              *Isolative and highly static workspaces could lead to dips in motivation.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          SECTION 12 — KARMATTITUDE CAREER MAP (Forest Green)
       ══════════════════════════════ */}
       <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative overflow-hidden text-[#F6EBD4] page-break">
         <div className="absolute inset-0 bg-[radial-gradient(#DCA543_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04] pointer-events-none" />
@@ -1318,7 +1626,7 @@ export default function DiagnosticReportResultsPage() {
           
           <div className="max-w-3xl">
             <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 border border-[#DCA543]/20 px-3.5 py-1.5 rounded-full mb-4 inline-block select-none">
-              SECTION 9 — KARMATTITUDE CAREER MAP
+              SECTION 12 — KARMATTITUDE CAREER MAP
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-white leading-tight mt-1 mb-3">
               Karmattitude Career Map
@@ -1366,7 +1674,7 @@ export default function DiagnosticReportResultsPage() {
         </div>
       </section>
 
-      </div>{/* end screen-report-content */}
+            </div>{/* end screen-report-content */}
 
     </main>
   );

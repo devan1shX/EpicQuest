@@ -678,39 +678,47 @@ export default function DiagnosticTestPage() {
                 <div className="relative aspect-square bg-[#FBF9F2] rounded-2xl border border-[#4A4333]/8 overflow-hidden p-6 select-none shadow-inner flex items-center justify-center">
                   <svg className="w-full h-full" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Concentric grid rings */}
-                    <circle cx="150" cy="150" r="130" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
-                    <circle cx="150" cy="150" r="90" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
-                    <circle cx="150" cy="150" r="50" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
+                    <circle cx="150" cy="150" r="120" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
+                    <circle cx="150" cy="150" r="80" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
 
-                    {/* Main axes */}
-                    <line x1="150" y1="20" x2="150" y2="280" stroke="#4A4333" strokeWidth="1" strokeOpacity="0.2" />
-                    <line x1="20" y1="150" x2="280" y2="150" stroke="#4A4333" strokeWidth="1" strokeOpacity="0.2" />
-
-                    {/* Quadrant color highlights */}
+                    {/* Four Quadrant Sectors */}
                     {/* D - Top Left */}
-                    <rect x="30" y="30" width="120" height="120" fill="#566544" fillOpacity="0.01" />
+                    <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
                     {/* I - Top Right */}
-                    <rect x="150" y="30" width="120" height="120" fill="#DCA543" fillOpacity="0.015" />
+                    <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
                     {/* S - Bottom Right */}
-                    <rect x="150" y="150" width="120" height="120" fill="#D4856A" fillOpacity="0.01" />
+                    <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
                     {/* C - Bottom Left */}
-                    <rect x="30" y="150" width="120" height="120" fill="#5D7A8C" fillOpacity="0.01" />
+                    <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
 
-                    {/* Quad letters */}
-                    <text x="50" y="55" fill="#566544" fillOpacity="0.3" fontSize="24" fontFamily="Georgia" fontWeight="bold">D</text>
-                    <text x="235" y="55" fill="#DCA543" fillOpacity="0.4" fontSize="24" fontFamily="Georgia" fontWeight="bold">I</text>
-                    <text x="235" y="260" fill="#D4856A" fillOpacity="0.3" fontSize="24" fontFamily="Georgia" fontWeight="bold">S</text>
-                    <text x="50" y="260" fill="#5D7A8C" fillOpacity="0.3" fontSize="24" fontFamily="Georgia" fontWeight="bold">C</text>
+                    {/* Quadrant Letters */}
+                    <text x="105" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
+                    <text x="195" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
+                    <text x="195" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
+                    <text x="105" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
 
-                    {/* Vector diagonal lines */}
-                    <line x1="30" y1="30" x2="270" y2="270" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.06" strokeDasharray="2 2" />
-                    <line x1="30" y1="270" x2="270" y2="30" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.06" strokeDasharray="2 2" />
+                    {/* Outer Quadrant Labels */}
+                    <text x="80" y="44" fill="#5C7146" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">DRIVE</text>
+                    <text x="220" y="44" fill="#DCA543" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">INFLUENCE</text>
+                    <text x="220" y="262" fill="#D4856A" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">SUPPORT</text>
+                    <text x="80" y="262" fill="#5D7A8C" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">CLARITY</text>
 
-                    {/* Axes labels */}
-                    <text x="150" y="15" fill="#566544" fontSize="7" fontWeight="bold" letterSpacing="1" textAnchor="middle">ACTIVE (PACE)</text>
-                    <text x="150" y="292" fill="#4A4333" fillOpacity="0.5" fontSize="7" fontWeight="bold" letterSpacing="1" textAnchor="middle">RECEPTIVE (POSTURE)</text>
-                    <text x="290" y="152" fill="#DCA543" fontSize="7" fontWeight="bold" letterSpacing="1" textAnchor="start">AGREEABLE</text>
-                    <text x="10" y="152" fill="#4A4333" fillOpacity="0.5" fontSize="7" fontWeight="bold" letterSpacing="1" textAnchor="end">SKEPTICAL</text>
+                    {/* Axes lines with arrows */}
+                    {/* Vertical Axis (Active - Receptive) */}
+                    <line x1="150" y1="20" x2="150" y2="280" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
+                    <polygon points="150,15 146,23 154,23" fill="#4A4333" fillOpacity="0.5" />
+                    <polygon points="150,285 146,277 154,277" fill="#4A4333" fillOpacity="0.5" />
+
+                    {/* Horizontal Axis (Agreeable - Skeptical) */}
+                    <line x1="20" y1="150" x2="280" y2="150" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
+                    <polygon points="285,150 277,146 277,154" fill="#4A4333" fillOpacity="0.5" />
+                    <polygon points="15,150 23,146 23,154" fill="#4A4333" fillOpacity="0.5" />
+
+                    {/* Axis labels */}
+                    <text x="150" y="10" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">ACTIVE</text>
+                    <text x="150" y="297" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">RECEPTIVE</text>
+                    <text x="295" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="start">AGREEABLE</text>
+                    <text x="5" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="end">SKEPTICAL</text>
 
                     {/* Central pulse dot */}
                     <circle cx="150" cy="150" r="4" fill="#DCA543" className="animate-pulse" />

@@ -1,4 +1,5 @@
 // Types matching the Page and API schema
+import { careerProfiles } from "./careerProfiles";
 export interface Candidate {
   name: string;
   status: string;
@@ -110,6 +111,37 @@ export interface Branding {
   tagline: string;
 }
 
+export interface BehavioralCapability {
+  code: "D" | "I" | "S" | "C";
+  name: string;
+  score: number;
+  description: string;
+  rank: number;
+}
+
+export interface CareerFitResult {
+  name: string;
+  fitPercentage: number;
+  colorStatus: "Green" | "Orange" | "Yellow" | "Red";
+  description: string;
+}
+
+export interface PersonalityStrength {
+  score: number;
+  level: "Mild" | "Moderate" | "Strong" | "Very Strong";
+  explanation: string;
+}
+
+export interface AdvancedAnalytics {
+  behavioralCapabilities: BehavioralCapability[];
+  primaryStyle: string;
+  secondaryStyle: string;
+  combinedStyleCode: string;
+  combinedStyleExplanation: string;
+  personalityStrength: PersonalityStrength;
+  careerFits: CareerFitResult[];
+}
+
 export interface ReportData {
   candidate: Candidate;
   framework: Framework;
@@ -123,6 +155,7 @@ export interface ReportData {
   careerMap: CareerMap;
   closing: Closing;
   branding: Branding;
+  advancedAnalytics?: AdvancedAnalytics;
 }
 
 export interface AdjectivePairQuestion {
@@ -636,8 +669,8 @@ export function compileReport(
   let agreeableScore = 0;
   let skepticalScore = 0;
 
-  // Establish stable base baseline scores to guarantee no division by zero
-  const baseVal = 10;
+  // Establish stable base baseline scores to guarxantee no division by zero
+  const baseVal = 1;
   activeScore += baseVal;
   receptiveScore += baseVal;
   agreeableScore += baseVal;
@@ -888,7 +921,7 @@ export function compileReport(
     primaryCode = "D";
   } else if (horizontalPercent < 50 && verticalPercent < 50) {
     primaryCode = "C";
-  } else {
+  }  else if (horizontalPercent >= 50 && verticalPercent < 50) {
     primaryCode = "S";
   }
 
@@ -911,6 +944,11 @@ export function compileReport(
   const challengeItem = categoriesList.pop()!; // Lowest remains challenge
   const helper1Item = categoriesList[0];
   const helper2Item = categoriesList[1];
+
+  // Priority 2: Secondary Style Blend logic
+  if ((helper1Item.score - helper2Item.score) < 3) {
+    helper1Item.name = `${helper1Item.name.split('/')[0]} / ${helper2Item.name.split('/')[0]} Blend`;
+  }
 
   const styleDepth: StyleDepth = {
     core: {
@@ -968,7 +1006,10 @@ export function compileReport(
       insight: orientationInsight
     },
     combinedResult: {
-      formula: `Active (${verticalPercent}%) + Agreeable (${horizontalPercent}%) = ${primaryCode} Quadrant`,
+      formula: primaryCode === "D" ? `Active (${verticalPercent}%) + Skeptical (${100 - horizontalPercent}%) = Drive` :
+               primaryCode === "I" ? `Active (${verticalPercent}%) + Agreeable (${horizontalPercent}%) = Influence` :
+               primaryCode === "S" ? `Receptive (${100 - verticalPercent}%) + Agreeable (${horizontalPercent}%) = Support` :
+               `Receptive (${100 - verticalPercent}%) + Skeptical (${100 - horizontalPercent}%) = Clarity`,
       type: combinedTypeString
     }
   };
@@ -1028,6 +1069,92 @@ export function compileReport(
     ctaButton2: tmpl.closing.ctaButton2
   };
 
+  // --- Advanced Analytics Engine ---
+
+  const sortedCapabilities = [
+    { code: "D", score: rawD, name: "Drive", description: "Focuses on results, taking action, and asserting influence." },
+    { code: "I", score: rawI, name: "Influence", description: "Focuses on relationships, communication, and enthusiasm." },
+    { code: "S", score: rawS, name: "Support", description: "Focuses on cooperation, sincerity, and dependability." },
+    { code: "C", score: rawC, name: "Clarity", description: "Focuses on quality, accuracy, and systematic processes." }
+  ].sort((a, b) => b.score - a.score);
+
+  const behavioralCapabilities: BehavioralCapability[] = sortedCapabilities.map((cap, idx) => ({
+    code: cap.code as "D" | "I" | "S" | "C",
+    name: cap.name,
+    score: cap.score,
+    description: cap.description,
+    rank: idx + 1
+  }));
+
+  const secondaryCode = helper1Item.code;
+  const combinedStyleCode = `${primaryCode}${secondaryCode}`;
+  let combinedStyleExplanation = `A blend of ${coreItem.name} and ${helper1Item.name}.`;
+  if (combinedStyleCode === "DI" || combinedStyleCode === "ID") combinedStyleExplanation = "Results-driven and communicative. Excels at driving change through persuasion and energetic leadership.";
+  if (combinedStyleCode === "IS" || combinedStyleCode === "SI") combinedStyleExplanation = "Highly collaborative and empathetic. Thrives in environments where teamwork and relationship building are key.";
+  if (combinedStyleCode === "SC" || combinedStyleCode === "CS") combinedStyleExplanation = "Methodical and supportive. Valued for precision, dependability, and maintaining structured, harmonious processes.";
+  if (combinedStyleCode === "DC" || combinedStyleCode === "CD") combinedStyleExplanation = "Analytical and decisive. Focuses on objective results, systematic problem-solving, and quality-driven execution.";
+
+  const strengthVal = (Math.abs(verticalPercent - 50) + Math.abs(horizontalPercent - 50)) / 2;
+  let strengthLevel: "Mild" | "Moderate" | "Strong" | "Very Strong" = "Mild";
+  if (strengthVal >= 30) strengthLevel = "Very Strong";
+  else if (strengthVal >= 20) strengthLevel = "Strong";
+  else if (strengthVal >= 10) strengthLevel = "Moderate";
+  
+  const personalityStrength: PersonalityStrength = {
+    score: Math.round(strengthVal),
+    level: strengthLevel,
+    explanation: `Your distinct behavioral preferences show a ${strengthLevel.toLowerCase()} crystallization, indicating how strongly you default to your primary modes.`
+  };
+
+  // --- Normalize DISC Scores for Career Matching ---
+  const totalRaw = rawD + rawI + rawS + rawC;
+  const normD = Math.round((rawD / totalRaw) * 100);
+  const normI = Math.round((rawI / totalRaw) * 100);
+  const normS = Math.round((rawS / totalRaw) * 100);
+  const normC = Math.round((rawC / totalRaw) * 100);
+
+  console.log(`\n--- DEBUG OUTPUT ---`);
+  console.log(`Raw DISC:\nD=${rawD}\nI=${rawI}\nS=${rawS}\nC=${rawC}`);
+  console.log(`Normalized DISC:\nD=${normD}\nI=${normI}\nS=${normS}\nC=${normC}`);
+
+  const careerFits: CareerFitResult[] = careerProfiles.map(c => {
+    const diff = Math.abs(normD - c.D) + Math.abs(normI - c.I) + Math.abs(normS - c.S) + Math.abs(normC - c.C);
+    const maxDiff = 200; // Since both sum to 100, max possible Manhattan distance is 200
+    const fit = Math.round(100 - (diff / maxDiff) * 100);
+
+    console.log(`Career Diff: ${c.name} Diff=${diff}\nCareer Fit=${fit}`);
+
+    let color: "Green" | "Orange" | "Yellow" | "Red" = "Red";
+    if (fit >= 80) color = "Green";
+    else if (fit >= 70) color = "Orange";
+    else if (fit >= 55) color = "Yellow";
+
+    const coreScore = coreItem.code === 'D' ? normD : coreItem.code === 'I' ? normI : coreItem.code === 'S' ? normS : normC;
+    // We get the actual code of the secondary style. Since it might be blended (e.g. "Drive / Support Blend"), 
+    // we use the original code from helper1Item.code.
+    const secScore = helper1Item.code === 'D' ? normD : helper1Item.code === 'I' ? normI : helper1Item.code === 'S' ? normS : normC;
+
+    const coreName = coreItem.name.split('/')[0].trim();
+    const secName = helper1Item.name.split('/')[0].trim();
+
+    return {
+      name: c.name,
+      fitPercentage: fit,
+      colorStatus: color,
+      description: `${c.name} is recommended because your ${coreName} score (${coreScore}%) and ${secName} score (${secScore}%) align well with this profile.`
+    };
+  }).sort((a, b) => b.fitPercentage - a.fitPercentage).slice(0, 8); // Keep top 8 for UI
+
+  const advancedAnalytics: AdvancedAnalytics = {
+    behavioralCapabilities,
+    primaryStyle: coreItem.name,
+    secondaryStyle: helper1Item.name,
+    combinedStyleCode,
+    combinedStyleExplanation,
+    personalityStrength,
+    careerFits
+  };
+
   return {
     candidate,
     framework: tmpl.framework,
@@ -1045,6 +1172,7 @@ export function compileReport(
     workplaceDescriptorTable: tmpl.workplaceDescriptorTable,
     careerMap: processedCareerMap,
     closing: processedClosing,
-    branding: tmpl.branding
+    branding: tmpl.branding,
+    advancedAnalytics
   };
 }

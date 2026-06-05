@@ -7,21 +7,34 @@ export default function Home() {
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
       {/* ── 1. HERO ── */}
-      <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
+      <section className="relative w-full overflow-hidden">
+        {/* Ambient blobs */}
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] rounded-full bg-[#5C7146]/5 blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+        {/* Dot grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#5C7146_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
 
-        {/* Left Content Column */}
-        <div className="w-full lg:w-[55%] lg:flex-none space-y-6 sm:space-y-7 z-10 flex flex-col justify-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-[0.65rem] font-bold uppercase tracking-[0.18em] w-fit shadow-sm select-none animate-fade-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-olive inline-block animate-pulse"></span>
-            Elite University Admissions
-          </div>
+          {/* Left Content Column */}
+          <div className="w-full lg:w-[55%] lg:flex-none space-y-6 sm:space-y-7 z-10 flex flex-col justify-center">
 
-          <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.1rem] font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up delay-100">
-            EpicQuest:<br />
-            <span className="text-[#5C7146]">Your Path</span> to<br className="hidden sm:inline" /> the Ivy League
-          </h1>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-[0.65rem] font-bold uppercase tracking-[0.18em] w-fit shadow-sm select-none animate-fade-up">
+              <span className="w-1.5 h-1.5 rounded-full bg-olive inline-block animate-pulse"></span>
+              Elite University Admissions
+            </div>
+
+            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.1rem] font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up delay-100">
+              EpicQuest:<br />
+              <span className="relative inline-block">
+                <span className="relative z-10 text-[#5C7146]">Your Path</span>
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>{" "}
+              to<br className="hidden sm:inline" /> the Ivy League
+            </h1>
 
           <p className="text-[0.95rem] sm:text-base lg:text-[1.05rem] text-[#4A4333] leading-[1.75] max-w-[88%] font-serif animate-fade-up delay-200">
             We transform extraordinary students into Ivy League-ready candidates — through structured research, psychometric-aligned skill development, published work, patent filing, and real-world apprenticeships.
@@ -92,6 +105,9 @@ export default function Home() {
 
         {/* Right Image — asymmetric frame with floating badges */}
         <div className="w-full lg:w-[45%] lg:flex-none relative animate-fade-in delay-500">
+          {/* Decorative offset border */}
+          <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[2.5rem_1.5rem_3rem_1.5rem] border-2 border-[#DCA543]/40 pointer-events-none" />
+
           {/* Main image */}
           <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-[2.5rem_1.5rem_3rem_1.5rem] overflow-hidden shadow-2xl border-4 border-white/70 group">
             <Image
@@ -101,13 +117,16 @@ export default function Home() {
               className="object-cover object-center brightness-120 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
               priority
             />
+
           </div>
 
           {/* Decorative element — offset dot cluster */}
           <div className="absolute -bottom-6 -right-6 w-28 h-28 pointer-events-none opacity-30 hidden lg:block"
             style={{ backgroundImage: "radial-gradient(#5C7146 1.5px, transparent 1.5px)", backgroundSize: "10px 10px" }} />
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* ── 2. STATS ── */}
       <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">

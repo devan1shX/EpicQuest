@@ -6,48 +6,67 @@ export default function AboutPage() {
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
       {/* ── 1. ABOUT US HERO ── */}
-      <section className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 pb-20 sm:pb-28">
+      <section className="relative w-full overflow-hidden">
+        {/* Ambient blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
+                        bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full
+                        bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+        {/* Dot grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)]
+                        [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
 
-        {/* Decorative large background numeral */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -top-4 right-4 sm:right-10 lg:right-14
-                     text-[10rem] sm:text-[16rem] lg:text-[22rem] font-serif font-bold
-                     text-[#403011]/5 leading-none"
-        >
-          EQ
-        </span>
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 pb-20 sm:pb-28">
 
-        {/* Label */}
-        <div className="flex items-center gap-3 mb-8 sm:mb-10 animate-fade-up">
-          <span className="block h-px w-8 sm:w-12 bg-[#DCA543]" />
-          <span className="text-[#8E8B42] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
-            Who We Are
-          </span>
-        </div>
-
-        {/* Headline + Intro split layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-20 items-end">
-          <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]
-                       font-serif font-medium text-[#403011] tracking-tight leading-[1.1] animate-fade-up"
+          {/* Decorative large background numeral */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -top-4 right-4 sm:right-10 lg:right-14
+                       text-[10rem] sm:text-[16rem] lg:text-[22rem] font-serif font-bold
+                       text-[#403011]/5 leading-none"
           >
-            Unlocking<br />
-            <em className="not-italic text-[#8E8B42]">Your</em>{" "}
-            Potential
-          </h1>
-          <div className="animate-fade-up delay-100">
-            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 sm:pl-6">
-              EpicQuest Learning is a premium applied skills-development and portfolio-building
-              startup dedicated to high school students who aspire to stand out at Ivy League
-              and top-tier universities. We go far beyond the classroom — we engineer experiences
-              that demonstrate intellectual curiosity, leadership, and real-world impact.
-            </p>
-          </div>
-        </div>
+            EQ
+          </span>
 
-        {/* Divider */}
-        <div className="mt-14 sm:mt-18 mb-12 sm:mb-14 h-px w-full bg-[#4A4333]/10" />
+          {/* Pill */}
+          <div className="mb-7 animate-fade-up">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+                             bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase
+                             tracking-[0.12em] border border-[#566544]/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
+              Who We Are
+            </span>
+          </div>
+
+          {/* Headline + Intro split layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-20 items-end">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]
+                         font-serif font-medium text-[#403011] tracking-tight leading-[1.1] animate-fade-up"
+            >
+              Unlocking<br />
+              <span className="relative inline-block">
+                <span className="relative z-10">Your</span>
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
+                     viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
+                        stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>{" "}
+              Potential
+            </h1>
+            <div className="animate-fade-up delay-100">
+              <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 sm:pl-6">
+                EpicQuest Learning is a premium applied skills-development and portfolio-building
+                startup dedicated to high school students who aspire to stand out at Ivy League
+                and top-tier universities. We go far beyond the classroom — we engineer experiences
+                that demonstrate intellectual curiosity, leadership, and real-world impact.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="mt-14 sm:mt-18 mb-12 sm:mb-14 h-px w-full bg-[#4A4333]/10" />
 
         {/* 3 Colored Pillar Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -101,7 +120,8 @@ export default function AboutPage() {
           </div>
 
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ── 2. FOUNDER'S MESSAGE ── */}
       <section className="w-full bg-[#403011] py-16 sm:py-24">
