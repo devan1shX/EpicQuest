@@ -237,7 +237,7 @@ export default function DiagnosticReportResultsPage() {
   }
 
   return (
-    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
+    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
       {/* Floating print dossier actions bar */}
       
 
@@ -716,7 +716,7 @@ export default function DiagnosticReportResultsPage() {
             </div>
 
             {/* Right Column: Traits & Dual Panel */}
-            <div className="lg:w-7/12 flex flex-col gap-6 w-full">
+            <div className="lg:w-7/12 flex flex-col gap-6 w-full lg:sticky lg:top-24 lg:self-start">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="p-6 bg-white rounded-2xl border border-[#5C7146]/15 shadow-sm">
@@ -935,7 +935,7 @@ export default function DiagnosticReportResultsPage() {
           </div>
 
           {/* Right Quadrants Cards */}
-          <div className="lg:col-span-6 flex flex-col gap-5 p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm print-card">
+          <div className="lg:col-span-6 flex flex-col gap-5 p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm print-card lg:sticky lg:top-24 lg:self-start">
             <div>
               <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full">
                 FRAMEWORK CORE
@@ -1490,7 +1490,7 @@ export default function DiagnosticReportResultsPage() {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
             
             {/* Left: Descriptor Table */}
-            <div className="w-full bg-[#FDFBF7] rounded-3xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card flex flex-col">
+            <div className="w-full bg-[#FDFBF7] rounded-3xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card flex flex-col xl:sticky xl:top-24 xl:self-start">
               <div className="grid grid-cols-2 bg-[#1F2C16] text-[#F6EBD4] font-bold text-xs sm:text-sm uppercase tracking-widest print-dark-section border-b border-[#4A4333]/10 shrink-0">
                 <div className="p-4 sm:p-5 border-r border-white/10 flex items-center justify-between">
                   <span>More Likely</span>

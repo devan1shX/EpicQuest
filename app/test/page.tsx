@@ -201,32 +201,26 @@ export default function DiagnosticTestPage() {
       a: "If you’ve created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to an EpicQuest account before starting the test, your progress will not be saved and you will need to complete the test all at once."
     },
     {
-      q: "How can I access my test results?",
-      a: "After you take a test, you will have the option to create an account by entering your email address. If you create an account, you can view your test results at any time by returning to EpicQuest.com and logging into your account. We do not email your results to you."
-    },
-    {
       q: "Is the DISC personality test appropriate for children?",
       a: "None of our tests are appropriate for children under the age of 14. Some of our tests may have mature content, and anyone younger than 18 should only take the test with parental guidance."
     },
-    {
-      q: "Are you going to sell my data?",
-      a: "We do not sell your email or other personal data to any third parties, and we have a zero-spam policy. We carefully comply with applicable privacy laws in handling your personal information. You can read more in our privacy policy."
-    }
   ];
 
   return (
-    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
+    
+    <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
       
       {/* ══════════════════════════════
           HERO SECTION — Consistent with Team Page
       ══════════════════════════════ */}
-      <section className="relative w-full overflow-hidden border-b border-[#4A4333]/10 py-16 sm:py-24">
-        {/* Ambient blobs matching team style */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-        
-        {/* Dot grid matching team style */}
-        <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
+      <section className="relative w-full border-b border-[#4A4333]/10 py-16 sm:py-24">
+        {/* Ambient blobs matching team style - Wrapped in absolute overflow container */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4" />
+          {/* Dot grid matching team style */}
+          <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06]" />
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -390,16 +384,16 @@ export default function DiagnosticTestPage() {
                     </div>
 
                     {/* Rating Scale Labels */}
-                    <div className="flex items-center justify-between px-3 sm:px-6 pb-2 select-none">
-                      <span className="w-20 sm:w-28"></span>
-                      <div className="flex items-center justify-between flex-1 max-w-[210px] mx-3 sm:mx-6">
-                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Neutral</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                    <div className="flex items-center justify-between px-2 sm:px-6 pb-2 select-none gap-2 sm:gap-4">
+                      <span className="flex-1 min-w-0"></span>
+                      <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0">
+                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                        <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Neutral</div>
+                        <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
                       </div>
-                      <span className="w-20 sm:w-28"></span>
+                      <span className="flex-1 min-w-0"></span>
                     </div>
 
                     <div className="divide-y divide-[#4A4333]/8">
@@ -409,19 +403,19 @@ export default function DiagnosticTestPage() {
                         return (
                           <div 
                             key={q.id}
-                            className={`flex items-center justify-between py-5.5 px-3 sm:px-6 gap-2 rounded-xl transition-all ${
+                            className={`flex items-center justify-between py-5.5 px-2 sm:px-6 gap-2 sm:gap-4 rounded-xl transition-all ${
                               isHighlighted 
                                 ? "bg-[#D4856A]/5 border border-dashed border-[#D4856A]/25" 
                                 : "hover:bg-[#FDFBF7]/40"
                             }`}
                           >
                             {/* Left Bipolar term */}
-                            <span className="w-20 sm:w-28 text-right font-serif font-bold text-xs sm:text-sm text-[#403011] select-none truncate">
+                            <span className="flex-1 min-w-0 text-right font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
                               {q.left}
                             </span>
                             
-                            {/* Rating Circles (Blank by default, no default state) */}
-                            <div className="flex items-center justify-between gap-2.5 sm:gap-4 mx-3 sm:mx-6 select-none flex-1 max-w-[210px] justify-self-center">
+                            {/* Rating Circles */}
+                            <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0 select-none">
                               {[1, 2, 3, 4, 5].map((val) => {
                                 const isSelected = score === val;
                                 return (
@@ -445,7 +439,7 @@ export default function DiagnosticTestPage() {
                             </div>
 
                             {/* Right Bipolar term */}
-                            <span className="w-20 sm:w-28 text-left font-serif font-bold text-xs sm:text-sm text-[#403011] select-none truncate">
+                            <span className="flex-1 min-w-0 text-left font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
                               {q.right}
                             </span>
                           </div>
@@ -741,12 +735,7 @@ export default function DiagnosticTestPage() {
                   <span className="absolute h-10 w-10 bg-[#DCA543]/5 rounded-full animate-ping pointer-events-none" />
                 </div>
 
-                <div className="bg-[#F6EBD4]/40 rounded-2xl p-4 border border-[#4A4333]/5 text-xs text-[#4A4333]/70 font-serif leading-relaxed">
-                  <p className="font-bold text-[#403011] mb-1 uppercase tracking-wider text-[10px] font-sans">
-                    Why take this diagnostic?
-                  </p>
-                  Completing this assessment map lets our admissions design partners identify your behavioral anchors and map deep, bespoke patent portfolios, quantitative software creations, and scholarly publishing opportunities designed around your primary talents.
-                </div>
+                
               </div>
 
             </div>

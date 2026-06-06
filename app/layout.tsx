@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ScrollReveal />
         <Header />
-        <div style={{ paddingTop: 72 }} className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col pt-[72px] max-md:pt-[64px]">
           {children}
         </div>
         <Footer />
