@@ -1158,7 +1158,7 @@ export default function DiagnosticReportResultsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <span className="text-[11px] text-[#DCA543] uppercase tracking-widest font-bold block">Combined Style</span>
-                  <p className="text-sm font-serif text-white/90 mt-1 leading-relaxed line-clamp-2">{data.advancedAnalytics.combinedStyleExplanation}</p>
+                  <p className="text-sm font-serif text-white/90 mt-1 leading-relaxed">{data.advancedAnalytics.combinedStyleExplanation}</p>
                   <span className="text-xs text-white/60 mt-1.5 block">{data.advancedAnalytics.primaryStyle} + {data.advancedAnalytics.secondaryStyle}</span>
                 </div>
               </div>
@@ -1194,7 +1194,7 @@ export default function DiagnosticReportResultsPage() {
                   }`}>
                     {data.advancedAnalytics.personalityStrength.level}
                   </span>
-                  <p className="text-xs text-[#4A4333] font-serif mt-1.5 leading-relaxed line-clamp-2">{data.advancedAnalytics.personalityStrength.explanation}</p>
+                  <p className="text-xs text-[#4A4333] font-serif mt-1.5 leading-relaxed">{data.advancedAnalytics.personalityStrength.explanation}</p>
                 </div>
               </div>
             </div>
