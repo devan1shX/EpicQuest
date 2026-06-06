@@ -558,7 +558,7 @@ export default function DiagnosticReportResultsPage() {
           
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 border-b border-white/10 pb-10">
             <div>
-              <span className="uppercase tracking-[0.2em] text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3 py-1.5 rounded-md border border-[#DCA543]/20">
+              <span className="inline-block uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3 py-1.5 rounded-md border border-[#DCA543]/20 leading-relaxed">
                 CONFIDENTIAL COGNITIVE & PERSONALITY DOSSIER
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.8rem] font-serif font-medium mt-6 leading-[1.08] tracking-tight text-[#F6EBD4]">
@@ -680,7 +680,7 @@ export default function DiagnosticReportResultsPage() {
             
             {/* Left Column: Intro */}
             <div className="lg:w-5/12 flex flex-col gap-6">
-              <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 w-fit select-none">
+              <span className="inline-block uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
                 SECTION 3 — PRIMARY TYPE
               </span>
               
@@ -1285,7 +1285,7 @@ export default function DiagnosticReportResultsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           <div className="max-w-2xl mb-8">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
+            <span className="inline-block uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/12 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
               SECTION 7 — COMPETENCY MATRIX
             </span>
             <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
@@ -1339,7 +1339,7 @@ export default function DiagnosticReportResultsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           <div className="mb-8 max-w-2xl">
-            <span className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
+            <span className="inline-block uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
               SECTION 8 — STYLE DEPTH
             </span>
             <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
