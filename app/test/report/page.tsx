@@ -18,9 +18,16 @@ import {
   FileText,
   Scroll,
   BookOpen,
-  UserCheck
+  UserCheck,
+  Briefcase,
+  ArrowUpRight,
+  ArrowDownRight,
+  ChevronDown,
+  Zap
 } from "lucide-react";
 import { ReportData } from "../engine";
+import { evaluateProfessionSuitability, type ProfessionSuitabilityResult } from "../professionSuitability";
+import { professionProfilesConfig } from "../professionProfiles";
 
 const localFallbackData: ReportData = {
   candidate: {
@@ -185,6 +192,11 @@ export default function DiagnosticReportResultsPage() {
   const [isSampleReport, setIsSampleReport] = useState(true);
   const [hoveredQuadrant, setHoveredQuadrant] = useState<string | null>(null);
 
+  // Profession Suitability state
+  const [selectedProfession, setSelectedProfession] = useState<string>("");
+  const [suitabilityResult, setSuitabilityResult] = useState<ProfessionSuitabilityResult | null>(null);
+  const [profDropdownOpen, setProfDropdownOpen] = useState(false);
+
   // Hydrate report data on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -222,6 +234,41 @@ export default function DiagnosticReportResultsPage() {
     if (typeof window !== "undefined") {
       localStorage.removeItem("eq_diagnostic_report");
       router.push("/test");
+    }
+  };
+
+  const handleProfessionSelect = (professionName: string) => {
+    setSelectedProfession(professionName);
+    setProfDropdownOpen(false);
+    
+    if (!professionName) {
+      setSuitabilityResult(null);
+      return;
+    }
+
+    try {
+      // Calculate exact raw scores from foundation scores (most robust method, works with all local storage versions)
+      const active = data.foundationScores?.pacePosture?.active ?? 50;
+      const receptive = data.foundationScores?.pacePosture?.receptive ?? 50;
+      const agreeable = data.foundationScores?.orientation?.agreeable ?? 50;
+      const skeptical = data.foundationScores?.orientation?.skeptical ?? 50;
+
+      const rawD = (active + skeptical) / 2;
+      const rawI = (active + agreeable) / 2;
+      const rawS = (receptive + agreeable) / 2;
+      const rawC = (receptive + skeptical) / 2;
+
+      const result = evaluateProfessionSuitability(
+        rawD,
+        rawI,
+        rawS,
+        rawC,
+        professionName
+      );
+      setSuitabilityResult(result);
+    } catch (e) {
+      console.error("Error calculating profession suitability:", e);
+      setSuitabilityResult(null);
     }
   };
 
@@ -1579,7 +1626,317 @@ export default function DiagnosticReportResultsPage() {
       </section>
 
       {/* ══════════════════════════════
-          SECTION 10 — CTA / UPGRADE (Karmattitude)
+          SECTION 10 — PROFESSION SUITABILITY ASSESSMENT
+      ══════════════════════════════ */}
+      <section className="w-full bg-[#FDFBF7] py-16 sm:py-24 border-b border-[#4A4333]/10 page-break">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="max-w-3xl mb-10">
+            <span className="inline-block uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full border border-[#DCA543]/20 select-none">
+              SECTION 10 — PROFESSION SUITABILITY
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
+              Profession Suitability Assessment
+            </h2>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
+              Select a current or target profession to see how your DISC profile aligns with its behavioral demands.
+            </p>
+          </div>
+
+          {/* Profession Dropdown Selector */}
+          <div className="mb-10 max-w-md">
+            <label className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70 block mb-2">
+              Select Profession
+            </label>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setProfDropdownOpen(prev => !prev)}
+                className="w-full flex items-center justify-between gap-3 bg-white border border-[#4A4333]/15 rounded-xl py-3.5 px-5 text-sm font-serif text-[#403011] hover:border-[#DCA543] focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all cursor-pointer shadow-sm"
+              >
+                <span className="flex items-center gap-2.5">
+                  <Briefcase className="w-4 h-4 text-[#DCA543]" />
+                  {selectedProfession || "Choose a profession..."}
+                </span>
+                <ChevronDown className={`w-4 h-4 text-[#4A4333]/50 transition-transform duration-200 ${profDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {profDropdownOpen && (
+                <div className="absolute z-50 mt-2 w-full bg-white border border-[#4A4333]/15 rounded-xl shadow-lg max-h-64 overflow-y-auto">
+                  {professionProfilesConfig.profiles.map((prof) => (
+                    <button
+                      key={prof.name}
+                      type="button"
+                      onClick={() => handleProfessionSelect(prof.name)}
+                      className={`w-full text-left px-5 py-3 text-sm font-serif hover:bg-[#F6EBD4]/60 transition-colors cursor-pointer flex items-center justify-between border-b border-[#4A4333]/5 last:border-b-0 ${
+                        selectedProfession === prof.name
+                          ? 'bg-[#566544]/5 text-[#566544] font-bold'
+                          : 'text-[#403011]'
+                      }`}
+                    >
+                      <span>{prof.name}</span>
+                      {selectedProfession === prof.name && (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#566544]" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Suitability Results */}
+          {suitabilityResult && (
+            <div className="flex flex-col gap-8">
+
+              {/* ── Fit Overview Card ────────────────────────────────── */}
+              <div className="bg-white rounded-3xl border border-[#4A4333]/8 shadow-sm overflow-hidden print-card">
+                <div className="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+
+                  {/* Fit Percentage Gauge */}
+                  <div className="flex flex-col items-center gap-3 shrink-0 lg:border-r lg:border-[#4A4333]/8 lg:pr-10">
+                    <div className={`relative w-28 h-28 rounded-full flex items-center justify-center border-4 ${
+                      suitabilityResult.fitPercentage >= 80 ? 'border-[#5C7146]' :
+                      suitabilityResult.fitPercentage >= 70 ? 'border-[#DCA543]' :
+                      suitabilityResult.fitPercentage >= 55 ? 'border-[#DCA543]/60' :
+                      'border-[#D4856A]'
+                    }`}>
+                      {/* Background ring */}
+                      <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#F6EBD4" strokeWidth="6" />
+                        <circle
+                          cx="60" cy="60" r="52" fill="none"
+                          stroke={suitabilityResult.fitPercentage >= 80 ? '#5C7146' : suitabilityResult.fitPercentage >= 70 ? '#DCA543' : suitabilityResult.fitPercentage >= 55 ? '#DCA543' : '#D4856A'}
+                          strokeWidth="6"
+                          strokeLinecap="round"
+                          strokeDasharray={`${(suitabilityResult.fitPercentage / 100) * 327} 327`}
+                          className="transition-all duration-1000 ease-out"
+                        />
+                      </svg>
+                      <div className="relative z-10 flex flex-col items-center">
+                        <span className="text-3xl font-serif font-bold text-[#403011]">{suitabilityResult.fitPercentage}%</span>
+                        <span className="text-[8px] font-bold uppercase tracking-wider text-[#4A4333]/60">FIT</span>
+                      </div>
+                    </div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                      suitabilityResult.fitPercentage >= 80 ? 'bg-[#5C7146]/10 text-[#5C7146] border border-[#5C7146]/20' :
+                      suitabilityResult.fitPercentage >= 70 ? 'bg-[#DCA543]/10 text-[#DCA543] border border-[#DCA543]/20' :
+                      suitabilityResult.fitPercentage >= 55 ? 'bg-[#DCA543]/10 text-[#DCA543]/80 border border-[#DCA543]/15' :
+                      'bg-[#D4856A]/10 text-[#D4856A] border border-[#D4856A]/20'
+                    }`}>
+                      {suitabilityResult.fitClassification}
+                    </span>
+                  </div>
+
+                  {/* Profession Info + Why This Profession */}
+                  <div className="flex-1 flex flex-col gap-4">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] leading-tight">
+                        {suitabilityResult.professionName}
+                      </h3>
+                      <p className="text-xs text-[#4A4333]/70 font-serif mt-1 leading-relaxed">
+                        {suitabilityResult.professionDescription}
+                      </p>
+                    </div>
+
+                    <div className="border-t border-[#4A4333]/8 pt-4">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#DCA543] mb-2">
+                        <Zap className="w-3 h-3" />
+                        Why This Profession?
+                      </span>
+                      <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                        {suitabilityResult.whyThisProfession}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* DISC Comparison Bar */}
+                <div className="border-t border-[#4A4333]/6 px-6 sm:px-8 py-4 bg-[#F6EBD4]/30">
+                  <div className="flex items-center gap-4 text-[9px] font-bold uppercase tracking-wider text-[#4A4333]/50 mb-3 select-none">
+                    <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-[#566544]"></span>Your Profile</span>
+                    <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-[#DCA543]"></span>Profession Ideal</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-3 sm:gap-4">
+                    {(["D", "I", "S", "C"] as const).map((dim) => {
+                      const userVal = suitabilityResult.normalizedUser[dim];
+                      const profVal = suitabilityResult.professionProfile[dim];
+                      const dimNames = { D: "Drive", I: "Influence", S: "Support", C: "Clarity" };
+                      return (
+                        <div key={dim} className="flex flex-col gap-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] font-bold text-[#403011]">{dim}</span>
+                            <span className="text-[9px] text-[#4A4333]/60 font-serif hidden sm:inline">{dimNames[dim]}</span>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            <div className="h-2 bg-[#F6EBD4] rounded-full overflow-hidden">
+                              <div className="h-full bg-[#566544] rounded-full transition-all duration-700" style={{ width: `${userVal}%` }} />
+                            </div>
+                            <div className="h-2 bg-[#F6EBD4] rounded-full overflow-hidden">
+                              <div className="h-full bg-[#DCA543] rounded-full transition-all duration-700" style={{ width: `${profVal}%` }} />
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between text-[9px] font-serif text-[#4A4333]/60">
+                            <span>{userVal}%</span>
+                            <span>{profVal}%</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* ── Strengths + Development Areas ────────────────────── */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                {/* Strengths */}
+                {suitabilityResult.strengths.length > 0 && (
+                  <div className="p-6 bg-[#1F2C16] text-[#F6EBD4] rounded-2xl border border-white/5 shadow-sm print-dark-section">
+                    <div className="flex items-center gap-3 border-b border-white/10 pb-3 mb-5">
+                      <ArrowUpRight className="w-5 h-5 text-[#DCA543]" />
+                      <h3 className="font-serif font-bold text-lg text-white">Strengths</h3>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {suitabilityResult.strengths.map((s) => (
+                        <div key={s.dimension} className="flex flex-col gap-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="font-serif font-bold text-sm text-white">
+                              {s.label} ({s.dimension})
+                            </span>
+                            <span className="text-[10px] font-bold text-[#DCA543]">
+                              +{s.surplus}% surplus
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3 text-xs text-white/70 font-serif">
+                            <span>You: {s.userScore}%</span>
+                            <span className="text-white/30">|</span>
+                            <span>Required: {s.requiredScore}%</span>
+                          </div>
+                          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-full bg-[#5C7146] rounded-full" style={{ width: `${Math.min(s.userScore, 100)}%` }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Development Areas */}
+                {suitabilityResult.developmentAreas.length > 0 && (
+                  <div className="p-6 bg-[#F9ECE8] rounded-2xl border border-[#D4856A]/20 shadow-sm print-card">
+                    <div className="flex items-center gap-3 border-b border-[#D4856A]/15 pb-3 mb-5">
+                      <ArrowDownRight className="w-5 h-5 text-[#D4856A]" />
+                      <h3 className="font-serif font-bold text-lg text-[#403011]">Development Areas</h3>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {suitabilityResult.developmentAreas.map((d) => (
+                        <div key={d.dimension} className="flex flex-col gap-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="font-serif font-bold text-sm text-[#403011]">
+                              {d.label} ({d.dimension})
+                            </span>
+                            <span className="text-[10px] font-bold text-[#D4856A]">
+                              −{d.deficit}% gap
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3 text-xs text-[#403011]/70 font-serif">
+                            <span>You: {d.userScore}%</span>
+                            <span className="text-[#403011]/30">|</span>
+                            <span>Required: {d.requiredScore}%</span>
+                          </div>
+                          <div className="h-1.5 bg-[#D4856A]/15 rounded-full overflow-hidden">
+                            <div className="h-full bg-[#D4856A] rounded-full" style={{ width: `${Math.min(d.userScore, 100)}%` }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ── Improvement Suggestions ──────────────────────────── */}
+              {suitabilityResult.improvementSuggestions.length > 0 && (
+                <div className="bg-white rounded-2xl border border-[#4A4333]/8 shadow-sm p-6 print-card">
+                  <div className="flex items-center gap-3 border-b border-[#4A4333]/8 pb-3 mb-5">
+                    <Lightbulb className="w-5 h-5 text-[#DCA543]" />
+                    <h3 className="font-serif font-bold text-lg text-[#403011]">Improvement Suggestions</h3>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {suitabilityResult.improvementSuggestions.map((suggestion, idx) => {
+                      const dimNames: Record<string, string> = { D: "Drive", I: "Influence", S: "Support", C: "Clarity" };
+                      return (
+                        <div key={idx} className="flex gap-3.5 items-start p-4 bg-[#F6EBD4]/30 rounded-xl border border-[#4A4333]/5 hover:bg-[#F6EBD4]/50 transition-colors">
+                          <span className={`shrink-0 flex items-center justify-center w-7 h-7 rounded-lg text-[10px] font-bold ${
+                            idx === 0 ? 'bg-[#DCA543]/15 text-[#DCA543]' : 'bg-[#4A4333]/8 text-[#4A4333]/60'
+                          }`}>
+                            {idx + 1}
+                          </span>
+                          <div className="flex flex-col gap-0.5">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#4A4333]/50">
+                              {dimNames[suggestion.dimension]} Development
+                            </span>
+                            <p className="text-sm text-[#403011] font-serif leading-relaxed">
+                              {suggestion.title}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* ── Final Recommendation ─────────────────────────────── */}
+              <div className={`rounded-2xl border shadow-sm overflow-hidden print-card ${
+                suitabilityResult.recommendation.recommended === 'yes'
+                  ? 'border-[#5C7146]/20 bg-[#5C7146]/5'
+                  : suitabilityResult.recommendation.recommended === 'conditional'
+                  ? 'border-[#DCA543]/20 bg-[#DCA543]/5'
+                  : 'border-[#D4856A]/20 bg-[#D4856A]/5'
+              }`}>
+                <div className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div className="flex items-center gap-3">
+                      <Award className="w-6 h-6 text-[#DCA543]" />
+                      <h3 className="font-serif font-bold text-xl text-[#403011]">
+                        Recommendation
+                      </h3>
+                    </div>
+                    <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
+                      suitabilityResult.recommendation.recommended === 'yes'
+                        ? 'bg-[#5C7146] text-white'
+                        : suitabilityResult.recommendation.recommended === 'conditional'
+                        ? 'bg-[#DCA543] text-[#1F2C16]'
+                        : 'bg-[#D4856A] text-white'
+                    }`}>
+                      {suitabilityResult.recommendation.recommended === 'yes' && <CheckCircle2 className="w-3.5 h-3.5" />}
+                      {suitabilityResult.recommendation.recommended === 'conditional' && <AlertCircle className="w-3.5 h-3.5" />}
+                      {suitabilityResult.recommendation.recommended === 'no' && <AlertCircle className="w-3.5 h-3.5" />}
+                      {suitabilityResult.recommendation.recommended === 'yes' ? 'Recommended' : suitabilityResult.recommendation.recommended === 'conditional' ? 'Consider with Development' : 'Consider Alternatives'}
+                    </span>
+                  </div>
+
+                  <div className="border-t border-[#4A4333]/8 pt-4">
+                    <p className="text-sm font-serif font-bold text-[#403011] mb-1">
+                      {suitabilityResult.recommendation.summary}
+                    </p>
+                    <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                      {suitabilityResult.recommendation.reason}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          )}
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          SECTION 11 — CTA / UPGRADE (Karmattitude)
       ══════════════════════════════ */}
       <section className="w-full bg-[#FDFBF7] py-12 sm:py-20 page-break">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
