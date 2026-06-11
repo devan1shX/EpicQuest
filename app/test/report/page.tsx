@@ -13,6 +13,7 @@ import {
   TrendingUp, 
   Target, 
   Award,
+  RotateCcw,
   Users,
   Lightbulb,
   FileText,
@@ -286,7 +287,24 @@ export default function DiagnosticReportResultsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
       {/* Floating print dossier actions bar */}
-      
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col sm:flex-row items-end sm:items-center gap-3 no-print">
+        {/* <button
+          onClick={handlePrint}
+          className="inline-flex items-center justify-center h-11 px-4.5 rounded-full bg-[#1F2C16] hover:bg-[#2d3f20] text-[#F6EBD4] border border-[#DCA543]/20 hover:border-[#DCA543]/50 shadow-xl transition-all duration-300 font-sans text-xs font-bold hover:-translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DCA543] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1F2C16] active:scale-95 group"
+          aria-label="Print report"
+        >
+          <Printer className="w-3.5 h-3.5 mr-1.5 transition-transform duration-300 group-hover:scale-110" />
+          Print Report
+        </button> */}
+        {/* <button
+          onClick={handleReset}
+          className="inline-flex items-center justify-center h-11 px-5 rounded-full bg-[#DCA543] hover:bg-[#c99434] text-[#1F2C16] shadow-xl transition-all duration-300 font-sans text-xs font-extrabold hover:-translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DCA543] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1F2C16] active:scale-95 group"
+          aria-label="Reset and retake diagnostic test"
+        >
+          <RotateCcw className="w-3.5 h-3.5 mr-1.5 transition-transform duration-500 group-hover:rotate-[-120deg]" />
+          Retake Diagnostic
+        </button> */}
+      </div>
 
       {/* ══════════════════════════════════════════════════════════════
           PRINT-ONLY STYLES & COVER LETTER
@@ -624,9 +642,11 @@ export default function DiagnosticReportResultsPage() {
               
               <button
                 onClick={handleReset}
-                className="text-xs text-[#DCA543] hover:text-white transition-colors underline cursor-pointer mt-1 font-serif no-print"
+                className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-white/5 hover:bg-[#DCA543] text-[#DCA543] hover:text-[#1F2C16] border border-[#DCA543]/30 hover:border-[#DCA543] transition-all duration-300 font-sans text-xs font-bold shadow-sm hover:shadow-lg hover:-translate-y-0.5 cursor-pointer mt-1 no-print focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DCA543] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1F2C16] group active:scale-95"
+                aria-label="Reset and retake diagnostic test"
               >
-                Reset &amp; Retake Diagnostic
+                <RotateCcw className="w-3.5 h-3.5 transition-transform duration-500 group-hover:rotate-[-120deg]" />
+                <span>Reset &amp; Retake Diagnostic</span>
               </button>
             </div>
           </div>
