@@ -18,6 +18,10 @@
   --color-amber: #E0A96D;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: #F6EBD4 !important;

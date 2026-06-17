@@ -94,8 +94,7 @@ function CredentialBadge({ text }: { text: string }) {
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="uppercase tracking-[0.14em] text-[11px] font-bold text-[#566544]
-                     bg-[#566544]/10 px-3 py-1 rounded-full mb-4 inline-block border border-[#566544]/15">
+    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
       {children}
     </span>
   );
@@ -126,12 +125,9 @@ export default function TeamPage() {
             <div className="animate-fade-up">
               {/* Pill */}
               <div className="mb-7">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                                 bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase
-                                 tracking-[0.12em] border border-[#566544]/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
-                  The People Behind EpicQuest
-                </span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  THE PEOPLE BEHIND EPICQUEST
+</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem]
@@ -271,9 +267,9 @@ export default function TeamPage() {
           </p>
           <div className="flex items-center gap-3 shrink-0">
             <div className="w-8 h-px bg-[#DCA543]/60" />
-            <span className="text-[#DCA543] font-serif text-xs tracking-widest uppercase">
-              EpicQuest Founding Principle
-            </span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
+  EPICQUEST FOUNDING PRINCIPLE
+</span>
           </div>
         </div>
       </div>
@@ -356,9 +352,9 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="uppercase tracking-[0.18em] text-[0.65rem] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-6 inline-block border border-[#DCA543]/20">
-                Cohort Admissions Open
-              </span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  COHORT ADMISSIONS OPEN
+</span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
                 <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
@@ -387,12 +383,6 @@ export default function TeamPage() {
                   <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-[#F6EBD4]/25 text-[#F6EBD4] hover:bg-white/8 hover:border-[#F6EBD4]/40 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Book Free Consultation
                 </Link>
               </div>
             </div>

@@ -69,7 +69,7 @@ const blogPosts = [
   },
 ];
 
-const categories = ["All", "Admissions", "Research & Inventions", "Student Success", "Strategy", "Bespoke Programs"];
+const categories = ["All", "Research & Inventions", "Student Success", "Strategy", "Bespoke Programs"];
 
 export default function BlogIndexPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -87,23 +87,14 @@ export default function BlogIndexPage() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Featured post remains the designated featured post, unless filtered out by search/category
+  // Featured post remains permanently at the top
   const featuredPost = useMemo(() => {
-    const featured = blogPosts.find((p) => p.featured);
-    if (!featured) return null;
-    
-    // Check if it fits the current filters
-    const matchesCategory = selectedCategory === "All" || featured.category === selectedCategory;
-    const matchesSearch =
-      featured.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      featured.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-      
-    return matchesCategory && matchesSearch ? featured : null;
-  }, [selectedCategory, searchQuery]);
+    return blogPosts.find((p) => p.featured) || null;
+  }, []);
 
-  // Regular posts grid (excluding the featured one, or listing everything if featured is filtered out)
+  // Regular posts grid (excluding the featured one)
   const gridPosts = useMemo(() => {
-    return filteredPosts.filter((post) => !(post.id === featuredPost?.id));
+    return filteredPosts.filter((post) => post.id !== featuredPost?.id);
   }, [filteredPosts, featuredPost]);
 
   return (
@@ -126,12 +117,8 @@ export default function BlogIndexPage() {
 
             <div className="animate-fade-up">
               {/* Pill */}
-              <div className="mb-7">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                                 bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase
-                                 tracking-[0.12em] border border-[#566544]/20"
-                      suppressHydrationWarning>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
+              <div className="mb-6">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
                   EpicQuest Intellect Hub
                 </span>
               </div>
@@ -213,7 +200,7 @@ export default function BlogIndexPage() {
                   
                   {/* Content Column */}
                   <div className="space-y-5 sm:space-y-6">
-                    <span className="text-xs font-bold text-[#DCA543] uppercase tracking-[0.2em] font-sans">
+                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit">
                       ★ Featured Publication
                     </span>
                     
@@ -365,51 +352,6 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      {/* ── NEWSLETTER SUBSCRIPTION PANEL ── */}
-      <section className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-20 sm:pb-28 animate-fade-in">
-        <div className="bg-[#403011] rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border border-white/5 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
-          
-          {/* Decorative shapes */}
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-olive/10 filter blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-amber/5 filter blur-3xl pointer-events-none" />
-          
-          <div className="relative z-10 space-y-4 max-w-lg">
-            <span className="text-[10px] font-bold text-[#DCA543] uppercase tracking-[0.2em] font-sans">
-              Stay Informed
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-white font-medium leading-tight">
-              Get Admissions Intelligence Delivered Monthly
-            </h2>
-            <p className="text-sm text-[#C9BFA8] font-serif leading-relaxed">
-              No spam. Just actionable Ivy League portfolio strategy, upcoming research entry dates, publication timelines, and elite university placement advice straight from UPenn alum Tilak Mishra.
-            </p>
-          </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thank you for subscribing to EpicQuest Intellect!");
-            }}
-            className="relative z-10 w-full lg:w-fit flex flex-col sm:flex-row gap-3 items-stretch max-w-md"
-          >
-            <input
-              required
-              type="email"
-              placeholder="Enter your email address"
-              className="bg-white/10 backdrop-blur-md border border-white/15 rounded-full py-4 px-6 text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#DCA543] transition-all min-w-[260px]"
-              suppressHydrationWarning
-            />
-            <button
-              type="submit"
-              className="bg-[#DCA543] hover:bg-[#C89438] text-[#403011] font-bold text-sm px-8 py-4 rounded-full transition-all shrink-0 cursor-pointer shadow-md"
-              suppressHydrationWarning
-            >
-              Subscribe
-            </button>
-          </form>
-
-        </div>
-      </section>
 
     </main>
   );

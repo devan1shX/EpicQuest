@@ -20,10 +20,9 @@ export default function Home() {
           <div className="w-full lg:w-[55%] lg:flex-none space-y-6 sm:space-y-7 z-10 flex flex-col justify-center">
 
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-[0.65rem] font-bold uppercase tracking-[0.18em] w-fit shadow-sm select-none animate-fade-up">
-              <span className="w-1.5 h-1.5 rounded-full bg-olive inline-block animate-pulse"></span>
-              Elite University Admissions
-            </div>
+            <div className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  ELITE UNIVERSITY ADMISSIONS
+</div>
 
             <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.1rem] font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up delay-100">
               EpicQuest:<br />
@@ -55,15 +54,21 @@ export default function Home() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-1 animate-fade-up delay-400">
+          <div className="flex flex-col sm:flex-row gap-4 pt-1 animate-fade-up delay-400">
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-12 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+              href="/programs"
+              className="inline-flex items-center justify-center gap-2 px-10 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
             >
-              Generate Your Ivy Plan
+              Explore our Programs
               <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
+            </Link>
+            <Link
+              href="/results#success-story"
+              className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 group"
+            >
+              Our Success Story
             </Link>
           </div>
 
@@ -129,13 +134,13 @@ export default function Home() {
     </section>
 
       {/* ── 2. STATS ── */}
-      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
             <div>
-              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
                 Why Choose Us
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -180,12 +185,12 @@ export default function Home() {
       </section>
 
       {/* ── 3. PROGRAMS ── */}
-      <section className="w-full py-16 sm:py-20 lg:py-28">
+      <section className="w-full py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
             <div>
-              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
                 Our Programs
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -308,13 +313,13 @@ export default function Home() {
       </section>
 
       {/* ── 3.5 SKILLS ACADEMY ── */}
-      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-28 border-t border-b border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
             <div>
-              <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1.5 rounded-full mb-3 inline-block">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
                 Flagship Pathways
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -433,12 +438,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 4. HOW IT WORKS ── */}
+      {/* ── 4. THE EPICQUEST METHOD ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-14">
-            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
-              How It Works
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              The EpicQuest Method
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
               Your Bespoke Portfolio Journey
@@ -590,10 +595,10 @@ export default function Home() {
       </section>
 
       {/* ── 5. SUCCESS STORIES ── */}
-      <section className="w-full bg-[#FDFBF7] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
               Success Stories
             </span>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -663,7 +668,7 @@ export default function Home() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="uppercase tracking-widest text-[0.65rem] font-bold text-olive bg-olive/10 px-3 py-1 rounded-full mb-3 inline-block">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
               Partners & Affiliations
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -681,13 +686,17 @@ export default function Home() {
               { src: "/images/home/ISB_BIPP_Logo.png", alt: "Indian School of Business" },
               { src: "/images/home/IIITD-img.png", alt: "IIIT Delhi" },
               { src: "/images/home/IETO_Logo.png", alt: "IETO" },
+              { src: "/images/home/AMC_Logo.jpeg", alt: "AMC" },
+              { src: "/images/home/Creditas_Logo.jpeg", alt: "Creditas Solutions" },
+              { src: "/images/home/Credlabs_Logo.png", alt: "Credlabs" },
+              { src: "/images/home/UDC_Logo.png", alt: "UDC" },
             ].map(({ src, alt }) => (
               <div
                 key={alt}
                 className="bg-white h-24 flex items-center justify-center rounded-xl border border-[#4A4333]/10 shadow-sm px-6 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="relative w-full h-14">
-                  <Image src={src} alt={alt} fill className="object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                  <Image src={src} alt={alt} fill className="object-contain transition-all duration-300" />
                 </div>
               </div>
             ))}
@@ -710,7 +719,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. FINAL CTA ── */}
-      <section className="w-full bg-[#FDFBF7] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] via-[#374D23] to-[#455434] rounded-3xl px-6 py-16 sm:px-12 md:px-20 md:py-20 shadow-2xl border border-[#5C7146]/20">
             {/* Ambient blobs */}
@@ -720,9 +729,9 @@ export default function Home() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="uppercase tracking-[0.18em] text-[0.65rem] font-bold text-[#DCA543] bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-6 inline-block border border-[#DCA543]/20">
-                Cohort Admissions Open
-              </span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  COHORT ADMISSIONS OPEN
+</span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
                 <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
@@ -751,12 +760,6 @@ export default function Home() {
                   <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-[#F6EBD4]/25 text-[#F6EBD4] hover:bg-white/8 hover:border-[#F6EBD4]/40 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Book Free Consultation
                 </Link>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ProgramCTA from "@/components/ProgramCTA";
 import {
   ArrowLeft,
   Brain,
@@ -121,12 +122,9 @@ export default function PsychometricProfilingPage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                             bg-[#566544]/12 text-[#566544] text-[10px] font-bold uppercase
-                             tracking-[0.14em] border border-[#566544]/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#566544] animate-pulse inline-block" />
-              Programme Deep Dive
-            </span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  PROGRAMME DEEP DIVE
+</span>
           </div>
 
           {/* Two-column grid */}
@@ -522,9 +520,9 @@ export default function PsychometricProfilingPage() {
 
             {/* ── Right text column ── */}
             <div className="flex flex-col">
-              <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full mb-5 inline-block border border-[#566544]/20 self-start">
-                Report Insight
-              </span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  REPORT INSIGHT
+</span>
               <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
                 A 30+ Page Blueprint<br />of Your Potential
               </h2>
@@ -624,96 +622,13 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          CTA SECTION
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 relative overflow-hidden">
-        {/* Dot grid */}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(#4A4333_1px,transparent_1px)]
-                     [background-size:24px_24px] opacity-[0.03] pointer-events-none"
-        />
+      
 
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 relative">
-          <div
-            className="relative overflow-hidden bg-gradient-to-br
-                       from-[#2D3E1C] via-[#374D23] to-[#455434]
-                       rounded-[2.5rem] px-8 py-16 sm:px-16 sm:py-20
-                       shadow-2xl border border-[#5C7146]/20"
-          >
-            {/* Decorative corner arcs */}
-            <div
-              aria-hidden
-              className="absolute top-0 right-0 w-64 h-64 rounded-full
-                         border border-[#DCA543]/10 -translate-y-1/2 translate-x-1/2"
-            />
-            <div
-              aria-hidden
-              className="absolute top-0 right-0 w-44 h-44 rounded-full
-                         border border-[#DCA543]/8 -translate-y-1/3 translate-x-1/3"
-            />
-            <div
-              aria-hidden
-              className="absolute bottom-0 left-0 w-80 h-80 rounded-full
-                         bg-[#F6EBD4]/4 blur-3xl translate-y-1/2 -translate-x-1/4"
-            />
-
-            <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center">
-              <span
-                className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543]
-                           bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-6 inline-block
-                           border border-[#DCA543]/20"
-              >
-                The Ultimate Outcome
-              </span>
-
-              <h2
-                className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium
-                           text-[#F6EBD4] tracking-tight leading-[1.15] mb-5"
-              >
-                Complete Strengths Clarity
-              </h2>
-
-              <div className="w-12 h-px bg-[#DCA543]/60 mb-7" />
-
-              <p
-                className="text-base sm:text-lg text-[#F6EBD4]/80 font-serif leading-relaxed
-                           italic max-w-xl mb-10"
-              >
-                Understanding your cognitive style and unique profile allows you to engineer 
-                a high-impact admissions narrative grounded in your genuine capabilities.
-              </p>
-
-              {/* Two CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4
-                             bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C]
-                             rounded-full font-bold text-sm sm:text-base
-                             transition-all duration-300 shadow-lg
-                             hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)]"
-                >
-                  Schedule a Diagnostic Consultation
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  href="/programs"
-                  className="inline-flex items-center gap-2 px-6 py-4
-                             text-[#F6EBD4]/80 hover:text-[#F6EBD4]
-                             text-sm font-medium transition-colors duration-200"
-                >
-                  Explore all programs
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    
+      <ProgramCTA 
+        title="Precision-Guided Portfolio Design"
+        description="Align your natural cognitive strengths with high-impact projects, ensuring your application journey is both authentic and highly effective."
+      />
     </main>
   );
 }

@@ -124,7 +124,7 @@ const skillsList = [
 ];
 
 const navLinks = [
-  { label: "How It Works", href: "/how-it-works" },
+  { label: "The EpicQuest Method", href: "/the-epicquest-method" },
   { label: "Results", href: "/results" },
   { label: "Diagnostic Report", href: "/test" },
   { label: "Team", href: "/team" },

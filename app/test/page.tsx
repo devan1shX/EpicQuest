@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { 
-  Compass, 
-  ArrowRight, 
-  ArrowLeft, 
-  User, 
-  GraduationCap, 
-  School, 
-  CheckCircle2, 
+import Image from "next/image";
+import {
+  Compass,
+  ArrowRight,
+  ArrowLeft,
+  User,
+  GraduationCap,
+  School,
+  CheckCircle2,
   Sparkles,
   Info,
   ChevronDown,
@@ -20,27 +21,28 @@ import {
   UserCheck,
   BookOpen
 } from "lucide-react";
-import { 
-  adjectivePairsList, 
-  singleTraitsList, 
-  forcedChoicesList, 
-  compileReport 
+import {
+  adjectivePairsList,
+  singleTraitsList,
+  forcedChoicesList,
+  compileReport
 } from "./engine";
 
 export default function DiagnosticTestPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [step, setStep] = useState(0);
-  
+  const [testStarted, setTestStarted] = useState(false);
+
   // Onboarding metadata form states
   const [name, setName] = useState("");
   const [status, setStatus] = useState("");
   const [university, setUniversity] = useState("");
-  
+
   // Answers maps Record<qKey, value>
   // Starts empty/blank as requested
   const [answers, setAnswers] = useState<Record<string, any>>({});
-  
+
   // Validation state
   const [validationError, setValidationError] = useState("");
   const [highlightedUnanswered, setHighlightedUnanswered] = useState<string[]>([]);
@@ -110,7 +112,7 @@ export default function DiagnosticTestPage() {
     if (step < 5) {
       setStep(prev => prev + 1);
       // Smooth scroll back to top of the questionnaire card
-      const element = document.getElementById("assessment-portal");
+      const element = document.getElementById("test-portal");
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
@@ -124,7 +126,7 @@ export default function DiagnosticTestPage() {
     setHighlightedUnanswered([]);
     if (step > 0) {
       setStep(prev => prev - 1);
-      const element = document.getElementById("assessment-portal");
+      const element = document.getElementById("test-portal");
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
@@ -198,7 +200,7 @@ export default function DiagnosticTestPage() {
     },
     {
       q: "Do I need to complete this assessment all at once?",
-      a: "If you’ve created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to an EpicQuest account before starting the test, your progress will not be saved and you will need to complete the test all at once."
+      a: "If you've created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to an EpicQuest account before starting the test, your progress will not be saved and you will need to complete the test all at once."
     },
     {
       q: "Is the DISC personality test appropriate for children?",
@@ -207,309 +209,591 @@ export default function DiagnosticTestPage() {
   ];
 
   return (
-    
+
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
-      
+
       {/* ══════════════════════════════
-          HERO SECTION — Consistent with Team Page
+          HERO SECTION
       ══════════════════════════════ */}
       <section className="relative w-full border-b border-[#4A4333]/10 py-16 sm:py-24">
-        {/* Ambient blobs matching team style - Wrapped in absolute overflow container */}
+        {/* Ambient blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3" />
           <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4" />
-          {/* Dot grid matching team style */}
           <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
-            {/* LEFT COLUMN: PAGINATED QUESTIONNAIRE PANEL */}
-            <div id="assessment-portal" className="lg:col-span-7 w-full flex flex-col gap-6 animate-fade-up">
-              
-              {/* Header Pill */}
+
+            {/* LEFT COLUMN */}
+            <div className="lg:col-span-7">
+
               <div className="self-start">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase tracking-[0.12em] border border-[#566544]/20 select-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
-                  EpicQuest Leadership Diagnostic
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+                  LEADERSHIP DIAGNOSTIC ASSESSMENT
                 </span>
               </div>
 
-              {/* Step Header */}
               <div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1]">
-                  Establish Your{" "}
+                  Know Your Child&apos;s{" "}
                   <span className="relative inline-block">
-                    <span className="relative z-10">Diagnostic Profile</span>
+                    <span className="relative z-10">Potential.</span>
                     <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                       <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </span>
                 </h1>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-4 pl-4 border-l-2 border-[#DCA543]">
-                  Map your default behavioral vectors to design highly competitive Ivy League academic research and patent portfolio alignments.
+                  Science-backed career &amp; personality mapping for high school and college students — combining two globally validated frameworks in one powerful report.
                 </p>
               </div>
 
-              {/* STEP PROGRESS BAR */}
-              <div className="w-full bg-[#FDFBF7] rounded-2xl p-4 border border-[#4A4333]/8 shadow-sm flex items-center justify-between text-xs select-none mt-2">
-                <div className="flex items-center gap-2">
-                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-sans transition-colors ${
-                    step >= 0 ? "bg-[#566544] text-white" : "bg-[#4A4333]/10 text-[#4A4333]/50"
-                  }`}>
-                    1
-                  </span>
-                  <span className={`font-semibold font-serif ${step === 0 ? "text-[#403011]" : "text-[#4A4333]/50"}`}>
-                    Candidate Info
-                  </span>
+              {/* Feature Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div className="bg-[#FDFBF7] border border-[#4A4333]/10 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-serif font-bold text-[#403011] mb-2 flex items-center gap-2">
+                    <Compass className="w-4 h-4 text-[#566544]" />
+                    Gunaity Epicometer™
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed mb-3">
+                    DISC-based personality assessment adapted for students — mapping behavioural styles across Drive, Influence, Support, and Clarity dimensions with 12 unique hybrid types.
+                  </p>
+                  <div className="text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-2 py-1 rounded w-fit uppercase tracking-wider">
+                    D · Drive &nbsp; I · Influence &nbsp; S · Support &nbsp; C · Clarity
+                  </div>
                 </div>
-                <div className="h-[1px] bg-[#4A4333]/10 flex-1 mx-4 hidden sm:block" />
-                <div className="flex items-center gap-2">
-                  <span className={`h-6 w-6 rounded-full flex items-center justify-center font-bold font-sans transition-colors ${
-                    step >= 1 ? "bg-[#566544] text-white" : "bg-[#4A4333]/10 text-[#4A4333]/50"
-                  }`}>
-                    2
-                  </span>
-                  <span className={`font-semibold font-serif ${step >= 1 ? "text-[#403011]" : "text-[#4A4333]/50"}`}>
-                    Psychometric Matrix ({percentComplete}%)
-                  </span>
+
+                <div className="bg-[#FDFBF7] border border-[#4A4333]/10 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-serif font-bold text-[#403011] mb-2 flex items-center gap-2">
+                    <Activity className="w-4 h-4 text-[#DCA543]" />
+                    Karmattitude™
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed mb-3">
+                    Career interest &amp; aptitude profiling across 6 career domains — linking personality strengths to real-world profession pathways.
+                  </p>
+                  <div className="text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-2 py-1 rounded w-fit uppercase tracking-wider">
+                    6 Career Domains
+                  </div>
                 </div>
               </div>
 
-              {/* INLINE VALIDATION ERROR */}
-              {validationError && (
-                <div className="p-4 rounded-2xl bg-[#D4856A]/10 border border-[#D4856A]/20 text-[#D4856A] text-xs sm:text-sm font-medium flex items-start gap-2.5 animate-pulse shadow-sm">
-                  <Info className="w-4.5 h-4.5 shrink-0 mt-0.5" />
-                  <span>{validationError}</span>
-                </div>
-              )}
+              {/* Quote */}
+              <blockquote className="mt-6 relative pl-8 py-2">
+                <span className="absolute top-0 left-0 text-5xl text-[#DCA543]/30 font-serif leading-none select-none">&ldquo;</span>
+                <p className="text-[#4A4333] font-serif text-sm sm:text-base leading-relaxed italic mb-3 relative z-10">
+                  Dual assessment, one report — no other tool combines behavioural personality mapping with career interest scoring so elegantly.
+                </p>
+                <footer className="text-xs font-bold text-[#8A8373] uppercase tracking-wider font-sans flex items-center gap-2">
+                  <span className="w-6 h-px bg-[#DCA543]"></span>
+                  Tilak Mishra, Founder (UPenn Alumnus)
+                </footer>
+              </blockquote>
 
-              {/* ══════════════════════════════
+              {/* Learn More Button */}
+              <div className="mt-6 mb-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('deep-dive');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#566544] hover:bg-[#455236] text-white rounded-full text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all cursor-pointer whitespace-nowrap shrink-0"
+                >
+                  Learn More
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#8A8373] font-serif uppercase tracking-widest font-bold">
+                  <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0" />
+                  4 DISC Styles · 12 Hybrid Types · 6 Career Areas
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT COLUMN: Hero Image */}
+            <div className="lg:col-span-5 w-full hidden lg:flex flex-col gap-6">
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#DCA543]/20 shadow-2xl bg-white w-full">
+                <Image
+                  src="/images/diagnostic_test/Diagnostic_Hero.png"
+                  alt="EpicQuest Diagnostic Report Preview"
+                  width={600}
+                  height={800}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          DEEP DIVE SECTION — Two Column Layout
+      ══════════════════════════════ */}
+      <section id="deep-dive" className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+            {/* ── LEFT COLUMN: Framework Details ── */}
+            <div className="flex flex-col gap-10">
+
+              {/* Section Header */}
+              <div>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+                  THE EPICQUEST PSYCHOMETRIC TOOL
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
+                  🧠 Leadership Diagnostic Assessment — Deep Dive
+                </h2>
+                <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5">
+                  <strong className="text-[#403011]">Science-Backed. Student-Focused. Career-Defining.</strong> The EpicQuest Leadership Diagnostic Assessment combines two proprietary frameworks — <em>Gunaity Epicometer™</em> and <em>Karmattitude™</em> — to deliver a single, powerful report that maps your child&apos;s personality to their ideal career pathway.
+                </p>
+              </div>
+
+              {/* 4 DISC Quadrant Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                {[
+                  { num: "01", letter: "D", title: "Drive · Assertive", desc: "Goal-oriented, decisive leaders. Excel in entrepreneurship, management, law, and competitive environments.", color: "#566544" },
+                  { num: "02", letter: "I", title: "Influence · Hustler", desc: "Enthusiastic communicators. Thrive in sales, marketing, media, public relations, and performing arts.", color: "#DCA543" },
+                  { num: "03", letter: "S", title: "Support · Helper", desc: "Dependable, empathetic team-builders. Suited for healthcare, education, social work, and HR roles.", color: "#D4856A" },
+                  { num: "04", letter: "C", title: "Clarity · Intellectual", desc: "Analytical, detail-focused thinkers. Natural fit for STEM, research, finance, and data science.", color: "#5D7A8C" },
+                ].map((q) => (
+                  <div key={q.num} className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-5 sm:p-6 flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <span className="h-9 w-9 rounded-xl flex items-center justify-center font-serif font-bold text-white text-sm" style={{ backgroundColor: q.color }}>
+                        {q.letter}
+                      </span>
+                      <span className="text-2xl font-serif text-[#403011]/15 leading-none select-none">{q.num}</span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-serif font-bold text-[#403011] tracking-tight leading-snug">{q.title}</h3>
+                    <p className="text-[13px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed">{q.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Why Choose EpicQuest */}
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
+                  Why Choose EpicQuest?
+                </h3>
+                <div className="flex flex-col gap-4">
+                  {[
+                    { tag: "DUAL FRAMEWORK", title: "Dual Framework, One Report", desc: "Combines personality profiling AND career mapping — no other Indian tool does both in a single student-focused assessment.", icon: Compass },
+                    { tag: "GLOBALLY VALIDATED", title: "Globally Validated", desc: "Built on DISC and career selection models used by leading universities and corporates worldwide.", icon: Shield },
+                    { tag: "ACTIONABLE", title: "Actionable Guidance", desc: "Delivers personalised career planning, matched profession lists, and growth strategies.", icon: Activity },
+                    { tag: "BUILT FOR SCHOOLS", title: "Built for Schools", desc: "Bulk programs for institutions. Counsellor companion guides included for interpretation and action.", icon: BookOpen },
+                    { tag: "IVY LEAGUE LEGACY", title: "Ivy League — Founded", desc: "Developed with rigorous academic grounding — not a generic quiz, but a research-backed instrument.", icon: Award },
+                  ].map((item) => {
+                    const ItemIcon = item.icon;
+                    return (
+                      <div key={item.tag} className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-5 sm:p-6 flex flex-col gap-2">
+                        <div className="mb-1">
+                          <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
+                            <ItemIcon className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                            {item.tag}
+                          </span>
+                        </div>
+                        <h4 className="text-base sm:text-lg font-serif font-bold text-[#403011] tracking-tight">{item.title}</h4>
+                        <p className="text-[13px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed">{item.desc}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Closing Quote */}
+              <blockquote className="relative pl-6 sm:pl-8 py-2 border-l-2 border-[#DCA543]">
+                <p className="text-base sm:text-lg text-[#403011] font-serif leading-relaxed italic">
+                  Most students never discover their true strengths. EpicQuest students know exactly who they are — and where they&apos;re going.
+                </p>
+              </blockquote>
+            </div>
+
+            {/* ── RIGHT COLUMN: Report Preview Collage ── */}
+            <div className="flex flex-col gap-6 lg:sticky lg:top-24">
+
+              <div className="flex flex-col gap-3 mb-2">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full w-fit">
+                  <Sparkles className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                  SAMPLE REPORT PREVIEW
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] tracking-tight">
+                  What Your Report Looks Like
+                </h3>
+                <p className="text-xs sm:text-sm text-[#4A4333]/80 font-serif leading-relaxed">
+                  A 30+ page personalised dossier covering personality mapping, career alignment, and profession suitability.
+                </p>
+              </div>
+
+              {/* Creative Overlapping Collage */}
+<div className="relative">
+  {/* Ambient color glow */}
+  <div className="absolute -top-10 -left-8 w-52 h-52 rounded-full bg-[#DCA543]/15 blur-3xl pointer-events-none" />
+  <div className="absolute -bottom-6 -right-6 w-60 h-60 rounded-full bg-[#566544]/15 blur-3xl pointer-events-none" />
+
+  {/* Dot-grid backdrop — echoes the quadrant data underneath */}
+  <div
+    className="absolute -top-4 -right-3 w-full h-[320px] rounded-[2rem] border border-[#566544]/15 pointer-events-none"
+    style={{
+      backgroundImage: "radial-gradient(#566544 1px, transparent 1px)",
+      backgroundSize: "16px 16px",
+      backgroundColor: "rgba(86,101,68,0.03)",
+    }}
+  />
+
+  {/* 01 — Epicometer */}
+  <div className="relative rotate-[-1.5deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/40 bg-white z-10 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+    <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
+      01 · DISC Quadrant Map
+    </span>
+    <Image
+      src="/images/diagnostic_test/Report_Epicometer.png"
+      alt="Gunaity Epicometer™ — DISC Quadrant Chart"
+      width={900}
+      height={1050}
+      quality={100}
+      className="w-full h-auto"
+    />
+  </div>
+
+  {/* 02 — Career Alignment */}
+  <div className="relative -mt-10 ml-4 sm:ml-8 mr-2 rotate-[1deg] rounded-2xl overflow-hidden border-2 border-[#566544]/25 bg-white z-20 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+    <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
+      02 · Career Fit %
+    </span>
+    <Image
+      src="/images/diagnostic_test/Report_Career_Alignment.png"
+      alt="Career Alignment Report — Career Fit Percentages"
+      width={900}
+      height={525}
+      quality={100}
+      className="w-full h-auto"
+    />
+  </div>
+
+  {/* 03 — Four Quadrants */}
+  <div className="relative -mt-10 mr-4 sm:mr-8 ml-2 rotate-[-1deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/35 bg-white z-30 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+    <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
+      03 · Framework Core
+    </span>
+    <Image
+      src="/images/diagnostic_test/Report_Four_Quadrants.png"
+      alt="The Four Quadrants — Framework Core"
+      width={900}
+      height={750}
+      quality={100}
+      className="w-full h-auto"
+    />
+  </div>
+
+  {/* 04 — Profession Suitability */}
+  <div className="relative -mt-10 ml-3 sm:ml-6 rotate-[0.75deg] rounded-2xl overflow-hidden border-2 border-[#566544]/20 bg-white z-40 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+    <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
+      04 · Role Suitability
+    </span>
+    <Image
+      src="/images/diagnostic_test/Report_Profession_Suitability.png"
+      alt="Profession Suitability Assessment"
+      width={900}
+      height={514}
+      quality={100}
+      className="w-full h-auto"
+    />
+  </div>
+
+  {/* Floating accent label */}
+  <div className="absolute -bottom-5 -left-2 z-50 bg-[#566544] text-white px-4 py-2 rounded-full text-[11px] font-bold font-serif shadow-lg flex items-center gap-2 rotate-[-2deg]">
+    <Sparkles className="w-3.5 h-3.5" />
+    30+ Page Report
+  </div>
+</div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          CTA BANNER + TEST PORTAL
+      ══════════════════════════════ */}
+      <section id="assessment-portal" className="w-full bg-[#F6EBD4] border-t border-[#4A4333]/10">
+
+        {/* CTA Banner */}
+        <div className="py-16 sm:py-24">
+          <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center gap-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
+              {testStarted ? 'ASSESSMENT IN PROGRESS' : 'READY TO BEGIN?'}
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+              Discover Your Child&apos;s{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">True Potential</span>
+                <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                  <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-2xl">
+              {testStarted
+                ? 'Complete the assessment below to receive your personalised 30+ page diagnostic report instantly.'
+                : 'Take the EpicQuest Leadership Diagnostic Assessment — a 5-minute, science-backed tool that maps personality to career pathways. Get your 30+ page personalised report instantly.'
+              }
+            </p>
+            {!testStarted && (
+              <button
+                onClick={() => {
+                  setTestStarted(true);
+                  setTimeout(() => {
+                    const el = document.getElementById('test-portal');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 100);
+                }}
+                className="inline-flex items-center gap-2.5 px-10 py-4.5 bg-[#566544] hover:bg-[#455236] text-white rounded-full text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all cursor-pointer"
+              >
+                Get Your Assessment
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
+            <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#8A8373] font-serif uppercase tracking-widest font-bold">
+              <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0" />
+              Free · 5 Minutes · Instant 30+ Page Report
+            </div>
+          </div>
+        </div>
+
+        {/* Test Portal — visible only after CTA is clicked */}
+        {testStarted && (
+          <div id="test-portal" className="py-16 sm:py-24 relative">
+
+            {/* Background elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#DCA543]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#566544]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-16 items-start relative z-10">
+
+              {/* ── LEFT COLUMN: Title & Progress ── */}
+              <div className="lg:w-5/12 flex flex-col lg:sticky lg:top-32 gap-10">
+
+                <div>
+                  {/* Header Pill */}
+                  <div className="self-start">
+                    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#566544]/10 shadow-sm">
+                      <Compass className="w-4 h-4 text-[#566544] mr-2" />
+                      EPICQUEST LEADERSHIP DIAGNOSTIC
+                    </span>
+                  </div>
+
+                  {/* Step Header */}
+                  <div>
+                    <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif font-medium text-[#403011] tracking-tight leading-[1.05]">
+                      Establish Your{" "}
+                      <span className="relative inline-block mt-2">
+                        <span className="relative z-10">Diagnostic Profile</span>
+                        <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                          <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                        </svg>
+                      </span>
+                    </h1>
+                    <p className="text-base sm:text-lg text-[#4A4333]/90 font-serif leading-relaxed mt-6 pl-5 border-l-2 border-[#DCA543]">
+                      Map your default behavioral vectors to design highly competitive Ivy League academic research and patent portfolio alignments.
+                    </p>
+                  </div>
+                </div>
+
+                {/* STEP PROGRESS TRACKER */}
+                <div className="w-full bg-white rounded-3xl p-6 sm:p-8 border border-[#4A4333]/8 shadow-lg flex flex-col gap-6 select-none relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#F6EBD4]/50 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3" />
+
+                  <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#8A7340] flex items-center gap-2">
+                    <Activity className="w-4 h-4" />
+                    Assessment Progress
+                  </div>
+
+                  <div className="flex flex-col gap-5 relative z-10">
+                    {/* Step 1 indicator */}
+                    <div className={`flex items-center gap-4 transition-opacity ${step >= 0 ? "opacity-100" : "opacity-40"}`}>
+                      <span className={`h-10 w-10 shrink-0 rounded-full flex items-center justify-center font-bold font-sans transition-all shadow-sm ${step === 0 ? "bg-[#566544] text-white ring-4 ring-[#566544]/20" : step > 0 ? "bg-[#566544] text-white" : "bg-[#F6EBD4] text-[#4A4333]/50"
+                        }`}>
+                        {step > 0 ? <CheckCircle2 className="w-5 h-5" /> : "1"}
+                      </span>
+                      <div className="flex flex-col">
+                        <span className={`font-bold font-serif text-base ${step === 0 ? "text-[#403011]" : step > 0 ? "text-[#566544]" : "text-[#4A4333]/50"}`}>
+                          Candidate Registration
+                        </span>
+                        <span className="text-[11px] uppercase tracking-wider text-[#4A4333]/60 font-medium">Basic details</span>
+                      </div>
+                    </div>
+
+                    {/* Connector line */}
+                    <div className="w-0.5 h-8 bg-[#4A4333]/10 ml-5 rounded-full relative overflow-hidden">
+                      <div className={`absolute top-0 w-full bg-[#566544] transition-all duration-700 ease-in-out ${step > 0 ? 'h-full' : 'h-0'}`} />
+                    </div>
+
+                    {/* Step 2 indicator */}
+                    <div className={`flex items-center gap-4 transition-opacity ${step >= 1 ? "opacity-100" : "opacity-40"}`}>
+                      <span className={`h-10 w-10 shrink-0 rounded-full flex items-center justify-center font-bold font-sans transition-all shadow-sm ${step >= 1 && step < 5 ? "bg-[#DCA543] text-white ring-4 ring-[#DCA543]/20" : step === 5 ? "bg-[#566544] text-white" : "bg-[#FDFBF7] border border-[#4A4333]/20 text-[#4A4333]/50"
+                        }`}>
+                        {step === 5 ? <CheckCircle2 className="w-5 h-5" /> : "2"}
+                      </span>
+                      <div className="flex flex-col">
+                        <span className={`font-bold font-serif text-base ${step >= 1 ? "text-[#403011]" : "text-[#4A4333]/50"}`}>
+                          Psychometric Matrix
+                        </span>
+                        <span className="text-[11px] uppercase tracking-wider text-[#4A4333]/60 font-medium">
+                          {step >= 1 && step < 5 ? `${percentComplete}% Complete` : step === 5 ? "100% Complete" : "Behavioral assessment"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* ── RIGHT COLUMN: The Form ── */}
+              <div className="lg:w-7/12 flex flex-col gap-6 w-full pt-2 lg:pt-0">
+
+                {/* INLINE VALIDATION ERROR */}
+                {validationError && (
+                  <div className="p-4 rounded-2xl bg-[#D4856A]/10 border border-[#D4856A]/20 text-[#D4856A] text-xs sm:text-sm font-medium flex items-start gap-2.5 shadow-sm">
+                    <Info className="w-4.5 h-4.5 shrink-0 mt-0.5" />
+                    <span>{validationError}</span>
+                  </div>
+                )}
+
+                {/* ══════════════════════════════
                   STEP 0: CANDIDATE INFO FORM
               ══════════════════════════════ */}
-              {step === 0 && (
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#4A4333]/8 shadow-md relative overflow-hidden transition-all duration-300">
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#566544] to-[#DCA543]" />
-                  <h2 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-6 flex items-center gap-2.5">
-                    <Compass className="w-5 h-5 text-[#DCA543]" />
-                    Candidate Registration
-                  </h2>
-                  <p className="text-xs sm:text-sm text-[#4A4333]/85 font-serif leading-relaxed mb-6 border-b border-[#4A4333]/8 pb-4">
-                    Please enter your profile details. We interpolate these values dynamically across your 30+ page custom dossier, tactical research directions, and admissions priority roadmaps.
-                  </p>
+                {step === 0 && (
+                  <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#4A4333]/8 shadow-md relative overflow-hidden transition-all duration-300">
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#566544] to-[#DCA543]" />
+                    <h2 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-6 flex items-center gap-2.5">
+                      <Compass className="w-5 h-5 text-[#DCA543]" />
+                      Candidate Registration
+                    </h2>
+                    <p className="text-xs sm:text-sm text-[#4A4333]/85 font-serif leading-relaxed mb-6 border-b border-[#4A4333]/8 pb-4">
+                      Please enter your profile details. We interpolate these values dynamically across your 30+ page custom dossier, tactical research directions, and admissions priority roadmaps.
+                    </p>
 
-                  <div className="space-y-5">
-                    {/* Full Name */}
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="student-name" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
-                        Candidate Full Name <span className="text-[#D4856A]">*</span>
-                      </label>
-                      <div className="relative">
-                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
-                        <input
-                          id="student-name"
-                          type="text"
-                          placeholder="e.g. Hetvi Bhanushali"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
-                        />
+                    <div className="space-y-5">
+                      {/* Full Name */}
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="student-name" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
+                          Candidate Full Name <span className="text-[#D4856A]">*</span>
+                        </label>
+                        <div className="relative">
+                          <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
+                          <input
+                            id="student-name"
+                            type="text"
+                            placeholder="e.g. Hetvi Bhanushali"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Grade Status */}
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="student-status" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
+                          Academic Grade / Class Status <span className="text-[#D4856A]">*</span>
+                        </label>
+                        <div className="relative">
+                          <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
+                          <input
+                            id="student-status"
+                            type="text"
+                            placeholder="e.g. Sophomore Year Student, Grade 11"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Target Aspirations */}
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="target-university" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
+                          Target Universities / Admissions Focus <span className="text-[#D4856A]">*</span>
+                        </label>
+                        <div className="relative">
+                          <School className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
+                          <input
+                            id="target-university"
+                            type="text"
+                            placeholder="e.g. UC Santa Barbara (or Ivy League)"
+                            value={university}
+                            onChange={(e) => setUniversity(e.target.value)}
+                            className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Grade Status */}
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="student-status" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
-                        Academic Grade / Class Status <span className="text-[#D4856A]">*</span>
-                      </label>
-                      <div className="relative">
-                        <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
-                        <input
-                          id="student-status"
-                          type="text"
-                          placeholder="e.g. Sophomore Year Student, Grade 11"
-                          value={status}
-                          onChange={(e) => setStatus(e.target.value)}
-                          className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Target Aspirations */}
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="target-university" className="text-[10px] font-extrabold uppercase tracking-wider text-[#4A4333]/70">
-                        Target Universities / Admissions Focus <span className="text-[#D4856A]">*</span>
-                      </label>
-                      <div className="relative">
-                        <School className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4A4333]/45" />
-                        <input
-                          id="target-university"
-                          type="text"
-                          placeholder="e.g. UC Santa Barbara (or Ivy League)"
-                          value={university}
-                          onChange={(e) => setUniversity(e.target.value)}
-                          className="w-full bg-[#FDFBF7] border border-[#4A4333]/15 rounded-xl py-3 pl-11 pr-4 text-xs sm:text-sm focus:outline-none focus:border-[#566544] focus:ring-1 focus:ring-[#566544] transition-all font-serif"
-                        />
-                      </div>
+                    <div className="mt-8 pt-5 border-t border-[#4A4333]/8 flex justify-end">
+                      <button
+                        type="button"
+                        onClick={handleNextStep}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all cursor-pointer"
+                      >
+                        Start Assessment
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
+                )}
 
-                  <div className="mt-8 pt-5 border-t border-[#4A4333]/8 flex justify-end">
-                    <button
-                      type="button"
-                      onClick={handleNextStep}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all cursor-pointer"
-                    >
-                      Start Assessment
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* ══════════════════════════════
+                {/* ══════════════════════════════
                   STEP 1, 2, 3: BIPOLAR ADJECTIVE PAIRS
               ══════════════════════════════ */}
-              {(step === 1 || step === 2 || step === 3) && (
-                <div className="flex flex-col gap-5">
-                  <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
-                    <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-4 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
-                        Adjective Pair Block {step} of 3
-                      </span>
-                      <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
-                        Select a point leaning toward your natural default
-                      </span>
-                    </div>
-
-                    {/* Rating Scale Labels */}
-                    <div className="flex items-center justify-between px-2 sm:px-6 pb-2 select-none gap-2 sm:gap-4">
-                      <span className="flex-1 min-w-0"></span>
-                      <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0">
-                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
-                        <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Neutral</div>
-                        <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
-                        <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                {(step === 1 || step === 2 || step === 3) && (
+                  <div className="flex flex-col gap-5">
+                    <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
+                      <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-4 select-none">
+                        <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
+                          Adjective Pair Block {step} of 3
+                        </span>
+                        <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
+                          Select a point leaning toward your natural default
+                        </span>
                       </div>
-                      <span className="flex-1 min-w-0"></span>
-                    </div>
 
-                    <div className="divide-y divide-[#4A4333]/8">
-                      {adjectivePairsList.slice((step - 1) * 8, step * 8).map((q) => {
-                        const score = answers[q.id];
-                        const isHighlighted = highlightedUnanswered.includes(q.id);
-                        return (
-                          <div 
-                            key={q.id}
-                            className={`flex items-center justify-between py-5.5 px-2 sm:px-6 gap-2 sm:gap-4 rounded-xl transition-all ${
-                              isHighlighted 
-                                ? "bg-[#D4856A]/5 border border-dashed border-[#D4856A]/25" 
-                                : "hover:bg-[#FDFBF7]/40"
-                            }`}
-                          >
-                            {/* Left Bipolar term */}
-                            <span className="flex-1 min-w-0 text-right font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
-                              {q.left}
-                            </span>
-                            
-                            {/* Rating Circles */}
-                            <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0 select-none">
-                              {[1, 2, 3, 4, 5].map((val) => {
-                                const isSelected = score === val;
-                                return (
-                                  <button
-                                    key={val}
-                                    type="button"
-                                    onClick={() => handleAnswerSelect(q.id, val)}
-                                    className="relative focus:outline-none cursor-pointer"
-                                    aria-label={`Rate ${q.left} to ${q.right} as ${val}`}
-                                  >
-                                    <div className={`h-6 w-6 sm:h-7 sm:w-7 rounded-full border-2 flex items-center justify-center transition-all ${
-                                      isSelected 
-                                        ? "bg-[#566544] border-[#566544] scale-110 shadow" 
-                                        : "border-[#4A4333]/20 bg-[#FDFBF7] hover:border-[#DCA543]"
-                                    }`}>
-                                      {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-white animate-fade-in" />}
-                                    </div>
-                                  </button>
-                                );
-                              })}
-                            </div>
+                      {/* Rating Scale Labels */}
+                      <div className="flex items-center justify-between px-2 sm:px-6 pb-2 select-none gap-2 sm:gap-4">
+                        <span className="flex-1 min-w-0"></span>
+                        <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0">
+                          <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                          <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                          <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Neutral</div>
+                          <div className="hidden sm:flex w-6 sm:w-7 justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Lean</div>
+                          <div className="w-6 sm:w-7 flex justify-center text-[7px] sm:text-[9px] font-extrabold uppercase tracking-widest sm:tracking-wider text-[#4A4333]/45 whitespace-nowrap">Strong</div>
+                        </div>
+                        <span className="flex-1 min-w-0"></span>
+                      </div>
 
-                            {/* Right Bipolar term */}
-                            <span className="flex-1 min-w-0 text-left font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
-                              {q.right}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                      <div className="divide-y divide-[#4A4333]/8">
+                        {adjectivePairsList.slice((step - 1) * 8, step * 8).map((q) => {
+                          const score = answers[q.id];
+                          const isHighlighted = highlightedUnanswered.includes(q.id);
+                          return (
+                            <div
+                              key={q.id}
+                              className={`flex items-center justify-between py-5.5 px-2 sm:px-6 gap-2 sm:gap-4 rounded-xl transition-all ${isHighlighted
+                                  ? "bg-[#D4856A]/5 border border-dashed border-[#D4856A]/25"
+                                  : "hover:bg-[#FDFBF7]/40"
+                                }`}
+                            >
+                              {/* Left Bipolar term */}
+                              <span className="flex-1 min-w-0 text-right font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
+                                {q.left}
+                              </span>
 
-                  {/* Navigation Actions */}
-                  <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4">
-                    <button
-                      type="button"
-                      onClick={handlePrevStep}
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                      Back
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleNextStep}
-                      className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      Next
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* ══════════════════════════════
-                  STEP 4: SINGLE BEHAVIORAL TRAITS
-              ══════════════════════════════ */}
-              {step === 4 && (
-                <div className="flex flex-col gap-5">
-                  <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#4A4333]/8 shadow-md">
-                    <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
-                        Step 4 of 5 — Traits Matrix
-                      </span>
-                      <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
-                        Identify how well each descriptor applies to your behaviors
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {singleTraitsList.map((q) => {
-                        const score = answers[q.id];
-                        const isHighlighted = highlightedUnanswered.includes(q.id);
-                        return (
-                          <div 
-                            key={q.id}
-                            className={`p-4 bg-[#FDFBF7]/60 rounded-2xl border transition-all ${
-                              isHighlighted 
-                                ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25" 
-                                : "border-[#4A4333]/8 hover:border-[#DCA543]/20"
-                            }`}
-                          >
-                            <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] text-center select-none mb-3">
-                              {q.text}
-                            </h3>
-                            
-                            <div className="flex flex-col gap-1.5">
-                              <div className="flex justify-between items-center text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 px-1 select-none">
-                                <span>Not Like Me</span>
-                                <span>Strongly Like Me</span>
-                              </div>
-                              
-                              <div className="flex items-center justify-between bg-white px-2 py-2 rounded-xl border border-[#4A4333]/6 w-full select-none">
+                              {/* Rating Circles */}
+                              <div className="flex items-center justify-between w-[160px] sm:w-[210px] shrink-0 select-none">
                                 {[1, 2, 3, 4, 5].map((val) => {
                                   const isSelected = score === val;
                                   return (
@@ -517,405 +801,256 @@ export default function DiagnosticTestPage() {
                                       key={val}
                                       type="button"
                                       onClick={() => handleAnswerSelect(q.id, val)}
-                                      className="focus:outline-none cursor-pointer"
-                                      aria-label={`Rate trait ${q.text} as ${val}`}
+                                      className="relative focus:outline-none cursor-pointer"
+                                      aria-label={`Rate ${q.left} to ${q.right} as ${val}`}
                                     >
-                                      <div className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${
-                                        isSelected 
-                                          ? "bg-[#566544]/12 border-[#566544] scale-105 shadow-inner" 
-                                          : "border-[#4A4333]/15 bg-white hover:border-[#DCA543]"
-                                      }`}>
-                                        {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-[#566544]" />}
+                                      <div className={`h-6 w-6 sm:h-7 sm:w-7 rounded-full border-2 flex items-center justify-center transition-all ${isSelected
+                                          ? "bg-[#566544] border-[#566544] scale-110 shadow"
+                                          : "border-[#4A4333]/20 bg-[#FDFBF7] hover:border-[#DCA543]"
+                                        }`}>
+                                        {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-white animate-fade-in" />}
                                       </div>
                                     </button>
                                   );
                                 })}
                               </div>
+
+                              {/* Right Bipolar term */}
+                              <span className="flex-1 min-w-0 text-left font-serif font-bold text-[10px] sm:text-sm text-[#403011] select-none leading-tight break-words">
+                                {q.right}
+                              </span>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Navigation Actions */}
+                    <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4">
+                      <button
+                        type="button"
+                        onClick={handlePrevStep}
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        <ArrowLeft className="w-3.5 h-3.5" />
+                        Back
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleNextStep}
+                        className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        Next
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
+                )}
 
-                  {/* Navigation Actions */}
-                  <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4">
-                    <button
-                      type="button"
-                      onClick={handlePrevStep}
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                      Back
-                    </button>
+                {/* ══════════════════════════════
+                  STEP 4: SINGLE BEHAVIORAL TRAITS
+              ══════════════════════════════ */}
+                {step === 4 && (
+                  <div className="flex flex-col gap-5">
+                    <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#4A4333]/8 shadow-md">
+                      <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
+                        <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
+                          Step 4 of 5 — Traits Matrix
+                        </span>
+                        <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
+                          Identify how well each descriptor applies to your behaviors
+                        </span>
+                      </div>
 
-                    <button
-                      type="button"
-                      onClick={handleNextStep}
-                      className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      Next
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {singleTraitsList.map((q) => {
+                          const score = answers[q.id];
+                          const isHighlighted = highlightedUnanswered.includes(q.id);
+                          return (
+                            <div
+                              key={q.id}
+                              className={`p-4 bg-[#FDFBF7]/60 rounded-2xl border transition-all ${isHighlighted
+                                  ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
+                                  : "border-[#4A4333]/8 hover:border-[#DCA543]/20"
+                                }`}
+                            >
+                              <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] text-center select-none mb-3">
+                                {q.text}
+                              </h3>
+
+                              <div className="flex flex-col gap-1.5">
+                                <div className="flex justify-between items-center text-[9px] font-extrabold uppercase tracking-wider text-[#4A4333]/45 px-1 select-none">
+                                  <span>Not Like Me</span>
+                                  <span>Strongly Like Me</span>
+                                </div>
+
+                                <div className="flex items-center justify-between bg-white px-2 py-2 rounded-xl border border-[#4A4333]/6 w-full select-none">
+                                  {[1, 2, 3, 4, 5].map((val) => {
+                                    const isSelected = score === val;
+                                    return (
+                                      <button
+                                        key={val}
+                                        type="button"
+                                        onClick={() => handleAnswerSelect(q.id, val)}
+                                        className="focus:outline-none cursor-pointer"
+                                        aria-label={`Rate trait ${q.text} as ${val}`}
+                                      >
+                                        <div className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${isSelected
+                                            ? "bg-[#566544]/12 border-[#566544] scale-105 shadow-inner"
+                                            : "border-[#4A4333]/15 bg-white hover:border-[#DCA543]"
+                                          }`}>
+                                          {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-[#566544]" />}
+                                        </div>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Navigation Actions */}
+                    <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4">
+                      <button
+                        type="button"
+                        onClick={handlePrevStep}
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        <ArrowLeft className="w-3.5 h-3.5" />
+                        Back
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleNextStep}
+                        className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        Next
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* ══════════════════════════════
+                {/* ══════════════════════════════
                   STEP 5: BINARY FORCED CHOICES
               ══════════════════════════════ */}
-              {step === 5 && (
-                <div className="flex flex-col gap-5">
-                  <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
-                    <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
-                      <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
-                        Step 5 of 5 — Scenario Alignment
-                      </span>
-                      <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
-                        Choose the scenario statement that matches you closest
-                      </span>
-                    </div>
+                {step === 5 && (
+                  <div className="flex flex-col gap-5">
+                    <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
+                      <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5 select-none">
+                        <span className="text-xs text-[#566544] font-extrabold uppercase tracking-wider font-sans">
+                          Step 5 of 5 — Scenario Alignment
+                        </span>
+                        <span className="text-[10px] text-[#4A4333]/60 italic font-serif">
+                          Choose the scenario statement that matches you closest
+                        </span>
+                      </div>
 
-                    <div className="space-y-4">
-                      {forcedChoicesList.map((q) => {
-                        const opt = answers[q.id];
-                        const isHighlighted = highlightedUnanswered.includes(q.id);
-                        return (
-                          <div 
-                            key={q.id}
-                            className={`p-4 bg-[#FDFBF7]/40 rounded-2xl border transition-all ${
-                              isHighlighted 
-                                ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25" 
-                                : "border-[#4A4333]/8"
-                            }`}
-                          >
-                            <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] leading-relaxed border-b border-[#4A4333]/5 pb-2 mb-3">
-                              {q.text}
-                            </h3>
-                            
-                            <div className="flex flex-col gap-2.5 select-none">
-                              {/* Option 1 */}
-                              <button
-                                type="button"
-                                onClick={() => handleAnswerSelect(q.id, "opt1")}
-                                className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${
-                                  opt === "opt1"
-                                    ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
-                                    : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
+                      <div className="space-y-4">
+                        {forcedChoicesList.map((q) => {
+                          const opt = answers[q.id];
+                          const isHighlighted = highlightedUnanswered.includes(q.id);
+                          return (
+                            <div
+                              key={q.id}
+                              className={`p-4 bg-[#FDFBF7]/40 rounded-2xl border transition-all ${isHighlighted
+                                  ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
+                                  : "border-[#4A4333]/8"
                                 }`}
-                              >
-                                <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                                  opt === "opt1" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
-                                }`}>
-                                  {opt === "opt1" && (
-                                    <svg className="w-3 h-3 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                  )}
-                                </div>
-                                <span>{q.opt1}</span>
-                              </button>
+                            >
+                              <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] leading-relaxed border-b border-[#4A4333]/5 pb-2 mb-3">
+                                {q.text}
+                              </h3>
 
-                              {/* Option 2 */}
-                              <button
-                                type="button"
-                                onClick={() => handleAnswerSelect(q.id, "opt2")}
-                                className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${
-                                  opt === "opt2"
-                                    ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
-                                    : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
-                                }`}
-                              >
-                                <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                                  opt === "opt2" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
-                                }`}>
-                                  {opt === "opt2" && (
-                                    <svg className="w-3 h-3 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                    </svg>
-                                  )}
-                                </div>
-                                <span>{q.opt2}</span>
-                              </button>
+                              <div className="flex flex-col gap-2.5 select-none">
+                                {/* Option 1 */}
+                                <button
+                                  type="button"
+                                  onClick={() => handleAnswerSelect(q.id, "opt1")}
+                                  className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${opt === "opt1"
+                                      ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
+                                      : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
+                                    }`}
+                                >
+                                  <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${opt === "opt1" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
+                                    }`}>
+                                    {opt === "opt1" && (
+                                      <svg className="w-3 h-3 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                  <span>{q.opt1}</span>
+                                </button>
+
+                                {/* Option 2 */}
+                                <button
+                                  type="button"
+                                  onClick={() => handleAnswerSelect(q.id, "opt2")}
+                                  className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${opt === "opt2"
+                                      ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
+                                      : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
+                                    }`}
+                                >
+                                  <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${opt === "opt2" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
+                                    }`}>
+                                    {opt === "opt2" && (
+                                      <svg className="w-3 h-3 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                  <span>{q.opt2}</span>
+                                </button>
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Navigation Actions */}
+                    <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4 mt-2">
+                      <button
+                        type="button"
+                        onClick={handlePrevStep}
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        <ArrowLeft className="w-3.5 h-3.5" />
+                        Back
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleNextStep}
+                        className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+                      >
+                        Get Results
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
+                )}
 
-                  {/* Navigation Actions */}
-                  <div className="bg-white rounded-3xl p-4 sm:p-5 border border-[#4A4333]/8 shadow-sm flex items-center justify-between gap-4 mt-2">
-                    <button
-                      type="button"
-                      onClick={handlePrevStep}
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FDFBF7] hover:bg-[#F6EBD4]/40 border border-[#4A4333]/15 text-[#4A4333] rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                      Back
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleNextStep}
-                      className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#566544] hover:bg-[#455236] text-white rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
-                    >
-                      Get Results
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* RIGHT COLUMN: HIGH-END PSYCHOMETRIC VECTOR ACCENT GRAPHIC */}
-            <div className="lg:col-span-5 w-full flex flex-col gap-6 lg:sticky lg:top-[88px] animate-fade-up delay-150">
-              
-              <div className="bg-[#FDFBF7] border border-[#4A4333]/8 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-sm">
-                <div className="border-b border-[#4A4333]/8 pb-4">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#DCA543] bg-[#DCA543]/10 px-2.5 py-1 rounded">
-                    Visual Vector Grid
-                  </span>
-                  <h2 className="text-xl font-serif font-medium text-[#403011] mt-2">
-                    The Gunaity Epicometer™
-                  </h2>
-                </div>
-
-                {/* Luxury Interactive raw SVG Coordinates Grid */}
-                <div className="relative aspect-square bg-[#FBF9F2] rounded-2xl border border-[#4A4333]/8 overflow-hidden p-6 select-none shadow-inner flex items-center justify-center">
-                  <svg className="w-full h-full" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Concentric grid rings */}
-                    <circle cx="150" cy="150" r="120" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" />
-                    <circle cx="150" cy="150" r="80" stroke="#4A4333" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
-
-                    {/* Four Quadrant Sectors */}
-                    {/* D - Top Left */}
-                    <path d="M 150 150 L 150 50 A 100 100 0 0 0 50 150 Z" fill="#5C7146" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
-                    {/* I - Top Right */}
-                    <path d="M 150 150 L 250 150 A 100 100 0 0 0 150 50 Z" fill="#DCA543" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
-                    {/* S - Bottom Right */}
-                    <path d="M 150 150 L 150 250 A 100 100 0 0 0 250 150 Z" fill="#D4856A" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
-                    {/* C - Bottom Left */}
-                    <path d="M 150 150 L 50 150 A 100 100 0 0 0 150 250 Z" fill="#5D7A8C" fillOpacity="0.85" stroke="#FBF9F2" strokeWidth="4" />
-
-                    {/* Quadrant Letters */}
-                    <text x="105" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">D</text>
-                    <text x="195" y="110" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">I</text>
-                    <text x="195" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">S</text>
-                    <text x="105" y="200" fill="#FFFFFF" fontSize="22" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="middle">C</text>
-
-                    {/* Outer Quadrant Labels */}
-                    <text x="80" y="44" fill="#5C7146" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">DRIVE</text>
-                    <text x="220" y="44" fill="#DCA543" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">INFLUENCE</text>
-                    <text x="220" y="262" fill="#D4856A" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="start">SUPPORT</text>
-                    <text x="80" y="262" fill="#5D7A8C" fontSize="9" fontFamily="Georgia, serif" fontWeight="bold" textAnchor="end">CLARITY</text>
-
-                    {/* Axes lines with arrows */}
-                    {/* Vertical Axis (Active - Receptive) */}
-                    <line x1="150" y1="20" x2="150" y2="280" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
-                    <polygon points="150,15 146,23 154,23" fill="#4A4333" fillOpacity="0.5" />
-                    <polygon points="150,285 146,277 154,277" fill="#4A4333" fillOpacity="0.5" />
-
-                    {/* Horizontal Axis (Agreeable - Skeptical) */}
-                    <line x1="20" y1="150" x2="280" y2="150" stroke="#4A4333" strokeWidth="1.5" strokeOpacity="0.4" />
-                    <polygon points="285,150 277,146 277,154" fill="#4A4333" fillOpacity="0.5" />
-                    <polygon points="15,150 23,146 23,154" fill="#4A4333" fillOpacity="0.5" />
-
-                    {/* Axis labels */}
-                    <text x="150" y="10" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">ACTIVE</text>
-                    <text x="150" y="297" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">RECEPTIVE</text>
-                    <text x="295" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="start">AGREEABLE</text>
-                    <text x="5" y="153" fill="#4A4333" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="end">SKEPTICAL</text>
-
-                    {/* Central pulse dot */}
-                    <circle cx="150" cy="150" r="4" fill="#DCA543" className="animate-pulse" />
-                  </svg>
-                  
-                  {/* Glowing dynamic radar rings absolute overlay */}
-                  <span className="absolute h-10 w-10 bg-[#DCA543]/5 rounded-full animate-ping pointer-events-none" />
-                </div>
-
-                
               </div>
-
             </div>
-
           </div>
-        </div>
+        )}
       </section>
 
       {/* ══════════════════════════════
-          SECTION 2: THE DISC PERSONALITY TYPES
-      ══════════════════════════════ */}
-      <section className="w-full py-16 sm:py-24 bg-[#FDFBF7] border-b border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
-          <div className="max-w-3xl mb-12 animate-fade-up">
-            <span className="uppercase tracking-[0.14em] text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full inline-block border border-[#566544]/15 select-none">
-              Dossier Foundations
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mt-4 leading-tight">
-              The DISC Personality Types
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed mt-3 pl-4 border-l border-[#DCA543]">
-              DISC results map where individuals lie across two core axes of behavior: **Active vs. Receptive** and **Skeptical vs. Agreeable**. Together, these dimensions structure a quadrant grid where each quadrant models one of the four essential DISC styles.
-            </p>
-          </div>
-
-          {/* 2x2 Bento-Grid style display of the Four Quadrants */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 animate-fade-up">
-            
-            {/* DRIVE */}
-            <div className="bg-white p-6.5 sm:p-8 rounded-3xl border border-[#4A4333]/8 shadow-sm hover:shadow-md transition-all flex flex-col gap-4 relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-16 w-16 bg-[#566544]/3 rounded-bl-full pointer-events-none" />
-              <div className="flex items-center gap-3">
-                <span className="h-8 w-8 rounded-xl bg-[#566544]/10 text-[#566544] font-bold text-center flex items-center justify-center font-serif">D</span>
-                <h3 className="font-serif font-bold text-lg text-[#403011]">Drive (Assertive)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Drive relates to control, power, and assertiveness. People high in Drive like to get things done and are results-oriented. They tend to be ambitious, competitive, and persuasive. If you have a lot of Drive, you're likely to enjoy taking on new challenges, taking command, and driving executions aggressively.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-[10px] font-bold text-[#566544] bg-[#566544]/5 px-2.5 py-1 rounded">Decisive</span>
-                <span className="text-[10px] font-bold text-[#566544] bg-[#566544]/5 px-2.5 py-1 rounded">Results-Oriented</span>
-                <span className="text-[10px] font-bold text-[#566544] bg-[#566544]/5 px-2.5 py-1 rounded">High Agency</span>
-              </div>
-            </div>
-
-            {/* INFLUENCE */}
-            <div className="bg-white p-6.5 sm:p-8 rounded-3xl border border-[#4A4333]/8 shadow-sm hover:shadow-md transition-all flex flex-col gap-4 relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-16 w-16 bg-[#DCA543]/3 rounded-bl-full pointer-events-none" />
-              <div className="flex items-center gap-3">
-                <span className="h-8 w-8 rounded-xl bg-[#DCA543]/10 text-[#DCA543] font-bold text-center flex items-center justify-center font-serif">I</span>
-                <h3 className="font-serif font-bold text-lg text-[#403011]">Influence (Hustler)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Influence relates to people, social interaction, and communication. People high in Influence are interested in relationships, building networks, and motivational persuasion. If you have a lot of Influence, you're likely to enjoy social situations, presenting ideas, collaborative projects, and inspiring others.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/5 px-2.5 py-1 rounded">Charismatic</span>
-                <span className="text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/5 px-2.5 py-1 rounded">Outgoing</span>
-                <span className="text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/5 px-2.5 py-1 rounded">Persuasive</span>
-              </div>
-            </div>
-
-            {/* SUPPORT */}
-            <div className="bg-white p-6.5 sm:p-8 rounded-3xl border border-[#4A4333]/8 shadow-sm hover:shadow-md transition-all flex flex-col gap-4 relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-16 w-16 bg-[#D4856A]/3 rounded-bl-full pointer-events-none" />
-              <div className="flex items-center gap-3">
-                <span className="h-8 w-8 rounded-xl bg-[#D4856A]/10 text-[#D4856A] font-bold text-center flex items-center justify-center font-serif">S</span>
-                <h3 className="font-serif font-bold text-lg text-[#403011]">Support (Helper)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Support relates to patience, thoughtfulness, and harmony. People high in Support are warm, patient, accepting of others, and value organizational structure and steady timelines. If you have a lot of Support, you're likely to enjoy working hard behind the scenes, offering coaching, and being a dedicated team player.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-[10px] font-bold text-[#D4856A] bg-[#D4856A]/5 px-2.5 py-1 rounded">Empathetic</span>
-                <span className="text-[10px] font-bold text-[#D4856A] bg-[#D4856A]/5 px-2.5 py-1 rounded">Patient</span>
-                <span className="text-[10px] font-bold text-[#D4856A] bg-[#D4856A]/5 px-2.5 py-1 rounded">Harmonious</span>
-              </div>
-            </div>
-
-            {/* CLARITY */}
-            <div className="bg-white p-6.5 sm:p-8 rounded-3xl border border-[#4A4333]/8 shadow-sm hover:shadow-md transition-all flex flex-col gap-4 relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-16 w-16 bg-[#5D7A8C]/3 rounded-bl-full pointer-events-none" />
-              <div className="flex items-center gap-3">
-                <span className="h-8 w-8 rounded-xl bg-[#5D7A8C]/10 text-[#5D7A8C] font-bold text-center flex items-center justify-center font-serif">C</span>
-                <h3 className="font-serif font-bold text-lg text-[#403011]">Clarity (Intellectual)</h3>
-              </div>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Clarity relates to structure, objective logic, and correctness. People high in Clarity are detail-oriented, analytical, and highly cautious when making decisions and taking action. If you have a lot of Clarity, you're likely to enjoy working intentionally to solve highly challenging intellectual puzzles.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-[10px] font-bold text-[#5D7A8C] bg-[#5D7A8C]/5 px-2.5 py-1 rounded">Analytical</span>
-                <span className="text-[10px] font-bold text-[#5D7A8C] bg-[#5D7A8C]/5 px-2.5 py-1 rounded">Precise</span>
-                <span className="text-[10px] font-bold text-[#5D7A8C] bg-[#5D7A8C]/5 px-2.5 py-1 rounded">Rigor-Focused</span>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Subtypes & Combinations Spotlight */}
-          <div className="mt-10 bg-[#F6EBD4]/50 border border-[#4A4333]/8 rounded-3xl p-6.5 sm:p-8 animate-fade-up">
-            <h3 className="font-serif font-bold text-lg text-[#403011] mb-3 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#DCA543]" />
-              The 12 Style Combinations &amp; Subtypes
-            </h3>
-            <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed mb-4">
-              Many people do not fit perfectly into just one single DISC style. For most, one or two predominant styles stand out. This gives us **12 common combinations**: four pure types (D, I, S, and C) and eight combination types which are notated with codes like Di, Cd, and Is, where the second lowercase letter indicates an additional style that exerts secondary influence over an individual's behavior. 
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["D (Pure Drive)", "I (Pure Influence)", "S (Pure Support)", "C (Pure Clarity)", "Di (Drive + Influence)", "Dc (Drive + Clarity)", "Id (Influence + Drive)", "Is (Influence + Support)", "Si (Support + Influence)", "Sc (Support + Clarity)", "Cs (Clarity + Support)", "Cd (Clarity + Drive)"].map(sub => (
-                <span key={sub} className="px-3.5 py-1.5 bg-white border border-[#4A4333]/8 text-[11px] font-serif font-bold text-[#4A4333]/85 rounded-lg shadow-sm">
-                  {sub}
-                </span>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════
-          SECTION 3: VALIDITY, RELIABILITY AND BIOGRAPHY
-      ══════════════════════════════ */}
-      <section className="w-full py-16 sm:py-24 bg-[#F6EBD4]/30 border-b border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            
-            {/* Column 1: Validity and Trust */}
-            <div className="flex flex-col gap-5 animate-fade-up">
-              <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded w-fit select-none">
-                Scientific Standing
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] mt-1 leading-tight">
-                Is the DISC a valid, reliable personality test?
-              </h2>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                DISC has been around for a century, is used by almost three-quarters of Fortune 500 companies, and is the go-to tool of global organizations for team building, leadership diagnostics, communication training, and milestone management. 
-              </p>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Various studies of DISC assessment validity and reliability have shown it is on par with other industry-standard psychometric assessments, indicating that it can be highly effectively used in professional, executive, and competitive admissions settings.
-              </p>
-              <div className="p-5 bg-white rounded-2xl border border-[#4A4333]/6 flex items-start gap-3.5 mt-2">
-                <Shield className="w-5 h-5 text-[#566544] shrink-0 mt-0.5" />
-                <p className="text-xs text-[#4A4333]/85 font-serif leading-relaxed">
-                  While many companies have developed tests based on the DISC theory, standards may vary wildly. EpicQuest's DISC assessment is thoroughly researched, scientifically validated, and developed under rigorous psychometrics standards.
-                </p>
-              </div>
-            </div>
-
-            {/* Column 2: History & Origins */}
-            <div className="flex flex-col gap-5 animate-fade-up delay-100">
-              <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#DCA543] bg-[#DCA543]/10 px-3 py-1 rounded w-fit select-none">
-                Origins &amp; History
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-medium text-[#403011] mt-1 leading-tight">
-                The Legacy of William Moulton Marston
-              </h2>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                The father of DISC was American psychologist **William Moulton Marston**, who earned his doctorate from Harvard and is famously credited with inventing the early systolic blood pressure polygraph test (lie detector) as well as creating the iconic character Wonder Woman.
-              </p>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                In the late 1920s, Marston published his landmark work, *Emotions of Normal People*, in which he used physiological physiology and psychology to develop the core behavior quadrant matrix model that we call DISC.
-              </p>
-              <p className="text-xs sm:text-sm text-[#4A4333] font-serif leading-relaxed">
-                Fast-forward to the 21st century, and Marston's theories have been integrated into billions of professional personality evaluations, including Wiley's Everything DiSC® and EpicQuest's tailored Admissions Diagnostics.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════
-          SECTION 4: COMPREHENSIVE FAQ ACCORDION & REVIEWER BIO
+          FAQ SECTION
       ══════════════════════════════ */}
       <section className="w-full py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12">
-          
+
           {/* FAQ Header */}
-          <div className="text-center animate-fade-up">
+          <div className="text-center">
             <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full select-none">
               Frequently Asked Questions
             </span>
@@ -928,7 +1063,7 @@ export default function DiagnosticTestPage() {
           </div>
 
           {/* ACCORDION ITEMS */}
-          <div className="flex flex-col border border-[#4A4333]/8 rounded-3xl overflow-hidden divide-y divide-[#4A4333]/8 shadow-sm animate-fade-up">
+          <div className="flex flex-col border border-[#4A4333]/8 rounded-3xl overflow-hidden divide-y divide-[#4A4333]/8 shadow-sm">
             {faqData.map((item, idx) => {
               const isOpen = activeFaq === idx;
               return (
@@ -945,9 +1080,8 @@ export default function DiagnosticTestPage() {
                     </span>
                   </button>
 
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-[300px] border-t border-[#4A4333]/5 bg-white" : "max-h-0"
-                  }`}>
+                  <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[300px] border-t border-[#4A4333]/5 bg-white" : "max-h-0"
+                    }`}>
                     <div className="px-5 sm:px-8 py-5 text-xs sm:text-sm text-[#4A4333]/90 font-serif leading-relaxed whitespace-pre-line">
                       {item.a}
                     </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Brain, Microscope, FileBadge, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -7,12 +8,10 @@ export default function AboutPage() {
 
       {/* ── 1. ABOUT US HERO ── */}
       <section className="relative w-full overflow-hidden">
-        {/* Ambient blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
                         bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full
                         bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-        {/* Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)]
                         [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
 
@@ -30,16 +29,13 @@ export default function AboutPage() {
 
           {/* Pill */}
           <div className="mb-7 animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                             bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase
-                             tracking-[0.12em] border border-[#566544]/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
-              Who We Are
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              WHO WE ARE
             </span>
           </div>
 
           {/* Headline + Intro split layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-20 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-20 items-start">
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]
                          font-serif font-medium text-[#403011] tracking-tight leading-[1.1] animate-fade-up"
@@ -48,80 +44,113 @@ export default function AboutPage() {
               <span className="relative inline-block">
                 <span className="relative z-10">Your</span>
                 <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
-                     viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                  viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                   <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
-                        stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                    stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </span>{" "}
               Potential
             </h1>
-            <div className="animate-fade-up delay-100">
+            <div className="animate-fade-up delay-100 space-y-6">
               <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 sm:pl-6">
-                EpicQuest Learning is a premium applied skills-development and portfolio-building
+                Birthed on the campuses of UPenn and MIT, EpicQuest Learning is a premium applied skills-development and portfolio-building
                 startup dedicated to high school students who aspire to stand out at Ivy League
                 and top-tier universities. We go far beyond the classroom — we engineer experiences
                 that demonstrate intellectual curiosity, leadership, and real-world impact.
               </p>
+              <div className="pl-5 sm:pl-6">
+                <Link
+                  href="/results#deep-dive"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#566544] hover:bg-[#455236] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+                >
+                  Explore Student Showcases
+                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Divider */}
           <div className="mt-14 sm:mt-18 mb-12 sm:mb-14 h-px w-full bg-[#4A4333]/10" />
 
-        {/* 3 Colored Pillar Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          {/* 3 Colored Pillar Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
 
-          <div
-            className="group bg-[#566544] text-white rounded-3xl p-7 sm:p-8 lg:p-10
-                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-200"
-          >
-            <span className="text-4xl font-serif text-white/20 leading-none select-none">01</span>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+            {/* Card 1 */}
+            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-200">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
+                  <Brain className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                  ASSESSMENT
+                </span>
+                <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">01</span>
+              </div>
+              <h3 className="text-xl sm:text-[22px] font-serif font-bold text-[#403011] tracking-tight leading-snug mb-3">
                 Psychometric-Aligned
               </h3>
-              <p className="text-[#E8E8E8] font-serif text-sm sm:text-base leading-relaxed">
+              <p className="text-[13.5px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed mb-6 flex-1">
                 Every program is designed around validated cognitive and personality frameworks.
               </p>
+              <Link
+                href="/test"
+                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+              >
+                <span>Take Diagnostic Test</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+              </Link>
             </div>
-          </div>
 
-          <div
-            className="group bg-[#8E8B42] text-white rounded-3xl p-7 sm:p-8 lg:p-10
-                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-300"
-          >
-            <span className="text-4xl font-serif text-white/20 leading-none select-none">02</span>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+            {/* Card 2 */}
+            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-300">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
+                  <Microscope className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                  METHODOLOGY
+                </span>
+                <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">02</span>
+              </div>
+              <h3 className="text-xl sm:text-[22px] font-serif font-bold text-[#403011] tracking-tight leading-snug mb-3">
                 Research-Driven
               </h3>
-              <p className="text-[#F2F2F2] font-serif text-sm sm:text-base leading-relaxed">
+              <p className="text-[13.5px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed mb-6 flex-1">
                 Applied research publications that admissions committees recognise and respect.
               </p>
+              <Link
+                href="/programs"
+                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+              >
+                <span>Explore Programs</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+              </Link>
             </div>
-          </div>
 
-          <div
-            className="group bg-[#DCA543] text-[#403011] rounded-3xl p-7 sm:p-8 lg:p-10
-                       shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-                       flex flex-col justify-between min-h-[200px] sm:min-h-[220px] animate-fade-up delay-400"
-          >
-            <span className="text-4xl font-serif text-[#403011]/20 leading-none select-none">03</span>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-serif font-medium mb-2 sm:mb-3">
+            {/* Card 3 */}
+            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-400">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
+                  <FileBadge className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                  OUTCOMES
+                </span>
+                <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">03</span>
+              </div>
+              <h3 className="text-xl sm:text-[22px] font-serif font-bold text-[#403011] tracking-tight leading-snug mb-3">
                 Portfolio-Focused
               </h3>
-              <p className="text-[#5A451D] font-serif text-sm sm:text-base leading-relaxed">
+              <p className="text-[13.5px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed mb-6 flex-1">
                 Tangible outputs — patents, prototypes, policy drafts — that set you apart.
               </p>
+              <Link
+                href="/results#champion-achievers"
+                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+              >
+                <span>View Student Experiences</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+              </Link>
             </div>
-          </div>
 
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* ── 2. FOUNDER'S MESSAGE ── */}
       <section className="w-full bg-[#403011] py-16 sm:py-24">
@@ -137,10 +166,9 @@ export default function AboutPage() {
 
           <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 xl:gap-24">
 
-            {/* Image with decorative frame */}
+            {/* Founders Image */}
             <div className="w-full sm:w-[75%] md:w-[55%] lg:w-[38%] lg:flex-none flex-shrink-0 animate-fade-in delay-300">
               <div className="relative">
-                {/* Decorative offset border */}
                 <div
                   className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5
                              w-full h-full rounded-[2rem] border-2 border-[#DCA543]/40 pointer-events-none"
@@ -156,7 +184,6 @@ export default function AboutPage() {
                     className="object-cover object-top"
                     priority
                   />
-                  {/* Subtle gradient overlay at bottom */}
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#403011]/60 to-transparent" />
                 </div>
               </div>

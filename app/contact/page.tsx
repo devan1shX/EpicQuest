@@ -28,12 +28,9 @@ export default function ContactPage() {
               <div className="animate-fade-up">
                 {/* Pill */}
                 <div className="mb-7">
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                                   bg-[#566544]/12 text-[#566544] text-[11px] font-bold uppercase
-                                   tracking-[0.12em] border border-[#566544]/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#566544] inline-block animate-pulse" />
-                    YOUR EPICQUEST BEGINS HERE
-                  </span>
+                  <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  YOUR EPICQUEST BEGINS HERE
+</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem]

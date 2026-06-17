@@ -95,10 +95,9 @@ export default function SuccessStoriesPostPage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#566544]/12 text-[#566544] text-[10px] font-bold uppercase tracking-[0.14em] border border-[#566544]/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#566544] animate-pulse inline-block" />
-              Student Success
-            </span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  STUDENT SUCCESS
+</span>
           </div>
 
           {/* Title & Metadata */}

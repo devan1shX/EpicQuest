@@ -69,28 +69,24 @@ const deliverables = [
     title: "Equity Research Report",
     desc: "A professional-grade equity research report evaluating a real listed company with an active, data-backed buy/sell recommendation.",
     icon: Folder,
-    outputs: ["LaTeX-formatted research manuscript", "Structured industry & competitor analysis", "DCF & multiple valuation summaries"],
   },
   {
     tag: "FINANCIAL MODEL",
     title: "Three-Statement Model",
     desc: "A fully dynamic, three-statement Excel model linking income statements, balance sheets, and cash flows with advanced scenario variables.",
     icon: Table,
-    outputs: ["Dynamic Excel spreadsheet workbook", "Integrated scenario & sensitivity stress tests", "5-year forecast projections & schedules"],
   },
   {
     tag: "PITCH BOOK",
     title: "Investment Presentation",
     desc: "An investment banking-style pitch deck summarizing corporate valuation, financial projections, and strategic advisory recommendations.",
     icon: Presentation,
-    outputs: ["15-slide master investment deck", "Live recorded presentation defense", "Critique & evaluation log from finance mentors"],
   },
   {
     tag: "VALUATION",
     title: "Company Valuation Project",
     desc: "A comprehensive valuation workbook applying both intrinsic DCF metrics and relative trading multiple analyses to evaluate corporate worth.",
     icon: Coins,
-    outputs: ["Discounted Cash Flow (DCF) models", "Trading comparable peer matrices", "Precedent transaction transaction logs"],
   },
 ];
 
@@ -122,10 +118,9 @@ export default function AppliedFinanceInvestmentBankingPage() {
  
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#566544]/12 text-[#566544] text-[10px] font-bold uppercase tracking-[0.14em] border border-[#566544]/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#566544] animate-pulse inline-block" />
-              Fellowship Deep Dive
-            </span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  FELLOWSHIP DEEP DIVE
+</span>
           </div>
  
           {/* Two-column grid */}
@@ -204,9 +199,9 @@ export default function AppliedFinanceInvestmentBankingPage() {
  
           {/* Section Header */}
           <div className="text-center max-w-xl mx-auto mb-16 sm:mb-20 animate-fade-up">
-            <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full mb-5 inline-block border border-[#566544]/15">
-              The Portfolio Engine
-            </span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+  THE PORTFOLIO ENGINE
+</span>
             <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-medium text-[#403011] tracking-tight mb-4 leading-tight">
               Curriculum Blueprint
             </h2>
@@ -226,17 +221,13 @@ export default function AppliedFinanceInvestmentBankingPage() {
                   className="group relative bg-[#FDFBF7] rounded-[2.5rem] border border-[#4A4333]/10 p-8 sm:p-10 shadow-sm hover:shadow-xl hover:border-[#566544]/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between"
                   style={{ animationDelay: `${idx * 75}ms` }}
                 >
- 
+
                   <div>
                     {/* Top Meta Details */}
-                    <div className="flex items-center justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 rounded-2xl bg-[#566544]/8 text-[#566544] flex items-center justify-center shadow-sm group-hover:bg-[#566544] group-hover:text-[#FDFBF7] transition-all duration-300">
                         <StepIcon className="w-5.5 h-5.5" strokeWidth={1.8} />
                       </div>
-                      
-                      <span className="text-[10px] font-bold text-[#A6751E] bg-[#DCA543]/10 border border-[#DCA543]/15 uppercase tracking-[0.14em] px-3.5 py-1.5 rounded-full shrink-0">
-                        {step.weeks}
-                      </span>
                     </div>
  
                     {/* Content */}
@@ -269,7 +260,7 @@ export default function AppliedFinanceInvestmentBankingPage() {
               );
             })}
  
-            {/* Special Climax Card: Milestone 5 Capstone Research Application */}
+            {/* Special Climax Card: Milestone 5 Capstone */}
             <div className="group relative bg-[#FDFBF7] rounded-[2.5rem] border-2 border-[#DCA543] p-8 sm:p-10 lg:col-span-2 shadow-md hover:shadow-2xl hover:border-[#566544] transition-all duration-300 overflow-hidden">
               {/* Gold Ribbon Tag */}
               <div className="absolute top-0 right-0 bg-[#DCA543] text-[#FDFBF7] text-[10px] font-black uppercase tracking-widest px-6 py-1.5 rounded-bl-2xl shadow-sm">
@@ -284,9 +275,6 @@ export default function AppliedFinanceInvestmentBankingPage() {
                       <Sparkles className="w-6 h-6" strokeWidth={1.8} />
                     </div>
                     <div>
-                      <span className="text-[11px] font-bold text-[#A6751E] uppercase tracking-widest bg-[#DCA543]/8 px-2.5 py-0.5 rounded">
-                        Weeks 11–12
-                      </span>
                       <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#403011] tracking-tight mt-1">
                         Investment Banking &amp; Research
                       </h3>
@@ -331,11 +319,11 @@ export default function AppliedFinanceInvestmentBankingPage() {
       {/* ══════════════════════════════
           STUDENT DELIVERABLES SECTION
       ══════════════════════════════ */}
-      <section className="relative w-full py-20 sm:py-28 bg-[#FDFBF7] border-b border-[#4A4333]/10">
+      <section className="relative w-full py-20 sm:py-28 bg-[#F6EBD4] border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
           {/* Section Header */}
-          <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
             <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1.5 rounded-full mb-4 inline-block border border-[#566544]/20">
               FELLOWSHIP MILESTONES
             </span>
@@ -346,170 +334,102 @@ export default function AppliedFinanceInvestmentBankingPage() {
               Our fellowships are milestone-driven. Unlike simple certificate courses, you will engineer four premium, verifiable assets to stand out on any top-tier university application:
             </p>
           </div>
- 
-          {/* Deliverables Asymmetric Mosaic Grid (Premium White-Paper Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8 max-w-6xl mx-auto mt-16">
-            {deliverables.map((del, idx) => {
+
+          {/* Deliverables — Outlined Cards: 2 + 2 grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+            {deliverables.map((del) => {
               const DelIcon = del.icon;
-              const num = String(idx + 1).padStart(2, '0');
-              const spanClass = "lg:col-span-3";
-              
               return (
-                <div 
+                <div
                   key={del.tag}
-                  className={`group relative bg-white rounded-[2.5rem] border border-[#4A4333]/8 p-8 sm:p-10 shadow-sm hover:shadow-xl hover:border-[#566544]/25 hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between ${spanClass}`}
+                  className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col"
                 >
-                  <div>
-                    {/* Card Header Row */}
-                    <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5">
-                      <span className="text-[10px] font-bold text-[#DCA543] uppercase tracking-[0.14em]">
-                        {del.tag}
-                      </span>
-                      <span className="font-serif italic text-xs text-[#8A8373] font-medium">
-                        Asset #{num}
-                      </span>
-                    </div>
- 
-                    {/* Title + Icon Block */}
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-2xl bg-[#566544]/6 text-[#566544] flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#566544] group-hover:text-white transition-all duration-300">
-                        <DelIcon className="w-5.5 h-5.5" strokeWidth={1.8} />
-                      </div>
-                      <h3 className="text-xl font-serif font-bold text-[#403011] tracking-tight leading-snug mt-1">
-                        {del.title}
-                      </h3>
-                    </div>
- 
-                    {/* Description */}
-                    <p className="text-[14px] text-[#4A4333]/90 font-serif leading-relaxed mb-6">
-                      {del.desc}
-                    </p>
+                  {/* Pill badge: icon + tag */}
+                  <div className="mb-5">
+                    <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
+                      <DelIcon className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                      {del.tag}
+                    </span>
                   </div>
- 
-                  {/* Engineered Assets Checklist */}
-                  <div className="pt-5 border-t border-[#4A4333]/8">
-                    <p className="text-[10px] uppercase tracking-wider text-[#8A8373] font-bold mb-3">
-                      Assets Engineered
-                    </p>
-                    <div className="space-y-2.5">
-                      {del.outputs.map((out, oIdx) => (
-                        <div key={oIdx} className="flex items-start gap-2.5 text-[12.5px] text-[#4A4333] font-serif leading-snug">
-                          <CheckCircle2 className="w-4 h-4 text-[#5C7146] shrink-0 mt-0.5" strokeWidth={2.2} />
-                          <span>{out}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-[22px] font-serif font-bold text-[#403011] tracking-tight leading-snug mb-3">
+                    {del.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[13.5px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed">
+                    {del.desc}
+                  </p>
                 </div>
               );
             })}
           </div>
- 
-        </div>
-      </section>
- 
-      {/* ══════════════════════════════
-          FEATURED STUDENT PROJECT SECTION
-      ══════════════════════════════ */}
-      <section className="relative w-full py-20 sm:py-28 border-b border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
-          {/* Header */}
-          <div className="mb-14 border-b border-[#4A4333]/10 pb-5">
-            <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded-full mb-3 inline-block border border-[#566544]/20">
-              PROOF OF MASTERY
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2">
-              Featured Student Project
-            </h2>
-          </div>
- 
-          {/* Project Box Asymmetric Split */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 sm:gap-12 items-center bg-[#FDFBF7] border border-[#4A4333]/8 rounded-[3rem] p-6 sm:p-10 lg:p-12 shadow-md">
-            
-            {/* Left Column: Image */}
-            <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-md">
-              <Image 
-                src="/images/skills/Skills_Flagship_2_Tesla_Project.png" 
-                alt="Tesla Equity Research Report" 
-                fill 
-                className="object-cover" 
-              />
-              <div className="absolute top-4 left-4 bg-[#5C7146] text-[#FDFBF7] text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-md shadow-sm">
-                Project Code: EQ-FI-88
-              </div>
-            </div>
- 
-            {/* Right Column: Content */}
-            <div className="space-y-6">
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#DCA543] block">
-                EQUITY RESEARCH &amp; VALUATION
-              </span>
+
+          {/* Featured Student Project — Compact Merged Callout */}
+          <div className="mt-14 sm:mt-16 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 sm:gap-10 items-center bg-[#F6EBD4] border border-[#4A4333]/10 rounded-[2rem] p-6 sm:p-8 lg:p-10">
               
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#403011] leading-tight">
-                Tesla Equity Research Report
-              </h3>
-              
-              <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
-                A student-authored, institutional-grade equity research report on Tesla Inc. — including a fully integrated three-statement financial model, dynamic DCF valuation, trading comparables, and a structured buy/sell recommendation — built to professional investment banking standards.
-              </p>
- 
-              {/* Outcomes list */}
-              <div className="space-y-3 pt-4 border-t border-[#4A4333]/8">
-                {[
-                  "Designed with full DCF, WACC, and multiple-based valuation formulas",
-                  "Analyzed macroeconomic auto delivery trends, CAPEX, and margins",
-                  "Synthesized into a 15-page research report and institutional pitch deck",
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#5C7146] shrink-0 mt-1" strokeWidth={2.5} />
-                    <span className="text-xs sm:text-sm text-[#4A4333] font-serif leading-snug">
-                      {item}
-                    </span>
-                  </div>
-                ))}
+              {/* Left Column: Image */}
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#4A4333]/10 shadow-md">
+                <Image 
+                  src="/images/skills/Skills_Flagship_2_Tesla_Project.png" 
+                  alt="Tesla Equity Research Report" 
+                  fill 
+                  className="object-cover" 
+                />
+                <div className="absolute top-3 left-3 bg-[#5C7146] text-[#FDFBF7] text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md shadow-sm">
+                  Featured Project
+                </div>
               </div>
+
+              {/* Right Column: Content */}
+              <div className="space-y-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#DCA543] block">
+                  EQUITY RESEARCH &amp; VALUATION
+                </span>
+                
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#403011] leading-tight">
+                  Tesla Equity Research Report
+                </h3>
+                
+                <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
+                  A student-authored, institutional-grade equity research report on Tesla Inc. — including a fully integrated three-statement financial model, dynamic DCF valuation, trading comparables, and a structured buy/sell recommendation — built to professional investment banking standards.
+                </p>
+
+                {/* Outcomes list */}
+                <div className="space-y-2.5 pt-3 border-t border-[#4A4333]/8">
+                  {[
+                    "Designed with full DCF, WACC, and multiple-based valuation formulas",
+                    "Analyzed macroeconomic auto delivery trends, CAPEX, and margins",
+                    "Synthesized into a 15-page research report and institutional pitch deck",
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#5C7146] shrink-0 mt-0.5" strokeWidth={2.5} />
+                      <span className="text-xs sm:text-[13px] text-[#4A4333] font-serif leading-snug">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
- 
           </div>
- 
-        </div>
-      </section>
- 
-      {/* ══════════════════════════════
-          FINAL ACTION SECTION (CTA)
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#EAE2CE] py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-[#566544]/6 pointer-events-none" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-[#DCA543]/8 pointer-events-none" />
- 
-        <div className="relative z-10 max-w-3xl mx-auto px-5 text-center">
-          <span className="uppercase tracking-[0.16em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded-full mb-6 inline-block border border-[#566544]/20">
-            TAKE THE FIRST STEP
-          </span>
-          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-none mb-6">
-            Build Real Valuation Skills Years Earlier.
-          </h2>
-          
-          <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-xl mx-auto mb-10 italic">
-            "Most students only begin exploring business valuation in university. EpicQuest students start building real investment banking models years earlier."
-          </p>
- 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          {/* Small CTA */}
+          <div className="mt-14 sm:mt-16 text-center max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed mb-6">
+              Students with real finance portfolios stand out dramatically in elite admissions and scholarship applications.
+            </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-4 bg-[#566544] hover:bg-[#4a553a] text-[#FDFBF7] rounded-full font-bold text-sm sm:text-[15px] transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#566544] text-[#FDFBF7] rounded-full font-semibold text-sm tracking-wide shadow-md"
             >
               Apply Now
             </Link>
-            <Link
-              href="/skills"
-              className="inline-flex items-center justify-center px-8 py-4 border border-[#4A4333]/25 hover:border-[#566544]/50 text-[#403011] rounded-full font-semibold text-sm sm:text-[15px] transition-all duration-300 hover:bg-[#566544]/6"
-            >
-              View Other Fellowships
-            </Link>
           </div>
+
         </div>
       </section>
  
