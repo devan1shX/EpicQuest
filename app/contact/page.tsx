@@ -1,6 +1,45 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [result, setResult] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setResult("");
+    
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", "15b94e8e-36e4-4df2-8ef6-c09a496c7c2a");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSuccess(true);
+        form.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setResult("Something went wrong. Please try again later.");
+    }
+    
+    setIsSubmitting(false);
+  };
+
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
@@ -232,7 +271,29 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-[#FDFBF7] rounded-[2rem] p-6 sm:p-10 lg:p-14 shadow-xl border border-[#4A4333]/15">
-            <form className="space-y-12">
+            {isSuccess ? (
+              <div className="flex flex-col items-center justify-center py-10 sm:py-20 text-center animate-fade-up is-visible">
+                <div className="w-24 h-24 bg-[#5C7146]/10 rounded-full flex items-center justify-center mb-8 shadow-inner">
+                  <svg className="w-12 h-12 text-[#5C7146]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mb-5">Request Sent Successfully!</h3>
+                <p className="text-[#4A4333] font-serif text-lg mb-10 max-w-md mx-auto">
+                  We have received your details and will get back to you shortly to confirm your session.
+                </p>
+                <button 
+                  onClick={() => setIsSuccess(false)}
+                  className="inline-flex items-center justify-center gap-3 px-10 py-3.5 bg-white border-2 border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146] hover:text-white rounded-full font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                >
+                  Send Another Query
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </button>
+              </div>
+            ) : (
+            <form onSubmit={onSubmit} className="space-y-12">
 
               {/* Group 1: Student Details */}
               <div>
@@ -240,19 +301,19 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">First Name *</label>
-                    <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Advika" required />
+                    <input type="text" name="First Name" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Advika" required />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Last Name *</label>
-                    <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Patel" required />
+                    <input type="text" name="Last Name" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Patel" required />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Email Address *</label>
-                    <input type="email" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="you@example.com" required />
+                    <input type="email" name="Email" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="you@example.com" required />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Phone Number *</label>
-                    <input type="tel" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="+91 99999 99999" required />
+                    <input type="tel" name="Phone Number" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="+91 99999 99999" required />
                   </div>
                 </div>
               </div>
@@ -263,13 +324,13 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Current School *</label>
-                    <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="Name of your school" required />
+                    <input type="text" name="Current School" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="Name of your school" required />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Current Grade *</label>
-                      <select className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors appearance-none shadow-sm cursor-pointer" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%238A8373\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.2em 1.2em' }} required defaultValue="">
+                      <select name="Current Grade" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors appearance-none shadow-sm cursor-pointer" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%238A8373\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.2em 1.2em' }} required defaultValue="">
                         <option value="" disabled className="text-[#4A4333]/30">Select Grade</option>
                         <option value="9">Grade 9</option>
                         <option value="10">Grade 10</option>
@@ -279,18 +340,18 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Age</label>
-                      <input type="number" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. 16" />
+                      <input type="number" name="Age" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. 16" />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Academic Interests & Strengths</label>
-                    <textarea rows={3} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="What subjects or topics are you most passionate about?"></textarea>
+                    <textarea name="Academic Interests" rows={3} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="What subjects or topics are you most passionate about?"></textarea>
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Target Universities (Optional)</label>
-                    <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Harvard, Stanford, Oxford" />
+                    <input type="text" name="Target Universities" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Harvard, Stanford, Oxford" />
                   </div>
                 </div>
               </div>
@@ -302,28 +363,36 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Preferred Date *</label>
-                      <input type="date" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors shadow-sm" required />
+                      <input type="date" name="Preferred Date" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors shadow-sm" required />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Preferred Time *</label>
-                      <input type="time" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors shadow-sm" required />
+                      <input type="time" name="Preferred Time" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors shadow-sm" required />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Additional Notes (Optional)</label>
-                    <textarea rows={2} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="Anything else you'd like us to know before the session?"></textarea>
+                    <textarea name="Additional Notes" rows={2} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="Anything else you'd like us to know before the session?"></textarea>
                   </div>
                 </div>
               </div>
 
+              {result && !isSuccess && (
+                <div className={`p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200`}>
+                  {result}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-4 border-t border-[#4A4333]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <button type="button" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-4 bg-[#5C7146] hover:bg-[#4a5a38] text-white rounded-full font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                  Request Free Consultation
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-4 bg-[#5C7146] hover:bg-[#4a5a38] disabled:opacity-70 text-white rounded-full font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                  {isSubmitting ? "Submitting..." : "Request Free Consultation"}
+                  {!isSubmitting && (
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  )}
                 </button>
                 <div className="flex items-center gap-2 text-xs text-[#8A8373] font-serif">
                   <svg className="w-4 h-4 text-[#5C7146]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -334,6 +403,7 @@ export default function ContactPage() {
               </div>
 
             </form>
+            )}
           </div>
 
         </div>
