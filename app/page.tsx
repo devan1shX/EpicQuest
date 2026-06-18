@@ -40,7 +40,7 @@ export default function Home() {
             </p>
 
             {/* Inline mini-stats row */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1 animate-fade-up delay-300">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-3 pt-1 animate-fade-up delay-300">
               {[
                 { val: "94%", label: "Admission Rate" },
                 { val: "50+", label: "Publications" },
