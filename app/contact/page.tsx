@@ -3,13 +3,10 @@ import Link from "next/link";
 export default function ContactPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
-      {/* Container to fill exactly the first fold (100vh) on desktop screens */}
+
       <div className="lg:min-h-[calc(100vh-64px)] flex flex-col">
 
-        {/* ══════════════════════════════
-            HERO SECTION (Consistent with Team Page)
-        ══════════════════════════════ */}
+        {/* ══ HERO SECTION ══ */}
         <section className="relative w-full overflow-hidden flex-1">
           {/* Ambient blobs */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
@@ -24,13 +21,13 @@ export default function ContactPage() {
 
             {/* Headline + Reach Out two-column */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-end">
-              
+
               <div className="animate-fade-up">
                 {/* Pill */}
                 <div className="mb-7">
-                  <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  YOUR EPICQUEST BEGINS HERE
-</span>
+                  <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                    YOUR EPICQUEST BEGINS HERE
+                  </span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem]
@@ -40,9 +37,9 @@ export default function ContactPage() {
                   <span className="relative inline-block">
                     <span className="relative z-10">Ivy League</span>
                     <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
-                         viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                      viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                       <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
-                            stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                        stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </span>{" "}
                   Story
@@ -105,9 +102,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ══════════════════════════════
-            QUICK STATS DIVIDER
-        ══════════════════════════════ */}
+        {/* ══ QUICK STATS DIVIDER ══ */}
         <section className="w-full bg-[#403011] py-6 relative z-20 shrink-0">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
             <div className="flex flex-col sm:flex-row justify-between sm:justify-around items-center gap-6 sm:gap-4">
@@ -131,21 +126,19 @@ export default function ContactPage() {
 
       </div>
 
-      {/* ══════════════════════════════
-          CONSULTATION EXPECTATIONS SECTION
-      ══════════════════════════════ */}
+      {/* ══ CONSULTATION EXPECTATIONS SECTION ══ */}
       <section className="w-full bg-[#EAE2CE] py-20 lg:py-28 relative z-10 border-t border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-            
+
             {/* Left: What We Will Cover */}
             <div>
               <span className="uppercase tracking-[0.14em] text-[11px] font-bold text-[#DCA543] mb-4 inline-block">THE 45-MIN SESSION</span>
               <h3 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mb-10 leading-tight">
                 What We Will Cover
               </h3>
-              
+
               <ul className="space-y-6">
                 {[
                   { title: "Profile Review", desc: "A deep dive into your academic record, co-curriculars, and personal interests." },
@@ -179,32 +172,32 @@ export default function ContactPage() {
               <h3 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mb-10 leading-tight">
                 What We'll Need From You
               </h3>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />, 
-                    text: "Student's Name & Age" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />,
+                    text: "Student's Name & Age"
                   },
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />, 
-                    text: "Current School & Grade" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />,
+                    text: "Current School & Grade"
                   },
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316v.192" />, 
-                    text: "Academic Interests" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316v.192" />,
+                    text: "Academic Interests"
                   },
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />, 
-                    text: "Target Universities" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />,
+                    text: "Target Universities"
                   },
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />, 
-                    text: "Parent/Guardian Details" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />,
+                    text: "Parent/Guardian Details"
                   },
-                  { 
-                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />, 
-                    text: "Preferred Date & Time" 
+                  {
+                    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />,
+                    text: "Preferred Date & Time"
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-4 p-4 bg-white/50 rounded-xl border border-[#4A4333]/10 hover:border-[#5C7146]/30 transition-colors">
@@ -225,12 +218,10 @@ export default function ContactPage() {
 
 
 
-      {/* ══════════════════════════════
-          BOOKING FORM SECTION (Revamped)
-      ══════════════════════════════ */}
+      {/* ══ BOOKING FORM SECTION ══ */}
       <section id="booking-form" className="w-full py-20 sm:py-28 relative">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 relative z-10">
-          
+
           <div className="text-center mb-14 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-[#403011] tracking-tight mb-5">
               Secure Your Slot
@@ -242,7 +233,7 @@ export default function ContactPage() {
 
           <div className="bg-[#FDFBF7] rounded-[2rem] p-6 sm:p-10 lg:p-14 shadow-xl border border-[#4A4333]/15">
             <form className="space-y-12">
-              
+
               {/* Group 1: Student Details */}
               <div>
                 <h3 className="text-lg font-serif font-bold text-[#403011] mb-6 pb-4 border-b border-[#4A4333]/10">Student Details</h3>
@@ -274,7 +265,7 @@ export default function ContactPage() {
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Current School *</label>
                     <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="Name of your school" required />
                   </div>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Current Grade *</label>
@@ -296,7 +287,7 @@ export default function ContactPage() {
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Academic Interests & Strengths</label>
                     <textarea rows={3} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="What subjects or topics are you most passionate about?"></textarea>
                   </div>
-                  
+
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Target Universities (Optional)</label>
                     <input type="text" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm" placeholder="e.g. Harvard, Stanford, Oxford" />
@@ -318,7 +309,7 @@ export default function ContactPage() {
                       <input type="time" className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors shadow-sm" required />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-xs font-bold text-[#8A8373] uppercase tracking-wider mb-2">Additional Notes (Optional)</label>
                     <textarea rows={2} className="w-full bg-white border border-[#4A4333]/15 rounded-xl px-4 py-3.5 text-sm text-[#403011] focus:outline-none focus:border-[#5C7146] focus:ring-1 focus:ring-[#5C7146] transition-colors placeholder:text-[#4A4333]/30 shadow-sm resize-none" placeholder="Anything else you'd like us to know before the session?"></textarea>
@@ -344,7 +335,7 @@ export default function ContactPage() {
 
             </form>
           </div>
-          
+
         </div>
       </section>
 
@@ -362,7 +353,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      
+
     </main>
   );
 }

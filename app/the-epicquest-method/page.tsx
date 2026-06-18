@@ -6,9 +6,7 @@ export default function HowItWorksPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ══════════════════════════════
-          HERO — UNTOUCHED
-      ══════════════════════════════ */}
+      {/* ═════ HERO ════ */}
       <section className="relative w-full overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
@@ -18,9 +16,9 @@ export default function HowItWorksPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-end">
             <div className="animate-fade-up">
               <div className="mb-7">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  OUR PROCESS
-</span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                  OUR PROCESS
+                </span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] font-serif font-medium text-[#403011] tracking-tight leading-[1.08] mb-5">
                 Your{" "}
@@ -38,36 +36,34 @@ export default function HowItWorksPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 animate-fade-up delay-150">
-               <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
-                  <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">4</span>
-                  <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Strategic Phases</span>
-               </div>
-               <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
-                  <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">100%</span>
-                  <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Custom-Designed</span>
-               </div>
-               <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
-                  <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">1:1</span>
-                  <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Expert Mentorship</span>
-               </div>
-               <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
-                  <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">12–24</span>
-                  <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Month Journey</span>
-               </div>
+              <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
+                <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">4</span>
+                <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Strategic Phases</span>
+              </div>
+              <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
+                <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">100%</span>
+                <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Custom-Designed</span>
+              </div>
+              <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
+                <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">1:1</span>
+                <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Expert Mentorship</span>
+              </div>
+              <div className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl border border-[#4A4333]/8 shadow-sm">
+                <span className="text-3xl sm:text-4xl font-serif font-semibold text-[#403011] leading-none mb-1.5">12–24</span>
+                <span className="text-[11px] sm:text-xs text-[#8A8373] font-serif uppercase tracking-wider leading-snug">Month Journey</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          THE 4-PHASE JOURNEY — REDESIGNED
-      ══════════════════════════════ */}
+      {/* ══════ THE 4-PHASE JOURNEY ══════ */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          
+
           <div className="mb-14 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 THE JOURNEY
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -231,14 +227,12 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          UNIQUE APPROACH: BEYOND GRADES
-      ══════════════════════════════ */}
+      {/* ══════ BEYOND GRADES ══════ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               OUR PROCESS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
@@ -250,7 +244,7 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14">
-            
+
             {/* Card 1 */}
             <div className="flex flex-col gap-6">
               <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-[#4A4333]/10 shadow-lg group">
@@ -317,9 +311,7 @@ export default function HowItWorksPage() {
       </section>
 
 
-      {/* ══════════════════════════════
-          FINAL CTA — REDESIGNED
-      ══════════════════════════════ */}
+      {/* ══════ FINAL CTA ══════ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 relative overflow-hidden">
         {/* Dot grid */}
         <div
@@ -353,7 +345,7 @@ export default function HowItWorksPage() {
             />
 
             <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 GET STARTED
               </span>
 
@@ -399,7 +391,7 @@ export default function HowItWorksPage() {
                 </Link>
               </div>
 
-              {/* Trust signals (adapted for dark theme) */}
+              {/* Trust signals */}
               <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
                 {["No commitment required", "60-min deep-dive session", "Expert advisor assigned"].map((item) => (
                   <div key={item} className="flex items-center gap-2.5">

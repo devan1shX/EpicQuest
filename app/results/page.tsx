@@ -15,7 +15,7 @@ const graduates = [
   { name: "Saachi S.", uni: "UC Berkeley", image: "/images/results/Result_Saachi.png" },
   { name: "Julien A.", uni: "Princeton University", image: "/images/results/Result_Julien.png" },
   { name: "Rishika T.", uni: "UMich", image: "/images/results/Result_Rishika.png" },
-  
+
   { name: "Ankur S.", uni: "Harvard University", image: "/images/results/Result_Ankur.png" },
   { name: "Sanaa S.", uni: "UCLA", image: "/images/results/Result_Sanaa.png" },
   { name: "Vansh K.", uni: "Cornell University", image: "/images/results/Result_Vansh.png" },
@@ -40,15 +40,13 @@ const graduates = [
 export default function ResultsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
-      {/* ══════════════════════════════
-          HERO
-      ══════════════════════════════ */}
+
+      {/* ═══ HERO ═══ */}
       <section className="relative w-full overflow-hidden">
         {/* Ambient blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/8 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-        
+
         {/* Dot grid */}
         <div className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.06] pointer-events-none" />
 
@@ -59,9 +57,9 @@ export default function ResultsPage() {
             <div className="animate-fade-up">
               {/* Pill */}
               <div className="mb-7">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  PROVEN OUTCOMES
-</span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                  PROVEN OUTCOMES
+                </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] font-serif font-medium text-[#403011] tracking-tight leading-[1.08] mb-5">
@@ -98,17 +96,15 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          UNIVERSITY PLACEMENTS SHOWCASE
-      ══════════════════════════════ */}
+      {/* ═══ UNIVERSITY PLACEMENTS SHOWCASE ═══ */}
       <section id="success-story" className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-b border-[#4A4333]/10 relative z-10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  EXCELLENCE. PROVEN.
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              EXCELLENCE. PROVEN.
+            </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
               EpicQuest Success Story
             </h2>
@@ -119,13 +115,13 @@ export default function ResultsPage() {
 
           {/* Direct Placement Grid Image */}
           <div className="relative w-full max-w-4xl mx-auto group">
-            <Image 
-              src="/images/results/Result_Succcess_Story.jpeg" 
-              alt="EpicQuest Success Story Placements Grid" 
+            <Image
+              src="/images/results/Result_Succcess_Story.jpeg"
+              alt="EpicQuest Success Story Placements Grid"
               width={1600}
               height={1200}
-              className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-700 ease-out" 
-              priority 
+              className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              priority
             />
           </div>
 
@@ -137,20 +133,19 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          REAL-WORLD IMPACT: PATENTS & PUBLICATIONS (Academic Prestige Exhibit)
-      ══════════════════════════════ */}
+      {/* ═══ REAL-WORLD IMPACT: PATENTS & PUBLICATIONS ═══ */}
       <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative z-10 overflow-hidden">
+
         {/* Subtle grid pattern overlay for dark mode texture */}
         <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
-        
+
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mb-16 lg:mb-20">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  INTELLECTUAL CONTRIBUTIONS
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              INTELLECTUAL CONTRIBUTIONS
+            </span>
             <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#F6EBD4] tracking-tight leading-tight mb-6">
               Real-World Impact:<br />Patents &amp; Publications
             </h2>
@@ -161,10 +156,10 @@ export default function ResultsPage() {
 
           {/* Asymmetrical Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left: Prestige Folios */}
             <div className="lg:col-span-5 flex flex-col gap-8">
-              
+
               {[
                 {
                   num: "01",
@@ -212,11 +207,11 @@ export default function ResultsPage() {
             <div className="lg:col-span-7 relative w-full">
               {/* Outer decorative backdrop glow */}
               <div className="absolute inset-0 bg-[#DCA543]/5 rounded-[2.5rem] blur-2xl pointer-events-none" />
-              
+
               {/* Luxury Display Frame */}
               <div className="relative p-3 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                
+
                 {/* Image Container with precise golden inner border */}
                 <div className="relative w-full aspect-[2.1/1] rounded-[2rem] overflow-hidden border border-[#DCA543]/20 bg-[#162010]">
                   <Image
@@ -229,7 +224,7 @@ export default function ResultsPage() {
                   />
                 </div>
               </div>
-              
+
               {/* Floating brass style placard caption */}
               <div className="mt-5 px-6 flex items-center justify-between text-[11px] text-[#F6EBD4]/50 font-serif tracking-wider uppercase">
                 <span>EXHIBIT 1.1 — INTELLECTUAL PORTFOLIO</span>
@@ -242,18 +237,19 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          REAL-WORLD IMPACT: DEEP DIVE INTO STUDENT WORK (The Portfolio Chronicles)
-      ══════════════════════════════ */}
+      {/* ═══ REAL-WORLD IMPACT: DEEP DIVE INTO STUDENT WORK ═══ */}
       <section id="deep-dive" className="w-full bg-[#F6EBD4] py-20 sm:py-28 relative z-10 overflow-hidden">
         {/* Soft geometric accent lines */}
         <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-[#566544]/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#DCA543]/5 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           {/* Section Header */}
           <div className="max-w-4xl mb-16 lg:mb-20">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              EXAMPLES OF OUR CHANGEMAKER DESTINY
+            </span>
             <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
               Real-World Impact: Deep Dive into Student Work
             </h2>
@@ -264,7 +260,7 @@ export default function ResultsPage() {
 
           {/* 2 Column, 2 Row Grid of Compact Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            
+
             {/* Card 1: Research Papers */}
             <div className="bg-white rounded-[2rem] border border-[#566544]/20 border-l-[8px] border-l-[#566544] p-8 sm:p-10 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col gap-5">
               <div className="flex">
@@ -339,15 +335,11 @@ export default function ResultsPage() {
 
           </div>
 
-          
-
-          
-
           {/* Luxury Prestige Awards & Competitions Strip */}
           <div className="mt-16 pt-10">
             <div className="bg-gradient-to-br from-[#F6EBD4] to-[#EAE5D9]/50 rounded-3xl p-8 md:p-10 border border-[#4A4333]/10 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#566544]/5 rounded-bl-[8rem] pointer-events-none" />
-              
+
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
                 <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white border border-[#DCA543] shadow-md shrink-0">
                   <span className="text-[32px] leading-none mb-1">🥇</span>
@@ -367,14 +359,12 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          WALL OF FAME
-      ══════════════════════════════ */}
+      {/* ═══ WALL OF FAME ═══ */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10 relative z-10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           <div className="mb-10 animate-fade-up">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               50+ SUCCESS STORIES
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -432,19 +422,17 @@ export default function ResultsPage() {
               </div>
             </div>
           </div>
-          
+
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          SUCCESS STORIES (TESTIMONIALS)
-      ══════════════════════════════ */}
+      {/* ═══ SUCCESS STORIES (TESTIMONIALS) ═══ */}
       <section id="champion-achievers" className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  STUDENT EXPERIENCES
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              STUDENT EXPERIENCES
+            </span>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Champion Achievers{" "}
@@ -508,22 +496,18 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          PARTNERS & AFFILIATIONS
-      ══════════════════════════════ */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10">
+      {/* ═══ PARTNERS & AFFILIATIONS ═══ */}
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-10 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            <div>
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  PARTNERS & AFFILIATIONS
-</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Backed by Institutions<br className="hidden sm:inline" /> That Matter
-              </h2>
-            </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm leading-relaxed sm:text-right">
-              Active collaborations with India's most prestigious academic, research, and policy institutions.
+          <div className="mb-10">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              Partners & Affiliations
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
+              Backed by Institutions<br className="hidden sm:inline" /> That Matter
+            </h2>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
+              Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
 
@@ -549,12 +533,24 @@ export default function ResultsPage() {
               </div>
             ))}
           </div>
+
+          {/* Callout */}
+          <div className="rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
+            <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+              </svg>
+            </div>
+            <div className="bg-[#5C7146]/6 px-6 py-5">
+              <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
+                Affiliations with the <strong className="text-[#403011] font-semibold">Office of the Principal Scientific Adviser</strong> to the Government of India, ISB's Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic credibility.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          FINAL CTA
-      ══════════════════════════════ */}
+      {/* ═══ FINAL CTA ═══ */}
       <section className="w-full bg-[#F6EBD4] pb-12 sm:pb-16 lg:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] via-[#374D23] to-[#455434] rounded-3xl px-6 py-16 sm:px-12 md:px-20 md:py-20 shadow-2xl border border-[#5C7146]/20">
@@ -565,9 +561,9 @@ export default function ResultsPage() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  COHORT ADMISSIONS OPEN
-</span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                COHORT ADMISSIONS OPEN
+              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
                 <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}

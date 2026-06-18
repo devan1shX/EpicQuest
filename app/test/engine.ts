@@ -657,7 +657,7 @@ const templates: Record<"D" | "I" | "S" | "C", Omit<ReportData, "candidate" | "f
   }
 };
 
-// Pure TypeScript Scoring & Compilation Function
+// TypeScript Scoring & Compilation Function
 export function compileReport(
   name: string,
   status: string,
@@ -810,7 +810,7 @@ export function compileReport(
   for (let i = 25; i <= 32; i++) {
     const key = `q${i}`;
     const score = Number(answers[key]) || 3;
-    
+
     switch (i) {
       case 25: // Agreeable (Agreeable)
         agreeableScore += score;
@@ -921,7 +921,7 @@ export function compileReport(
     primaryCode = "D";
   } else if (horizontalPercent < 50 && verticalPercent < 50) {
     primaryCode = "C";
-  }  else if (horizontalPercent >= 50 && verticalPercent < 50) {
+  } else if (horizontalPercent >= 50 && verticalPercent < 50) {
     primaryCode = "S";
   }
 
@@ -991,8 +991,8 @@ export function compileReport(
 
   const combinedTypeString = primaryCode === "D" ? "Drive / Assertive / Commander"
     : primaryCode === "I" ? "Influence / Hustler / Relationship Builder"
-    : primaryCode === "S" ? "Support / Helper / Consensus Anchor"
-    : "Clarity / Intellectual / Analytical Architect";
+      : primaryCode === "S" ? "Support / Helper / Consensus Anchor"
+        : "Clarity / Intellectual / Analytical Architect";
 
   const foundationScores: FoundationScores = {
     pacePosture: {
@@ -1007,9 +1007,9 @@ export function compileReport(
     },
     combinedResult: {
       formula: primaryCode === "D" ? `Active (${verticalPercent}%) + Skeptical (${100 - horizontalPercent}%) = Drive` :
-               primaryCode === "I" ? `Active (${verticalPercent}%) + Agreeable (${horizontalPercent}%) = Influence` :
-               primaryCode === "S" ? `Receptive (${100 - verticalPercent}%) + Agreeable (${horizontalPercent}%) = Support` :
-               `Receptive (${100 - verticalPercent}%) + Skeptical (${100 - horizontalPercent}%) = Clarity`,
+        primaryCode === "I" ? `Active (${verticalPercent}%) + Agreeable (${horizontalPercent}%) = Influence` :
+          primaryCode === "S" ? `Receptive (${100 - verticalPercent}%) + Agreeable (${horizontalPercent}%) = Support` :
+            `Receptive (${100 - verticalPercent}%) + Skeptical (${100 - horizontalPercent}%) = Clarity`,
       type: combinedTypeString
     }
   };
@@ -1099,7 +1099,7 @@ export function compileReport(
   if (strengthVal >= 30) strengthLevel = "Very Strong";
   else if (strengthVal >= 20) strengthLevel = "Strong";
   else if (strengthVal >= 10) strengthLevel = "Moderate";
-  
+
   const personalityStrength: PersonalityStrength = {
     score: Math.round(strengthVal),
     level: strengthLevel,

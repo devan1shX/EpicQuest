@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ── 1. ABOUT US HERO ── */}
+      {/* ABOUT US HERO */}
       <section className="relative w-full overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
                         bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -29,7 +29,7 @@ export default function AboutPage() {
 
           {/* Pill */}
           <div className="mb-7 animate-fade-up">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               WHO WE ARE
             </span>
           </div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 2. FOUNDER'S MESSAGE ── */}
+      {/* FOUNDER'S MESSAGE */}
       <section className="w-full bg-[#403011] py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
@@ -255,7 +255,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 3. UNIQUE APPROACH: BEYOND GRADES ── */}
+      {/* UNIQUE APPROACH: BEYOND GRADES */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 

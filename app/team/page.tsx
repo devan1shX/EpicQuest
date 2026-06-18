@@ -78,7 +78,7 @@ const stats = [
   { value: "5+", label: "Patents Held" },
 ];
 
-/* ── Reusable credential badge ── */
+/* ── credential badge ── */
 function CredentialBadge({ text }: { text: string }) {
   return (
     <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1
@@ -94,7 +94,7 @@ function CredentialBadge({ text }: { text: string }) {
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
       {children}
     </span>
   );
@@ -104,9 +104,7 @@ export default function TeamPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ══════════════════════════════
-          HERO
-      ══════════════════════════════ */}
+      {/* ═════  HERO  ═════ */}
       <section className="relative w-full overflow-hidden">
         {/* Ambient blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
@@ -125,9 +123,9 @@ export default function TeamPage() {
             <div className="animate-fade-up">
               {/* Pill */}
               <div className="mb-7">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  THE PEOPLE BEHIND EPICQUEST
-</span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                  THE PEOPLE BEHIND EPICQUEST
+                </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem]
@@ -137,9 +135,9 @@ export default function TeamPage() {
                 <span className="relative inline-block">
                   <span className="relative z-10">Minds</span>
                   <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
-                       viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                    viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                     <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
-                          stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                      stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </span>{" "}
                 Shaping Your Future
@@ -156,7 +154,7 @@ export default function TeamPage() {
             <div className="grid grid-cols-2 gap-4 animate-fade-up delay-150">
               {stats.map((s) => (
                 <div key={s.label}
-                     className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl
+                  className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl
                                 border border-[#4A4333]/8 shadow-sm">
                   <span className="text-3xl sm:text-4xl font-serif font-semibold
                                    text-[#403011] leading-none mb-1.5">
@@ -174,9 +172,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          LEADERSHIP TEAM
-      ══════════════════════════════ */}
+      {/* ═════ LEADERSHIP TEAM ════ */}
       <section className="w-full bg-[#F6EBD4] pb-16 sm:pb-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-14 sm:pt-20">
 
@@ -252,9 +248,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          QUOTE BAND
-      ══════════════════════════════ */}
+      {/* ═════ QUOTE BAND ════ */}
       <div className="w-full bg-[#403011] py-10 sm:py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)]
                         [background-size:20px_20px] opacity-[0.04] pointer-events-none" />
@@ -267,16 +261,14 @@ export default function TeamPage() {
           </p>
           <div className="flex items-center gap-3 shrink-0">
             <div className="w-8 h-px bg-[#DCA543]/60" />
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
-  EPICQUEST FOUNDING PRINCIPLE
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
+              EPICQUEST FOUNDING PRINCIPLE
+            </span>
           </div>
         </div>
       </div>
 
-      {/* ══════════════════════════════
-          MANAGEMENT TEAM
-      ══════════════════════════════ */}
+      {/* ═══ MANAGEMENT TEAM ═══ */}
       <section className="w-full bg-[#F0E6CC] pb-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-14 sm:pt-20">
 
@@ -352,9 +344,9 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  COHORT ADMISSIONS OPEN
-</span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                COHORT ADMISSIONS OPEN
+              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
                 <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}

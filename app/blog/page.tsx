@@ -99,7 +99,7 @@ export default function BlogIndexPage() {
 
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-         {/* ── HERO BANNER (CONSISTENT WITH TEAM PAGE) ── */}
+      {/* ── HERO BANNER ── */}
       <section className="relative w-full overflow-hidden">
         {/* Ambient blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
@@ -118,7 +118,7 @@ export default function BlogIndexPage() {
             <div className="animate-fade-up">
               {/* Pill */}
               <div className="mb-6">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
                   EpicQuest Intellect Hub
                 </span>
               </div>
@@ -130,9 +130,9 @@ export default function BlogIndexPage() {
                 <span className="relative inline-block">
                   <span className="relative z-10">Insight Hub</span>
                   <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
-                       viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                    viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                     <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
-                          stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                      stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </span>
               </h1>
@@ -152,7 +152,7 @@ export default function BlogIndexPage() {
                 { value: "5", label: "Core Spikes Guides" },
               ].map((s) => (
                 <div key={s.label}
-                     className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl
+                  className="flex flex-col p-5 sm:p-6 bg-[#FDFBF7] rounded-2xl
                                 border border-[#4A4333]/8 shadow-sm">
                   <span className="text-3xl sm:text-4xl font-serif font-semibold
                                    text-[#403011] leading-none mb-1.5">
@@ -170,7 +170,7 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      {/* ── BLOG CONTENT SECTION (CONISTENT WITH TEAM PAGE LAYOUT) ── */}
+      {/* ── BLOG CONTENT SECTION ── */}
       <section className="w-full bg-[#F6EBD4] pb-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-14 sm:pt-20">
 
@@ -179,7 +179,7 @@ export default function BlogIndexPage() {
             <div className="mb-16 animate-fade-up">
               <div className="bg-[#FDFBF7]/90 rounded-[2.5rem] p-6 sm:p-8 lg:p-12 border border-[#4A4333]/10 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 xl:gap-16 items-center">
-                  
+
                   {/* Image Column */}
                   <div className="relative aspect-[16/10] lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-white/60 group">
                     <Image
@@ -190,26 +190,26 @@ export default function BlogIndexPage() {
                       className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/20 to-transparent pointer-events-none" />
-                    
+
                     {/* Floating category tag */}
                     <span className="absolute top-5 left-5 inline-flex items-center gap-1 bg-[#5C7146] text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wide shadow-sm">
                       <Tag className="w-3 h-3" />
                       {featuredPost.category}
                     </span>
                   </div>
-                  
+
                   {/* Content Column */}
                   <div className="space-y-5 sm:space-y-6">
-                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit">
+                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
                       ★ Featured Publication
                     </span>
-                    
+
                     <h2 className="text-3xl sm:text-4xl xl:text-[2.6rem] font-serif font-medium text-[#403011] leading-tight tracking-tight hover:text-[#5C7146] transition-colors">
                       <Link href={featuredPost.slug}>
                         {featuredPost.title}
                       </Link>
                     </h2>
-                    
+
                     <p className="text-base text-[#4A4333] font-serif leading-relaxed line-clamp-4">
                       {featuredPost.excerpt}
                     </p>
@@ -256,11 +256,10 @@ export default function BlogIndexPage() {
                     key={cat}
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                      selectedCategory === cat
+                    className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${selectedCategory === cat
                         ? "bg-[#5C7146] text-white shadow-sm"
                         : "bg-[#FDFBF7]/50 text-[#8A8373] hover:bg-[#FDFBF7] hover:text-[#403011]"
-                    }`}
+                      }`}
                     suppressHydrationWarning
                   >
                     {cat}
@@ -306,7 +305,7 @@ export default function BlogIndexPage() {
                         className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/35 via-transparent to-transparent pointer-events-none" />
-                      
+
                       {/* Floating Category */}
                       <span className="absolute top-4 left-4 bg-[#5C7146] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                         {post.category}

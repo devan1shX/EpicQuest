@@ -65,12 +65,10 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
-      {/* ══════════════════════════════
-          HERO & CARDS GRID SECTION
-      ══════════════════════════════ */}
+
+      {/* ═══ HERO & CARDS GRID SECTION ═══ */}
       <section className="relative w-full overflow-hidden pb-20 sm:pb-28">
-        
+
         {/* Ambient blobs & Dot Grid */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full
                         bg-[#566544]/6 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -83,15 +81,15 @@ export default function ProgramsPage() {
 
           {/* Master Grid: Left (Hero text + Stats) & Right (Cards Grid) */}
           <div className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
-            
+
             {/* ── LEFT COLUMN: Text & Stats ── */}
             <div className="flex flex-col animate-fade-up">
-              
+
               {/* Pill */}
               <div className="mb-6">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  THE EPICQUEST LAUNCHPAD
-</span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                  THE EPICQUEST LAUNCHPAD
+                </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem]
@@ -101,13 +99,13 @@ export default function ProgramsPage() {
                 <span className="relative inline-block">
                   <span className="relative z-10">Offer</span>
                   <svg className="absolute -bottom-1.5 left-0 w-full" height="8"
-                       viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
+                    viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                     <path d="M2 6 Q30 2 60 5 Q90 8 118 3"
-                          stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
+                      stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </span>
               </h1>
-              
+
               <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed
                             border-l-2 border-[#DCA543] pl-5 max-w-lg mb-10">
                 Choose your path — every program is designed to build a world-class university portfolio that gets you noticed by Ivy League admissions committees. Six paths. One destination.
@@ -149,7 +147,7 @@ export default function ProgramsPage() {
                         {prog.title}
                       </h3>
                     </div>
-                    
+
                     <p className="text-[13px] sm:text-[14px] text-[#4A4333]/90 font-serif leading-relaxed mb-6 flex-1">
                       {prog.desc}
                     </p>
@@ -167,7 +165,6 @@ export default function ProgramsPage() {
             </div>
 
           </div>
-
 
         </div>
       </section>

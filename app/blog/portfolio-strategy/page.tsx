@@ -28,7 +28,7 @@ export default function PortfolioStrategyPostPage() {
 
       // 2. Track active section based on viewport
       const scrollPosition = window.scrollY + 200; // Offset for header padding
-      
+
       let currentSection = "hook";
       for (const [key, ref] of Object.entries(sectionsRef)) {
         if (ref.current) {
@@ -66,9 +66,9 @@ export default function PortfolioStrategyPostPage() {
 
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
+
       {/* ── STICKY READING PROGRESS BAR ── */}
-      <div 
+      <div
         className="fixed top-[64px] left-0 h-1 bg-[#5C7146] transition-all duration-100 ease-out z-50"
         style={{ width: `${scrollProgress}%` }}
         aria-hidden="true"
@@ -82,11 +82,11 @@ export default function PortfolioStrategyPostPage() {
         <div aria-hidden className="absolute top-0 right-0 w-[560px] h-[560px] rounded-full bg-[#566544]/6 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
-          
-          {/* Breadcrumb / Back Navigation */}
+
+          {/* Breadcrumb */}
           <div className="mb-8 animate-fade-up">
-            <Link 
-              href="/blog" 
+            <Link
+              href="/blog"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#5C7146] hover:text-[#465732] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.5} />
@@ -96,9 +96,9 @@ export default function PortfolioStrategyPostPage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  PORTFOLIO STRATEGY
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              PORTFOLIO STRATEGY
+            </span>
           </div>
 
           {/* Title & Metadata */}
@@ -138,7 +138,7 @@ export default function PortfolioStrategyPostPage() {
 
       {/* ── MAIN FEATURE SPLIT ARTICLE LAYOUT ── */}
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-14 pt-10 sm:pt-12 pb-24">
-        
+
         {/* Cover Image */}
         <div className="relative w-full aspect-[21/9] rounded-[3rem_1.5rem_4rem_1.5rem] overflow-hidden shadow-xl border-4 border-white/60 mb-16 animate-fade-in">
           <Image
@@ -153,14 +153,14 @@ export default function PortfolioStrategyPostPage() {
 
         {/* Dynamic Responsive Double Column Block */}
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 xl:gap-20 items-start">
-          
+
           {/* LEFT COLUMN: Sticky Table of Contents (Desktop Only) / Accordion (Mobile Only) */}
           <aside className="lg:sticky lg:top-24 space-y-8 bg-[#FDFBF7]/60 border border-[#4A4333]/8 rounded-3xl p-6 shadow-sm">
             <div className="text-xs font-bold uppercase tracking-widest text-[#403011] border-b border-[#4A4333]/10 pb-3 flex items-center justify-between">
               <span>Table of Contents</span>
               <BookOpen className="w-4 h-4 text-olive" />
             </div>
-            
+
             <nav className="flex flex-col gap-3 text-sm font-serif">
               {[
                 { id: "hook", label: "1. The GPA Trap" },
@@ -172,11 +172,10 @@ export default function PortfolioStrategyPostPage() {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id as keyof typeof sectionsRef)}
-                  className={`text-left transition-all duration-200 pl-3 border-l-2 py-0.5 ${
-                    activeSection === item.id
+                  className={`text-left transition-all duration-200 pl-3 border-l-2 py-0.5 ${activeSection === item.id
                       ? "text-[#5C7146] font-bold border-[#5C7146] translate-x-1"
                       : "text-[#8A8373] hover:text-[#403011] border-transparent"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -184,19 +183,19 @@ export default function PortfolioStrategyPostPage() {
             </nav>
 
             <div className="pt-4 border-t border-[#4A4333]/10 flex justify-around text-[#8A8373]">
-              <button 
+              <button
                 title="Bookmark article"
-                onClick={() => alert("Article bookmarked successfully!")} 
+                onClick={() => alert("Article bookmarked successfully!")}
                 className="hover:text-olive transition-colors"
               >
                 <Bookmark className="w-4.5 h-4.5" />
               </button>
-              <button 
+              <button
                 title="Share article"
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   alert("Link copied to clipboard!");
-                }} 
+                }}
                 className="hover:text-olive transition-colors"
               >
                 <Share2 className="w-4.5 h-4.5" />
@@ -206,7 +205,7 @@ export default function PortfolioStrategyPostPage() {
 
           {/* RIGHT COLUMN: MAIN ARTICLE TEXT */}
           <article className="max-w-3xl space-y-12 text-[#2C2C2C] font-serif leading-relaxed text-[1.08rem] sm:text-lg">
-            
+
             {/* Hook Introduction */}
             <section ref={sectionsRef["hook"]} id="hook" className="space-y-4 pt-4">
               <div className="text-xl sm:text-2xl text-[#403011] italic leading-normal border-l-4 border-[#DCA543] pl-6 font-medium">
@@ -220,7 +219,7 @@ export default function PortfolioStrategyPostPage() {
                 The Myth of the Perfect GPA
               </h2>
               <p>
-                Admissions statistics from elite universities show a stark reality: over 70% of applicants who are rejected from Harvard, Yale, and Stanford possess perfect or near-perfect academic credentials. Grade inflation has eroded the signaling power of high transcripts. 
+                Admissions statistics from elite universities show a stark reality: over 70% of applicants who are rejected from Harvard, Yale, and Stanford possess perfect or near-perfect academic credentials. Grade inflation has eroded the signaling power of high transcripts.
               </p>
               <p>
                 When thousands of applicants look identical on paper, admissions committees look for holistic vitality. They seek students who have taken their academic interests out of the classroom and translated them into tangible achievements. Perfect grades show you can follow instructions; a high-end portfolio shows you can lead and innovate.
@@ -302,30 +301,6 @@ export default function PortfolioStrategyPostPage() {
                 At EpicQuest, we utilize a structured, 6-pathway framework designed to support students from ideation to completion. By mapping psychometric cognitive profiles directly to targeted research fields, product prototyping cycles, patent filings, policy briefs, and prestigious corporate internships, we systematically engineer a Tier-1 academic spike that stands out to elite university admissions committees.
               </p>
 
-              {/* Special CTA Callout Box */}
-              <div className="bg-[#5C7146]/10 border border-[#5C7146]/25 rounded-[2rem] p-6 sm:p-8 space-y-4 mt-8">
-                <h4 className="text-lg font-serif font-bold text-[#403011]">Start building your portfolio today</h4>
-                <p className="text-sm text-[#4A4333] leading-relaxed">
-                  Connect with UPenn alumni and PhD mentors to map out your bespoke, Ivy League-ready portfolio milestones today.
-                </p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#566544] hover:bg-[#455734] text-[#F6EBD4] rounded-full font-semibold text-xs tracking-wide transition-all duration-300 shadow-md hover:shadow-lg"
-                  >
-                    Build Your Portfolio Strategy
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                  <a
-                    href="https://www.epicquestlearning.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-bold text-[#566544] hover:underline"
-                  >
-                    👉 Visit epicquestlearning.com
-                  </a>
-                </div>
-              </div>
             </section>
 
           </article>

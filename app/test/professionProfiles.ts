@@ -671,7 +671,7 @@ export const professionProfilesConfig: ProfessionProfilesConfig = {
 
 // ─── Validation ──────────────────────────────────────────────────────
 
-/** Validates that every profession profile sums to 100 */
+/* Validates that every profession profile sums to 100 */
 export function validateProfessionProfiles(): void {
   professionProfilesConfig.profiles.forEach((profile) => {
     const total = profile.D + profile.I + profile.S + profile.C;

@@ -20,9 +20,9 @@ export default function Home() {
           <div className="w-full lg:w-[55%] lg:flex-none space-y-6 sm:space-y-7 z-10 flex flex-col justify-center">
 
             {/* Badge */}
-            <div className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  ELITE UNIVERSITY ADMISSIONS
-</div>
+            <div className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              ELITE UNIVERSITY ADMISSIONS
+            </div>
 
             <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.1rem] font-serif font-medium text-[#403011] leading-[1.08] tracking-tight animate-fade-up delay-100">
               EpicQuest:<br />
@@ -35,103 +35,103 @@ export default function Home() {
               to<br className="hidden sm:inline" /> the Ivy League
             </h1>
 
-          <p className="text-[0.95rem] sm:text-base lg:text-[1.05rem] text-[#4A4333] leading-[1.75] max-w-[88%] font-serif animate-fade-up delay-200">
-            We transform extraordinary students into Ivy League-ready candidates — through structured research, psychometric-aligned skill development, published work, patent filing, and real-world apprenticeships.
-          </p>
+            <p className="text-[0.95rem] sm:text-base lg:text-[1.05rem] text-[#4A4333] leading-[1.75] max-w-[88%] font-serif animate-fade-up delay-200">
+              We transform extraordinary students into Ivy League-ready candidates — through structured research, psychometric-aligned skill development, published work, patent filing, and real-world apprenticeships.
+            </p>
 
-          {/* Inline mini-stats row */}
-          <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1 animate-fade-up delay-300">
-            {[
-              { val: "94%", label: "Admission Rate" },
-              { val: "50+", label: "Publications" },
-              { val: "12", label: "Patents Filed" },
-            ].map(({ val, label }) => (
-              <div key={label} className="flex items-center gap-2.5 select-none">
-                <span className="text-xl sm:text-2xl font-serif font-semibold text-[#5C7146] leading-none">{val}</span>
-                <span className="text-xs text-[#6A6A6A] font-serif leading-tight border-l border-[#4A4333]/20 pl-2.5">{label}</span>
-              </div>
-            ))}
+            {/* Inline mini-stats row */}
+            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1 animate-fade-up delay-300">
+              {[
+                { val: "94%", label: "Admission Rate" },
+                { val: "50+", label: "Publications" },
+                { val: "12", label: "Patents Filed" },
+              ].map(({ val, label }) => (
+                <div key={label} className="flex items-center gap-2.5 select-none">
+                  <span className="text-xl sm:text-2xl font-serif font-semibold text-[#5C7146] leading-none">{val}</span>
+                  <span className="text-xs text-[#6A6A6A] font-serif leading-tight border-l border-[#4A4333]/20 pl-2.5">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-1 animate-fade-up delay-400">
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+              >
+                Explore our Programs
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/results#success-story"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 group"
+              >
+                Our Success Story
+              </Link>
+            </div>
+
+            {/* Trust line */}
+            <p className="text-[0.78rem] text-[#6A6A6A] font-serif tracking-wide pt-1 select-none">
+              Limited spaces for 2026–27 cohort · 94% top-20 global university placement
+            </p>
+
+            {/* Contact Strip */}
+            <div className="pt-5 border-t border-[#4A4333]/10 flex flex-wrap gap-x-5 gap-y-3 items-center text-[0.82rem] text-[#4A4333] font-serif">
+              {[
+                { href: "tel:+919971125276", icon: "phone", label: "+91-9971125276" },
+                { href: "mailto:contact@epicquestlearning.com", icon: "mail", label: "contact@epicquestlearning.com" },
+                { href: "https://www.epicquestlearning.com", icon: "globe", label: "epicquestlearning.com" },
+              ].map(({ href, icon, label }) => (
+                <a key={label} href={href} className="hover:text-[#5C7146] transition-colors flex items-center gap-1.5 group">
+                  <span className="w-6 h-6 rounded-full bg-[#5C7146]/8 flex items-center justify-center group-hover:bg-[#5C7146]/15 transition-colors shrink-0">
+                    {icon === "phone" && (
+                      <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.157-.44.009-.926.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                      </svg>
+                    )}
+                    {icon === "mail" && (
+                      <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                      </svg>
+                    )}
+                    {icon === "globe" && (
+                      <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
+                      </svg>
+                    )}
+                  </span>
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-1 animate-fade-up delay-400">
-            <Link
-              href="/programs"
-              className="inline-flex items-center justify-center gap-2 px-10 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
-            >
-              Explore our Programs
-              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              href="/results#success-story"
-              className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 group"
-            >
-              Our Success Story
-            </Link>
+          {/* Right Image — asymmetric frame with floating badges */}
+          <div className="w-full lg:w-[45%] lg:flex-none relative animate-fade-in delay-500">
+            {/* Decorative offset border */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[2.5rem_1.5rem_3rem_1.5rem] border-2 border-[#DCA543]/40 pointer-events-none" />
+
+            {/* Main image */}
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-[2.5rem_1.5rem_3rem_1.5rem] overflow-hidden shadow-2xl border-4 border-white/70 group">
+              <Image
+                src="/images/home/Home_Hero.png"
+                alt="Student working on electronics project"
+                fill
+                className="object-cover object-center brightness-120 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                priority
+              />
+
+            </div>
+
+            {/* Decorative element — offset dot cluster */}
+            <div className="absolute -bottom-6 -right-6 w-28 h-28 pointer-events-none opacity-30 hidden lg:block"
+              style={{ backgroundImage: "radial-gradient(#5C7146 1.5px, transparent 1.5px)", backgroundSize: "10px 10px" }} />
           </div>
 
-          {/* Trust line */}
-          <p className="text-[0.78rem] text-[#6A6A6A] font-serif tracking-wide pt-1 select-none">
-            Limited spaces for 2026–27 cohort · 94% top-20 global university placement
-          </p>
-
-          {/* Contact Strip */}
-          <div className="pt-5 border-t border-[#4A4333]/10 flex flex-wrap gap-x-5 gap-y-3 items-center text-[0.82rem] text-[#4A4333] font-serif">
-            {[
-              { href: "tel:+919971125276", icon: "phone", label: "+91-9971125276" },
-              { href: "mailto:contact@epicquestlearning.com", icon: "mail", label: "contact@epicquestlearning.com" },
-              { href: "https://www.epicquestlearning.com", icon: "globe", label: "epicquestlearning.com" },
-            ].map(({ href, icon, label }) => (
-              <a key={label} href={href} className="hover:text-[#5C7146] transition-colors flex items-center gap-1.5 group">
-                <span className="w-6 h-6 rounded-full bg-[#5C7146]/8 flex items-center justify-center group-hover:bg-[#5C7146]/15 transition-colors shrink-0">
-                  {icon === "phone" && (
-                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.157-.44.009-.926.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                    </svg>
-                  )}
-                  {icon === "mail" && (
-                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
-                  )}
-                  {icon === "globe" && (
-                    <svg className="w-3 h-3 text-[#5C7146]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
-                    </svg>
-                  )}
-                </span>
-                {label}
-              </a>
-            ))}
-          </div>
         </div>
-
-        {/* Right Image — asymmetric frame with floating badges */}
-        <div className="w-full lg:w-[45%] lg:flex-none relative animate-fade-in delay-500">
-          {/* Decorative offset border */}
-          <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[2.5rem_1.5rem_3rem_1.5rem] border-2 border-[#DCA543]/40 pointer-events-none" />
-
-          {/* Main image */}
-          <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-[2.5rem_1.5rem_3rem_1.5rem] overflow-hidden shadow-2xl border-4 border-white/70 group">
-            <Image
-              src="/images/home/Home_Hero.png"
-              alt="Student working on electronics project"
-              fill
-              className="object-cover object-center brightness-120 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-              priority
-            />
-
-          </div>
-
-          {/* Decorative element — offset dot cluster */}
-          <div className="absolute -bottom-6 -right-6 w-28 h-28 pointer-events-none opacity-30 hidden lg:block"
-            style={{ backgroundImage: "radial-gradient(#5C7146 1.5px, transparent 1.5px)", backgroundSize: "10px 10px" }} />
-        </div>
-
-      </div>
-    </section>
+      </section>
 
       {/* ── 2. STATS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
@@ -140,7 +140,7 @@ export default function Home() {
           {/* Section header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
             <div>
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Why Choose Us
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -168,7 +168,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Info callout — redesigned */}
+          {/* Info callout */}
           <div className="mt-8 rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
             <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
@@ -190,7 +190,7 @@ export default function Home() {
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
             <div>
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Our Programs
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -319,7 +319,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
             <div>
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Flagship Pathways
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -442,7 +442,7 @@ export default function Home() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-14">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               The EpicQuest Method
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -598,7 +598,7 @@ export default function Home() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               Success Stories
             </span>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -668,13 +668,13 @@ export default function Home() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               Partners & Affiliations
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
               Backed by Institutions<br className="hidden sm:inline" /> That Matter
             </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
@@ -702,7 +702,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Callout — redesigned */}
+          {/* Callout */}
           <div className="rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
             <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
@@ -729,9 +729,9 @@ export default function Home() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  COHORT ADMISSIONS OPEN
-</span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                COHORT ADMISSIONS OPEN
+              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
                 <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}

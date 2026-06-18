@@ -171,23 +171,23 @@ export default function Header() {
         <div className="header__inner">
           {/* Logo */}
           <Link href="/" className="header__logo">
-            <Image 
-              src="/logo.png" 
-              alt="EpicQuest" 
-              width={160} 
-              height={65} 
-              className="header__logo-img" 
-              priority 
+            <Image
+              src="/logo.png"
+              alt="EpicQuest"
+              width={160}
+              height={65}
+              className="header__logo-img"
+              priority
             />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="header__nav" aria-label="Main navigation">
-            
-            {/* Programs Link with Premium Dropdown Trigger */}
+
+            {/* Programs Link with Dropdown Trigger */}
             <div className="header__nav-item--has-dropdown">
-              <Link 
-                href="/programs" 
+              <Link
+                href="/programs"
                 className={`header__link header__link--dropdown-trigger ${isActive("/programs") ? "header__link--active" : ""}`}
               >
                 <span>Programs</span>
@@ -196,13 +196,13 @@ export default function Header() {
                 </svg>
               </Link>
 
-              {/* Minimal Dropdown Menu */}
+              {/* Dropdown Menu */}
               <div className="header__dropdown">
                 <div className="flex flex-col">
                   {programsList.map((prog) => (
-                    <Link 
-                      key={prog.href} 
-                      href={prog.href} 
+                    <Link
+                      key={prog.href}
+                      href={prog.href}
                       className={`header__dropdown-item ${pathname === prog.href ? "header__dropdown-item--active" : ""}`}
                     >
                       {prog.name}
@@ -217,10 +217,10 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Skills Link with Premium Dropdown Trigger */}
+            {/* Skills Link with Dropdown Trigger */}
             <div className="header__nav-item--has-dropdown">
-              <Link 
-                href="/skills" 
+              <Link
+                href="/skills"
                 className={`header__link header__link--dropdown-trigger ${isActive("/skills") ? "header__link--active" : ""}`}
               >
                 <span>Skills</span>
@@ -229,13 +229,13 @@ export default function Header() {
                 </svg>
               </Link>
 
-              {/* Minimal Dropdown Menu */}
+              {/* Dropdown Menu */}
               <div className="header__dropdown">
                 <div className="flex flex-col">
                   {skillsList.map((skill) => (
-                    <Link 
-                      key={skill.href} 
-                      href={skill.href} 
+                    <Link
+                      key={skill.href}
+                      href={skill.href}
                       className={`header__dropdown-item ${pathname === skill.href ? "header__dropdown-item--active" : ""}`}
                     >
                       {skill.name}
@@ -250,7 +250,7 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Remaining Links in Professional Order */}
+            {/* Remaining Links */}
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -262,7 +262,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Empty spacer to align items since CTA is removed */}
+
           <div className="w-[10px]" />
 
           {/* Mobile hamburger */}
@@ -299,11 +299,11 @@ export default function Header() {
               onClick={() => setMobileProgramsOpen((prev) => !prev)}
             >
               <span>Programs</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 ${mobileProgramsOpen ? "rotate-180" : ""}`} 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.5" 
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${mobileProgramsOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -311,8 +311,8 @@ export default function Header() {
             </button>
 
             <div className={`header__drawer-accordion-content ${mobileProgramsOpen ? "header__drawer-accordion-content--open" : ""}`}>
-              <Link 
-                href="/programs" 
+              <Link
+                href="/programs"
                 className="header__drawer-sublink header__drawer-sublink--all font-semibold"
                 onClick={closeMobile}
               >
@@ -339,11 +339,11 @@ export default function Header() {
               onClick={() => setMobileSkillsOpen((prev) => !prev)}
             >
               <span>Skills</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 ${mobileSkillsOpen ? "rotate-180" : ""}`} 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.5" 
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${mobileSkillsOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -351,8 +351,8 @@ export default function Header() {
             </button>
 
             <div className={`header__drawer-accordion-content ${mobileSkillsOpen ? "header__drawer-accordion-content--open" : ""}`}>
-              <Link 
-                href="/skills" 
+              <Link
+                href="/skills"
                 className="header__drawer-sublink header__drawer-sublink--all font-semibold"
                 onClick={closeMobile}
               >
@@ -371,7 +371,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Remaining links in matching mobile order */}
           {navLinks.map((link) => (
             <Link
               key={link.href}

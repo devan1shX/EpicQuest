@@ -3,18 +3,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  ArrowLeft, 
-  Code2, 
-  BarChart3, 
-  Cpu, 
-  TrendingUp, 
-  Sparkles, 
-  Folder, 
-  FileText, 
-  LayoutDashboard, 
-  Presentation, 
-  Lightbulb, 
+import {
+  ArrowLeft,
+  Code2,
+  BarChart3,
+  Cpu,
+  TrendingUp,
+  Sparkles,
+  Folder,
+  FileText,
+  LayoutDashboard,
+  Presentation,
+  Lightbulb,
   ArrowRight,
   CheckCircle2,
   Clock
@@ -100,10 +100,8 @@ const deliverables = [
 export default function AiMlDataSciencePage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
-      {/* ══════════════════════════════
-          HERO — IDENTICAL TO PROGRAMS DEEP DIVE
-      ══════════════════════════════ */}
+
+      {/* ══ HERO ══ */}
       <section className="relative w-full overflow-hidden border-b border-[#4A4333]/10 pb-20 sm:pb-28 pt-14 sm:pt-20">
         {/* Dot grid */}
         <div aria-hidden className="absolute inset-0 bg-[radial-gradient(#566544_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.055] pointer-events-none" />
@@ -111,11 +109,11 @@ export default function AiMlDataSciencePage() {
         <div aria-hidden className="absolute top-0 right-0 w-[560px] h-[560px] rounded-full bg-[#566544]/6 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
-          
-          {/* Breadcrumb / Back Navigation */}
+
+          {/* Breadcrumb */}
           <div className="mb-8 animate-fade-up">
-            <Link 
-              href="/skills" 
+            <Link
+              href="/skills"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#5C7146] hover:text-[#465732] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.5} />
@@ -125,14 +123,14 @@ export default function AiMlDataSciencePage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  FELLOWSHIP DEEP DIVE
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              FELLOWSHIP DEEP DIVE
+            </span>
           </div>
 
           {/* Two-column grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.88fr] gap-14 lg:gap-20 items-center">
-            
+
             {/* ── Left text column ── */}
             <div className="flex flex-col">
               <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[3.75rem] font-serif font-medium text-[#403011] tracking-tight leading-[1.07] mb-4">
@@ -155,8 +153,8 @@ export default function AiMlDataSciencePage() {
               </div>
 
               {/* Quick CTA */}
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="self-start inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#566544] hover:bg-[#455734] text-[#F6EBD4] rounded-full font-semibold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#566544]/25"
               >
                 Schedule a Free Consultation
@@ -172,12 +170,12 @@ export default function AiMlDataSciencePage() {
               <div aria-hidden className="absolute -top-3 -left-3 w-20 h-20 rounded-tl-[2rem] border-t-2 border-l-2 border-[#DCA543]" />
 
               <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-[#4A4333]/12 shadow-2xl group">
-                <Image 
-                  src="/images/skills/Skills_Flagship_1.png" 
-                  alt="AI / ML & Data Science Fellowship" 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" 
-                  priority 
+                <Image
+                  src="/images/skills/Skills_Flagship_1.png"
+                  alt="AI / ML & Data Science Fellowship"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                  priority
                 />
                 <div aria-hidden className="absolute inset-0 bg-[#403011]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -198,17 +196,15 @@ export default function AiMlDataSciencePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          CURRICULUM TIMELINE BLUEPRINT
-      ══════════════════════════════ */}
+      {/* CURRICULUM TIMELINE BLUEPRINT */}
       <section className="relative w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           {/* Section Header */}
           <div className="text-center max-w-xl mx-auto mb-16 sm:mb-20 animate-fade-up">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  THE PORTFOLIO ENGINE
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              THE PORTFOLIO ENGINE
+            </span>
             <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-medium text-[#403011] tracking-tight mb-4 leading-tight">
               Curriculum Blueprint
             </h2>
@@ -217,19 +213,17 @@ export default function AiMlDataSciencePage() {
             </p>
           </div>
 
-          {/* Premium Curriculum Grid Canvas */}
+          {/* Curriculum Grid Canvas */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            
+
             {steps.map((step, idx) => {
               const StepIcon = step.icon;
               return (
-                <div 
+                <div
                   key={step.num}
                   className="group relative bg-[#FDFBF7] rounded-[2.5rem] border border-[#4A4333]/10 p-8 sm:p-10 shadow-sm hover:shadow-xl hover:border-[#566544]/30 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between"
                   style={{ animationDelay: `${idx * 75}ms` }}
                 >
-                  
-
                   <div>
                     {/* Top Meta Details */}
                     <div className="flex items-center gap-4 mb-6">
@@ -242,7 +236,7 @@ export default function AiMlDataSciencePage() {
                     <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#403011] tracking-tight leading-snug mb-3">
                       {step.title}
                     </h3>
-                    
+
                     <p className="text-[14px] sm:text-[15px] text-[#4A4333]/80 font-serif leading-relaxed mb-6">
                       {step.desc}
                     </p>
@@ -255,8 +249,8 @@ export default function AiMlDataSciencePage() {
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {step.topics.map((t) => (
-                        <span 
-                          key={t} 
+                        <span
+                          key={t}
                           className="text-[10.5px] font-medium bg-[#566544]/6 text-[#566544] px-2.5 py-1 rounded-md border border-[#566544]/10 transition-colors duration-300 group-hover:bg-[#566544]/10"
                         >
                           {t}
@@ -268,13 +262,13 @@ export default function AiMlDataSciencePage() {
               );
             })}
 
-            {/* Special Climax Card: Milestone 5 Capstone Research Application */}
+            {/* Capstone Card */}
             <div className="group relative bg-[#FDFBF7] rounded-[2.5rem] border-2 border-[#DCA543] p-8 sm:p-10 lg:col-span-2 shadow-md hover:shadow-2xl hover:border-[#566544] transition-all duration-300 overflow-hidden">
-              {/* Gold Ribbon Tag */}
+              {/* Capstone Phase Tag */}
               <div className="absolute top-0 right-0 bg-[#DCA543] text-[#FDFBF7] text-[10px] font-black uppercase tracking-widest px-6 py-1.5 rounded-bl-2xl shadow-sm">
                 Capstone Phase
               </div>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 lg:gap-12 items-center">
                 {/* Left Side: Detail */}
                 <div className="flex flex-col">
@@ -288,18 +282,18 @@ export default function AiMlDataSciencePage() {
                       </h3>
                     </div>
                   </div>
-                  
+
                   <p className="text-[14.5px] sm:text-[15.5px] text-[#4A4333]/90 font-serif leading-relaxed pr-2">
                     Synthesize your entire fellowship journey into a publishable academic asset. Under the guidance of expert research mentors, you will perfect your machine learning capstone, author a high-caliber technical report, and defend your prototype before a panel of industry judges. This is your flagship portfolio piece for elite university applications.
                   </p>
                 </div>
-                
+
                 {/* Right Side: Key Outcomes Box */}
                 <div className="bg-[#566544]/5 rounded-3xl p-6 sm:p-7 border border-[#566544]/10 space-y-5 flex flex-col justify-center">
                   <p className="text-xs font-bold uppercase tracking-wider text-[#566544]">
                     Milestone Deliverables &amp; Outcomes
                   </p>
-                  
+
                   <div className="space-y-3.5">
                     {[
                       "Completed Academic Portfolio & GitHub Repository",
@@ -324,15 +318,13 @@ export default function AiMlDataSciencePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          STUDENT DELIVERABLES SECTION
-      ══════════════════════════════ */}
+      {/* STUDENT DELIVERABLES SECTION */}
       <section className="relative w-full py-20 sm:py-28 bg-[#F6EBD4] border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
-            <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1.5 rounded-full mb-4 inline-block border border-[#566544]/20">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               FELLOWSHIP MILESTONES
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
@@ -408,17 +400,17 @@ export default function AiMlDataSciencePage() {
             </div>
           </div>
 
-          {/* Featured Student Project — Compact Merged Callout */}
+          {/* Featured Student Project */}
           <div className="mt-14 sm:mt-16 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 sm:gap-10 items-center bg-[#F6EBD4] border border-[#4A4333]/10 rounded-[2rem] p-6 sm:p-8 lg:p-10">
-              
+
               {/* Left Column: Image */}
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#4A4333]/10 shadow-md">
-                <Image 
-                  src="/images/skills/Skills_Flagship_1_AI_StockMarket.png" 
-                  alt="AI Stock Market Sentiment Model" 
-                  fill 
-                  className="object-cover" 
+                <Image
+                  src="/images/skills/Skills_Flagship_1_AI_StockMarket.png"
+                  alt="AI Stock Market Sentiment Model"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute top-3 left-3 bg-[#5C7146] text-[#FDFBF7] text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md shadow-sm">
                   Featured Project
@@ -430,11 +422,11 @@ export default function AiMlDataSciencePage() {
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#DCA543] block">
                   MACHINE LEARNING &amp; FINANCE
                 </span>
-                
+
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#403011] leading-tight">
                   AI Stock Market Sentiment Model
                 </h3>
-                
+
                 <p className="text-sm text-[#4A4333] font-serif leading-relaxed">
                   A student-built machine learning model that analyses financial news and social media data to predict stock market sentiment — trained on real datasets and presented as a fully documented AI project portfolio.
                 </p>

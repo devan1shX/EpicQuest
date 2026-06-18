@@ -154,7 +154,7 @@ export default function AdmissionsGuidePage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               ADMISSIONS GUIDE
             </span>
           </div>
@@ -230,8 +230,8 @@ export default function AdmissionsGuidePage() {
                   key={item.id}
                   onClick={() => scrollTo(item.id as keyof typeof sectionsRef)}
                   className={`text-left transition-all duration-200 pl-3 border-l-2 py-0.5 ${activeSection === item.id
-                      ? "text-[#5C7146] font-bold border-[#5C7146] translate-x-1"
-                      : "text-[#8A8373] hover:text-[#403011] border-transparent"
+                    ? "text-[#5C7146] font-bold border-[#5C7146] translate-x-1"
+                    : "text-[#8A8373] hover:text-[#403011] border-transparent"
                     }`}
                 >
                   {item.label}
@@ -347,7 +347,7 @@ export default function AdmissionsGuidePage() {
             </section>
 
 
-            {/* Section 5 */}
+            {/* Section 4 */}
             <section ref={sectionsRef["how-eq-prepares"]} id="how-eq-prepares" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
                 4. How EpicQuest Prepares You

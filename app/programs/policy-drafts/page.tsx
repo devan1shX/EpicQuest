@@ -28,9 +28,6 @@ interface StepItem {
   icon: React.ComponentType<any>;
 }
 
-/* ─────────────────────────────────────────────
-   DATA
-───────────────────────────────────────────── */
 const steps: StepItem[] = [
   {
     num: "01",
@@ -91,16 +88,11 @@ const impactStats = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   PAGE
-───────────────────────────────────────────── */
 export default function PublishedPolicyDraftsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ══════════════════════════════
-          HERO
-      ══════════════════════════════ */}
+      {/* ════ HERO ════ */}
       <section className="relative w-full overflow-hidden border-b border-[#4A4333]/10 pb-20 sm:pb-28 pt-14 sm:pt-20">
         {/* Dot grid */}
         <div
@@ -117,10 +109,10 @@ export default function PublishedPolicyDraftsPage() {
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
-          {/* Breadcrumb / Back Navigation */}
+          {/* Breadcrumb */}
           <div className="mb-8 animate-fade-up">
-            <Link 
-              href="/programs" 
+            <Link
+              href="/programs"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#5C7146] hover:text-[#465732] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.5} />
@@ -130,9 +122,9 @@ export default function PublishedPolicyDraftsPage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  PROGRAMME DEEP DIVE
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              PROGRAMME DEEP DIVE
+            </span>
           </div>
 
           {/* Two-column grid */}
@@ -265,9 +257,7 @@ export default function PublishedPolicyDraftsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          PROGRAMME SPECS STRIP
-      ══════════════════════════════ */}
+      {/* ════ SPECS STRIP ════ */}
       <section className="w-full bg-[#566544] py-5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
@@ -286,18 +276,14 @@ export default function PublishedPolicyDraftsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          TIMELINE SECTION
-      ══════════════════════════════ */}
+      {/* ════ TIMELINE SECTION ════ */}
       <section className="relative w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           {/* Section header */}
           <div className="text-center max-w-xl mx-auto mb-20">
             <span
-              className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544]
-                         bg-[#566544]/10 px-3.5 py-1.5 rounded-full mb-5 inline-block
-                         border border-[#566544]/15"
+              className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15"
             >
               The Portfolio Engine
             </span>
@@ -509,9 +495,7 @@ export default function PublishedPolicyDraftsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          KEY POLICY AREAS (WHY THIS MATTERS)
-      ══════════════════════════════ */}
+      {/* ════ KEY POLICY AREAS (WHY THIS MATTERS) ════ */}
       <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
@@ -520,9 +504,7 @@ export default function PublishedPolicyDraftsPage() {
             {/* Left: editorial pull-quote */}
             <div className="flex flex-col gap-6">
               <span
-                className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#DCA543]
-                           bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full inline-block
-                           border border-[#DCA543]/20 self-start"
+                className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15"
               >
                 Key Focus
               </span>
@@ -597,10 +579,7 @@ export default function PublishedPolicyDraftsPage() {
         </div>
       </section>
 
-      
-
-    
-      <ProgramCTA 
+      <ProgramCTA
         title="Empirical Leadership & Advocacy"
         description="Authored policy drafts showcase your ability to synthesize complex societal challenges into actionable frameworks — highlighting true leadership potential."
       />

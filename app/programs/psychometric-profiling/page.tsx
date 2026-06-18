@@ -26,9 +26,6 @@ interface StepItem {
   icon: React.ComponentType<any>;
 }
 
-/* ─────────────────────────────────────────────
-   DATA
-───────────────────────────────────────────── */
 const steps: StepItem[] = [
   {
     num: "01",
@@ -83,16 +80,11 @@ const impactStats = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   PAGE
-───────────────────────────────────────────── */
 export default function PsychometricProfilingPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      {/* ══════════════════════════════
-          HERO
-      ══════════════════════════════ */}
+      {/* ═══ HERO ═══ */}
       <section className="relative w-full overflow-hidden border-b border-[#4A4333]/10 pb-20 sm:pb-28 pt-14 sm:pt-20">
         {/* Dot grid */}
         <div
@@ -109,10 +101,10 @@ export default function PsychometricProfilingPage() {
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
-          {/* Breadcrumb / Back Navigation */}
+          {/* Breadcrumb */}
           <div className="mb-8 animate-fade-up">
-            <Link 
-              href="/programs" 
+            <Link
+              href="/programs"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#5C7146] hover:text-[#465732] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.5} />
@@ -122,9 +114,9 @@ export default function PsychometricProfilingPage() {
 
           {/* Programme badge */}
           <div className="mb-8">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  PROGRAMME DEEP DIVE
-</span>
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              PROGRAMME DEEP DIVE
+            </span>
           </div>
 
           {/* Two-column grid */}
@@ -260,9 +252,7 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          PROGRAMME SPECS STRIP
-      ══════════════════════════════ */}
+      {/* ═══ SPECS STRIP ═══ */}
       <section className="w-full bg-[#566544] py-5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
@@ -281,18 +271,14 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          THE DISCOVERY BLUEPRINT (TIMELINE)
-      ══════════════════════════════ */}
+      {/* ═══ BLUEPRINT ═══ */}
       <section className="relative w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           {/* Section header */}
           <div className="text-center max-w-xl mx-auto mb-20 animate-fade-up">
             <span
-              className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544]
-                         bg-[#566544]/10 px-3.5 py-1.5 rounded-full mb-5 inline-block
-                         border border-[#566544]/15"
+              className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15"
             >
               The Discovery Blueprint
             </span>
@@ -480,9 +466,7 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          REPORT DEEP DIVE SHOWCASE (A Glimpse into Your Leadership Report)
-      ══════════════════════════════ */}
+      {/* ═══ REPORT DEEP DIVE ═══ */}
       <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-[0.88fr_1fr] gap-14 lg:gap-20 items-center">
@@ -520,9 +504,9 @@ export default function PsychometricProfilingPage() {
 
             {/* ── Right text column ── */}
             <div className="flex flex-col">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  REPORT INSIGHT
-</span>
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                REPORT INSIGHT
+              </span>
               <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
                 A 30+ Page Blueprint<br />of Your Potential
               </h2>
@@ -540,9 +524,7 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          WHY THIS MATTERS / WHY CHOOSE EPICQUEST
-      ══════════════════════════════ */}
+      {/* ═══ WHY CHOOSE US ═══ */}
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
@@ -551,9 +533,7 @@ export default function PsychometricProfilingPage() {
             {/* Left: editorial pull-quote */}
             <div className="flex flex-col gap-6">
               <span
-                className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#DCA543]
-                           bg-[#DCA543]/10 px-3.5 py-1.5 rounded-full inline-block
-                           border border-[#DCA543]/20 self-start"
+                className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15"
               >
                 Why Diagnostic?
               </span>
@@ -622,10 +602,7 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      
-
-    
-      <ProgramCTA 
+      <ProgramCTA
         title="Precision-Guided Portfolio Design"
         description="Align your natural cognitive strengths with high-impact projects, ensuring your application journey is both authentic and highly effective."
       />

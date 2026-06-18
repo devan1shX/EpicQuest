@@ -87,10 +87,8 @@ const buildersOutputs = [
 export default function SkillsPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
-      
-      {/* ══════════════════════════════
-          HERO SECTION — ASYMMETRIC split
-      ══════════════════════════════ */}
+
+      {/* ════ HERO SECTION ════ */}
       <section className="relative w-full overflow-hidden">
         {/* Decorative backdrop elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#566544]/4 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -99,14 +97,14 @@ export default function SkillsPage() {
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 sm:pt-28 pb-16 sm:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Content Column */}
             <div className="animate-fade-up">
               {/* Luxury Academy Pill */}
               <div className="mb-6">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
-  THE EPICQUEST SKILLS ACADEMY
-</span>
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                  THE EPICQUEST SKILLS ACADEMY
+                </span>
               </div>
 
               {/* Title */}
@@ -146,25 +144,23 @@ export default function SkillsPage() {
             {/* Right Illustration Column */}
             <div className="relative animate-fade-up delay-150">
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[2.5rem] overflow-hidden border-2 border-[#4A4333]/15 shadow-2xl bg-white/40 group">
-                <Image 
-                  src="/images/skills/Skills_Main.png" 
-                  alt="EpicQuest Skills Academy" 
-                  fill 
-                  className="object-cover group-hover:scale-102 transition-transform duration-700" 
+                <Image
+                  src="/images/skills/Skills_Main.png"
+                  alt="EpicQuest Skills Academy"
+                  fill
+                  className="object-cover group-hover:scale-102 transition-transform duration-700"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#403011]/30 via-transparent to-transparent opacity-60 pointer-events-none" />
               </div>
-            
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          STATS SECTION (WARM ACCENT BAR)
-      ══════════════════════════════ */}
+      {/* ════ STATS SECTION ════ */}
       <section className="w-full bg-[#EAE2CE] py-8 border-t border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -178,15 +174,13 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          FELLOWSHIPS GRID SECTION
-      ══════════════════════════════ */}
+      {/* ════ FELLOWSHIPS GRID SECTION ════ */}
       <section className="relative w-full py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          
+
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-24">
-            <span className="uppercase tracking-[0.14em] text-[10px] sm:text-[11px] font-bold text-[#566544] bg-[#566544]/10 px-3 py-1 rounded-full mb-4 inline-block border border-[#566544]/20">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               EXPLORE OUR PATHWAYS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
@@ -197,12 +191,12 @@ export default function SkillsPage() {
             </p>
           </div>
 
-          {/* Cards Grid — Beautiful Staggered Layout (3 on top row, 2 centered below on large screens) */}
+          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 items-stretch">
             {fellowships.map((fellow, idx) => {
               const Icon = fellow.icon;
               const isLargeColumn = idx >= 3; // make bottom 2 cards span 3 grid columns on lg screens
-              
+
               return (
                 <div
                   key={fellow.id}
@@ -212,14 +206,14 @@ export default function SkillsPage() {
                 >
                   {/* Aspect ratio frame for image */}
                   <div className="relative w-full aspect-[16/10] overflow-hidden border-b border-[#4A4333]/8 bg-cream/40">
-                    <Image 
-                      src={fellow.image} 
-                      alt={fellow.title} 
-                      fill 
-                      className="object-cover group-hover:scale-104 transition-transform duration-700" 
+                    <Image
+                      src={fellow.image}
+                      alt={fellow.title}
+                      fill
+                      className="object-cover group-hover:scale-104 transition-transform duration-700"
                     />
                     {/* Icon Floating Badge */}
-                    <div 
+                    <div
                       className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center text-[#FDFBF7] shadow-lg shrink-0 transition-transform duration-300 group-hover:scale-105"
                       style={{ backgroundColor: fellow.accent }}
                     >
@@ -232,7 +226,7 @@ export default function SkillsPage() {
                     <div>
                       {/* Num badge + name */}
                       <div className="flex items-center gap-3 mb-3">
-                        <span 
+                        <span
                           className="text-[10px] font-black uppercase tracking-[0.16em]"
                           style={{ color: fellow.accent }}
                         >
@@ -284,9 +278,7 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          WHAT STUDENTS BUILD ticker
-      ══════════════════════════════ */}
+      {/* ════ WHAT STUDENTS BUILD ticker ════ */}
       <section className="w-full bg-[#403011] py-16 sm:py-20 text-[#F6EBD4] overflow-hidden relative">
         {/* Ambient dot layer */}
         <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
@@ -302,29 +294,29 @@ export default function SkillsPage() {
 
         {/* Rolling/Staggered Output Pills */}
         <div className="relative w-full overflow-hidden select-none py-2">
-          
-          {/* Edge fades for premium aesthetics */}
+
+          {/* Edge fades */}
           <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#403011] to-transparent z-10 pointer-events-none" />
           <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#403011] to-transparent z-10 pointer-events-none" />
 
-          {/* Infinite Marquee Loop (CSS defined) */}
+          {/* Infinite Marquee Loop */}
           <div className="animate-marquee flex gap-6 py-2 whitespace-nowrap">
             {/* Set 1 */}
             <div className="flex gap-6 shrink-0 items-center">
               {buildersOutputs.map((item, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="px-6 py-2.5 rounded-full border border-[#F6EBD4]/15 bg-white/4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#F6EBD4] hover:text-white hover:border-[#DCA543]/40 hover:bg-[#FDFBF7]/8 hover:scale-[1.03] transition-all duration-300 pointer-events-auto cursor-pointer"
                 >
                   {item}
                 </span>
               ))}
             </div>
-            {/* Set 2 (Exact Duplicate) */}
+            {/* Set 2  */}
             <div className="flex gap-6 shrink-0 items-center" aria-hidden="true">
               {buildersOutputs.map((item, idx) => (
-                <span 
-                  key={`dup-${idx}`} 
+                <span
+                  key={`dup-${idx}`}
                   className="px-6 py-2.5 rounded-full border border-[#F6EBD4]/15 bg-white/4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#F6EBD4] hover:text-white hover:border-[#DCA543]/40 hover:bg-[#FDFBF7]/8 hover:scale-[1.03] transition-all duration-300 pointer-events-auto cursor-pointer"
                 >
                   {item}
@@ -372,7 +364,7 @@ export default function SkillsPage() {
             />
 
             <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 TAKE THE FIRST STEP
               </span>
 

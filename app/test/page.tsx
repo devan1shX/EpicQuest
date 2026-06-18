@@ -212,9 +212,7 @@ export default function DiagnosticTestPage() {
 
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen text-[#4A4333] font-sans selection:bg-[#DCA543] selection:text-[#1F2C16]">
 
-      {/* ══════════════════════════════
-          HERO SECTION
-      ══════════════════════════════ */}
+      {/* ═════ HERO SECTION ════ */}
       <section className="relative w-full border-b border-[#4A4333]/10 py-16 sm:py-24">
         {/* Ambient blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -230,7 +228,7 @@ export default function DiagnosticTestPage() {
             <div className="lg:col-span-7">
 
               <div className="self-start">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   LEADERSHIP DIAGNOSTIC ASSESSMENT
                 </span>
               </div>
@@ -328,9 +326,7 @@ export default function DiagnosticTestPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          DEEP DIVE SECTION — Two Column Layout
-      ══════════════════════════════ */}
+      {/* ═════ DEEP DIVE SECTION ════ */}
       <section id="deep-dive" className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -340,7 +336,7 @@ export default function DiagnosticTestPage() {
 
               {/* Section Header */}
               <div>
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   THE EPICQUEST PSYCHOMETRIC TOOL
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -414,9 +410,7 @@ export default function DiagnosticTestPage() {
             <div className="flex flex-col gap-6 lg:sticky lg:top-24">
 
               <div className="flex flex-col gap-3 mb-2">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full w-fit">
-                  <Sparkles className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
-                  SAMPLE REPORT PREVIEW
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">SAMPLE REPORT PREVIEW
                 </span>
                 <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] tracking-tight">
                   What Your Report Looks Like
@@ -427,87 +421,81 @@ export default function DiagnosticTestPage() {
               </div>
 
               {/* Creative Overlapping Collage */}
-<div className="relative">
-  {/* Ambient color glow */}
-  <div className="absolute -top-10 -left-8 w-52 h-52 rounded-full bg-[#DCA543]/15 blur-3xl pointer-events-none" />
-  <div className="absolute -bottom-6 -right-6 w-60 h-60 rounded-full bg-[#566544]/15 blur-3xl pointer-events-none" />
+              <div className="relative">
+                {/* Ambient color glow */}
+                <div className="absolute -top-10 -left-8 w-52 h-52 rounded-full bg-[#DCA543]/15 blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-6 -right-6 w-60 h-60 rounded-full bg-[#566544]/15 blur-3xl pointer-events-none" />
 
-  {/* Dot-grid backdrop — echoes the quadrant data underneath */}
-  <div
-    className="absolute -top-4 -right-3 w-full h-[320px] rounded-[2rem] border border-[#566544]/15 pointer-events-none"
-    style={{
-      backgroundImage: "radial-gradient(#566544 1px, transparent 1px)",
-      backgroundSize: "16px 16px",
-      backgroundColor: "rgba(86,101,68,0.03)",
-    }}
-  />
+                {/* Dot-grid backdrop — echoes the quadrant data underneath */}
+                <div
+                  className="absolute -top-4 -right-3 w-full h-[320px] rounded-[2rem] border border-[#566544]/15 pointer-events-none"
+                  style={{
+                    backgroundImage: "radial-gradient(#566544 1px, transparent 1px)",
+                    backgroundSize: "16px 16px",
+                    backgroundColor: "rgba(86,101,68,0.03)",
+                  }}
+                />
 
-  {/* 01 — Epicometer */}
-  <div className="relative rotate-[-1.5deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/40 bg-white z-10 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
-    <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
-      01 · DISC Quadrant Map
-    </span>
-    <Image
-      src="/images/diagnostic_test/Report_Epicometer.png"
-      alt="Gunaity Epicometer™ — DISC Quadrant Chart"
-      width={900}
-      height={1050}
-      quality={100}
-      className="w-full h-auto"
-    />
-  </div>
+                {/* 01 — Epicometer */}
+                <div className="relative rotate-[-1.5deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/40 bg-white z-10 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+                  <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
+                    01 · DISC Quadrant Map
+                  </span>
+                  <Image
+                    src="/images/diagnostic_test/Report_Epicometer.png"
+                    alt="Gunaity Epicometer™ — DISC Quadrant Chart"
+                    width={900}
+                    height={1050}
+                    quality={100}
+                    className="w-full h-auto"
+                  />
+                </div>
 
-  {/* 02 — Career Alignment */}
-  <div className="relative -mt-10 ml-4 sm:ml-8 mr-2 rotate-[1deg] rounded-2xl overflow-hidden border-2 border-[#566544]/25 bg-white z-20 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
-    <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
-      02 · Career Fit %
-    </span>
-    <Image
-      src="/images/diagnostic_test/Report_Career_Alignment.png"
-      alt="Career Alignment Report — Career Fit Percentages"
-      width={900}
-      height={525}
-      quality={100}
-      className="w-full h-auto"
-    />
-  </div>
+                {/* 02 — Career Alignment */}
+                <div className="relative -mt-10 ml-4 sm:ml-8 mr-2 rotate-[1deg] rounded-2xl overflow-hidden border-2 border-[#566544]/25 bg-white z-20 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+                  <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
+                    02 · Career Fit %
+                  </span>
+                  <Image
+                    src="/images/diagnostic_test/Report_Career_Alignment.png"
+                    alt="Career Alignment Report — Career Fit Percentages"
+                    width={900}
+                    height={525}
+                    quality={100}
+                    className="w-full h-auto"
+                  />
+                </div>
 
-  {/* 03 — Four Quadrants */}
-  <div className="relative -mt-10 mr-4 sm:mr-8 ml-2 rotate-[-1deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/35 bg-white z-30 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
-    <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
-      03 · Framework Core
-    </span>
-    <Image
-      src="/images/diagnostic_test/Report_Four_Quadrants.png"
-      alt="The Four Quadrants — Framework Core"
-      width={900}
-      height={750}
-      quality={100}
-      className="w-full h-auto"
-    />
-  </div>
+                {/* 03 — Four Quadrants */}
+                <div className="relative -mt-10 mr-4 sm:mr-8 ml-2 rotate-[-1deg] rounded-2xl overflow-hidden border-2 border-[#DCA543]/35 bg-white z-30 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+                  <span className="absolute top-3 left-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#DCA543]/40 shadow-sm">
+                    03 · Framework Core
+                  </span>
+                  <Image
+                    src="/images/diagnostic_test/Report_Four_Quadrants.png"
+                    alt="The Four Quadrants — Framework Core"
+                    width={900}
+                    height={750}
+                    quality={100}
+                    className="w-full h-auto"
+                  />
+                </div>
 
-  {/* 04 — Profession Suitability */}
-  <div className="relative -mt-10 ml-3 sm:ml-6 rotate-[0.75deg] rounded-2xl overflow-hidden border-2 border-[#566544]/20 bg-white z-40 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
-    <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
-      04 · Role Suitability
-    </span>
-    <Image
-      src="/images/diagnostic_test/Report_Profession_Suitability.png"
-      alt="Profession Suitability Assessment"
-      width={900}
-      height={514}
-      quality={100}
-      className="w-full h-auto"
-    />
-  </div>
-
-  {/* Floating accent label */}
-  <div className="absolute -bottom-5 -left-2 z-50 bg-[#566544] text-white px-4 py-2 rounded-full text-[11px] font-bold font-serif shadow-lg flex items-center gap-2 rotate-[-2deg]">
-    <Sparkles className="w-3.5 h-3.5" />
-    30+ Page Report
-  </div>
-</div>
+                {/* 04 — Profession Suitability */}
+                <div className="relative -mt-10 ml-3 sm:ml-6 rotate-[0.75deg] rounded-2xl overflow-hidden border-2 border-[#566544]/20 bg-white z-40 shadow-[0_20px_45px_-12px_rgba(86,101,68,0.3)] transition-all duration-500 hover:rotate-0 hover:shadow-[0_28px_55px_-12px_rgba(86,101,68,0.4)]">
+                  <span className="absolute top-3 right-3 z-10 bg-white text-[#566544] text-[10px] font-bold font-serif px-2.5 py-1 rounded-full border border-[#566544]/30 shadow-sm">
+                    04 · Role Suitability
+                  </span>
+                  <Image
+                    src="/images/diagnostic_test/Report_Profession_Suitability.png"
+                    alt="Profession Suitability Assessment"
+                    width={900}
+                    height={514}
+                    quality={100}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
 
             </div>
 
@@ -515,15 +503,13 @@ export default function DiagnosticTestPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          CTA BANNER + TEST PORTAL
-      ══════════════════════════════ */}
+      {/* ═══ CTA BANNER + TEST PORTAL ═══ */}
       <section id="assessment-portal" className="w-full bg-[#F6EBD4] border-t border-[#4A4333]/10">
 
         {/* CTA Banner */}
         <div className="py-16 sm:py-24">
           <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center gap-6">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
               {testStarted ? 'ASSESSMENT IN PROGRESS' : 'READY TO BEGIN?'}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -664,9 +650,7 @@ export default function DiagnosticTestPage() {
                   </div>
                 )}
 
-                {/* ══════════════════════════════
-                  STEP 0: CANDIDATE INFO FORM
-              ══════════════════════════════ */}
+                {/* ═══ STEP 0: CANDIDATE INFO FORM ═══ */}
                 {step === 0 && (
                   <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#4A4333]/8 shadow-md relative overflow-hidden transition-all duration-300">
                     <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#566544] to-[#DCA543]" />
@@ -747,9 +731,7 @@ export default function DiagnosticTestPage() {
                   </div>
                 )}
 
-                {/* ══════════════════════════════
-                  STEP 1, 2, 3: BIPOLAR ADJECTIVE PAIRS
-              ══════════════════════════════ */}
+                {/* ═══ STEP 1, 2, 3: BIPOLAR ADJECTIVE PAIRS ═══ */}
                 {(step === 1 || step === 2 || step === 3) && (
                   <div className="flex flex-col gap-5">
                     <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
@@ -783,8 +765,8 @@ export default function DiagnosticTestPage() {
                             <div
                               key={q.id}
                               className={`flex items-center justify-between py-5.5 px-2 sm:px-6 gap-2 sm:gap-4 rounded-xl transition-all ${isHighlighted
-                                  ? "bg-[#D4856A]/5 border border-dashed border-[#D4856A]/25"
-                                  : "hover:bg-[#FDFBF7]/40"
+                                ? "bg-[#D4856A]/5 border border-dashed border-[#D4856A]/25"
+                                : "hover:bg-[#FDFBF7]/40"
                                 }`}
                             >
                               {/* Left Bipolar term */}
@@ -805,8 +787,8 @@ export default function DiagnosticTestPage() {
                                       aria-label={`Rate ${q.left} to ${q.right} as ${val}`}
                                     >
                                       <div className={`h-6 w-6 sm:h-7 sm:w-7 rounded-full border-2 flex items-center justify-center transition-all ${isSelected
-                                          ? "bg-[#566544] border-[#566544] scale-110 shadow"
-                                          : "border-[#4A4333]/20 bg-[#FDFBF7] hover:border-[#DCA543]"
+                                        ? "bg-[#566544] border-[#566544] scale-110 shadow"
+                                        : "border-[#4A4333]/20 bg-[#FDFBF7] hover:border-[#DCA543]"
                                         }`}>
                                         {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-white animate-fade-in" />}
                                       </div>
@@ -848,9 +830,7 @@ export default function DiagnosticTestPage() {
                   </div>
                 )}
 
-                {/* ══════════════════════════════
-                  STEP 4: SINGLE BEHAVIORAL TRAITS
-              ══════════════════════════════ */}
+                {/* ═══ STEP 4: SINGLE BEHAVIORAL TRAITS ═══ */}
                 {step === 4 && (
                   <div className="flex flex-col gap-5">
                     <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#4A4333]/8 shadow-md">
@@ -871,8 +851,8 @@ export default function DiagnosticTestPage() {
                             <div
                               key={q.id}
                               className={`p-4 bg-[#FDFBF7]/60 rounded-2xl border transition-all ${isHighlighted
-                                  ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
-                                  : "border-[#4A4333]/8 hover:border-[#DCA543]/20"
+                                ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
+                                : "border-[#4A4333]/8 hover:border-[#DCA543]/20"
                                 }`}
                             >
                               <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] text-center select-none mb-3">
@@ -897,8 +877,8 @@ export default function DiagnosticTestPage() {
                                         aria-label={`Rate trait ${q.text} as ${val}`}
                                       >
                                         <div className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${isSelected
-                                            ? "bg-[#566544]/12 border-[#566544] scale-105 shadow-inner"
-                                            : "border-[#4A4333]/15 bg-white hover:border-[#DCA543]"
+                                          ? "bg-[#566544]/12 border-[#566544] scale-105 shadow-inner"
+                                          : "border-[#4A4333]/15 bg-white hover:border-[#DCA543]"
                                           }`}>
                                           {isSelected && <span className="h-1.5 w-1.5 rounded-full bg-[#566544]" />}
                                         </div>
@@ -936,9 +916,7 @@ export default function DiagnosticTestPage() {
                   </div>
                 )}
 
-                {/* ══════════════════════════════
-                  STEP 5: BINARY FORCED CHOICES
-              ══════════════════════════════ */}
+                {/* ═══ STEP 5: BINARY FORCED CHOICES ═══*/}
                 {step === 5 && (
                   <div className="flex flex-col gap-5">
                     <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#4A4333]/8 shadow-md">
@@ -959,8 +937,8 @@ export default function DiagnosticTestPage() {
                             <div
                               key={q.id}
                               className={`p-4 bg-[#FDFBF7]/40 rounded-2xl border transition-all ${isHighlighted
-                                  ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
-                                  : "border-[#4A4333]/8"
+                                ? "bg-[#D4856A]/5 border-dashed border-[#D4856A]/25"
+                                : "border-[#4A4333]/8"
                                 }`}
                             >
                               <h3 className="font-serif font-bold text-xs sm:text-sm text-[#403011] leading-relaxed border-b border-[#4A4333]/5 pb-2 mb-3">
@@ -973,8 +951,8 @@ export default function DiagnosticTestPage() {
                                   type="button"
                                   onClick={() => handleAnswerSelect(q.id, "opt1")}
                                   className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${opt === "opt1"
-                                      ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
-                                      : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
+                                    ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
+                                    : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
                                     }`}
                                 >
                                   <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${opt === "opt1" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
@@ -993,8 +971,8 @@ export default function DiagnosticTestPage() {
                                   type="button"
                                   onClick={() => handleAnswerSelect(q.id, "opt2")}
                                   className={`p-3 rounded-xl border text-left text-[11px] sm:text-xs font-serif leading-relaxed transition-all flex items-start gap-3 cursor-pointer hover:bg-white/60 ${opt === "opt2"
-                                      ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
-                                      : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
+                                    ? "bg-[#566544]/5 border-[#566544] text-[#403011] font-bold"
+                                    : "bg-white border-[#4A4333]/10 text-[#4A4333]/80"
                                     }`}
                                 >
                                   <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${opt === "opt2" ? "bg-[#566544] border-[#566544] text-white" : "border-[#4A4333]/25 bg-white"
@@ -1043,16 +1021,13 @@ export default function DiagnosticTestPage() {
         )}
       </section>
 
-      {/* ══════════════════════════════
-          FAQ SECTION
-      ══════════════════════════════ */}
+      {/* ═════ FAQ SECTION ════ */}
       <section className="w-full py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12">
 
           {/* FAQ Header */}
           <div className="text-center">
-            <span className="uppercase tracking-[0.14em] text-[10px] font-bold text-[#566544] bg-[#566544]/10 px-3.5 py-1.5 rounded-full select-none">
-              Frequently Asked Questions
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">Frequently Asked Questions
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mt-4 leading-tight">
               DISC Assessment FAQ

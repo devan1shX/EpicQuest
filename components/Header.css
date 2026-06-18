@@ -1,12 +1,3 @@
-/* ============================================
-   Header — Luxury Academic / Warm Minimal Style
-   Palette Extracted from Design:
-     Cream bg:     #F6EBD4
-     Dark text:    #403011 (primary) / #4A4333 (body)
-     Olive accent: #5C7146
-     Paper white:  #FDFBF7
-   ============================================ */
-
 /* ===== Base ===== */
 .header {
   position: fixed;
@@ -14,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 1005;
-  height: 72px; /* slightly taller for luxury breathing room */
+  height: 72px; 
   background: rgba(246, 235, 212, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -78,7 +69,7 @@
 
 .header__link:hover {
   color: #403011;
-  background: rgba(92, 113, 70, 0.06); /* very soft olive tint */
+  background: rgba(92, 113, 70, 0.06); 
 }
 
 .header__link--active {
@@ -350,7 +341,7 @@
 }
 
 .header__drawer-accordion-content--open {
-  max-height: 520px; /* high enough to contain all sublinks */
+  max-height: 520px; 
 }
 
 .header__drawer-sublink {
