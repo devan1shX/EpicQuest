@@ -13,8 +13,16 @@ const stats = [
 
 const programs = [
   {
-    id: "research",
+    id: "psychometric",
     num: "01",
+    title: "Psychometric Profiling",
+    desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
+    href: "/programs/psychometric-profiling",
+    icon: Brain,
+  },
+  {
+    id: "research",
+    num: "02",
     title: "Skills Development & Research",
     desc: "Build real academic credentials through our flagship Skills Academy programs — spanning AI/ML, Finance, Robotics, Biotech, Policy, and Research. Develop peer-reviewed publications, prototypes, and innovation portfolios under expert mentorship.",
     href: "/programs/applied-research",
@@ -22,7 +30,7 @@ const programs = [
   },
   {
     id: "prototype",
-    num: "02",
+    num: "03",
     title: "Prototype Development",
     desc: "Engineer working prototypes in hardware, software, industrial design, or biotech. From concept to functional model, students document their build process and present to industry panels — creating tangible proof of innovation.",
     href: "/programs/prototype-development",
@@ -30,7 +38,7 @@ const programs = [
   },
   {
     id: "policy",
-    num: "03",
+    num: "04",
     title: "Published Policy Drafts",
     desc: "Author original policy briefs submitted to real think tanks, NGOs, or government portals. Students engage with live policy challenges and receive editorial guidance from former civil servants and academics.",
     href: "/programs/policy-drafts",
@@ -38,7 +46,7 @@ const programs = [
   },
   {
     id: "patent",
-    num: "04",
+    num: "05",
     title: "Patent Filing Support",
     desc: "Navigate the full patent application process for truly original inventions — from prior art searches and claims drafting to USPTO/IPO submission. Students emerge with a filed patent application and a deep understanding of IP law.",
     href: "/programs/patent-filing",
@@ -46,20 +54,12 @@ const programs = [
   },
   {
     id: "apprenticeship",
-    num: "05",
+    num: "06",
     title: "Apprenticeships & Internships",
     desc: "Gain structured, hands-on experience with research labs, funded startups, and policy organisations. Placements are curated to align with each student's portfolio track and university goals.",
     href: "/programs/apprenticeships",
     icon: GraduationCap,
   },
-  {
-    id: "psychometric",
-    num: "06",
-    title: "Psychometric Profiling",
-    desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
-    href: "/programs/psychometric-profiling",
-    icon: Brain,
-  }
 ];
 
 export default function ProgramsPage() {
