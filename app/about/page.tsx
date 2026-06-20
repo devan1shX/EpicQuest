@@ -62,7 +62,7 @@ export default function AboutPage() {
               <div className="pl-5 sm:pl-6">
                 <Link
                   href="/results#deep-dive"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#566544] hover:bg-[#455236] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group shrink-0"
                 >
                   Explore Student Showcases
                   <span className="transform group-hover:translate-x-1 transition-transform">→</span>
@@ -235,7 +235,7 @@ export default function AboutPage() {
               <div className="mt-8">
                 <Link
                   href="/results"
-                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#DCA543] text-[#DCA543] hover:bg-[#DCA543] hover:text-[#403011] rounded-full font-semibold text-sm transition-all duration-300 group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-[#DCA543] text-[#DCA543] hover:bg-[#DCA543] hover:text-[#403011] rounded-full font-bold text-[13px] sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 group shrink-0"
                 >
                   Read Our Success Stories
                   <span className="transform group-hover:translate-x-1 transition-transform">→</span>
