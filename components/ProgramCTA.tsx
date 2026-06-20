@@ -49,12 +49,8 @@ export default function ProgramCTA({ title, description }: ProgramCTAProps) {
           />
 
           <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center">
-            <span
-              className="uppercase tracking-[0.18em] text-[9px] font-bold text-[#DCA543]
-                         bg-[#DCA543]/12 px-4 py-1.5 rounded-full mb-6 inline-block
-                         border border-[#DCA543]/20"
-            >
-              The Ultimate Outcome
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              THE ULTIMATE OUTCOME
             </span>
 
             <h2
@@ -72,7 +68,7 @@ export default function ProgramCTA({ title, description }: ProgramCTAProps) {
             </p>
 
             {/* Two CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto mb-10">
               <Link
                 href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group shrink-0"
@@ -83,11 +79,24 @@ export default function ProgramCTA({ title, description }: ProgramCTAProps) {
 
               <Link
                 href="/programs"
-                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 px-6 py-3.5 sm:py-4 text-[#F6EBD4]/80 hover:text-[#F6EBD4] text-[13px] sm:text-sm font-bold uppercase tracking-wider transition-colors duration-300 group shrink-0"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border border-[#F6EBD4]/25 text-[#F6EBD4] hover:bg-[#F6EBD4]/10 hover:border-[#F6EBD4]/40 rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 hover:-translate-y-0.5 group shrink-0"
               >
-                Explore all programmes
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                Explore All Programmes
               </Link>
+            </div>
+
+            {/* Trust signals */}
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              {["No commitment required", "60-min deep-dive session", "Expert advisor assigned"].map((item) => (
+                <div key={item} className="flex items-center gap-2.5">
+                  <div className="w-4 h-4 rounded-full bg-[#DCA543] flex items-center justify-center shrink-0">
+                    <svg className="w-2.5 h-2.5 text-[#2D3E1C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-[12px] sm:text-[13px] text-[#F6EBD4]/80 font-serif">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
