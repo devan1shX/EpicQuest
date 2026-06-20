@@ -75,24 +75,18 @@ export default function ProgramCTA({ title, description }: ProgramCTAProps) {
             <div className="flex flex-col sm:flex-row gap-4 items-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4
-                           bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C]
-                           rounded-full font-bold text-sm sm:text-base
-                           transition-all duration-300 shadow-lg
-                           hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)]"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group shrink-0"
               >
                 Schedule a Diagnostic Consultation
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
 
               <Link
                 href="/programs"
-                className="inline-flex items-center gap-2 px-6 py-4
-                           text-[#F6EBD4]/80 hover:text-[#F6EBD4]
-                           text-sm font-medium transition-colors duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 px-6 py-3.5 sm:py-4 text-[#F6EBD4]/80 hover:text-[#F6EBD4] text-[13px] sm:text-sm font-bold uppercase tracking-wider transition-colors duration-300 group shrink-0"
               >
                 Explore all programmes
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
