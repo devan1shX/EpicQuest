@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import WavyUnderline from "./ui/WavyUnderline";
 
 interface ProgramCTAProps {
   title: string;
@@ -8,6 +9,12 @@ interface ProgramCTAProps {
 }
 
 export default function ProgramCTA({ title, description }: ProgramCTAProps) {
+  const words = title.split(" ");
+  const numWordsToWrap = words.length >= 3 ? 2 : 1;
+  const wrapIndex = words.length - numWordsToWrap;
+  const prefix = words.slice(0, wrapIndex).join(" ");
+  const wrapped = words.slice(wrapIndex).join(" ");
+
   return (
     <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 relative overflow-hidden">
       {/* Dot grid */}
@@ -54,10 +61,8 @@ export default function ProgramCTA({ title, description }: ProgramCTAProps) {
               className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium
                          text-[#F6EBD4] tracking-tight leading-[1.15] mb-5"
             >
-              {title}
+              {prefix} <WavyUnderline>{wrapped}</WavyUnderline>
             </h2>
-
-            <div className="w-12 h-px bg-[#DCA543]/60 mb-7" />
 
             <p
               className="text-base sm:text-lg text-[#F6EBD4]/80 font-serif leading-relaxed

@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -183,7 +184,7 @@ export default function TeamPage() {
               <SectionLabel>The EpicQuest Brain Trust</SectionLabel>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                              text-[#403011] tracking-tight leading-tight">
-                Leadership Team
+                Leadership <WavyUnderline>Team</WavyUnderline>
               </h2>
             </div>
             <p className="hidden sm:block text-sm text-[#4A4333] font-serif leading-relaxed
@@ -279,7 +280,7 @@ export default function TeamPage() {
               <SectionLabel>The EpicQuest Execution Engine</SectionLabel>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                              text-[#403011] tracking-tight leading-tight">
-                Management Team
+                Management <WavyUnderline>Team</WavyUnderline>
               </h2>
             </div>
             <p className="hidden sm:block text-sm text-[#4A4333] font-serif leading-relaxed
@@ -351,8 +352,7 @@ export default function TeamPage() {
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
-                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
-                Journey?
+                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}<WavyUnderline> Journey?</WavyUnderline>
               </h2>
               <p className="text-sm sm:text-base text-[#F6EBD4]/65 font-serif mb-10 max-w-lg mx-auto leading-relaxed">
                 Limited spaces remain for our bespoke 2026–27 cohort. Book your diagnostic consultation today and build a tailored admissions strategy.

@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -340,7 +341,7 @@ export default function DiagnosticTestPage() {
                   THE EPICQUEST PSYCHOMETRIC TOOL
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-                  🧠 Leadership Diagnostic Assessment — Deep Dive
+                  🧠 Leadership Diagnostic Assessment — <WavyUnderline>Deep Dive</WavyUnderline>
                 </h2>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5">
                   <strong className="text-[#403011]">Science-Backed. Student-Focused. Career-Defining.</strong> The EpicQuest Leadership Diagnostic Assessment combines two proprietary frameworks — <em>Gunaity Epicometer™</em> and <em>Karmattitude™</em> — to deliver a single, powerful report that maps your child&apos;s personality to their ideal career pathway.
@@ -515,7 +516,7 @@ export default function DiagnosticTestPage() {
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
               Discover Your Child&apos;s{" "}
               <span className="relative inline-block">
-                <span className="relative z-10">True Potential</span>
+                <span className="relative z-10">True <WavyUnderline>Potential</WavyUnderline></span>
                 <svg className="absolute -bottom-1.5 left-0 w-full" height="8" viewBox="0 0 120 8" preserveAspectRatio="none" fill="none">
                   <path d="M2 6 Q30 2 60 5 Q90 8 118 3" stroke="#DCA543" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
@@ -656,7 +657,7 @@ export default function DiagnosticTestPage() {
                     <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#566544] to-[#DCA543]" />
                     <h2 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] mb-6 flex items-center gap-2.5">
                       <Compass className="w-5 h-5 text-[#DCA543]" />
-                      Candidate Registration
+                      Candidate <WavyUnderline>Registration</WavyUnderline>
                     </h2>
                     <p className="text-xs sm:text-sm text-[#4A4333]/85 font-serif leading-relaxed mb-6 border-b border-[#4A4333]/8 pb-4">
                       Please enter your profile details. We interpolate these values dynamically across your 30+ page custom dossier, tactical research directions, and admissions priority roadmaps.
@@ -1030,7 +1031,7 @@ export default function DiagnosticTestPage() {
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">Frequently Asked Questions
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mt-4 leading-tight">
-              DISC Assessment FAQ
+              DISC <WavyUnderline>Assessment FAQ</WavyUnderline>
             </h2>
             <p className="text-xs sm:text-sm text-[#4A4333]/70 font-serif italic mt-2">
               Everything you need to know about the science, timelines, and reporting details

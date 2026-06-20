@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -211,7 +212,7 @@ export default function ProgramDeepDivePostPage() {
             {/* Section 2 */}
             <section ref={sectionsRef["eq-philosophy"]} id="eq-philosophy" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                The EpicQuest Philosophy
+                The <WavyUnderline>EpicQuest Philosophy</WavyUnderline>
               </h2>
               <p>
                 EpicQuest's philosophy is rooted in cognitive alignment. We begin by diagnosing a student's logical and creative strengths through an advanced diagnostic psychometric engine.
@@ -224,7 +225,7 @@ export default function ProgramDeepDivePostPage() {
             {/* Section 3 */}
             <section ref={sectionsRef["six-pathways"]} id="six-pathways" className="space-y-6">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                The 6 Portfolio Pathways
+                The 6 <WavyUnderline>Portfolio Pathways</WavyUnderline>
               </h2>
               <p>
                 To provide comprehensive, elite credentials, our portfolio incubator supports students across six specialized engineering pathways:
@@ -274,7 +275,7 @@ export default function ProgramDeepDivePostPage() {
             {/* Section 4 */}
             <section ref={sectionsRef["who-for"]} id="who-for" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                Who Is EpicQuest For?
+                Who Is <WavyUnderline>EpicQuest For?</WavyUnderline>
               </h2>
               <p>
                 EpicQuest is designed exclusively for highly ambitious high school students (Grades 9 through 12) who are targetting tier-1 placements at elite institutions like Harvard, Princeton, Stanford, UPenn, and Oxford.
@@ -287,7 +288,7 @@ export default function ProgramDeepDivePostPage() {
             {/* Section 5 */}
             <section ref={sectionsRef["first-90-days"]} id="first-90-days" className="space-y-6 pt-6 border-t border-[#4A4333]/10">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                What to Expect: Your First 90 Days
+                What to Expect: Your First <WavyUnderline>90 Days</WavyUnderline>
               </h2>
               <p>
                 Embarking on a spiked portfolio journey is structured and systematic. Here is the blueprint of your launch phase:

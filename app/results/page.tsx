@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 import { FileText, Lightbulb, Scroll, Award, Cpu, Target } from "lucide-react";
@@ -106,7 +107,7 @@ export default function ResultsPage() {
               EXCELLENCE. PROVEN.
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              EpicQuest Success Story
+              EpicQuest <WavyUnderline>Success Story</WavyUnderline>
             </h2>
             <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
               EpicQuest students have earned places at the world's most prestigious universities — from the Ivy League to global top-20 institutions.
@@ -147,7 +148,7 @@ export default function ResultsPage() {
               INTELLECTUAL CONTRIBUTIONS
             </span>
             <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#F6EBD4] tracking-tight leading-tight mb-6">
-              Real-World Impact:<br />Patents &amp; Publications
+              Real-World Impact:<br />Patents <WavyUnderline>&amp; Publications</WavyUnderline>
             </h2>
             <p className="text-base sm:text-lg text-[#F6EBD4]/75 font-serif leading-relaxed max-w-2xl">
               EpicQuest fellows produce verified, tangible, high-caliber intellectual outputs under PhD guidance that carry significant weight before entering university.
@@ -251,7 +252,7 @@ export default function ResultsPage() {
               EXAMPLES OF OUR CHANGEMAKER DESTINY
             </span>
             <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
-              Real-World Impact: Deep Dive into Student Work
+              Real-World Impact: Deep Dive into <WavyUnderline>Student Work</WavyUnderline>
             </h2>
             <p className="text-base sm:text-lg text-[#4A4333]/80 font-serif leading-relaxed">
               Few examples of our deliverables - These are not hypothetical projects — every deliverable below was produced by a real EpicQuest student, guided by expert mentors, and recognised by institutions beyond the classroom.
@@ -368,7 +369,7 @@ export default function ResultsPage() {
               50+ SUCCESS STORIES
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              A Few from Our Graduate Wall of Fame
+              A Few from Our Graduate Wall <WavyUnderline>of Fame</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-xl leading-relaxed">
               Every face below represents a dream achieved — a student who dared to go beyond grades.
@@ -436,7 +437,7 @@ export default function ResultsPage() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Champion Achievers{" "}
-                <span className="text-[#8A8373] font-normal italic">2026–27</span>
+                <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
               <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
                 Published research. Filed patents. Real-world experience. Ivy League results.
@@ -504,7 +505,7 @@ export default function ResultsPage() {
               Partners & Affiliations
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Backed by Institutions<br className="hidden sm:inline" /> That Matter
+              Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
@@ -566,8 +567,7 @@ export default function ResultsPage() {
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
-                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
-                Journey?
+                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}<WavyUnderline> Journey?</WavyUnderline>
               </h2>
               <p className="text-sm sm:text-base text-[#F6EBD4]/65 font-serif mb-10 max-w-lg mx-auto leading-relaxed">
                 Limited spaces remain for our bespoke 2026–27 cohort. Book your diagnostic consultation today and build a tailored admissions strategy.

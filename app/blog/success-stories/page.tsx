@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -209,7 +210,7 @@ export default function SuccessStoriesPostPage() {
             {/* Section 2 */}
             <section ref={sectionsRef["saatvick-harvard"]} id="saatvick-harvard" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                Saatvick S.'s Story — Harvard University
+                Saatvick S.'s Story — <WavyUnderline>Harvard University</WavyUnderline>
               </h2>
               <p>
                 Saatvick entered EpicQuest with an interest in economics but lacked independent research experience or a distinctive academic identity. Our academic advisory team paired him with PhD mentors to structure a quantitative research paper investigating the efficacy of local micro-lending programs using dynamic regression models.
@@ -236,7 +237,7 @@ export default function SuccessStoriesPostPage() {
             {/* Section 3 */}
             <section ref={sectionsRef["jaivir-berkeley"]} id="jaivir-berkeley" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                Jaivir G.'s Story — UC Berkeley
+                Jaivir G.'s Story — <WavyUnderline>UC Berkeley</WavyUnderline>
               </h2>
               <p>
                 Jaivir wanted to pursue mechanical engineering but knew that hundreds of applicants carried perfect math scores and standard robotics club memberships. Through our Prototype and Patents Incubator, we helped him design, fabricate, and test a fully functional autonomous agricultural drone sensor array designed to monitor soil moisture levels in drought-prone areas.
@@ -263,7 +264,7 @@ export default function SuccessStoriesPostPage() {
             {/* Section 4 */}
             <section ref={sectionsRef["common-themes"]} id="common-themes" className="space-y-6 pt-6 border-t border-[#4A4333]/10">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                What These Stories Have in Common
+                What These Stories Have <WavyUnderline>in Common</WavyUnderline>
               </h2>
 
               <div className="space-y-8 mt-6">

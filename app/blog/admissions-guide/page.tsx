@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -271,7 +272,7 @@ export default function AdmissionsGuidePage() {
             {/* Section 1 */}
             <section ref={sectionsRef["what-officers-look-for"]} id="what-officers-look-for" className="space-y-4 pt-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                1. What Ivy League Admissions Officers Really Look For
+                1. What Ivy League Admissions Officers Really <WavyUnderline>Look For</WavyUnderline>
               </h2>
               <p>
                 The admissions landscape has undergone a monumental shift. Standardized testing has returned in nuanced formats, and grade inflation has made high GPAs common. As a result, universities rely heavily on holistic review. Officers scan for your "Spike"—a distinctive area of mastery. This is proven through rigorous portfolio components: peer-reviewed research publications, patented inventions, and active civic policy contributions.
@@ -284,7 +285,7 @@ export default function AdmissionsGuidePage() {
             {/* Section 2 */}
             <section ref={sectionsRef["holistic-process"]} id="holistic-process" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                2. The Holistic Admissions Process Explained
+                2. The Holistic Admissions <WavyUnderline>Process Explained</WavyUnderline>
               </h2>
               <p>
                 Holistic review means that every part of your application is scrutinized in context. While grades, coursework difficulty, and test scores get your foot in the door, they rarely seal the deal. Your extracurricular profile, essays, recommendations, and demonstrable real-world impact represent the core of the evaluation.
@@ -308,7 +309,7 @@ export default function AdmissionsGuidePage() {
             {/* Section 3 */}
             <section ref={sectionsRef["the-five-things"]} id="the-five-things" className="space-y-6">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                3. The 5 Things That Set Admitted Students Apart
+                3. The 5 Things That Set Admitted <WavyUnderline>Students Apart</WavyUnderline>
               </h2>
               <p>
                 Based on historical data and direct student placement at institutions like UPenn, Harvard, Stanford, and UC Berkeley, five key attributes consistently separate successful applicants:
@@ -350,7 +351,7 @@ export default function AdmissionsGuidePage() {
             {/* Section 4 */}
             <section ref={sectionsRef["how-eq-prepares"]} id="how-eq-prepares" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                4. How EpicQuest Prepares You
+                4. How EpicQuest <WavyUnderline>Prepares You</WavyUnderline>
               </h2>
               <p>
                 At EpicQuest, we work one-on-one with high school students to build institutional-grade capabilities. From mapping cognitive profiles to drafting provisional patents, conducting rigorous academic research, and gaining hands-on corporate apprenticeships, we systematically engineer a spike that makes you a clear, undeniable choice for the world's most selective colleges.

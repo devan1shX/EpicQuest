@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 import { Brain, Microscope, FileBadge, ArrowRight } from "lucide-react";
@@ -194,7 +195,7 @@ export default function AboutPage() {
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]
                              font-serif font-medium text-white mb-1.5 tracking-tight leading-tight">
-                Tilak Mishra
+                Tilak <WavyUnderline>Mishra</WavyUnderline>
               </h2>
               <p className="text-[#DCA543] font-serif text-sm sm:text-base mb-10 sm:mb-12">
                 Founder &amp; CEO, EpicQuest Learning &nbsp;·&nbsp; UPenn Alum
@@ -273,7 +274,7 @@ export default function AboutPage() {
                            font-serif font-medium text-[#403011] tracking-tight leading-tight"
               >
                 Beyond Grades —<br className="hidden sm:block" />
-                <em className="not-italic text-[#8E8B42]">A Unique</em> Approach
+                <em className="not-italic text-[#8E8B42]">A Unique</em> <WavyUnderline>Approach</WavyUnderline>
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-md lg:text-right">

@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 import { BrainCircuit, Landmark, Cpu, Globe, Microscope, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -184,7 +185,7 @@ export default function SkillsPage() {
               EXPLORE OUR PATHWAYS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              Our Five Flagship Fellowships
+              Our Five <WavyUnderline>Flagship Fellowships</WavyUnderline>
             </h2>
             <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
               Select an area of focus to construct a comprehensive portfolio. Each pathway is fully customized around your psychometric strengths and guided 1:1 by active researchers and IIT specialists.
@@ -372,10 +373,8 @@ export default function SkillsPage() {
                 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium
                            text-[#F6EBD4] tracking-tight leading-[1.15] mb-5"
               >
-                Construct Your Portfolio Masterpiece
+                Master Skills That Define <WavyUnderline>Ivy Leagues</WavyUnderline>
               </h2>
-
-              <div className="w-12 h-px bg-[#DCA543]/60 mb-7" />
 
               <p
                 className="text-base sm:text-lg text-[#F6EBD4]/80 font-serif leading-relaxed

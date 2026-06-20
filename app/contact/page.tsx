@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -263,7 +264,7 @@ export default function ContactPage() {
 
           <div className="text-center mb-14 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-[#403011] tracking-tight mb-5">
-              Secure Your Slot
+              Secure <WavyUnderline>Your Slot</WavyUnderline>
             </h2>
             <p className="text-base sm:text-lg text-[#4A4333] font-serif max-w-xl mx-auto">
               Please complete the form below. Our team typically responds within 24 hours to confirm your session.

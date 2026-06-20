@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -216,7 +217,7 @@ export default function PortfolioStrategyPostPage() {
             {/* Section 2 */}
             <section ref={sectionsRef["gpa-myth"]} id="gpa-myth" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                The Myth of the Perfect GPA
+                The Myth of the <WavyUnderline>Perfect GPA</WavyUnderline>
               </h2>
               <p>
                 Admissions statistics from elite universities show a stark reality: over 70% of applicants who are rejected from Harvard, Yale, and Stanford possess perfect or near-perfect academic credentials. Grade inflation has eroded the signaling power of high transcripts.
@@ -229,7 +230,7 @@ export default function PortfolioStrategyPostPage() {
             {/* Section 3 */}
             <section ref={sectionsRef["strong-portfolio"]} id="strong-portfolio" className="space-y-6">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                What a Strong Portfolio Looks Like
+                What a Strong Portfolio <WavyUnderline>Looks Like</WavyUnderline>
               </h2>
               <p>
                 A world-class, Spike-oriented admissions portfolio consists of concrete, high-value assets rather than generic school club lists. Here are the core building blocks:
@@ -271,7 +272,7 @@ export default function PortfolioStrategyPostPage() {
             {/* Section 4 */}
             <section ref={sectionsRef["how-to-start"]} id="how-to-start" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                How to Build Your Portfolio Starting Today
+                How to Build Your Portfolio <WavyUnderline>Starting Today</WavyUnderline>
               </h2>
               <p>
                 Building an elite portfolio is not a process that can be rushed in your senior year. It is a multi-year trajectory that should begin as early as Grade 9 or 10:
@@ -295,7 +296,7 @@ export default function PortfolioStrategyPostPage() {
             {/* Section 5 */}
             <section ref={sectionsRef["eq-framework"]} id="eq-framework" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                EpicQuest's Portfolio-Building Framework
+                EpicQuest's <WavyUnderline>Portfolio-Building Framework</WavyUnderline>
               </h2>
               <p>
                 At EpicQuest, we utilize a structured, 6-pathway framework designed to support students from ideation to completion. By mapping psychometric cognitive profiles directly to targeted research fields, product prototyping cycles, patent filings, policy briefs, and prestigious corporate internships, we systematically engineer a Tier-1 academic spike that stands out to elite university admissions committees.

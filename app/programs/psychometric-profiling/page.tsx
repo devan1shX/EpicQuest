@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -286,7 +287,7 @@ export default function PsychometricProfilingPage() {
               className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                          text-[#403011] tracking-tight mb-4"
             >
-              The DISC Dimensions
+              The <WavyUnderline>DISC Dimensions</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333]/80 font-serif leading-relaxed">
               Four fundamental behavioral domains mapped by our Gunaity Epicometer™ to define your unique leadership style.
@@ -508,7 +509,7 @@ export default function PsychometricProfilingPage() {
                 REPORT INSIGHT
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
-                A 30+ Page Blueprint<br />of Your Potential
+                A 30+ Page Blueprint<br />of <WavyUnderline>Your Potential</WavyUnderline>
               </h2>
               <div className="relative pl-6 border-l-2 border-[#DCA543] space-y-5 text-[#4A4333] font-serif text-base sm:text-[17px] leading-relaxed max-w-[560px] mb-10">
                 <p>
@@ -541,7 +542,7 @@ export default function PsychometricProfilingPage() {
                 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                            text-[#403011] tracking-tight leading-[1.15]"
               >
-                The Foundation of Every Elite Application
+                The Foundation of Every <WavyUnderline>Elite Application</WavyUnderline>
               </h2>
               <blockquote className="border-l-2 border-[#DCA543] pl-6 font-serif italic
                                      text-base sm:text-lg text-[#4A4333] leading-relaxed">

@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -211,7 +212,7 @@ export default function ResearchPortfolioPage() {
             {/* Section 2 */}
             <section ref={sectionsRef["the-data-says"]} id="the-data-says" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                The Research Advantage — What the Data Says
+                The Research Advantage — What the <WavyUnderline>Data Says</WavyUnderline>
               </h2>
               <p>
                 Extracurricular profiles are evaluated on a scale of 1 to 4 by elite universities. A standard school club leadership represents a Level 3, while publishing original research in a selective, peer-reviewed international journal constitutes a Level 1 "Spike".
@@ -224,7 +225,7 @@ export default function ResearchPortfolioPage() {
             {/* Section 3 */}
             <section ref={sectionsRef["types-of-research"]} id="types-of-research" className="space-y-6">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                Types of Research That Impress Admissions Committees
+                Types of Research That Impress <WavyUnderline>Admissions Committees</WavyUnderline>
               </h2>
               <p>
                 Not all research portfolios are created equal. Depending on your academic spikes, you should focus on a methodology that authenticates your expertise:
@@ -256,7 +257,7 @@ export default function ResearchPortfolioPage() {
             {/* Section 4 */}
             <section ref={sectionsRef["how-to-start"]} id="how-to-start" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                How to Get Started with Research in High School
+                How to Get Started with Research in <WavyUnderline>High School</WavyUnderline>
               </h2>
               <p>
                 Beginning an academic research journey as a high school student can feel daunting. We break it down into four systematic steps:
@@ -297,7 +298,7 @@ export default function ResearchPortfolioPage() {
             {/* Section 5 */}
             <section ref={sectionsRef["eq-program"]} id="eq-program" className="space-y-4">
               <h2 className="text-3xl font-serif font-bold text-[#403011] leading-tight">
-                EpicQuest's Applied Research Program
+                EpicQuest's Applied <WavyUnderline>Research Program</WavyUnderline>
               </h2>
               <p>
                 At EpicQuest, we systematically guide ambitious high schoolers through this entire academic cycle. We pair you one-on-one with active university research mentors, PhD candidates, and IIT/Ivy League scientists.

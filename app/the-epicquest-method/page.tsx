@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -67,7 +68,7 @@ export default function HowItWorksPage() {
                 THE JOURNEY
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-                Four Phases. One Cohesive Story.
+                Four Phases. One <WavyUnderline>Cohesive Story.</WavyUnderline>
               </h2>
             </div>
             <p className="text-sm sm:text-[15px] text-[#4A4333] font-serif leading-relaxed max-w-sm pb-4">
@@ -236,7 +237,7 @@ export default function HowItWorksPage() {
               OUR PROCESS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              Beyond Grades
+              Beyond <WavyUnderline>Grades</WavyUnderline>
             </h2>
             <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
               Foundational mastery, academic depth, and demonstrated impact: the pillars Ivy admissions committees never forget. Here is what we actually build with our students.
@@ -353,10 +354,8 @@ export default function HowItWorksPage() {
                 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium
                            text-[#F6EBD4] tracking-tight leading-[1.15] mb-5"
               >
-                Your Portfolio Journey Begins With One Conversation.
+                Let&apos;s Build Your <WavyUnderline>EpicQuest</WavyUnderline>
               </h2>
-
-              <div className="w-12 h-px bg-[#DCA543]/60 mb-7" />
 
               <p
                 className="text-base sm:text-lg text-[#F6EBD4]/80 font-serif leading-relaxed

@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -291,7 +292,7 @@ export default function PublishedPolicyDraftsPage() {
               className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                          text-[#403011] tracking-tight mb-4"
             >
-              Our Policy Blueprint
+              Our <WavyUnderline>Policy Blueprint</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333]/80 font-serif leading-relaxed">
               Five structured milestones guiding you from domain selection
@@ -512,7 +513,7 @@ export default function PublishedPolicyDraftsPage() {
                 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium
                            text-[#403011] tracking-tight leading-[1.15]"
               >
-                Key Policy Areas
+                Key <WavyUnderline>Policy Areas</WavyUnderline>
               </h2>
               <blockquote className="border-l-2 border-[#DCA543] pl-6 font-serif italic
                                      text-base sm:text-lg text-[#4A4333] leading-relaxed">

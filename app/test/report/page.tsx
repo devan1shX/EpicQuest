@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -428,8 +429,7 @@ export default function DiagnosticReportResultsPage() {
                     You are an{" "}
                     <span className="relative inline-block text-[#5C7146] mt-2 mb-1">
                       <span className="relative z-10 font-serif">{data.primaryType.name}</span>
-                    </span>{" "}
-                    Type
+                    </span>{" "}<WavyUnderline> Type</WavyUnderline>
                   </h2>
 
                   <div className="flex flex-wrap items-center gap-2 mt-6">
@@ -512,7 +512,7 @@ export default function DiagnosticReportResultsPage() {
                     2D COORDINATES
                   </span>
                   <h2 className="text-xl font-serif font-medium text-[#403011] mt-1.5">
-                    The Gunaity Epicometer™
+                    The <WavyUnderline>Gunaity Epicometer™</WavyUnderline>
                   </h2>
                 </div>
                 <span className="text-[10px] text-[#4A4333]/65 font-serif italic select-none">
@@ -825,7 +825,7 @@ export default function DiagnosticReportResultsPage() {
                   SECTION 6 — ADVANCED PERSONALITY ANALYTICS
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] leading-tight mt-1 mb-3">
-                  Behavioral Capability Profile
+                  Behavioral <WavyUnderline>Capability Profile</WavyUnderline>
                 </h2>
                 <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed">
                   A granular breakdown of the intensity of {data.candidate.name}'s behavioral modes.
@@ -1012,7 +1012,7 @@ export default function DiagnosticReportResultsPage() {
                 SECTION 7 — COMPETENCY MATRIX
               </span>
               <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
-                Strengths &amp; Blind Spots
+                Strengths &amp; <WavyUnderline>Blind Spots</WavyUnderline>
               </h2>
               <p className="text-sm text-[#4A4333] font-serif mt-1">
                 A precise breakdown of {data.candidate.name}'s core strengths and actionable growth areas.
@@ -1064,7 +1064,7 @@ export default function DiagnosticReportResultsPage() {
                 SECTION 8 — STYLE DEPTH
               </span>
               <h2 className="text-3xl font-serif font-medium text-[#403011] tracking-tight mt-3">
-                Style Adaptability Profile
+                Style <WavyUnderline>Adaptability Profile</WavyUnderline>
               </h2>
               <p className="text-sm text-[#4A4333] font-serif mt-1">
                 Adaptability levels and mental energy expenditure across each behavior mode.
@@ -1146,7 +1146,7 @@ export default function DiagnosticReportResultsPage() {
                 SECTION 9 — WORKPLACE &amp; ENVIRONMENTAL ANALYSIS
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
-                Environmental Descriptors
+                Environmental <WavyUnderline>Descriptors</WavyUnderline>
               </h2>
               <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
                 Comparison detailing descriptions most likely and least likely to describe {data.candidate.name}'s actions, alongside the specific environments where they thrive or struggle.
@@ -1254,7 +1254,7 @@ export default function DiagnosticReportResultsPage() {
                 SECTION 10 — PROFESSION SUITABILITY
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] tracking-tight leading-tight mt-4">
-                Profession Suitability Assessment
+                Profession <WavyUnderline>Suitability Assessment</WavyUnderline>
               </h2>
               <p className="text-sm sm:text-base text-[#4A4333] font-serif mt-2 leading-relaxed">
                 Select a current or target profession to see how your DISC profile aligns with its behavioral demands.
@@ -1561,7 +1561,7 @@ export default function DiagnosticReportResultsPage() {
                 </span>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-white leading-tight mb-4 max-w-lg">
-                  Unlock Your Career Map
+                  Unlock Your <WavyUnderline>Career Map</WavyUnderline>
                 </h2>
 
                 <p className="text-sm sm:text-base text-[#F6EBD4]/75 font-serif leading-relaxed max-w-xl mb-8">

@@ -1,5 +1,6 @@
 "use client";
 
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -201,7 +202,7 @@ export default function ResearchPatentIncubatorPage() {
               THE PORTFOLIO ENGINE
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-medium text-[#403011] tracking-tight mb-4 leading-tight">
-              Curriculum Blueprint
+              Curriculum <WavyUnderline>Blueprint</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333]/80 font-serif leading-relaxed">
               A comprehensive 5-stage university-caliber pathway guiding you from fundamental literature search and design thinking to provisional patent claim drafting and lab-mentored peer reviews.
@@ -322,7 +323,7 @@ export default function ResearchPatentIncubatorPage() {
               FELLOWSHIP MILESTONES
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              Student Deliverables
+              Student <WavyUnderline>Deliverables</WavyUnderline>
             </h2>
             <p className="text-base text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
               Our fellowships are milestone-driven. Unlike simple certificate courses, you will engineer five premium, verifiable assets to stand out on any top-tier university application:

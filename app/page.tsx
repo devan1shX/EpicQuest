@@ -1,3 +1,4 @@
+import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -144,7 +145,7 @@ export default function Home() {
                 Why Choose Us
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Results That Speak<br className="hidden sm:inline" /> For Themselves
+                Results That Speak<br className="hidden sm:inline" /> For <WavyUnderline>Themselves</WavyUnderline>
               </h2>
             </div>
             <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
@@ -194,7 +195,7 @@ export default function Home() {
                 Our Programs
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Everything We Offer
+                Everything <WavyUnderline>We Offer</WavyUnderline>
               </h2>
             </div>
             <p className="text-sm text-[#4A4333] font-serif max-w-sm leading-relaxed lg:text-right">
@@ -323,7 +324,7 @@ export default function Home() {
                 Flagship Pathways
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                The Flagship Skills Academy
+                The Flagship <WavyUnderline>Skills Academy</WavyUnderline>
               </h2>
             </div>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-md leading-relaxed lg:text-right">
@@ -446,7 +447,7 @@ export default function Home() {
               The EpicQuest Method
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Your Bespoke Portfolio Journey
+              Your Bespoke <WavyUnderline>Portfolio Journey</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-xl leading-relaxed">
               From psychometric assessment to final portfolio submission — a structured, milestone-driven journey tailored entirely to you.
@@ -604,7 +605,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Champion Achievers{" "}
-                <span className="text-[#8A8373] font-normal italic">2026–27</span>
+                <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
               <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
                 Published research. Filed patents. Real-world experience. Ivy League results.
@@ -672,7 +673,7 @@ export default function Home() {
               Partners & Affiliations
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Backed by Institutions<br className="hidden sm:inline" /> That Matter
+              Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
@@ -734,8 +735,7 @@ export default function Home() {
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">
                 Ready to Begin Your{" "}
-                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}
-                Journey?
+                <em className="text-[#DCA543] not-italic">Ivy League</em>{" "}<WavyUnderline> Journey?</WavyUnderline>
               </h2>
               <p className="text-sm sm:text-base text-[#F6EBD4]/65 font-serif mb-10 max-w-lg mx-auto leading-relaxed">
                 Limited spaces remain for our bespoke 2026–27 cohort. Book your diagnostic consultation today and build a tailored admissions strategy.
