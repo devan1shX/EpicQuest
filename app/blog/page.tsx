@@ -234,7 +234,7 @@ export default function BlogIndexPage() {
                     <div className="pt-4">
                       <Link
                         href={featuredPost.slug}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
+                        className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group shrink-0"
                       >
                         Read Guide
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -330,17 +330,17 @@ export default function BlogIndexPage() {
                         </p>
                       </div>
 
-                      <div className="pt-6 border-t border-[#4A4333]/8 flex items-center justify-between mt-6">
+                      <div className="pt-6 border-t border-[#4A4333]/8 flex flex-col sm:flex-row sm:items-center justify-between mt-6 gap-4">
                         <span className="text-[11px] text-[#403011] font-semibold flex items-center gap-1">
                           <User className="w-3.5 h-3.5 text-olive" />
                           {post.author}
                         </span>
                         <Link
                           href={post.slug}
-                          className="text-olive hover:text-[#4A5C38] text-xs font-bold flex items-center gap-1 group-hover:underline"
+                          className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 group shrink-0"
                         >
                           Read full article
-                          <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
+                          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
                     </div>

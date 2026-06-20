@@ -292,10 +292,10 @@ export default function ContactPage() {
                 </p>
                 <button 
                   onClick={() => setIsSuccess(false)}
-                  className="inline-flex items-center justify-center gap-3 px-10 py-3.5 bg-white border-2 border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146] hover:text-white rounded-full font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146] hover:text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 group shrink-0"
                 >
                   Send Another Query
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                   </svg>
                 </button>
@@ -394,10 +394,10 @@ export default function ContactPage() {
 
               {/* Submit Button */}
               <div className="pt-4 border-t border-[#4A4333]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-4 bg-[#5C7146] hover:bg-[#4a5a38] disabled:opacity-70 text-white rounded-full font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] disabled:opacity-70 text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group shrink-0">
                   {isSubmitting ? "Submitting..." : "Request Free Consultation"}
                   {!isSubmitting && (
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   )}
