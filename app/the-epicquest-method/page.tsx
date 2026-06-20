@@ -62,16 +62,16 @@ export default function HowItWorksPage() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
-          <div className="mb-14 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-            <div>
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 THE JOURNEY
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Four Phases. One <WavyUnderline>Cohesive Story.</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-[15px] text-[#4A4333] font-serif leading-relaxed max-w-sm pb-4">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               A structured journey built for admissions officers who see thousands of applications.
             </p>
           </div>
@@ -232,14 +232,16 @@ export default function HowItWorksPage() {
       <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-          <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              OUR PROCESS
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              Beyond <WavyUnderline>Grades</WavyUnderline>
-            </h2>
-            <p className="text-base sm:text-[1.05rem] text-[#4A4333] font-serif leading-relaxed">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                OUR PROCESS
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Beyond <WavyUnderline>Grades</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Foundational mastery, academic depth, and demonstrated impact: the pillars Ivy admissions committees never forget. Here is what we actually build with our students.
             </p>
           </div>
@@ -365,26 +367,18 @@ export default function HowItWorksPage() {
               </p>
 
               {/* Two CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto mb-10">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4
-                             bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C]
-                             rounded-full font-bold text-sm sm:text-base
-                             transition-all duration-300 shadow-lg
-                             hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group"
                 >
                   Book Free Consultation
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4
-                             border border-[#F6EBD4]/25 text-[#F6EBD4]
-                             hover:bg-[#F6EBD4]/10 hover:border-[#F6EBD4]/40
-                             rounded-full font-semibold text-sm sm:text-base
-                             transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border border-[#F6EBD4]/25 text-[#F6EBD4] hover:bg-[#F6EBD4]/10 hover:border-[#F6EBD4]/40 rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 hover:-translate-y-0.5 group"
                 >
                   Explore Programs
                 </Link>
