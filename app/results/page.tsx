@@ -102,7 +102,7 @@ export default function ResultsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 EXCELLENCE. PROVEN.
@@ -111,7 +111,7 @@ export default function ResultsPage() {
                 EpicQuest <WavyUnderline>Success Story</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               EpicQuest students have earned places at the world's most prestigious universities — from the Ivy League to global top-20 institutions.
             </p>
           </div>
@@ -145,7 +145,7 @@ export default function ResultsPage() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 INTELLECTUAL CONTRIBUTIONS
@@ -154,7 +154,7 @@ export default function ResultsPage() {
                 Real-World Impact:<br />Patents <WavyUnderline>&amp; Publications</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               EpicQuest fellows produce verified, tangible, high-caliber intellectual outputs under PhD guidance that carry significant weight before entering university.
             </p>
           </div>
@@ -251,7 +251,7 @@ export default function ResultsPage() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 EXAMPLES OF OUR CHANGEMAKER DESTINY
@@ -260,7 +260,7 @@ export default function ResultsPage() {
                 Deep Dive into <WavyUnderline>Student Work</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Few examples of our deliverables - These are not hypothetical projects — every deliverable below was produced by a real EpicQuest student, guided by expert mentors, and recognised by institutions beyond the classroom.
             </p>
           </div>
@@ -371,7 +371,7 @@ export default function ResultsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6 animate-fade-up">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4 animate-fade-up">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 50+ SUCCESS STORIES
@@ -380,7 +380,7 @@ export default function ResultsPage() {
                 A Few from Our Graduate Wall <WavyUnderline>of Fame</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Every face below represents a dream achieved — a student who dared to go beyond grades.
             </p>
           </div>
@@ -440,7 +440,7 @@ export default function ResultsPage() {
       <section id="champion-achievers" className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 STUDENT EXPERIENCES
@@ -450,7 +450,7 @@ export default function ResultsPage() {
                 <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Published research. Filed patents. Real-world experience. Ivy League results.
             </p>
           </div>
@@ -511,7 +511,7 @@ export default function ResultsPage() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Partners & Affiliations
@@ -520,7 +520,7 @@ export default function ResultsPage() {
                 Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>

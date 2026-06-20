@@ -139,7 +139,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Why Choose Us
@@ -148,7 +148,7 @@ export default function Home() {
                 Results That Speak<br className="hidden sm:inline" /> For <WavyUnderline>Themselves</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Built on real student outcomes,<br className="hidden sm:inline" /> not projections.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function Home() {
       <section className="w-full py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Our Programs
@@ -198,7 +198,7 @@ export default function Home() {
                 Everything <WavyUnderline>We Offer</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Every program builds a world-class university portfolio. Choose your path — or let us map one for you.
             </p>
           </div>
@@ -291,7 +291,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Skills Academy
@@ -300,7 +300,7 @@ export default function Home() {
                 The Flagship <WavyUnderline>Skills Academy</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               EpicQuest students build institutional-grade capabilities, published academic research, and provisional patents years before their peers.
             </p>
           </div>
@@ -415,7 +415,7 @@ export default function Home() {
       {/* ── 4. THE EPICQUEST METHOD ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 The EpicQuest Method
@@ -424,7 +424,7 @@ export default function Home() {
                 Your Bespoke <WavyUnderline>Portfolio Journey</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               From psychometric assessment to final portfolio submission — a structured, milestone-driven journey tailored entirely to you.
             </p>
           </div>
@@ -573,7 +573,7 @@ export default function Home() {
       {/* ── 5. SUCCESS STORIES ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Success Stories
@@ -583,7 +583,7 @@ export default function Home() {
                 <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Published research. Filed patents. Real-world experience. Ivy League results.
             </p>
           </div>
@@ -643,7 +643,7 @@ export default function Home() {
       {/* ── 6. PARTNERS & AFFILIATIONS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Partners & Affiliations
@@ -652,7 +652,7 @@ export default function Home() {
                 Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
