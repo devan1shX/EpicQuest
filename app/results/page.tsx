@@ -75,6 +75,21 @@ export default function ResultsPage() {
               <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed border-l-2 border-[#DCA543] pl-5 max-w-lg">
                 We measure success not in promises, but in Ivy League placements, published research, and patented inventions. Our numbers speak for themselves.
               </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  Start Your Journey
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-transparent border border-[#5C7146] text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm transition-all duration-300"
+                >
+                  Explore Programs
+                </Link>
+              </div>
             </div>
 
             {/* Stats */}
@@ -132,6 +147,15 @@ export default function ResultsPage() {
           <p className="text-center text-sm sm:text-base text-[#4A4333] font-serif max-w-3xl mx-auto mt-16 leading-relaxed select-none">
             From Research &amp; Scholarship to Ivy League-ready portfolios, EpicQuest Learning builds the skills, capabilities, stories, and impact evidence that <strong className="text-[#C2410C] font-extrabold uppercase tracking-wide">top universities value!</strong>
           </p>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Build Your Portfolio
+            </Link>
+          </div>
 
         </div>
       </section>
@@ -419,18 +443,7 @@ export default function ResultsPage() {
               </p>
             </div>
 
-            <div className="mt-4 rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
-              <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                </svg>
-              </div>
-              <div className="bg-[#5C7146]/6 px-6 py-5 w-full flex items-center">
-                <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
-                  🎓 Join the next cohort of EpicQuest graduates. <strong className="text-[#403011] font-semibold">Limited spots available for 2026–27.</strong>
-                </p>
-              </div>
-            </div>
+            
           </div>
 
         </div>
@@ -503,63 +516,6 @@ export default function ResultsPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PARTNERS & AFFILIATIONS ═══ */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Section Header */}
-          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Partners & Affiliations
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
-              </h2>
-            </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
-            </p>
-          </div>
-
-          {/* Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {[
-              { src: "/images/home/Sc_Advisor_GoI.png", alt: "Office of the Principal Scientific Adviser" },
-              { src: "/images/home/ISB_BIPP_Logo.png", alt: "Indian School of Business" },
-              { src: "/images/home/IIITD-img.png", alt: "IIIT Delhi" },
-              { src: "/images/home/IETO_Logo.png", alt: "IETO" },
-              { src: "/images/home/AMC_Logo.jpeg", alt: "AMC" },
-              { src: "/images/home/Creditas_Logo.jpeg", alt: "Creditas Solutions" },
-              { src: "/images/home/Credlabs_Logo.png", alt: "Credlabs" },
-              { src: "/images/home/UDC_Logo.png", alt: "UDC" },
-            ].map(({ src, alt }) => (
-              <div
-                key={alt}
-                className="bg-white h-24 flex items-center justify-center rounded-xl border border-[#4A4333]/10 shadow-sm px-6 hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="relative w-full h-14">
-                  <Image src={src} alt={alt} fill className="object-contain transition-all duration-300" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Callout */}
-          <div className="rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
-            <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-              </svg>
-            </div>
-            <div className="bg-[#5C7146]/6 px-6 py-5">
-              <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
-                Affiliations with the <strong className="text-[#403011] font-semibold">Office of the Principal Scientific Adviser</strong> to the Government of India, ISB's Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic credibility.
-              </p>
-            </div>
           </div>
         </div>
       </section>
