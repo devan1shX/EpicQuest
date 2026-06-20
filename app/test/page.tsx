@@ -4,6 +4,7 @@ import WavyUnderline from "@/components/ui/WavyUnderline";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Compass,
   ArrowRight,
@@ -524,7 +525,7 @@ export default function DiagnosticTestPage() {
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-2xl">
               {false && testStarted
-                ? 'Complete the assessment below to receive your personalised diagnostic report instantly.'
+                ? 'Complete the assessment below to receive your personalised 30+ page diagnostic report instantly.'
                 : 'Take the EpicQuest Leadership Diagnostic Assessment — a science-backed tool that maps personality to career pathways. Contact us to learn more.'
               }
             </p>
@@ -555,14 +556,14 @@ export default function DiagnosticTestPage() {
             {false && (
               <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#8A8373] font-serif uppercase tracking-widest font-bold">
                 <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0" />
-                Free · 5 Minutes · Instant Diagnostic Report
+                Free · 5 Minutes · Instant 30+ Page Report
               </div>
             )}
           </div>
         </div>
 
         {/* Test Portal — visible only after CTA is clicked */}
-        {false && (
+        {false && testStarted && (
           <div id="test-portal" className="py-16 sm:py-24 relative">
 
             {/* Background elements */}
