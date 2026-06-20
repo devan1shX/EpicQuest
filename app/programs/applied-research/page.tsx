@@ -500,7 +500,7 @@ export default function AppliedResearchPage() {
       </section>
 
       {/* ══ WHY THIS MATTERS ══ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-24 items-center">

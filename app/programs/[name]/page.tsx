@@ -39,7 +39,9 @@ export default async function ProgramPage({
 
   return (
     <main className="">
-      <h1>{title}</h1>
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
+        <h1>{title}</h1>
+      </section>
     </main>
   );
 }

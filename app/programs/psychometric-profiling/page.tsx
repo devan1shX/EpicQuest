@@ -258,8 +258,7 @@ export default function PsychometricProfilingPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
-              { icon: Clock, text: "2 – 3 Week Timeline" },
-              { icon: BookOpen, text: "30+ Page Diagnostic Report" },
+              { icon: BookOpen, text: "Detailed Diagnostic Report" },
               { icon: Brain, text: "Gunaity & Karmattitude Dual Model" },
               { icon: Award, text: "1-on-1 Expert Advisory Debrief" },
             ].map(({ icon: Icon, text }) => (
@@ -467,66 +466,9 @@ export default function PsychometricProfilingPage() {
         </div>
       </section>
 
-      {/* ═══ REPORT DEEP DIVE ═══ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.88fr_1fr] gap-14 lg:gap-20 items-center">
-
-            {/* ── Left image column ── */}
-            <div className="relative">
-              {/* Offset decorative slab behind image */}
-              <div
-                aria-hidden
-                className="absolute -bottom-4 -left-4 w-full h-full
-                           rounded-[2.5rem] bg-[#566544]/12 border border-[#566544]/15"
-              />
-              {/* Gold accent corner strip */}
-              <div
-                aria-hidden
-                className="absolute -top-3 -right-3 w-20 h-20 rounded-tr-[2rem]
-                           border-t-2 border-r-2 border-[#DCA543]"
-              />
-
-              <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden
-                              border border-[#4A4333]/12 shadow-2xl group">
-                <Image
-                  src="/images/program/psychometricProfiling/PsychometricProfiling_2.png"
-                  alt="EpicQuest Leadership Diagnostic Report Showcase"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-[#403011]/10 opacity-0
-                             group-hover:opacity-100 transition-opacity duration-500"
-                />
-              </div>
-            </div>
-
-            {/* ── Right text column ── */}
-            <div className="flex flex-col">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                REPORT INSIGHT
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
-                A 30+ Page Blueprint<br />of <WavyUnderline>Your Potential</WavyUnderline>
-              </h2>
-              <div className="relative pl-6 border-l-2 border-[#DCA543] space-y-5 text-[#4A4333] font-serif text-base sm:text-[17px] leading-relaxed max-w-[560px] mb-10">
-                <p>
-                  Your Leadership Diagnostic Report is not a generic summary. It is a highly comprehensive, custom-tailored analysis detailing behavior hybrids, work environment fits, and a 2-4 year academic portfolio roadmap.
-                </p>
-                <p className="text-[#4A4333]/80 text-sm sm:text-[15px]">
-                  Developed with academic advisors and industry mentors, this deep dive ensures you understand exactly who you are, what you are capable of, and how to articulate your strengths beautifully on your admissions portfolio.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* ═══ WHY CHOOSE US ═══ */}
-      <section className="w-full bg-[#FDFBF7] py-20 sm:py-28 border-b border-[#4A4333]/10">
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 border-b border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-24 items-center">
