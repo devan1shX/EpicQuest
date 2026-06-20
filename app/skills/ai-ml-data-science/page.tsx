@@ -153,13 +153,12 @@ export default function AiMlDataSciencePage() {
                 </p>
               </div>
 
-              {/* Quick CTA */}
               <Link
                 href="/contact"
-                className="self-start inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#566544] hover:bg-[#455734] text-[#F6EBD4] rounded-full font-semibold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#566544]/25"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group shrink-0"
               >
                 Schedule a Free Consultation
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
@@ -345,7 +344,7 @@ export default function AiMlDataSciencePage() {
                 return (
                   <div
                     key={del.tag}
-                    className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col"
+                    className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 hover:border-[#DCA543] hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out p-6 sm:p-7 flex flex-col group"
                   >
                     {/* Pill badge: icon + tag */}
                     <div className="mb-5">
@@ -376,7 +375,7 @@ export default function AiMlDataSciencePage() {
                 return (
                   <div
                     key={del.tag}
-                    className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col"
+                    className="bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 hover:border-[#DCA543] hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out p-6 sm:p-7 flex flex-col group"
                   >
                     {/* Pill badge: icon + tag */}
                     <div className="mb-5">
@@ -459,9 +458,10 @@ export default function AiMlDataSciencePage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#566544] text-[#FDFBF7] rounded-full font-semibold text-sm tracking-wide shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group shrink-0"
             >
               Apply Now
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
