@@ -78,10 +78,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
 
             {/* Card 1 */}
-            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-200">
+            <div className="group bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300 animate-fade-up delay-200">
               <div className="mb-5 flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
-                  <Brain className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#566544] uppercase tracking-[0.12em] bg-[#566544]/10 border border-[#566544]/20 px-3 py-1.5 rounded-full group-hover:bg-[#566544] group-hover:text-white transition-colors duration-300">
+                  <Brain className="w-3.5 h-3.5 text-[#566544] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
                   ASSESSMENT
                 </span>
                 <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">01</span>
@@ -94,18 +94,18 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/test"
-                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+                className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider text-[#8A7340] group-hover:text-[#566544] transition-colors duration-300 mt-auto pt-4 border-t border-[#4A4333]/10"
               >
-                <span>Take Diagnostic Test</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+                Take Diagnostic Test
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
               </Link>
             </div>
 
             {/* Card 2 */}
-            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-300">
+            <div className="group bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300 animate-fade-up delay-300">
               <div className="mb-5 flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
-                  <Microscope className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#566544] uppercase tracking-[0.12em] bg-[#566544]/10 border border-[#566544]/20 px-3 py-1.5 rounded-full group-hover:bg-[#566544] group-hover:text-white transition-colors duration-300">
+                  <Microscope className="w-3.5 h-3.5 text-[#566544] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
                   METHODOLOGY
                 </span>
                 <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">02</span>
@@ -118,18 +118,18 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/programs"
-                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+                className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider text-[#8A7340] group-hover:text-[#566544] transition-colors duration-300 mt-auto pt-4 border-t border-[#4A4333]/10"
               >
-                <span>Explore Programs</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+                Explore Programs
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
               </Link>
             </div>
 
             {/* Card 3 */}
-            <div className="group bg-[#FDFBF7] rounded-2xl border border-[#DCA543]/60 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#DCA543] transition-all duration-300 animate-fade-up delay-400">
+            <div className="group bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/10 p-6 sm:p-7 flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300 animate-fade-up delay-400">
               <div className="mb-5 flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#8A7340] uppercase tracking-[0.12em] bg-[#FDFBF7] border border-[#DCA543]/60 px-3 py-1.5 rounded-full">
-                  <FileBadge className="w-3.5 h-3.5 text-[#DCA543]" strokeWidth={2} />
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold text-[#566544] uppercase tracking-[0.12em] bg-[#566544]/10 border border-[#566544]/20 px-3 py-1.5 rounded-full group-hover:bg-[#566544] group-hover:text-white transition-colors duration-300">
+                  <FileBadge className="w-3.5 h-3.5 text-[#566544] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
                   OUTCOMES
                 </span>
                 <span className="text-2xl font-serif text-[#403011]/20 leading-none select-none">03</span>
@@ -142,10 +142,10 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/results#champion-achievers"
-                className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300 mt-auto"
+                className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider text-[#8A7340] group-hover:text-[#566544] transition-colors duration-300 mt-auto pt-4 border-t border-[#4A4333]/10"
               >
-                <span>View Student Experiences</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
+                View Student Experiences
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
               </Link>
             </div>
 

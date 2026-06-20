@@ -8,6 +8,16 @@ import { useState, useEffect, useCallback } from "react";
 // Individual program details with custom icons and subtexts
 const programsList = [
   {
+    name: "Psychometric Profiling",
+    href: "/programs/psychometric-profiling",
+    desc: "Rigorous personal analysis mapping to Ivy League expectations",
+    icon: (
+      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
     name: "Applied Research",
     href: "/programs/applied-research",
     desc: "Structured academic research & journal publications",
@@ -55,16 +65,6 @@ const programsList = [
     icon: (
       <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 18.4V14.15m16.5 0c0-1.2-.83-2.25-2.002-2.477-3.086-.597-6.27-.597-9.356 0-1.173.227-2.002 1.277-2.002 2.477m16.5 0v-2.25C20.25 8.585 16.165 4.5 11.25 4.5S2.25 8.585 2.25 13.5v2.25m9 3.375h1.5" />
-      </svg>
-    ),
-  },
-  {
-    name: "Psychometric Profiling",
-    href: "/programs/psychometric-profiling",
-    desc: "Rigorous personal analysis mapping to Ivy League expectations",
-    icon: (
-      <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
   },

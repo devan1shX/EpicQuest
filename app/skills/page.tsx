@@ -22,7 +22,7 @@ const fellowships = [
     image: "/images/skills/Skills_Flagship_1.png",
     icon: BrainCircuit,
     href: "/skills/ai-ml-data-science",
-    accent: "#5C7146", // olive
+    theme: { bgLight: "bg-[#5C7146]/10", bgHover: "group-hover:bg-[#566544]", textNorm: "text-[#5C7146]", textHover: "group-hover:text-white" },
     outcomes: ["Machine learning pipelines", "Generative AI applications", "Predictive data analytics models"],
   },
   {
@@ -34,7 +34,7 @@ const fellowships = [
     image: "/images/skills/Skills_Flagship_2.png",
     icon: Landmark,
     href: "/skills/applied-finance-investment-banking",
-    accent: "#8E8B42", // gold-olive
+    theme: { bgLight: "bg-[#8E8B42]/10", bgHover: "group-hover:bg-[#566544]", textNorm: "text-[#8E8B42]", textHover: "group-hover:text-white" },
     outcomes: ["DCF & LBO valuation models", "Equity research whitepapers", "M&A pitch deck preparation"],
   },
   {
@@ -46,7 +46,7 @@ const fellowships = [
     image: "/images/skills/Skills_Flagship_3.png",
     icon: Cpu,
     href: "/skills/robotics-drone-science",
-    accent: "#DCA543", // warm gold
+    theme: { bgLight: "bg-[#DCA543]/10", bgHover: "group-hover:bg-[#566544]", textNorm: "text-[#DCA543]", textHover: "group-hover:text-white" },
     outcomes: ["Autonomous drone pathing", "IoT sensor array integrations", "CAD blueprints & physical MVPs"],
   },
   {
@@ -58,7 +58,7 @@ const fellowships = [
     image: "/images/skills/Skills_Flagship_4.png",
     icon: Globe,
     href: "/skills/policy-economics-diplomacy",
-    accent: "#A87A43", // bronze
+    theme: { bgLight: "bg-[#A87A43]/10", bgHover: "group-hover:bg-[#566544]", textNorm: "text-[#A87A43]", textHover: "group-hover:text-white" },
     outcomes: ["Geopolitical risk reports", "Published policy drafts", "Economic impact assessments"],
   },
   {
@@ -70,7 +70,7 @@ const fellowships = [
     image: "/images/skills/Skills_Flagship_5.png",
     icon: Microscope,
     href: "/skills/research-patent-incubator",
-    accent: "#5C6A46", // forest green
+    theme: { bgLight: "bg-[#5C6A46]/10", bgHover: "group-hover:bg-[#566544]", textNorm: "text-[#5C6A46]", textHover: "group-hover:text-white" },
     outcomes: ["Provisional patent drafts", "Exhaustive prior art search documentation", "Intellectual property strategy"],
   },
 ];
@@ -215,10 +215,9 @@ export default function SkillsPage() {
                     />
                     {/* Icon Floating Badge */}
                     <div
-                      className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center text-[#FDFBF7] shadow-lg shrink-0 transition-transform duration-300 group-hover:scale-105"
-                      style={{ backgroundColor: fellow.accent }}
+                      className={`absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg shrink-0 transition-all duration-300 group-hover:scale-105 ${fellow.theme.bgLight} ${fellow.theme.textNorm} ${fellow.theme.bgHover} ${fellow.theme.textHover}`}
                     >
-                      <Icon className="w-6 h-6" strokeWidth={1.8} />
+                      <Icon className="w-6 h-6 transition-colors duration-300" strokeWidth={1.8} />
                     </div>
                   </div>
 
@@ -228,8 +227,7 @@ export default function SkillsPage() {
                       {/* Num badge + name */}
                       <div className="flex items-center gap-3 mb-3">
                         <span
-                          className="text-[10px] font-black uppercase tracking-[0.16em]"
-                          style={{ color: fellow.accent }}
+                          className={`text-[10px] font-black uppercase tracking-[0.16em] ${fellow.theme.textNorm}`}
                         >
                           Fellowship {fellow.num}
                         </span>
@@ -263,8 +261,7 @@ export default function SkillsPage() {
                     <div className="pt-4 border-t border-[#4A4333]/6">
                       <Link
                         href={fellow.href}
-                        className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider transition-colors duration-200"
-                        style={{ color: fellow.accent }}
+                        className={`inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider transition-colors duration-200 ${fellow.theme.textNorm}`}
                       >
                         Explore Fellowship Details
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.5} />

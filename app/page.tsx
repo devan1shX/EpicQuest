@@ -1,7 +1,7 @@
 import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Microscope, Cpu, ScrollText, FileBadge, GraduationCap, Brain, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -139,8 +139,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section header */}
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-4">
-            <div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Why Choose Us
               </span>
@@ -148,13 +148,13 @@ export default function Home() {
                 Results That Speak<br className="hidden sm:inline" /> For <WavyUnderline>Themselves</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Built on real student outcomes,<br className="hidden sm:inline" /> not projections.
             </p>
           </div>
 
           {/* Stats row with dividers */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-y lg:divide-y-0 divide-[#4A4333]/15 border border-[#4A4333]/15 rounded-2xl overflow-hidden bg-white/40">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-y lg:divide-y-0 divide-[#4A4333]/15 border border-[#4A4333]/15 rounded-2xl overflow-hidden bg-[#FDFBF7]">
             {[
               { stat: "94%", label: "Admission Rate", sub: "Top-20 global universities" },
               { stat: "3×", label: "Portfolio Strength", sub: "More achievements than peers" },
@@ -189,8 +189,8 @@ export default function Home() {
       <section className="w-full py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
-            <div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Our Programs
               </span>
@@ -198,7 +198,7 @@ export default function Home() {
                 Everything <WavyUnderline>We Offer</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm text-[#4A4333] font-serif max-w-sm leading-relaxed lg:text-right">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Every program builds a world-class university portfolio. Choose your path — or let us map one for you.
             </p>
           </div>
@@ -207,92 +207,65 @@ export default function Home() {
             {[
               {
                 num: "01",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18h8M3 22h18M14 22a7 7 0 10-7-7h7M14 14V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v11M14 9h2.5M9 9h2.5" />
-                  </svg>
-                ),
-                href: "/programs/applied-research",
-                title: "Applied Research Publications",
-                desc: "Produce peer-reviewed papers in STEM, social sciences, or humanities with full editorial support.",
+                icon: Brain,
+                href: "/programs/psychometric-profiling",
+                title: "Psychometric Profiling",
+                desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
               },
               {
                 num: "02",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.1a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                ),
-                href: "/programs/prototype-development",
-                title: "Prototype Development",
-                desc: "Build working prototypes in hardware, software, industrial design, or biotech.",
+                icon: Microscope,
+                href: "/programs/applied-research",
+                title: "Skills Development & Research",
+                desc: "Build real academic credentials through our flagship Skills Academy programs — spanning AI/ML, Finance, Robotics, Biotech, Policy, and Research. Develop peer-reviewed publications, prototypes, and innovation portfolios under expert mentorship.",
               },
               {
                 num: "03",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-                  </svg>
-                ),
-                href: "/programs/policy-drafts",
-                title: "Published Policy Drafts",
-                desc: "Author policy briefs submitted to think tanks, NGOs, or government portals.",
+                icon: Cpu,
+                href: "/programs/prototype-development",
+                title: "Prototype Development",
+                desc: "Engineer working prototypes in hardware, software, industrial design, or biotech. From concept to functional model, students document their build process and present to industry panels — creating tangible proof of innovation.",
               },
               {
                 num: "04",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                ),
-                href: "/programs/patent-filing",
-                title: "Patent Filing Support",
-                desc: "Navigate the full patent application process for truly original inventions.",
+                icon: ScrollText,
+                href: "/programs/policy-drafts",
+                title: "Published Policy Drafts",
+                desc: "Author original policy briefs submitted to real think tanks, NGOs, or government portals. Students engage with live policy challenges and receive editorial guidance from former civil servants and academics.",
               },
               {
                 num: "05",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-                  </svg>
-                ),
-                href: "/programs/apprenticeships",
-                title: "Apprenticeships & Internships",
-                desc: "Gain hands-on experience with research labs, startups, and policy organisations.",
+                icon: FileBadge,
+                href: "/programs/patent-filing",
+                title: "Patent Filing Support",
+                desc: "Navigate the full patent application process for truly original inventions — from prior art searches and claims drafting to USPTO/IPO submission. Students emerge with a filed patent application and a deep understanding of IP law.",
               },
               {
                 num: "06",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" />
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                  </svg>
-                ),
-                href: "/programs/psychometric-profiling",
-                title: "Psychometric Profiling",
-                desc: "Discover your unique cognitive strengths and align your portfolio accordingly.",
+                icon: GraduationCap,
+                href: "/programs/apprenticeships",
+                title: "Apprenticeships & Internships",
+                desc: "Gain structured, hands-on experience with research labs, funded startups, and policy organisations. Placements are curated to align with each student's portfolio track and university goals.",
               },
-            ].map(({ num, icon, href, title, desc }) => (
+            ].map(({ num, icon: Icon, href, title, desc }) => (
               <Link
                 key={title}
                 href={href}
-                className="group relative flex flex-col gap-4 p-6 sm:p-7 rounded-2xl border border-[#4A4333]/12 bg-white/30 hover:bg-white/70 hover:border-[#5C7146]/25 hover:shadow-md transition-all duration-300"
+                className="group relative flex flex-col gap-4 p-7 sm:p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/8 hover:border-[#566544]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out overflow-hidden"
               >
                 {/* Number accent */}
-                <span className="absolute top-5 right-6 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
+                <span className="absolute top-6 right-8 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
 
-                <div className="w-11 h-11 rounded-xl bg-[#5C7146]/10 flex items-center justify-center text-[#5C7146] group-hover:bg-[#5C7146] group-hover:text-white transition-all duration-300 shrink-0">
-                  {icon}
+                <div className="w-11 h-11 rounded-xl bg-[#566544]/10 flex items-center justify-center text-[#566544] group-hover:bg-[#566544] group-hover:text-white transition-all duration-300 shrink-0">
+                  <Icon className="w-5 h-5" strokeWidth={1.8} />
                 </div>
                 <div>
                   <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
-                  <p className="text-[#5A5A5A] text-sm font-serif leading-relaxed">{desc}</p>
+                  <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
                 </div>
-                <span className="text-[#5C7146] text-[0.8rem] font-semibold flex items-center gap-1.5 mt-auto pt-1">
-                  Learn more
-                  <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                  Explore Details
+                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
                 </span>
               </Link>
             ))}
@@ -318,16 +291,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
-            <div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Flagship Pathways
+                Skills Academy
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 The Flagship <WavyUnderline>Skills Academy</WavyUnderline>
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-md leading-relaxed lg:text-right">
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               EpicQuest students build institutional-grade capabilities, published academic research, and provisional patents years before their peers.
             </p>
           </div>
@@ -416,9 +389,9 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5C7146] mt-4 uppercase tracking-wider group-hover:underline">
+                  <span className="inline-flex items-center gap-2 text-xs font-bold text-[#5C7146] mt-4 uppercase tracking-wider transition-colors duration-200">
                     Explore Fellowship
-                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
                   </span>
                 </div>
               </Link>
@@ -442,14 +415,16 @@ export default function Home() {
       {/* ── 4. THE EPICQUEST METHOD ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-14">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              The EpicQuest Method
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Your Bespoke <WavyUnderline>Portfolio Journey</WavyUnderline>
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-xl leading-relaxed">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                The EpicQuest Method
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Your Bespoke <WavyUnderline>Portfolio Journey</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               From psychometric assessment to final portfolio submission — a structured, milestone-driven journey tailored entirely to you.
             </p>
           </div>
@@ -598,19 +573,19 @@ export default function Home() {
       {/* ── 5. SUCCESS STORIES ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-12">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              Success Stories
-            </span>
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Success Stories
+              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Champion Achievers{" "}
                 <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
-              <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
-                Published research. Filed patents. Real-world experience. Ivy League results.
-              </p>
             </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+              Published research. Filed patents. Real-world experience. Ivy League results.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -640,7 +615,7 @@ export default function Home() {
                 tag: "Policy Draft",
               },
             ].map(({ src, alt, quote, name, uni, tag }) => (
-              <div key={name} className="group flex flex-col rounded-2xl overflow-hidden border border-[#4A4333]/10 bg-white/40 hover:shadow-lg transition-shadow duration-300">
+              <div key={name} className="group flex flex-col rounded-[2rem] overflow-hidden border border-[#4A4333]/10 bg-[#FDFBF7] hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300">
                 {/* Image */}
                 <div className="relative w-full aspect-[4/3] bg-[#E0DDD5] overflow-hidden">
                   <Image src={src} alt={alt} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-700" />
@@ -668,14 +643,16 @@ export default function Home() {
       {/* ── 6. PARTNERS & AFFILIATIONS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-10">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              Partners & Affiliations
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Partners & Affiliations
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>

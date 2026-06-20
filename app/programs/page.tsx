@@ -135,31 +135,26 @@ export default function ProgramsPage() {
               {programs.map((prog, idx) => {
                 const Icon = prog.icon;
                 return (
-                  <div
+                  <Link
                     key={prog.id}
-                    className="group relative bg-[#FDFBF7] border border-[#DCA543]/60 rounded-[1.5rem] px-6 sm:px-7 pb-6 sm:pb-7 pt-4 sm:pt-5 flex flex-col hover:shadow-xl hover:border-[#DCA543] transition-all duration-300 h-full"
+                    href={prog.href}
+                    className="group relative flex flex-col gap-4 p-7 sm:p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/8 hover:border-[#566544]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out overflow-hidden"
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#566544]/10 text-[#566544] flex items-center justify-center shrink-0 group-hover:bg-[#566544] group-hover:text-[#FDFBF7] transition-colors duration-300">
-                        <Icon className="w-5 h-5" strokeWidth={1.8} />
-                      </div>
-                      <h3 className="text-[17px] sm:text-[19px] font-serif font-semibold text-[#403011] leading-tight">
-                        {prog.title}
-                      </h3>
+                    {/* Number accent */}
+                    <span className="absolute top-6 right-8 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{prog.num}</span>
+
+                    <div className="w-11 h-11 rounded-xl bg-[#566544]/10 flex items-center justify-center text-[#566544] group-hover:bg-[#566544] group-hover:text-white transition-all duration-300 shrink-0">
+                      <Icon className="w-5 h-5" strokeWidth={1.8} />
                     </div>
-
-                    <p className="text-[13px] sm:text-[14px] text-[#4A4333]/90 font-serif leading-relaxed mb-6 flex-1">
-                      {prog.desc}
-                    </p>
-
-                    <Link
-                      href={prog.href}
-                      className="inline-flex items-center gap-2 text-[12px] font-serif italic text-[#8A7340] group-hover:text-[#DCA543] transition-colors duration-300"
-                    >
-                      <span>Explore details</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={2} />
-                    </Link>
-                  </div>
+                    <div>
+                      <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{prog.title}</h3>
+                      <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{prog.desc}</p>
+                    </div>
+                    <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                      Explore Details
+                      <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
+                    </span>
+                  </Link>
                 );
               })}
             </div>

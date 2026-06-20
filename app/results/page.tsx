@@ -472,7 +472,7 @@ export default function ResultsPage() {
                 tag: "Policy Draft",
               },
             ].map(({ src, alt, quote, name, uni, tag }) => (
-              <div key={name} className="group flex flex-col rounded-2xl overflow-hidden border border-[#4A4333]/10 bg-[#F6EBD4]/40 hover:bg-white hover:shadow-lg transition-all duration-300">
+              <div key={name} className="group flex flex-col rounded-[2rem] overflow-hidden border border-[#4A4333]/10 bg-[#FDFBF7] hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300">
                 {/* Image */}
                 <div className="relative w-full aspect-[4/3] bg-[#E0DDD5] overflow-hidden">
                   <Image src={src} alt={alt} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-700" />
