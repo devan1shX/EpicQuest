@@ -417,7 +417,7 @@ export default function DiagnosticTestPage() {
                   What Your Report Looks Like
                 </h3>
                 <p className="text-xs sm:text-sm text-[#4A4333]/80 font-serif leading-relaxed">
-                  A 30+ page personalised dossier covering personality mapping, career alignment, and profession suitability.
+                  A personalised dossier covering personality mapping, career alignment, and profession suitability.
                 </p>
               </div>
 
@@ -511,7 +511,7 @@ export default function DiagnosticTestPage() {
         <div className="py-16 sm:py-24">
           <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center gap-6">
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
-              {testStarted ? 'ASSESSMENT IN PROGRESS' : 'READY TO BEGIN?'}
+              {false && testStarted ? 'ASSESSMENT IN PROGRESS' : 'READY TO BEGIN?'}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
               Discover Your Child&apos;s{" "}
@@ -523,12 +523,12 @@ export default function DiagnosticTestPage() {
               </span>
             </h2>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-2xl">
-              {testStarted
-                ? 'Complete the assessment below to receive your personalised 30+ page diagnostic report instantly.'
-                : 'Take the EpicQuest Leadership Diagnostic Assessment — a 5-minute, science-backed tool that maps personality to career pathways. Get your 30+ page personalised report instantly.'
+              {false && testStarted
+                ? 'Complete the assessment below to receive your personalised diagnostic report instantly.'
+                : 'Take the EpicQuest Leadership Diagnostic Assessment — a science-backed tool that maps personality to career pathways. Contact us to learn more.'
               }
             </p>
-            {!testStarted && (
+            {false && !testStarted && (
               <button
                 onClick={() => {
                   setTestStarted(true);
@@ -543,15 +543,26 @@ export default function DiagnosticTestPage() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             )}
-            <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#8A8373] font-serif uppercase tracking-widest font-bold">
-              <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0" />
-              Free · 5 Minutes · Instant 30+ Page Report
-            </div>
+
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-base tracking-wide transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(92,113,70,0.35)] hover:-translate-y-0.5 group"
+            >
+              Contact Us
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+
+            {false && (
+              <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#8A8373] font-serif uppercase tracking-widest font-bold">
+                <CheckCircle2 className="w-4 h-4 text-[#566544] shrink-0" />
+                Free · 5 Minutes · Instant Diagnostic Report
+              </div>
+            )}
           </div>
         </div>
 
         {/* Test Portal — visible only after CTA is clicked */}
-        {testStarted && (
+        {false && (
           <div id="test-portal" className="py-16 sm:py-24 relative">
 
             {/* Background elements */}
