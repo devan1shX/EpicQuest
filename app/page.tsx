@@ -1,7 +1,7 @@
 import WavyUnderline from "@/components/ui/WavyUnderline";
 import Image from "next/image";
 import Link from "next/link";
-import { Microscope, Cpu, ScrollText, FileBadge, GraduationCap, Brain, ArrowRight } from "lucide-react";
+import { Microscope, Cpu, ScrollText, FileBadge, GraduationCap, Brain, ArrowRight, Compass, Activity, BrainCircuit, Landmark, Globe } from "lucide-react";
 
 export default function Home() {
   return (
@@ -134,285 +134,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 2. STATS ── */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-24 border-t border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-
-          {/* Section header */}
-          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Why Choose Us
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Results That Speak<br className="hidden sm:inline" /> For <WavyUnderline>Themselves</WavyUnderline>
-              </h2>
-            </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              Built on real student outcomes,<br className="hidden sm:inline" /> not projections.
-            </p>
-          </div>
-
-          {/* Stats row with dividers */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-y lg:divide-y-0 divide-[#4A4333]/15 border border-[#4A4333]/15 rounded-2xl overflow-hidden bg-[#FDFBF7]">
-            {[
-              { stat: "94%", label: "Admission Rate", sub: "Top-20 global universities" },
-              { stat: "3×", label: "Portfolio Strength", sub: "More achievements than peers" },
-              { stat: "50+", label: "Publications", sub: "Recognised research venues" },
-              { stat: "12", label: "Patents Filed", sub: "Original student inventions" },
-            ].map(({ stat, label, sub }, i) => (
-              <div key={label} className="flex flex-col items-start gap-1.5 px-6 py-8 sm:px-8 sm:py-10 group hover:bg-[#5C7146]/4 transition-colors duration-300">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#5C7146] font-medium leading-none tabular-nums">{stat}</div>
-                <div className="text-[0.7rem] font-bold text-[#403011] uppercase tracking-[0.12em] mt-1">{label}</div>
-                <div className="text-xs text-[#6A6A6A] font-serif leading-snug">{sub}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Info callout */}
-          <div className="mt-8 rounded-2xl overflow-hidden border border-[#5C7146]/15 flex flex-col sm:flex-row">
-            <div className="bg-[#5C7146] px-6 py-5 flex items-center justify-center sm:w-16 shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-              </svg>
-            </div>
-            <div className="bg-[#5C7146]/6 px-6 py-5">
-              <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
-                EpicQuest is the <strong className="text-[#403011] font-semibold">only high-school programme</strong> that combines psychometric profiling, applied research, patent filing, and professional apprenticeships into a single, cohesive portfolio-building journey.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. PROGRAMS ── */}
-      <section className="w-full py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-
-          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Our Programs
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Everything <WavyUnderline>We Offer</WavyUnderline>
-              </h2>
-            </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              Every program builds a world-class university portfolio. Choose your path — or let us map one for you.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                num: "01",
-                icon: Brain,
-                href: "/programs/psychometric-profiling",
-                title: "Psychometric Profiling",
-                desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
-              },
-              {
-                num: "02",
-                icon: Microscope,
-                href: "/programs/applied-research",
-                title: "Skills Development & Research",
-                desc: "Build real academic credentials through our flagship Skills Academy programs — spanning AI/ML, Finance, Robotics, Biotech, Policy, and Research. Develop peer-reviewed publications, prototypes, and innovation portfolios under expert mentorship.",
-              },
-              {
-                num: "03",
-                icon: Cpu,
-                href: "/programs/prototype-development",
-                title: "Prototype Development",
-                desc: "Engineer working prototypes in hardware, software, industrial design, or biotech. From concept to functional model, students document their build process and present to industry panels — creating tangible proof of innovation.",
-              },
-              {
-                num: "04",
-                icon: ScrollText,
-                href: "/programs/policy-drafts",
-                title: "Published Policy Drafts",
-                desc: "Author original policy briefs submitted to real think tanks, NGOs, or government portals. Students engage with live policy challenges and receive editorial guidance from former civil servants and academics.",
-              },
-              {
-                num: "05",
-                icon: FileBadge,
-                href: "/programs/patent-filing",
-                title: "Patent Filing Support",
-                desc: "Navigate the full patent application process for truly original inventions — from prior art searches and claims drafting to USPTO/IPO submission. Students emerge with a filed patent application and a deep understanding of IP law.",
-              },
-              {
-                num: "06",
-                icon: GraduationCap,
-                href: "/programs/apprenticeships",
-                title: "Apprenticeships & Internships",
-                desc: "Gain structured, hands-on experience with research labs, funded startups, and policy organisations. Placements are curated to align with each student's portfolio track and university goals.",
-              },
-            ].map(({ num, icon: Icon, href, title, desc }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group relative flex flex-col gap-4 p-7 sm:p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/8 hover:border-[#566544]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out overflow-hidden"
-              >
-                {/* Number accent */}
-                <span className="absolute top-6 right-8 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
-
-                <div className="w-11 h-11 rounded-xl bg-[#566544]/10 flex items-center justify-center text-[#566544] group-hover:bg-[#566544] group-hover:text-white transition-all duration-300 shrink-0">
-                  <Icon className="w-5 h-5" strokeWidth={1.8} />
-                </div>
-                <div>
-                  <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
-                  <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
-                </div>
-                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
-                  Explore Details
-                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Bottom CTA card */}
-          <div className="mt-8 bg-[#F6EBD4] rounded-2xl p-7 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#4A4333]/10">
-            <p className="text-[#403011] font-serif text-sm sm:text-base max-w-md leading-relaxed">
-              Not sure which program fits? Book a <strong className="font-semibold">free consultation</strong> and we'll map your personalised plan.
-            </p>
-            <Link
-              href="/contact"
-              className="shrink-0 inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Book Free Consultation
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3.5 SKILLS ACADEMY ── */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-b border-[#4A4333]/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-
-          {/* Section Header */}
-          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Skills Academy
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                The Flagship <WavyUnderline>Skills Academy</WavyUnderline>
-              </h2>
-            </div>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              EpicQuest students build institutional-grade capabilities, published academic research, and provisional patents years before their peers.
-            </p>
-          </div>
-
-          {/* 5-Fellowship Visual Grid Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "AI / ML & Data Science",
-                href: "/skills/ai-ml-data-science",
-                tag: "Python Foundations",
-                desc: "Train predictive models, analyze finance datasets, and build live streamlit dashboards.",
-                img: "/images/skills/Skills_Flagship_1.png",
-                span: "lg:col-span-3",
-                focus: ["Machine Learning", "Streamlit Dashboards", "Exploratory Data"],
-              },
-              {
-                title: "Applied Finance & Investment Banking",
-                href: "/skills/applied-finance-investment-banking",
-                tag: "Business Valuation",
-                desc: "Master three-statement linkage modeling, DCF formulas, and M&A pitch books.",
-                img: "/images/skills/Skills_Flagship_2.png",
-                span: "lg:col-span-3",
-                focus: ["DCF Valuation", "3-Statement Models", "M&A Pitching"],
-              },
-              {
-                title: "Robotics & Drone Science",
-                href: "/skills/robotics-drone-science",
-                tag: "Autonomous Hardware",
-                desc: "Engineer composite drone chassis in Autodesk Fusion 360 and program flight navigation scripts.",
-                img: "/images/skills/Skills_Flagship_3.png",
-                span: "lg:col-span-2",
-                focus: ["Autodesk CAD", "Flight Automation", "Arduino Systems"],
-              },
-              {
-                title: "Policy, Economics & Diplomacy",
-                href: "/skills/policy-economics-diplomacy",
-                tag: "Global Governance",
-                desc: "Author empirical policy memos and defend negotiation solutions before Model UN panels.",
-                img: "/images/skills/Skills_Flagship_4.png",
-                span: "lg:col-span-2",
-                focus: ["Policy Writing", "Macroeconomics", "Bilateral Negotiating"],
-              },
-              {
-                title: "Research & Patent Incubator",
-                href: "/skills/research-patent-incubator",
-                tag: "Academic IP Builder",
-                desc: "Draft technical provisional patent claims and publish peer-reviewed scientific manuscripts.",
-                img: "/images/skills/Skills_Flagship_5.png",
-                span: "lg:col-span-2",
-                focus: ["Provisional Patents", "LaTeX Manuscripts", "Mentor Evaluated"],
-              },
-            ].map((skill, idx) => (
-              <Link
-                key={skill.title}
-                href={skill.href}
-                className={`group relative bg-white rounded-[2.5rem] border border-[#4A4333]/8 shadow-sm hover:shadow-xl hover:border-[#5C7146]/25 hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden p-6 sm:p-8 ${skill.span}`}
-              >
-                {/* Asymmetric Overlay Image on Hover */}
-                <div className="absolute inset-0 bg-[#403011]/30 opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none z-0" />
-
-                <div className="relative z-10">
-                  {/* Top bar */}
-                  <div className="flex items-center justify-between border-b border-[#4A4333]/8 pb-4 mb-5">
-                    <span className="text-[9px] font-bold text-[#DCA543] uppercase tracking-[0.14em]">
-                      {skill.tag}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-serif font-bold text-[#403011] tracking-tight leading-snug group-hover:text-[#5C7146] transition-colors duration-300 mb-3">
-                    {skill.title}
-                  </h3>
-                  <p className="text-sm text-[#4A4333]/90 font-serif leading-relaxed mb-6">
-                    {skill.desc}
-                  </p>
-                </div>
-
-                {/* Sub-Focus tags */}
-                <div className="relative z-10 pt-5 border-t border-[#4A4333]/8 mt-auto">
-                  <div className="flex flex-wrap gap-1">
-                    {skill.focus.map((f) => (
-                      <span key={f} className="text-[10px] font-medium bg-[#5C7146]/6 text-[#5C7146] px-2 py-0.5 rounded">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-
-                  <span className="inline-flex items-center gap-2 text-xs font-bold text-[#5C7146] mt-4 uppercase tracking-wider transition-colors duration-200">
-                    Explore Fellowship
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2.5} />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Quick link to Skills hub */}
-          <div className="text-center mt-14">
-            <Link
-              href="/skills"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Enter Skills Academy Hub
-              <ArrowRight className="w-4.5 h-4.5" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 4. THE EPICQUEST METHOD ── */}
+      {/* ── 2. THE EPICQUEST METHOD ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
@@ -567,27 +289,257 @@ export default function Home() {
           <p className="text-center text-sm text-[#4A4333] font-serif max-w-2xl mx-auto mt-14 leading-relaxed">
             Our four-phase framework ensures every student builds a coherent, compelling narrative — one that admissions officers at Harvard, Yale, Stanford, and beyond will remember.
           </p>
+
+          {/* CTA to learn more */}
+          <div className="text-center mt-8">
+            <Link
+              href="/the-epicquest-method"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Learn More About Our Method
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── 5. SUCCESS STORIES ── */}
-      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
+      {/* ── 3. PROGRAMS ── */}
+      <section className="w-full py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
               <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-                Success Stories
+                Our Programs
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
-                Champion Achievers{" "}
-                <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
+                Everything <WavyUnderline>We Offer</WavyUnderline>
               </h2>
             </div>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              Published research. Filed patents. Real-world experience. Ivy League results.
+              Every program builds a world-class university portfolio. Choose your path — or let us map one for you.
             </p>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                num: "01",
+                icon: Brain,
+                href: "/programs/psychometric-profiling",
+                title: "Psychometric Profiling",
+                desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
+              },
+              {
+                num: "02",
+                icon: Microscope,
+                href: "/programs/applied-research",
+                title: "Skills Development & Research",
+                desc: "Build real academic credentials through our flagship Skills Academy programs — spanning AI/ML, Finance, Robotics, Biotech, Policy, and Research. Develop peer-reviewed publications, prototypes, and innovation portfolios under expert mentorship.",
+              },
+              {
+                num: "03",
+                icon: Cpu,
+                href: "/programs/prototype-development",
+                title: "Prototype Development",
+                desc: "Engineer working prototypes in hardware, software, industrial design, or biotech. From concept to functional model, students document their build process and present to industry panels — creating tangible proof of innovation.",
+              },
+              {
+                num: "04",
+                icon: ScrollText,
+                href: "/programs/policy-drafts",
+                title: "Published Policy Drafts",
+                desc: "Author original policy briefs submitted to real think tanks, NGOs, or government portals. Students engage with live policy challenges and receive editorial guidance from former civil servants and academics.",
+              },
+              {
+                num: "05",
+                icon: FileBadge,
+                href: "/programs/patent-filing",
+                title: "Patent Filing Support",
+                desc: "Navigate the full patent application process for truly original inventions — from prior art searches and claims drafting to USPTO/IPO submission. Students emerge with a filed patent application and a deep understanding of IP law.",
+              },
+              {
+                num: "06",
+                icon: GraduationCap,
+                href: "/programs/apprenticeships",
+                title: "Apprenticeships & Internships",
+                desc: "Gain structured, hands-on experience with research labs, funded startups, and policy organisations. Placements are curated to align with each student's portfolio track and university goals.",
+              },
+            ].map(({ num, icon: Icon, href, title, desc }) => (
+              <Link
+                key={title}
+                href={href}
+                className="group relative flex flex-col gap-4 p-7 sm:p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/8 hover:border-[#566544]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out overflow-hidden"
+              >
+                {/* Number accent */}
+                <span className="absolute top-6 right-8 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
+
+                <div className="w-11 h-11 rounded-xl bg-[#566544]/10 flex items-center justify-center text-[#566544] group-hover:bg-[#566544] group-hover:text-white transition-all duration-300 shrink-0">
+                  <Icon className="w-5 h-5" strokeWidth={1.8} />
+                </div>
+                <div>
+                  <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
+                  <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
+                </div>
+                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                  Explore Details
+                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom CTA card */}
+          <div className="mt-8 bg-[#F6EBD4] rounded-2xl p-7 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#4A4333]/10">
+            <p className="text-[#403011] font-serif text-sm sm:text-base max-w-md leading-relaxed">
+              Not sure which program fits? Book a <strong className="font-semibold">free consultation</strong> and we'll map your personalised plan.
+            </p>
+            <Link
+              href="/contact"
+              className="shrink-0 inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Book Free Consultation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. SKILLS ACADEMY ── */}
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-b border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Skills Academy
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                The Flagship <WavyUnderline>Skills Academy</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
+              EpicQuest students build institutional-grade capabilities, published academic research, and provisional patents years before their peers.
+            </p>
+          </div>
+
+          {/* 5-Fellowship Visual Grid Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                title: "AI / ML & Data Science",
+                href: "/skills/ai-ml-data-science",
+                tag: "Python Foundations",
+                desc: "Train predictive models, analyze finance datasets, and build live streamlit dashboards.",
+                icon: BrainCircuit,
+                num: "01"
+              },
+              {
+                title: "Applied Finance & Investment Banking",
+                href: "/skills/applied-finance-investment-banking",
+                tag: "Business Valuation",
+                desc: "Master three-statement linkage modeling, DCF formulas, and M&A pitch books.",
+                icon: Landmark,
+                num: "02"
+              },
+              {
+                title: "Robotics & Drone Science",
+                href: "/skills/robotics-drone-science",
+                tag: "Autonomous Hardware",
+                desc: "Engineer composite drone chassis in Autodesk Fusion 360 and program flight navigation scripts.",
+                icon: Cpu,
+                num: "03"
+              },
+              {
+                title: "Policy, Economics & Diplomacy",
+                href: "/skills/policy-economics-diplomacy",
+                tag: "Global Governance",
+                desc: "Author empirical policy memos and defend negotiation solutions before Model UN panels.",
+                icon: Globe,
+                num: "04"
+              },
+              {
+                title: "Research & Patent Incubator",
+                href: "/skills/research-patent-incubator",
+                tag: "Academic IP Builder",
+                desc: "Draft technical provisional patent claims and publish peer-reviewed scientific manuscripts.",
+                icon: Microscope,
+                num: "05"
+              },
+            ].map(({ num, icon: Icon, href, title, desc }) => (
+              <Link
+                key={title}
+                href={href}
+                className="group relative flex flex-col gap-4 p-7 sm:p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#4A4333]/8 hover:border-[#566544]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out overflow-hidden"
+              >
+                {/* Number accent */}
+                <span className="absolute top-6 right-8 text-[0.65rem] font-bold text-[#4A4333]/25 font-serif tracking-widest select-none">{num}</span>
+
+                <div className="w-11 h-11 rounded-xl bg-[#566544]/10 flex items-center justify-center text-[#566544] group-hover:bg-[#566544] group-hover:text-white transition-all duration-300 shrink-0">
+                  <Icon className="w-5 h-5" strokeWidth={1.8} />
+                </div>
+                <div>
+                  <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
+                  <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
+                </div>
+                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                  Explore Fellowship
+                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Quick link to Skills hub */}
+          <div className="text-center mt-14">
+            <Link
+              href="/skills"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Enter Skills Academy Hub
+              <ArrowRight className="w-4.5 h-4.5" />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 5. RESULTS & SUCCESS STORIES (MERGED) ── */}
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Proven Outcomes
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Results That <WavyUnderline>Speak</WavyUnderline> For Themselves
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
+              Built on real student outcomes, not projections. Published research, filed patents, Ivy League results.
+            </p>
+          </div>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-y lg:divide-y-0 divide-[#4A4333]/15 border border-[#4A4333]/15 rounded-2xl overflow-hidden bg-[#FDFBF7] mb-14">
+            {[
+              { stat: "94%", label: "Admission Rate", sub: "Top-20 global universities" },
+              { stat: "3×", label: "Portfolio Strength", sub: "More achievements than peers" },
+              { stat: "50+", label: "Publications", sub: "Recognised research venues" },
+              { stat: "12", label: "Patents Filed", sub: "Original student inventions" },
+            ].map(({ stat, label, sub }) => (
+              <div key={label} className="flex flex-col items-start gap-1.5 px-6 py-8 sm:px-8 sm:py-10 group hover:bg-[#5C7146]/4 transition-colors duration-300">
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#5C7146] font-medium leading-none tabular-nums">{stat}</div>
+                <div className="text-[0.7rem] font-bold text-[#403011] uppercase tracking-[0.12em] mt-1">{label}</div>
+                <div className="text-xs text-[#6A6A6A] font-serif leading-snug">{sub}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Student Testimonials */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -627,7 +579,7 @@ export default function Home() {
                 {/* Content */}
                 <div className="flex flex-col gap-3 p-6">
                   <blockquote className="text-sm text-[#5A5A5A] font-serif italic leading-relaxed border-l-2 border-[#5C7146]/30 pl-3">
-                    "{quote}"
+                    &quot;{quote}&quot;
                   </blockquote>
                   <div className="pt-1 border-t border-[#4A4333]/10">
                     <div className="font-semibold text-[#403011] text-sm">{name}</div>
@@ -637,10 +589,210 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* CTA to full results */}
+          <div className="text-center mt-12">
+            <Link
+              href="/results"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              View All Results & Placements
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── 6. PARTNERS & AFFILIATIONS ── */}
+      {/* ── 6. DIAGNOSTIC REPORT TEASER ── */}
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Diagnostic Assessment
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Know Your Child&apos;s <WavyUnderline>Potential</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
+              Science-backed career & personality mapping for high school and college students — combining two globally validated frameworks in one powerful report.
+            </p>
+          </div>
+
+          {/* Content grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Left: Features */}
+            <div className="flex flex-col gap-6">
+              {[
+                {
+                  icon: Compass,
+                  title: "Gunaity Epicometer™",
+                  desc: "DISC-based personality assessment adapted for students — mapping behavioural styles across Drive, Influence, Support, and Clarity dimensions with 12 unique hybrid types.",
+                  tag: "D · Drive   I · Influence   S · Support   C · Clarity",
+                  tagColor: "text-[#566544] bg-[#566544]/10",
+                },
+                {
+                  icon: Activity,
+                  title: "Karmattitude™",
+                  desc: "Career interest & aptitude profiling across 6 career domains — linking personality strengths to real-world profession pathways.",
+                  tag: "6 Career Domains",
+                  tagColor: "text-[#DCA543] bg-[#DCA543]/10",
+                },
+              ].map((item) => {
+                const ItemIcon = item.icon;
+                return (
+                  <div key={item.title} className="bg-[#FDFBF7] border border-[#4A4333]/10 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 className="text-lg font-serif font-bold text-[#403011] mb-2 flex items-center gap-2">
+                      <ItemIcon className="w-4 h-4 text-[#566544]" />
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[#4A4333] font-serif leading-relaxed mb-3">
+                      {item.desc}
+                    </p>
+                    <div className={`text-[10px] font-bold ${item.tagColor} px-2 py-1 rounded w-fit uppercase tracking-wider`}>
+                      {item.tag}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Quick stats */}
+              <div className="flex flex-wrap gap-4">
+                {[
+                  { val: "5 min", label: "To Complete" },
+                  { val: "Instant", label: "Insights" },
+                  { val: "Detailed", label: "Analysis" },
+                ].map(({ val, label }) => (
+                  <div key={label} className="flex items-center gap-2.5 select-none">
+                    <span className="text-lg sm:text-xl font-serif font-semibold text-[#5C7146] leading-none">{val}</span>
+                    <span className="text-xs text-[#6A6A6A] font-serif leading-tight border-l border-[#4A4333]/20 pl-2.5">{label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <Link
+                href="/test"
+                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 w-fit"
+              >
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Right: Report preview image */}
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 w-52 h-52 rounded-full bg-[#DCA543]/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-6 -right-6 w-60 h-60 rounded-full bg-[#566544]/10 blur-3xl pointer-events-none" />
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#DCA543]/20 shadow-2xl bg-white">
+                <Image
+                  src="/images/diagnostic_test/Diagnostic_Hero.png"
+                  alt="EpicQuest Diagnostic Report Preview"
+                  width={600}
+                  height={800}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. TEAM SNAPSHOT ── */}
+      <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section Header */}
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Our Leadership
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Meet the <WavyUnderline>Team</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
+              IIT, IIM, MIT, and UPenn alumni with 700+ students mentored across 20+ countries. Real credentials, real results.
+            </p>
+          </div>
+
+          {/* Team Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                name: "Mr. Tilak Mishra",
+                role: "Founder Partner",
+                credential: "Univ. of Pennsylvania",
+                image: "/images/team/Team_Tilak.jpeg",
+                tag: "Ivy League Strategy",
+                accent: "#DCA543",
+              },
+              {
+                name: "Dr. Alok N Jha",
+                role: "Managing Partner",
+                credential: "IIT Delhi · CS PhD",
+                image: "/images/team/Team_Alok.jpeg",
+                tag: "Research & Innovation",
+                accent: "#8E8B42",
+              },
+              {
+                name: "Mr. Achal Nath",
+                role: "Managing Partner",
+                credential: "IIT Delhi · Mech Engg",
+                image: "/images/team/Team_Achal.jpeg",
+                tag: "Robotics & SDGs",
+                accent: "#566544",
+              },
+              {
+                name: "Mr. Pratham Naik",
+                role: "Head — US & Canada",
+                credential: "MIT Sloan · MBA",
+                image: "/images/team/Team_Pratham.png",
+                tag: "Entrepreneurship",
+                accent: "#566544",
+              },
+            ].map((member) => (
+              <div key={member.name} className="group flex flex-col rounded-[2rem] overflow-hidden border border-[#4A4333]/10 bg-[#FDFBF7] hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-[#566544]/30 transition-all duration-300">
+                {/* Image */}
+                <div className="relative w-full aspect-[3/4] bg-[#E0DDD5] overflow-hidden">
+                  <Image src={member.image} alt={member.name} fill className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2D3E1C]/40 to-transparent" />
+                  <span
+                    className="absolute top-4 left-4 text-[0.6rem] font-bold text-white px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm"
+                    style={{ backgroundColor: `${member.accent}CC` }}
+                  >
+                    {member.tag}
+                  </span>
+                </div>
+                {/* Content */}
+                <div className="flex flex-col gap-1 p-5">
+                  <h3 className="font-semibold text-[#403011] text-sm leading-snug">{member.name}</h3>
+                  <p className="text-[0.75rem] text-[#4A4333] font-serif">{member.role}</p>
+                  <p className="text-[0.7rem] text-[#8A8373] font-serif italic mt-0.5">{member.credential}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link
+              href="/team"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              Meet the Full Team
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. PARTNERS & AFFILIATIONS ── */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
@@ -653,7 +805,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
-              Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
+              Active collaborations with India&apos;s most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
 
@@ -689,14 +841,14 @@ export default function Home() {
             </div>
             <div className="bg-[#5C7146]/6 px-6 py-5">
               <p className="text-[#334155] font-serif text-sm sm:text-[0.95rem] leading-relaxed">
-                Affiliations with the <strong className="text-[#403011] font-semibold">Office of the Principal Scientific Adviser</strong> to the Government of India, ISB's Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic credibility.
+                Affiliations with the <strong className="text-[#403011] font-semibold">Office of the Principal Scientific Adviser</strong> to the Government of India, ISB&apos;s Bharti Institute of Public Policy, IIIT Delhi, and IETO represent active institutional endorsements — signalling to admissions committees worldwide that EpicQuest students operate at the highest levels of academic credibility.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 7. FINAL CTA ── */}
+      {/* ── 9. FINAL CTA ── */}
       <section className="w-full bg-[#F6EBD4] py-12 sm:py-16 lg:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative overflow-hidden bg-gradient-to-br from-[#2D3E1C] via-[#374D23] to-[#455434] rounded-3xl px-6 py-16 sm:px-12 md:px-20 md:py-20 shadow-2xl border border-[#5C7146]/20">
