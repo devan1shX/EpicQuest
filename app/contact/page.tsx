@@ -44,10 +44,10 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col w-full bg-[#F6EBD4] min-h-screen overflow-x-hidden">
 
-      <div className="lg:min-h-[calc(100vh-64px)] flex flex-col">
+      <div className="flex flex-col">
 
         {/* ══ HERO SECTION ══ */}
-        <section className="relative w-full overflow-hidden flex-1">
+        <section className="relative w-full overflow-hidden">
           {/* Ambient blobs */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full
                           bg-[#566544]/5 blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -260,13 +260,20 @@ export default function ContactPage() {
 
       {/* ══ BOOKING FORM SECTION ══ */}
       <section id="booking-form" className="w-full py-20 sm:py-28 relative">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          <div className="max-w-4xl">
 
-          <div className="text-center mb-14 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-[#403011] tracking-tight mb-5">
-              Secure <WavyUnderline>Your Slot</WavyUnderline>
-            </h2>
-            <p className="text-base sm:text-lg text-[#4A4333] font-serif max-w-xl mx-auto">
+          {/* Section Header */}
+          <div className="flex flex-col mb-12 lg:mb-14 gap-4">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                BOOK A SESSION
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Secure <WavyUnderline>Your Slot</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-2xl leading-relaxed mt-2">
               Please complete the form below. Our team typically responds within 24 hours to confirm your session.
             </p>
           </div>
@@ -407,6 +414,7 @@ export default function ContactPage() {
             )}
           </div>
 
+          </div>
         </div>
       </section>
 
