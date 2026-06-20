@@ -102,14 +102,16 @@ export default function ResultsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              EXCELLENCE. PROVEN.
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">
-              EpicQuest <WavyUnderline>Success Story</WavyUnderline>
-            </h2>
-            <p className="text-base sm:text-lg text-[#4A4333] font-serif leading-relaxed max-w-2xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                EXCELLENCE. PROVEN.
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                EpicQuest <WavyUnderline>Success Story</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               EpicQuest students have earned places at the world's most prestigious universities — from the Ivy League to global top-20 institutions.
             </p>
           </div>
@@ -135,22 +137,24 @@ export default function ResultsPage() {
       </section>
 
       {/* ═══ REAL-WORLD IMPACT: PATENTS & PUBLICATIONS ═══ */}
-      <section className="w-full bg-[#1F2C16] py-20 sm:py-28 relative z-10 overflow-hidden">
+      <section className="w-full bg-[#F6EBD4] py-20 sm:py-28 relative z-10 overflow-hidden border-b border-[#4A4333]/10">
 
-        {/* Subtle grid pattern overlay for dark mode texture */}
-        <div className="absolute inset-0 bg-[radial-gradient(#F6EBD4_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
+        {/* Subtle grid pattern overlay for texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(#4A4333_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="max-w-3xl mb-16 lg:mb-20">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              INTELLECTUAL CONTRIBUTIONS
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#F6EBD4] tracking-tight leading-tight mb-6">
-              Real-World Impact:<br />Patents <WavyUnderline>&amp; Publications</WavyUnderline>
-            </h2>
-            <p className="text-base sm:text-lg text-[#F6EBD4]/75 font-serif leading-relaxed max-w-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                INTELLECTUAL CONTRIBUTIONS
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Real-World Impact:<br />Patents <WavyUnderline>&amp; Publications</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               EpicQuest fellows produce verified, tangible, high-caliber intellectual outputs under PhD guidance that carry significant weight before entering university.
             </p>
           </div>
@@ -183,18 +187,18 @@ export default function ResultsPage() {
               ].map((folio) => {
                 const IconComp = folio.icon;
                 return (
-                  <div key={folio.num} className="group relative flex gap-6 pb-6 border-b border-[#F6EBD4]/10 transition-all duration-300">
-                    <span className="font-serif text-lg font-medium text-[#DCA543]/60 group-hover:text-[#DCA543] transition-colors duration-300 select-none">
+                  <div key={folio.num} className="group relative flex gap-6 pb-6 border-b border-[#4A4333]/10 transition-all duration-300">
+                    <span className="font-serif text-lg font-medium text-[#DCA543] group-hover:text-[#5C7146] transition-colors duration-300 select-none">
                       {folio.num}.
                     </span>
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <IconComp className="w-4 h-4 text-[#DCA543]/80 group-hover:text-[#DCA543] group-hover:scale-110 transition-all duration-300" />
-                        <h3 className="font-serif font-bold text-lg text-[#F6EBD4] tracking-wide group-hover:text-[#DCA543] transition-colors duration-300">
+                        <IconComp className="w-4 h-4 text-[#DCA543] group-hover:text-[#5C7146] group-hover:scale-110 transition-all duration-300" />
+                        <h3 className="font-serif font-bold text-lg text-[#403011] tracking-wide group-hover:text-[#5C7146] transition-colors duration-300">
                           {folio.title}
                         </h3>
                       </div>
-                      <p className="text-sm text-[#F6EBD4]/65 font-serif leading-relaxed mt-1">
+                      <p className="text-sm text-[#4A4333] font-serif leading-relaxed mt-1">
                         {folio.desc}
                       </p>
                     </div>
@@ -207,14 +211,14 @@ export default function ResultsPage() {
             {/* Right: Floating Museum Showcase */}
             <div className="lg:col-span-7 relative w-full">
               {/* Outer decorative backdrop glow */}
-              <div className="absolute inset-0 bg-[#DCA543]/5 rounded-[2.5rem] blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 bg-[#DCA543]/10 rounded-[2.5rem] blur-2xl pointer-events-none" />
 
               {/* Luxury Display Frame */}
-              <div className="relative p-3 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+              <div className="relative p-3 bg-white rounded-[2.5rem] border border-[#4A4333]/10 shadow-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#566544]/5 to-transparent pointer-events-none" />
 
                 {/* Image Container with precise golden inner border */}
-                <div className="relative w-full aspect-[2.1/1] rounded-[2rem] overflow-hidden border border-[#DCA543]/20 bg-[#162010]">
+                <div className="relative w-full aspect-[2.1/1] rounded-[2rem] overflow-hidden border border-[#DCA543]/40 bg-[#FDFBF7]">
                   <Image
                     src="/images/results/Results_RealWorldImapct.png"
                     alt="Authentic patent certificate and published research papers portfolio"
@@ -227,9 +231,9 @@ export default function ResultsPage() {
               </div>
 
               {/* Floating brass style placard caption */}
-              <div className="mt-5 px-6 flex items-center justify-between text-[11px] text-[#F6EBD4]/50 font-serif tracking-wider uppercase">
+              <div className="mt-5 px-6 flex items-center justify-between text-[11px] text-[#4A4333]/70 font-serif tracking-wider uppercase">
                 <span>EXHIBIT 1.1 — INTELLECTUAL PORTFOLIO</span>
-                <span className="text-[#DCA543]/70">VERIFIED OUTPUTS</span>
+                <span className="text-[#DCA543]">VERIFIED OUTPUTS</span>
               </div>
             </div>
 
@@ -247,14 +251,16 @@ export default function ResultsPage() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="max-w-4xl mb-16 lg:mb-20">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              EXAMPLES OF OUR CHANGEMAKER DESTINY
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-tight mb-6">
-              Real-World Impact: Deep Dive into <WavyUnderline>Student Work</WavyUnderline>
-            </h2>
-            <p className="text-base sm:text-lg text-[#4A4333]/80 font-serif leading-relaxed">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                EXAMPLES OF OUR CHANGEMAKER DESTINY
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Deep Dive into <WavyUnderline>Student Work</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Few examples of our deliverables - These are not hypothetical projects — every deliverable below was produced by a real EpicQuest student, guided by expert mentors, and recognised by institutions beyond the classroom.
             </p>
           </div>
@@ -364,14 +370,17 @@ export default function ResultsPage() {
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10 relative z-10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-          <div className="mb-10 animate-fade-up">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              50+ SUCCESS STORIES
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              A Few from Our Graduate Wall <WavyUnderline>of Fame</WavyUnderline>
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-xl leading-relaxed">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6 animate-fade-up">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                50+ SUCCESS STORIES
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                A Few from Our Graduate Wall <WavyUnderline>of Fame</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Every face below represents a dream achieved — a student who dared to go beyond grades.
             </p>
           </div>
@@ -430,19 +439,20 @@ export default function ResultsPage() {
       {/* ═══ SUCCESS STORIES (TESTIMONIALS) ═══ */}
       <section id="champion-achievers" className="w-full bg-[#F6EBD4] py-16 sm:py-24 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-12">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              STUDENT EXPERIENCES
-            </span>
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                STUDENT EXPERIENCES
+              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
                 Champion Achievers{" "}
                 <span className="text-[#8A8373] font-normal italic"><WavyUnderline>2026–27</WavyUnderline></span>
               </h2>
-              <p className="text-sm text-[#4A4333] font-serif max-w-xs leading-relaxed sm:text-right">
-                Published research. Filed patents. Real-world experience. Ivy League results.
-              </p>
             </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
+              Published research. Filed patents. Real-world experience. Ivy League results.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -500,14 +510,17 @@ export default function ResultsPage() {
       {/* ═══ PARTNERS & AFFILIATIONS ═══ */}
       <section className="w-full bg-[#F6EBD4] py-16 sm:py-20 lg:py-28 border-t border-[#4A4333]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-10">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              Partners & Affiliations
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
-              Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A4333] font-serif leading-relaxed max-w-none lg:whitespace-nowrap">
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-14 gap-4 lg:gap-6">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                Partners & Affiliations
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
+                Backed by Institutions<br className="hidden sm:inline" /> That <WavyUnderline>Matter</WavyUnderline>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-[#4A4333] font-serif max-w-sm lg:max-w-md leading-relaxed lg:text-right mt-2 lg:mt-0">
               Active collaborations with India's most prestigious academic, research, and policy institutions — not cosmetic logos.
             </p>
           </div>
