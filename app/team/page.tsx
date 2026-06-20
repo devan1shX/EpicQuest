@@ -43,31 +43,31 @@ const leadershipTeam = [
 const managementTeam = [
   {
     name: "Mr. Tilak Mishra",
-    role: "Chief Problem Solver",
+    role: "Founder, Chief Problem Solver",
     credential: "Univ. of Pennsylvania",
-    bio: "Designs & drafts psychometric and career-diagnostic tests and reports to curate structured purposeful skills development portfolio for students. Coordinates all research publication programmes, mentor assignments, and academic timelines.",
+    bio: "Designs & drafts psychometric and career-diagnostic tests and reports to curate structured purposeful skills development portfolio for students. Coordinates all career-readiness strategy: psychometric-aligned skills development & research publication programmes, mentor assignments, and academic timelines. Ensures every student meets her  / his milestones.  Teaches Applied Entrepreneurship & Finance of Innovation, and mentors students in civic leadership and policy drafting.",
     image: "/images/team/Team_Management_Tilak.png",
   },
   {
     name: "Mr. Pulkit Agarwal",
     role: "Director — Systems & Compliance",
     credential: "Uni. of London",
-    bio: "Brings expertise across AI, Tech, Finance, Corporate Transactions, and Governance. With global credentials from Queen Mary University of London and ACCA, he drives strategic growth, operational excellence, and high-impact partnerships.",
+    bio: "Brings expertise across AI, Tech, Finance, Corporate Transactions, and Governance. With global credentials from Queen Mary University of London and ACCA, he drives strategic growth, operational excellence, and high-impact partnerships while mentoring future student leaders to build ambitious, outcome-driven careers. Drives the digital infrastructure and operational systems that power EpicQuest's personalised student experience at scale. ",
     image: "/images/team/Team_Management_Pulkit.png",
   },
   {
-    name: "Mrs. Pallavi Arya",
-    role: "Director — Partnership & Purpose",
-    credential: "Uni. of London — Queen Mary",
-    bio: "An award-winning legal innovator passionate about blending law, technology and purpose. She has led impactful SDG-driven initiatives reaching 9,000+ young girls, mentoring students to design purpose-led projects.",
-    image: "/images/team/Team_Management_Pallavi.png",
+    name: "Ms. Malvika Khajuria",
+    role: "Employability & Global Talent Expert",
+    credential: "ex-Gartner",
+    bio: "As the Founder of EastBridge, a talent advisory platform focused on bridging globally educated graduates with emerging Indian start-ups, Malvika partners with EpicQuest Learning to scale up strategic alliances, talent screening, industry engagement, and global mentor partnerships. An employability and global talent expert with past experiences at Gartner, Sunstone, Tetr College of Business, Malvika remains single-mindedly focussed on building high-growth talent, employability partnerships  across education, executive search, and innovation.",
+    image: "/images/team/Team_Management_Malvika.png",
   },
   {
-    name: "Ms. Ananya Krishnan",
-    role: "Director — Student Success",
-    credential: "BITS Pilani · BE",
-    bio: "Oversees student journey from onboarding to university placement. 16+ years in education management and student counselling.",
-    image: "/images/team/Team_Management_Aanaya.png",
+    name: "Mr. Aditya Trivedi",
+    role: "Managing Partner - Products & Purpose",
+    credential: "IIM-B - MBA",
+    bio: "Aditya Trivedi is an IIM Bangalore alumnus, former SAP Labs leader, and innovation strategist with 22+ years of experience across technology, entrepreneurship, and higher education. Formerly Director at Rashtram School of Public Leadership, Rishihood University, Aditya leads product innovation, program architecture, learner experience, and operational excellence at EpicQuest Learning ensuring that every learning journey is scalable, impactful, and aligned with the future of education and work.",
+    image: "/images/team/Team_Management_Aditya.png",
   },
 ];
 
@@ -288,41 +288,43 @@ export default function TeamPage() {
             </p>
           </div>
 
-          {/* 2×2 compact horizontal cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+          {/* 2-column grid with horizontal cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {managementTeam.map((member, idx) => (
               <div
                 key={member.name + idx}
-                className="group flex flex-row bg-[#FDFBF7] rounded-2xl
-                           border border-[#4A4333]/8 shadow-sm hover:shadow-lg
+                className="group flex flex-col sm:flex-row bg-[#FDFBF7] rounded-3xl
+                           border border-[#4A4333]/8 shadow-sm hover:shadow-xl
                            transition-all duration-500 overflow-hidden animate-fade-up"
                 style={{ animationDelay: `${150 + idx * 80}ms` }}
               >
-                {/* Compact square thumbnail */}
-                <div className="relative w-28 sm:w-36 shrink-0 overflow-hidden bg-[#E8E3D7]">
+                {/* Image */}
+                <div className="relative w-full sm:w-[40%] xl:w-[35%] shrink-0 aspect-[4/3] sm:aspect-auto overflow-hidden bg-[#E8E3D7]">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="144px"
-                    className="object-cover object-center group-hover:scale-[1.04]
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-top group-hover:scale-[1.04]
                                transition-transform duration-700 ease-out"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col justify-center gap-1.5 p-4 sm:p-5 min-w-0">
+                <div className="flex flex-col justify-center gap-3 p-6 sm:p-7 md:p-8 flex-1 min-w-0">
                   <CredentialBadge text={member.credential} />
-                  <h3 className="text-sm sm:text-base font-serif font-semibold
-                                 text-[#403011] leading-snug">
-                    {member.name}
-                  </h3>
-                  <p className="text-[10px] sm:text-[11px] font-bold text-[#566544]
-                                uppercase tracking-wide leading-snug">
-                    {member.role}
-                  </p>
-                  <div className="w-6 h-px bg-[#DCA543]/40 my-0.5" />
-                  <p className="text-[12px] sm:text-[13px] text-[#4A4333] font-serif leading-relaxed">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-serif font-semibold
+                                   text-[#403011] leading-tight mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-[11px] sm:text-xs font-bold text-[#566544]
+                                  uppercase tracking-wide leading-snug">
+                      {member.role}
+                    </p>
+                  </div>
+                  <div className="w-10 h-px bg-[#DCA543]/50 my-1" />
+                  <p className="text-[13px] sm:text-[14px] text-[#4A4333] font-serif leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
