@@ -58,7 +58,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 pt-1 animate-fade-up delay-400">
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
               >
                 Explore our Programs
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/results#success-story"
-                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-[#5C7146]/80 text-[#5C7146] hover:bg-[#5C7146]/5 rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 group"
               >
                 Our Success Story
               </Link>
@@ -294,10 +294,10 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               href="/the-epicquest-method"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
             >
               Learn More About Our Method
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center justify-center px-7 py-3.5 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
             >
               Book Free Consultation
             </Link>
@@ -494,10 +494,10 @@ export default function Home() {
           <div className="text-center mt-14">
             <Link
               href="/skills"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
             >
               Enter Skills Academy Hub
-              <ArrowRight className="w-4.5 h-4.5" />
+              <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
@@ -594,10 +594,10 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/results"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
             >
               View All Results & Placements
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>
@@ -677,10 +677,10 @@ export default function Home() {
               {/* CTA */}
               <Link
                 href="/test"
-                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 w-fit"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
               >
                 Learn More
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
@@ -729,7 +729,6 @@ export default function Home() {
                 role: "Founder Partner",
                 credential: "Univ. of Pennsylvania",
                 image: "/images/team/Team_Tilak.jpeg",
-                tag: "Ivy League Strategy",
                 accent: "#DCA543",
               },
               {
@@ -737,7 +736,6 @@ export default function Home() {
                 role: "Managing Partner",
                 credential: "IIT Delhi · CS PhD",
                 image: "/images/team/Team_Alok.jpeg",
-                tag: "Research & Innovation",
                 accent: "#8E8B42",
               },
               {
@@ -745,7 +743,6 @@ export default function Home() {
                 role: "Managing Partner",
                 credential: "IIT Delhi · Mech Engg",
                 image: "/images/team/Team_Achal.jpeg",
-                tag: "Robotics & SDGs",
                 accent: "#566544",
               },
               {
@@ -753,7 +750,6 @@ export default function Home() {
                 role: "Head — US & Canada",
                 credential: "MIT Sloan · MBA",
                 image: "/images/team/Team_Pratham.png",
-                tag: "Entrepreneurship",
                 accent: "#566544",
               },
             ].map((member) => (
@@ -762,12 +758,6 @@ export default function Home() {
                 <div className="relative w-full aspect-[3/4] bg-[#E0DDD5] overflow-hidden">
                   <Image src={member.image} alt={member.name} fill className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2D3E1C]/40 to-transparent" />
-                  <span
-                    className="absolute top-4 left-4 text-[0.6rem] font-bold text-white px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm"
-                    style={{ backgroundColor: `${member.accent}CC` }}
-                  >
-                    {member.tag}
-                  </span>
                 </div>
                 {/* Content */}
                 <div className="flex flex-col gap-1 p-5">
@@ -783,10 +773,10 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/team"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
             >
               Meet the Full Team
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>
@@ -883,7 +873,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <Link
                   href="/contact"
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group"
                 >
                   Generate Your Ivy League Plan
                   <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
