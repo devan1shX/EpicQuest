@@ -381,7 +381,7 @@ export default function Home() {
                   <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
                   <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
                 </div>
-                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                <span className="mt-auto pt-2 text-[#5C7146] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#4A5C38] transition-colors">
                   Explore Details
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
                 </span>
@@ -482,7 +482,7 @@ export default function Home() {
                   <h3 className="text-[1rem] font-semibold text-[#403011] leading-snug mb-2">{title}</h3>
                   <p className="text-[#4A4333]/80 text-sm font-serif leading-relaxed">{desc}</p>
                 </div>
-                <span className="mt-auto pt-2 text-[#566544] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#465732] transition-colors">
+                <span className="mt-auto pt-2 text-[#5C7146] text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 group-hover:text-[#4A5C38] transition-colors">
                   Explore Fellowship
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
                 </span>

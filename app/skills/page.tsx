@@ -134,10 +134,10 @@ export default function SkillsPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#566544] hover:bg-[#4a553a] text-white rounded-full font-bold text-[13px] uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#5C7146] hover:bg-[#4A5C38] text-white rounded-full font-bold text-[13px] sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group shrink-0"
                 >
                   Apply Now
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function SkillsPage() {
                       {/* Num badge + name */}
                       <div className="flex items-center gap-3 mb-3">
                         <span
-                          className={`text-[10px] font-black uppercase tracking-[0.16em] ${fellow.theme.textNorm}`}
+                          className="text-[10px] font-black uppercase tracking-[0.16em] text-[#5C7146]"
                         >
                           Fellowship {fellow.num}
                         </span>
@@ -261,10 +261,10 @@ export default function SkillsPage() {
                     <div className="pt-4 border-t border-[#4A4333]/6">
                       <Link
                         href={fellow.href}
-                        className={`inline-flex items-center gap-2 text-xs uppercase font-bold tracking-wider transition-colors duration-200 ${fellow.theme.textNorm}`}
+                        className="inline-flex items-center gap-2 text-[11px] uppercase font-bold tracking-wider text-[#5C7146] group-hover:text-[#4A5C38] transition-colors duration-300"
                       >
                         Explore Fellowship Details
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.5} />
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
                       </Link>
                     </div>
                   </div>
@@ -384,14 +384,10 @@ export default function SkillsPage() {
               <div className="flex flex-col sm:flex-row gap-4 items-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4
-                             bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C]
-                             rounded-full font-bold text-sm sm:text-base
-                             transition-all duration-300 shadow-lg
-                             hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center text-center gap-2 sm:gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#DCA543] hover:bg-[#E8B555] text-[#2D3E1C] rounded-full font-bold text-[13px] sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(220,165,67,0.35)] hover:-translate-y-0.5 group shrink-0"
                 >
                   Book Free Consultation
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
               </div>
