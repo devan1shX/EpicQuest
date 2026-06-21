@@ -42,7 +42,8 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-sans text-white mb-6 font-bold uppercase tracking-[0.18em]">Programs</h4>
             <ul className="space-y-3 text-[11px] font-bold uppercase tracking-widest text-[#D1CBBB]">
-              <li><Link href="/programs/applied-research" className="hover:text-amber transition-colors">Applied Research</Link></li>
+              <li><Link href="/test" className="hover:text-amber transition-colors">Psychometric Profiling</Link></li>
+              <li><Link href="/skills" className="hover:text-amber transition-colors">Applied Skills</Link></li>
               <li><Link href="/programs/prototype-development" className="hover:text-amber transition-colors">Prototype Development</Link></li>
               <li><Link href="/programs/policy-drafts" className="hover:text-amber transition-colors">Policy Drafts</Link></li>
               <li><Link href="/programs/patent-filing" className="hover:text-amber transition-colors">Patent Filing</Link></li>
