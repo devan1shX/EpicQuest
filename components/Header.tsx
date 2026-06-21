@@ -18,8 +18,8 @@ const programsList = [
     ),
   },
   {
-    name: "Applied Research",
-    href: "/programs/applied-research",
+    name: "Applied Skills",
+    href: "/skills",
     desc: "Structured academic research & journal publications",
     icon: (
       <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

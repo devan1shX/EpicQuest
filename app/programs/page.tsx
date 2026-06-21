@@ -17,15 +17,15 @@ const programs = [
     num: "01",
     title: "Psychometric Profiling",
     desc: "Discover your unique cognitive strengths, learning style, and intellectual profile through our proprietary assessment. Results are used to align your program selection, mentorship pairing, and portfolio narrative.",
-    href: "/programs/psychometric-profiling",
+    href: "/test",
     icon: Brain,
   },
   {
     id: "research",
     num: "02",
-    title: "Skills Development & Research",
+    title: "Applied Skills Dev and Research",
     desc: "Build real academic credentials through our flagship Skills Academy programs — spanning AI/ML, Finance, Robotics, Biotech, Policy, and Research. Develop peer-reviewed publications, prototypes, and innovation portfolios under expert mentorship.",
-    href: "/programs/applied-research",
+    href: "/skills",
     icon: Microscope,
   },
   {
