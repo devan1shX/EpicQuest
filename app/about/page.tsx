@@ -29,7 +29,7 @@ export default function AboutPage() {
           </span>
 
           {/* Pill */}
-          <div className="mb-7 animate-fade-up">
+          <div className="animate-fade-up">
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               WHO WE ARE
             </span>

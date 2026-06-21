@@ -119,7 +119,7 @@ export default function PolicyEconomicsDiplomacyPage() {
           </div>
 
           {/* Programme badge */}
-          <div className="mb-8">
+          <div>
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               FELLOWSHIP DEEP DIVE
             </span>
@@ -195,7 +195,7 @@ export default function PolicyEconomicsDiplomacyPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14">
 
           {/* Section Header */}
-          <div className="text-center max-w-xl mx-auto mb-16 sm:mb-20 animate-fade-up">
+          <div className="text-center max-w-xl mx-auto sm:mb-20 animate-fade-up">
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               THE PORTFOLIO ENGINE
             </span>
@@ -316,7 +316,7 @@ export default function PolicyEconomicsDiplomacyPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
           {/* Section Header */}
-          <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+          <div className="max-w-3xl mx-auto text-center sm:mb-16">
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               FELLOWSHIP MILESTONES
             </span>
