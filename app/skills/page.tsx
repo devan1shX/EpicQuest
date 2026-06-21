@@ -370,7 +370,7 @@ export default function SkillsPage() {
                 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium
                            text-[#F6EBD4] tracking-tight leading-[1.15] mb-5"
               >
-                Master Skills That Define <WavyUnderline>Ivy Leagues</WavyUnderline>
+                Master Skills That Define Ivy <WavyUnderline>Leagues</WavyUnderline>
               </h2>
 
               <p
