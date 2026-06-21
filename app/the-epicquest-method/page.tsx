@@ -17,7 +17,7 @@ export default function HowItWorksPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-end">
             <div className="animate-fade-up">
               <div>
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   OUR PROCESS
                 </span>
               </div>
@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
 
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 THE JOURNEY
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -234,7 +234,7 @@ export default function HowItWorksPage() {
 
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 OUR PROCESS
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -348,7 +348,7 @@ export default function HowItWorksPage() {
             />
 
             <div className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 GET STARTED
               </span>
 

@@ -116,7 +116,7 @@ export default function RoboticsDroneSciencePage() {
 
           {/* Programme badge */}
           <div>
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               FELLOWSHIP DEEP DIVE
             </span>
           </div>
@@ -192,7 +192,7 @@ export default function RoboticsDroneSciencePage() {
 
           {/* Section Header */}
           <div className="text-center max-w-xl mx-auto sm:mb-20 animate-fade-up">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               THE PORTFOLIO ENGINE
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-medium text-[#403011] tracking-tight mb-4 leading-tight">
@@ -313,7 +313,7 @@ export default function RoboticsDroneSciencePage() {
 
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center sm:mb-16">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               FELLOWSHIP MILESTONES
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#403011] tracking-tight leading-[1.1] mt-2 mb-6">

@@ -95,7 +95,7 @@ function CredentialBadge({ text }: { text: string }) {
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
       {children}
     </span>
   );
@@ -124,7 +124,7 @@ export default function TeamPage() {
             <div className="animate-fade-up">
               {/* Pill */}
               <div>
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   THE PEOPLE BEHIND EPICQUEST
                 </span>
               </div>
@@ -262,7 +262,7 @@ export default function TeamPage() {
           </p>
           <div className="flex items-center gap-3 shrink-0">
             <div className="w-8 h-px bg-[#DCA543]/60" />
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
               EPICQUEST FOUNDING PRINCIPLE
             </span>
           </div>
@@ -325,7 +325,7 @@ export default function TeamPage() {
                     </p>
                   </div>
                   <div className="w-10 h-px bg-[#DCA543]/50 my-1" />
-                  <p className="text-[13px] sm:text-[14px] text-[#4A4333] font-serif leading-relaxed">
+                  <p className="text-[11px] sm:text-[12px] text-[#4A4333] font-serif leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
@@ -343,7 +343,7 @@ export default function TeamPage() {
           {/* Section Header */}
           <div className="flex flex-col mb-12 lg:mb-14 gap-4">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 Partners & Affiliations
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -405,7 +405,7 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                 COHORT ADMISSIONS OPEN
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-medium text-[#F6EBD4] tracking-tight leading-[1.1] mb-5">

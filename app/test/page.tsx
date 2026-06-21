@@ -230,7 +230,7 @@ export default function DiagnosticTestPage() {
             <div className="lg:col-span-7">
 
               <div className="self-start">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   LEADERSHIP DIAGNOSTIC ASSESSMENT
                 </span>
               </div>
@@ -338,7 +338,7 @@ export default function DiagnosticTestPage() {
 
               {/* Section Header */}
               <div>
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
                   THE EPICQUEST PSYCHOMETRIC TOOL
                 </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight mb-4">
@@ -365,7 +365,7 @@ export default function DiagnosticTestPage() {
                       <span className="text-2xl font-serif text-[#403011]/15 leading-none select-none">{q.num}</span>
                     </div>
                     <h3 className="text-base sm:text-lg font-serif font-bold text-[#403011] tracking-tight leading-snug">{q.title}</h3>
-                    <p className="text-[13px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed">{q.desc}</p>
+                    <p className="text-[11px] sm:text-[12px] text-[#4A4333]/80 font-serif leading-relaxed">{q.desc}</p>
                   </div>
                 ))}
               </div>
@@ -393,7 +393,7 @@ export default function DiagnosticTestPage() {
                           </span>
                         </div>
                         <h4 className="text-base sm:text-lg font-serif font-bold text-[#403011] tracking-tight">{item.title}</h4>
-                        <p className="text-[13px] sm:text-[14px] text-[#4A4333]/80 font-serif leading-relaxed">{item.desc}</p>
+                        <p className="text-[11px] sm:text-[12px] text-[#4A4333]/80 font-serif leading-relaxed">{item.desc}</p>
                       </div>
                     );
                   })}
@@ -412,7 +412,7 @@ export default function DiagnosticTestPage() {
             <div className="flex flex-col gap-6 lg:sticky lg:top-24">
 
               <div className="flex flex-col gap-3 mb-2">
-                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">SAMPLE REPORT PREVIEW
+                <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">SAMPLE REPORT PREVIEW
                 </span>
                 <h3 className="text-xl sm:text-2xl font-serif font-medium text-[#403011] tracking-tight">
                   What Your Report Looks Like
@@ -511,7 +511,7 @@ export default function DiagnosticTestPage() {
         {/* CTA Banner */}
         <div className="py-16 sm:py-24">
           <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center gap-6">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15">
               {false && testStarted ? 'ASSESSMENT IN PROGRESS' : 'READY TO BEGIN?'}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-medium text-[#403011] tracking-tight leading-tight">
@@ -580,7 +580,7 @@ export default function DiagnosticTestPage() {
                 <div>
                   {/* Header Pill */}
                   <div className="self-start">
-                    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#566544]/10 shadow-sm">
+                    <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#566544]/10 shadow-sm">
                       <Compass className="w-4 h-4 text-[#566544] mr-2" />
                       EPICQUEST LEADERSHIP DIAGNOSTIC
                     </span>
@@ -1040,7 +1040,7 @@ export default function DiagnosticTestPage() {
 
           {/* FAQ Header */}
           <div className="text-center">
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">Frequently Asked Questions
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">Frequently Asked Questions
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-medium text-[#403011] mt-4 leading-tight">
               DISC <WavyUnderline>Assessment FAQ</WavyUnderline>

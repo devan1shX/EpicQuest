@@ -123,7 +123,7 @@ export default function PublishedPolicyDraftsPage() {
 
           {/* Programme badge */}
           <div>
-            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
+            <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
               PROGRAMME DEEP DIVE
             </span>
           </div>
@@ -284,7 +284,7 @@ export default function PublishedPolicyDraftsPage() {
           {/* Section header */}
           <div className="text-center max-w-xl mx-auto">
             <span
-              className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15"
+              className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15"
             >
               The Portfolio Engine
             </span>
@@ -505,7 +505,7 @@ export default function PublishedPolicyDraftsPage() {
             {/* Left: editorial pull-quote */}
             <div className="flex flex-col gap-6">
               <span
-                className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[13px] sm:text-[14px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15"
+                className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit border border-[#403011]/15"
               >
                 Key Focus
               </span>
