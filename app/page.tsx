@@ -747,7 +747,7 @@ export default function Home() {
               },
               {
                 name: "Mr. Pratham Naik",
-                role: "Head — US & Canada",
+                role: "Investor Nominee",
                 credential: "MIT Sloan · MBA",
                 image: "/images/team/Team_Pratham.png",
                 accent: "#566544",
