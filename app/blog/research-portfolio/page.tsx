@@ -98,7 +98,7 @@ export default function ResearchPortfolioPage() {
           {/* Programme badge */}
           <div>
             <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#EAEDDE] text-[#403011] text-[11px] sm:text-[12px] font-serif uppercase tracking-widest w-fit mb-6 border border-[#403011]/15">
-              RESEARCH &AMP; PORTFOLIO
+              RESEARCH & PORTFOLIO
             </span>
           </div>
 

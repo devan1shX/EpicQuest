@@ -170,43 +170,31 @@ export default function DiagnosticTestPage() {
   const faqData = [
     {
       q: "What does the DISC assessment measure?",
-      a: "The DISC assessment is a measure of interpersonal behavior that is often used in workplace and elite academic settings. It classifies how we interact in terms of four personality styles: Drive, Influence, Support, and Clarity.\n\nBased on the theories of psychologist William Moulton Marston, the DISC assessment is a simple yet powerful way to unlock your strengths and help your team work better together."
+      a: "The EpicQuest DISC assessment (powered by our Gunaity Epicometer™ Framework) measures your core behavioral and interpersonal traits. It classifies how you naturally interact, communicate, and solve problems into four styles: Drive, Influence, Support, and Clarity. This helps identify your unique strengths to build a highly personalized, Ivy League-ready academic and extracurricular profile."
     },
     {
       q: "What are the four DISC personality types?",
-      a: "The DISC personality model describes four types: D for Drive, I for Influence, S for Support, and C for Clarity. Each type describes a particular approach to getting work done and contributing to a team.\n\n• Drive: taking charge and making key decisions\n• Influence: engaging others to work together\n• Support: assisting others to achieve group goals\n• Clarity: working independently to produce correct results\n\nEach of the four DISC personality types is equally valuable, and each has its own strengths and weaknesses. Discovering your own type can help you to better understand how to bring your strongest talents to your work, while minimizing your blind spots."
+      a: "Our framework identifies four primary styles, each highlighting a distinct approach to learning, leadership, and teamwork:\n\n• Drive (Assertive): Action-oriented, decisive leaders who thrive in competitive environments.\n• Influence (Hustler): Enthusiastic communicators who excel at persuading and connecting with others.\n• Support (Helper): Empathetic, dependable team builders who foster collaboration.\n• Clarity (Intellectual): Analytical, detail-focused thinkers who excel in research and systematic work.\n\nUnderstanding your primary type allows us to map your natural talents to the right projects, research domains, and future career paths."
     },
     {
       q: "What are DISC subtypes?",
-      a: "DISC subtypes represent a blend of two styles. Each of us has a primary DISC type, but some of us also incorporate quite a bit of an adjacent style into our behavior at work. These styles are referred to as DISC subtypes or hybrid types.\n\nFor example, a person who is primarily a Drive type, but who also has a high level of Influence behavior, would be labeled as a D/i type (DISC + Influence). When we include the subtypes with the four primary DISC types, we are able to accurately describe people whose behavior is primarily driven by one DISC style, as well as people whose behavior is typically a mix of two styles.\n\nThe eight DISC subtypes are:\n• D/i (Drive + Influence)\n• D/c (Drive + Clarity)\n• I/d (Influence + Drive)\n• I/s (Influence + Support)\n• S/i (Support + Influence)\n• S/c (Support + Clarity)\n• C/s (Clarity + Support)\n• C/d (Clarity + Drive)"
+      a: "DISC subtypes represent a blend of two behavioral styles. While everyone has a primary DISC type, many people also strongly exhibit traits of a secondary type. These hybrid styles provide a more nuanced and accurate description of your unique approach to work and collaboration, rather than fitting you into just a single category."
     },
     {
       q: "What will I learn from my DISC report?",
-      a: "Your DISC profile will show which of the four DISC types fits you best, as well as your scores for the other three types. It will describe how the DISC model can be used to better understand your strengths on a team, as well as the way you like to work.\n\nWhen completing the EpicQuest DISC assessment, you will first see a brief, free report showing a basic overview of your DISC personality type. Then, you have the option of unlocking your full report for a small fee."
+      a:  "Your EpicQuest DISC report provides a comprehensive, multi-dimensional view of your psychometric profile. It reveals your primary DISC type, foundation scores, and a detailed breakdown of your natural strengths and blind spots.\n\nYou'll also receive in-depth insights into your workplace priorities, environments where you naturally thrive or face difficulties, and a 'Style Depth' analysis of your secondary traits. Additionally, the report features an Advanced Analytics section and a personalized Career Map that evaluates your personality suitability across various professions to help you align your strengths with the best career paths."
     },
     {
       q: "Can I have my employees, team or group take the DISC test?",
-      a: "Absolutely. Our EpicQuest @Work platform is designed to make it easy to give the DISC assessment to your team or group. See discounted group pricing and learn how to quickly and easily set up testing for your group on the Testing for Business page."
+      a: "Absolutely. EpicQuest is designed not just for individual students, but also for schools, educational consultants, and student cohorts. Our platform makes it easy to administer the diagnostic to an entire group to help map their collective strengths and research potential."
     },
     {
       q: "How long is this DISC assessment?",
-      a: "The test consists of 38 questions and takes about 5 minutes to complete."
-    },
-    {
-      q: "Is this DISC assessment scientifically validated?",
-      a: "The DISC has been extensively researched and validated using a large global sample. The assessment has been shown to have excellent reliability according to standard psychometric measures, as well as real-world correlations with key workplace outcomes (see DISC Technical Documentation)."
-    },
-    {
-      q: "Is the DISC personality test really free?",
-      a: "You do not need to purchase or register to take this test and view an overview of your results. If you would like, you can purchase a more comprehensive full report for a small fee."
+      a: "The diagnostic consists of a series of quick behavioral and situational questions and typically takes about 5 to 7 minutes to complete. We encourage you to move quickly and go with your first instinct!"
     },
     {
       q: "Do I need to complete this assessment all at once?",
-      a: "If you've created an account and are logged in when you take the test, your responses will be saved as you go through the test. If you do not log in to an EpicQuest account before starting the test, your progress will not be saved and you will need to complete the test all at once."
-    },
-    {
-      q: "Is the DISC personality test appropriate for children?",
-      a: "None of our tests are appropriate for children under the age of 14. Some of our tests may have mature content, and anyone younger than 18 should only take the test with parental guidance."
+      a: "Yes, for the most accurate and natural results, we highly recommend completing the diagnostic in a single, uninterrupted sitting. Since it only takes a few minutes, find a quiet spot and complete it all at once!"
     },
   ];
 
