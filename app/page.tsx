@@ -739,17 +739,17 @@ export default function Home() {
                 accent: "#8E8B42",
               },
               {
+                name: "Mr. Aditya Trivedi",
+                role: "Managing Partner",
+                credential: "IIM-B - MBA",
+                image: "/images/team/Team_Management_Aditya.png",
+                accent: "#566544",
+              },
+              {
                 name: "Mr. Achal Nath",
                 role: "Managing Partner",
                 credential: "IIT Delhi · Mech Engg",
                 image: "/images/team/Team_Achal.jpeg",
-                accent: "#566544",
-              },
-              {
-                name: "Mr. Pratham Naik",
-                role: "Investor Nominee",
-                credential: "MIT Sloan · MBA",
-                image: "/images/team/Team_Pratham.png",
                 accent: "#566544",
               },
             ].map((member) => (

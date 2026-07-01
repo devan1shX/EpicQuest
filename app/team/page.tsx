@@ -4,13 +4,13 @@ import Link from "next/link";
 
 const leadershipTeam = [
   {
-    name: "Mr. Pratham Naik",
-    role: "Investor Nominee | Head — US & Canada",
-    credential: "MIT Sloan · MBA",
-    bio: "Serial entrepreneur and VC, Legatum Fellow and Social Impact Award Winner (MIT Sloan), TED Speaker. Guides students through curated psychometric-aligned apprenticeships and internships.",
-    image: "/images/team/Team_Pratham.png",
-    tag: "Entrepreneurship",
-    accent: "#566544",
+    name: "Mr. Tilak Mishra",
+    role: "Founder Partner | Head — Problem Solving",
+    credential: "Univ. of Pennsylvania · Finance / Entrepreneurship",
+    bio: "Educator, VC, M&A Advisor, Business Coach — mentored over 700 high-school students from elite schools in 20+ countries. Curated 500+ individual Ivy League-ready portfolio journeys.",
+    image: "/images/team/Team_Tilak.jpeg",
+    tag: "Ivy League Strategy",
+    accent: "#DCA543",
   },
   {
     name: "Dr. Alok N Jha",
@@ -22,6 +22,15 @@ const leadershipTeam = [
     accent: "#8E8B42",
   },
   {
+    name: "Mr. Aditya Trivedi",
+    role: "Managing Partner - Products & Purpose",
+    credential: "IIM-B - MBA",
+    bio: "IIM Bangalore alumnus, former SAP Labs leader, and innovation strategist with 22+ years experience. Leads product innovation, program architecture, and learner experience to ensure every EpicQuest journey is scalable and impactful.",
+    image: "/images/team/Team_Management_Aditya.png",
+    tag: "Products & Purpose",
+    accent: "#566544",
+  },
+  {
     name: "Mr. Achal Nath",
     role: "Managing Partner | Robotics Automation",
     credential: "IIT Delhi · Mech Engg",
@@ -29,15 +38,6 @@ const leadershipTeam = [
     image: "/images/team/Team_Achal.jpeg",
     tag: "Robotics & SDGs",
     accent: "#566544",
-  },
-  {
-    name: "Mr. Tilak Mishra",
-    role: "Founder Partner | Head — Problem Solving",
-    credential: "Univ. of Pennsylvania · Finance / Entrepreneurship",
-    bio: "Educator, VC, M&A Advisor, Business Coach — mentored over 700 high-school students from elite schools in 20+ countries. Curated 500+ individual Ivy League-ready portfolio journeys.",
-    image: "/images/team/Team_Tilak.jpeg",
-    tag: "Ivy League Strategy",
-    accent: "#DCA543",
   },
 ];
 
@@ -50,11 +50,11 @@ const managementTeam = [
     image: "/images/team/Team_Management_Tilak.png",
   },
   {
-    name: "Mr. Pulkit Agarwal",
-    role: "Director — Systems & Compliance",
-    credential: "Uni. of London",
-    bio: "Brings expertise across AI, Tech, Finance, Corporate Transactions, and Governance. With global credentials from Queen Mary University of London and ACCA, he drives strategic growth, operational excellence, and high-impact partnerships while mentoring future student leaders to build ambitious, outcome-driven careers. Drives the digital infrastructure and operational systems that power EpicQuest's personalised student experience at scale. ",
-    image: "/images/team/Team_Management_Pulkit.png",
+    name: "Hardeep Manhas",
+    role: "Director – Academics, Research & Design",
+    credential: "IIT / AIIMS / ESA",
+    bio: "Interdisciplinary researcher spanning biomedical engineering, cancer diagnostics, and space sciences, with affiliations across IIT, AIIMS New Delhi, PGIMER Chandigarh, ESA, NASA, and ISRO. His work engineers quantum dot and electrochemical biosensors for non-invasive cancer detection, applying the same translational design logic to sustainability, nanotechnology, and advanced materials innovation. A certified Space Educator trained across 3 global space agencies, Hardeep, at EpicQuest, leads the academic architecture, applied research curriculum, and design thinking frameworks that bridge frontier science and applied solutions to SDGs with student-facing learning experiences.",
+    image: "/images/team/Team_Hardeep.jpeg",
   },
   {
     name: "Ms. Malvika Khajuria",
@@ -64,11 +64,11 @@ const managementTeam = [
     image: "/images/team/Team_Management_Malvika.png",
   },
   {
-    name: "Mr. Aditya Trivedi",
-    role: "Managing Partner - Products & Purpose",
-    credential: "IIM-B - MBA",
-    bio: "Aditya Trivedi is an IIM Bangalore alumnus, former SAP Labs leader, and innovation strategist with 22+ years of experience across technology, entrepreneurship, and higher education. Formerly Director at Rashtram School of Public Leadership, Rishihood University, Aditya leads product innovation, program architecture, learner experience, and operational excellence at EpicQuest Learning ensuring that every learning journey is scalable, impactful, and aligned with the future of education and work.",
-    image: "/images/team/Team_Management_Aditya.png",
+    name: "Mr. Pulkit Agarwal",
+    role: "Director — Systems & Compliance",
+    credential: "Uni. of London",
+    bio: "Brings expertise across AI, Tech, Finance, Corporate Transactions, and Governance. With global credentials from Queen Mary University of London and ACCA, he drives strategic growth, operational excellence, and high-impact partnerships while mentoring future student leaders to build ambitious, outcome-driven careers. Drives the digital infrastructure and operational systems that power EpicQuest's personalised student experience at scale. ",
+    image: "/images/team/Team_Management_Pulkit.png",
   },
 ];
 
